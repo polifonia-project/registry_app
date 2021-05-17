@@ -9,11 +9,11 @@
     <script type="module">
     import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
 
-    const auth = createTokenAuth("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");
+    const auth = createTokenAuth("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");
     const { token } = await auth();
 
     const octokit = new Octokit({
-      auth: "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",
+      auth: token,
       userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36',
       baseUrl: 'https://api.github.com'
 
