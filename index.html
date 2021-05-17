@@ -8,6 +8,10 @@
 
     <script type="module">
     import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+
+    const auth = createTokenAuth("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");
+    const { token } = await auth();
+
     const octokit = new Octokit({
       auth: "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",
       userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36',
