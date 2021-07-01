@@ -1,0 +1,27 @@
+$def with (user, graphdata, graphID, title)
+
+$var user = user
+
+<section class="row articleBox">
+	<section class="col-md-7">
+			<h2 class="articleTitle">$title</h2>
+			$for field,value in graphdata.items():
+				<section class="info-item">
+						$if isinstance(value[0],str):
+							<h3 class="articleSubtitle">$field </h3><span>$value[0]</span>
+						$else:
+							<h3 class="articleSubtitle">$field </h3>
+							$for uri_value in value:
+								$if uri_value[1].startswith('Q'):
+									<a href="$uri_value[0]">$uri_value[1]</a>.
+								$else:
+									<a target='_blank' href="https://www.wikidata.org/wiki/$uri_value[0]">$uri_value[1]</a>.
+				</section>
+	</section>
+	<!-- <section class="col-md-5 sideBoxes">
+		<section class="biblio">
+			<h3 class="biblio-label">Some field title with multiple values</h3>
+				<p>item iterator<p/>
+		</section>
+	</section> -->
+</section>

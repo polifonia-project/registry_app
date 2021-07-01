@@ -1,0 +1,78 @@
+$def with (user, graphdata, graphID)
+
+$var user = user
+
+<section class="row articleBox">
+	<section class="col-md-7">
+		$for k, v in graphdata.items():
+			$if k.startswith('S_CREATOR_1'):
+				$for id, label in v.items():
+					<h2 class="articleTitle">$label</h2>
+		<p class="info-item">
+			$if 'S_CREATOR_2' in graphdata:
+					<h3 class="articleSubtitle">Dates </h3><span>$graphdata['S_CREATOR_2'].</span>
+
+		</p>
+		$if any(key.startswith("S_CREATOR_3") for key in graphdata):
+			<p class="info-item">
+				<h3 class="articleSubtitle">Profession</h3>
+				$for k, v in graphdata.items():
+					$if k.startswith('S_CREATOR_3'):
+						$for id, label in v.items():
+							<span>$label.</span>
+			</p>
+		$if any(key.startswith("S_CREATOR_4") for key in graphdata):
+			<p class="info-item">
+				<h3 class="articleSubtitle">Country of origin</h3>
+				$for k, v in graphdata.items():
+					$if k.startswith('S_CREATOR_4'):
+						$for id, label in v.items():
+							<span>$label.</span>
+			</p>
+
+
+		$if 'S_CREATOR_5' in graphdata:
+			<section class="columns">
+				<h3 class="articleSubtitle">biography</h3>
+				<p>$graphdata['S_CREATOR_5']</p>
+			</section>
+		<!-- topics bio -->
+		$if any(key.startswith("S_COLL_8-") for key in graphdata) or any(key.startswith("S_CREATOR_5-") for key in graphdata):
+			<section class="circles row">
+				<section class="info-graphic col-md-4"><i class="fas fa-quote-left"></i><p>historian's relations</p></section>
+				<section class="info-graphic-items col-md-8">
+					$for k, v in graphdata.items():
+						$if k.startswith('S_CREATOR_5-'):
+							$for id, label in v.items():
+								<span class="box-small" data-id="$id">$label</span>
+						$if k.startswith('S_COLL_8-'):
+							$for id, label in v.items():
+								<span class="box-small" data-id="$id">$label</span>
+				</section>
+			</section>
+	</section>
+	<section class="col-md-5 sideBoxes">
+		<!-- TODO add image here -->
+		$if 'S_CREATOR_6' in graphdata:
+			<section class="biblio">
+				<h3 class="biblio-label">Main works</h3>
+				$for item in graphdata['S_CREATOR_6'].split(';'):
+					<p>$item<p/>
+
+			</section>
+		$if 'S_CREATOR_7' in graphdata:
+			<section class="biblio">
+				<h3 class="biblio-label">About the scholar</h3>
+					$for item in graphdata['S_CREATOR_7'].split(';'):
+						<p>$item<p/>
+			</section>
+		<section class="biblio">
+			<h3 class="biblio-label">Collections</h3>
+			<!-- TODO add other collections where the historian is mentioned in -->
+			$for k, v in graphdata.items():
+				$if k.startswith('S_COLL_2'):
+					$for id, label in v.items():
+						<p><a class='blue' target='_blank' href="collection-$id"><i class='fas fa-external-link-alt'></i></a> $label</p>
+		</section>
+	</section>
+</section>

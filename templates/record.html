@@ -1,0 +1,40 @@
+$def with(record_form, pageID, user)
+$var user = user
+
+<header class="row needDoc">
+	<button id="showRight"><i class="far fa-lightbulb"></i> help</button>
+	<script type="text/javascript">
+		$$('#cbp-spmenu-s2').load( "./documentation #documentation", function() {
+			$$(".documentation").removeClass('col-md-7').addClass('col-md-12');
+			$$("h2").css('font-size','3em');
+		} );
+		setTimeout( function(){ document.getElementById( "recordForm" ).reset(); }, 5 );
+	</script>
+	<h3>Add a new resource</h3>
+</header>
+<section class="row">
+	<section class="col-md-10">
+		<form id="recordForm" class="col-md-12" action="" method="POST">
+			<input type='hidden' name='recordID' value=$:pageID>
+			<p class="sectionTitle">What did you find?</p>
+			<section class="col-10">
+				$for input in record_form.inputs:
+					<section class="row">
+						$ id = input.get_default_id()
+						<section class="col-2">
+							$:input.pre
+							$:input.description
+						</section>
+						<section class="col-9">
+							$:input.render()
+						</section>
+					</section>
+			</section>
+			<section class="buttonsSection">
+				<input class="btn btn-dark" type="submit" value="Save"/>
+			</section>
+		</form>
+	</section>
+	<section id="searchresult">
+	</section>
+</section>

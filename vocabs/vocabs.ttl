@@ -1,0 +1,8 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository" .
+
+<http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab> rdfs:label "Format" .
+
+<http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> rdfs:label "Schema" .
+

@@ -1,0 +1,68 @@
+$def with (wikilist, user, varIDpage)
+$var user = user
+<header class="row">
+  <h3 class="col-md-10">Welcome $user!</h3>
+  <form class="col-md-2" action='' method='POST' id="create_form">
+    <button class="btn btn-dark" name="action" value="createRecord$varIDpage" type="submit">Create a new record</button>
+  </form>
+</header>
+<section class="col-md-12">
+  <article>
+    <h3>List of records</h3>
+    <table id="recordsList">
+      <tr>
+        <th>Record</th>
+        <th>Created by</th>
+        <th>Modified by</th>
+        <th>Last modified</th>
+        <th>Stage</th>
+        <th> </th>
+      </tr>
+      $for result in wikilist:
+        <tr>
+          <td>$result[1]</td>
+          <td>$result[2]</td>
+          <td>$result[3]</td>
+          <td>$result[4]</td>
+          <td>$result[5]</td>
+          <td>
+            $if result[5] == 'not modified' or result[5] == 'modified' or result[5] == '-':
+              <form id="modified" action="" method='POST'>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
+                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit">Start review</button>
+              </form>
+            $if result[5] == 'in review':
+              <form id="review" action="" method='POST'>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
+                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit">Review</button>
+              </form>
+            $if result[5] == 'published':
+              <form id="published" action="" method='POST'>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
+              </form>
+          </td>
+        </tr>
+    </table>
+  </article>
+  <!-- <h2>Search</h2>
+
+  <div class="input-group">
+     <input type="text" class="form-control searchterm" placeholder="Search term in Wikidata" id="searchterm"/>
+  </div>
+
+  <div id="searchresult"></div> -->
+<!--  <div id="popup" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-body">
+        <label for="confirm">Do you really want to delete the record?</label>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="delConfirm">Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div> -->
+</section>

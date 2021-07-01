@@ -1,0 +1,28 @@
+$def with (form, user, data, title,r_base)
+
+$var user = user
+
+<section class="row searchBox">
+	$if form is not None:
+		<form action="" method='GET' class="col-md-6">
+			$:form.render()
+		</form>
+		<section id="searchresult"></section>
+</section>
+
+<section class="row articleBox">
+	<section class="col-md-7">
+		<h2 class="articleTitle">$title</h2>
+		<section class="row">
+			$for record in data:
+				$ recid = record[0][:-1].split(r_base)[1]
+				<section class="col-md-3 entryBox">
+					<section class="imageBox noImage">
+					</section>
+					<section class="entryTitle"><a href="view-$recid">$record[1]</a></section>
+
+				</section>
+
+		</section>
+	</section>
+</section>

@@ -1,0 +1,61 @@
+[
+  {
+    "type":"Textbox",
+    "id":"resource_title",
+    "label":"Title",
+    "placeholder":"e.g. Listening Experience database",
+    "prepend":"The title as recorded on the website of the resource",
+    "disabled":"False",
+    "class":"col-md-11",
+    "searchWikidata":"False",
+    "cache_autocomplete":"off",
+    "property":"http://www.w3.org/2000/01/rdf-schema#label",
+    "value":"Literal",
+    "disambiguate":"True"
+  },
+  {
+    "type":"Textbox",
+    "id":"resource_creator",
+    "label":"Creator",
+    "placeholder":"e.g. The Open University",
+    "prepend":"The person or institution responsible for the resource, multiple values allowed",
+    "disabled":"False",
+    "class":"col-md-11",
+    "searchWikidata":"True",
+    "cache_autocomplete":"off",
+    "property":"http://purl.org/dc/terms/creator",
+    "value":"URI",
+    "disambiguate":"False"
+  },
+  {
+    "type":"Textbox",
+    "id":"resource_contributor",
+    "label":"Contributor",
+    "placeholder":"e.g. University of Bologna",
+    "prepend":"The person or institution that contributed to the resource, multiple values allowed",
+    "disabled":"False",
+    "class":"col-md-11",
+    "searchWikidata":"True",
+    "cache_autocomplete":"off",
+    "property":"http://purl.org/dc/terms/contributor",
+    "value":"URI",
+    "disambiguate":"False"
+  },
+  {
+    "type":"Dropdown",
+    "id":"resource_type",
+    "label":"Type",
+    "prepend":"The type of resource described, choose from the list",
+    "disabled":"False",
+    "class":"col-md-11",
+    "cache_autocomplete":"off",
+    "property":"http://purl.org/spar/datacite/hasGeneralResourceType",
+    "value":"URI",
+    "values":{
+        "http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2":"Repository",
+        "http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a":"Schema",
+        "http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab":"Format"
+      },
+    "disambiguate":"False"
+  }
+]
