@@ -2,27 +2,22 @@
 
 ## How does it look like
 
-![intro](musow_data_entry.mov)
+https://user-images.githubusercontent.com/6443007/124133891-924c2700-da82-11eb-95fe-e525d57d0b47.mov
 
-## Install and run
+
+## Install and run
 
  * download blazegraph ([link](https://github.com/blazegraph/database/releases/tag/BLAZEGRAPH_2_1_6_RC))
 
- * run the triplestore
+ * run the triplestore `java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Dbigdata.propertyFile=blaze.properties -jar blazegraph.jar`
 
- `java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Dbigdata.propertyFile=blaze.properties -jar blazegraph.jar`
+ * install the requirements `pip3 install -r requirements.txt`
 
- * install the requirements
-
- `pip3 install -r requirements.txt`
-
- * run the app
-
- `python3 app.py 80`
+ * run the app `python3 app.py 80`
 
 ## Customize
 
-#### Configuration file `conf.py`
+#### Configuration file `conf.py`
 
 ```
 myEndpoint = 'local endpoint api url' # to update data in localhost
@@ -33,7 +28,7 @@ name = 'name of the dataset' # same as the last bit of base
 myform = 'PATH to the JSON file to set up the form'
 ```
 
-#### The form `myform.json`
+#### The form `myform.json`
 
 So far, only text boxes and dropdowns (select) are supported.  
 
