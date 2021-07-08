@@ -99,6 +99,12 @@ Development
 - [ ] extend form to describe different entities (e.g. resources and their creators, corresponding to different sections of the form)
 - [ ] implement (i.e. refactor existing) lookup service to alert users when they start entering data about an existing entry (see js checkRecords)
 - [ ] dump/update (and sync) data on github
+- [ ] never un-publish a resource that has been published once, add "draft" to the web page
+- [ ] set limits for anonymous contributions (use cookie sessions)
+- [ ] authentication with github / twitter
+- [ ] change URI design - slug
+- [ ] plan a maninpasta for data entry
+- [ ] twitter bot for engagement over time  
 - [x] extend form with dropdowns
 
 Specific to musow use case
