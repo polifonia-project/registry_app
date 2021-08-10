@@ -5,3 +5,6 @@ wikidataEndpoint = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
 base = 'http://data.open.ac.uk/musow/'
 name = 'musow' # last bit of base
 myform = 'myform.json'
+main_entity = "https://schema.org/CreativeWork"
+log_file = 'ip_logs.log' # log IP addresses of POST requests
+limit_requests = 5 # max number of records per user/day

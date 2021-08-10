@@ -10,18 +10,23 @@ $var user = user
 		<section id="searchresult"></section>
 </section>
 
+
 <section class="row articleBox">
 	<section class="col-md-7">
 		<h2 class="articleTitle">$title</h2>
 		<section class="row">
 			$for record in data:
+			  $ stage = '' if 'modified' not in record[5] else ' (draft)'
 				$ recid = record[0][:-1].split(r_base)[1]
-				<section class="col-md-3 entryBox">
-					<section class="imageBox noImage">
+				$if record[5] != 'not modified':
+					<section class="col-md-3 entryBox">
+						<section class="imageBox noImage">
+						</section>
+						<section class="entryTitle">
+							<a href="view-$recid">$record[1]</a>
+							<span>$stage</span>
+						</section>
 					</section>
-					<section class="entryTitle"><a href="view-$recid">$record[1]</a></section>
-
-				</section>
 
 		</section>
 	</section>

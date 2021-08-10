@@ -1,8 +1,18 @@
 # -*- coding: utf-8 -*-
-import web , datetime , os, time, re, cgi, requests , json
+import os
+import json
+import datetime
+import time
+import sys
+import re
+import logging
+import cgi
 from urllib.parse import parse_qs
-import forms, mapping, conf, queries , vocabs , allowed
+import requests
+import web
 from web import form
+import forms, mapping, conf, queries , vocabs , allowed
+
 
 web.config.debug = False
 wikidir = os.path.realpath('records/') # RDF dump of records
@@ -31,7 +41,7 @@ app = web.application(urls, globals())
 
 if web.config.get('_session') is None:
 	store = web.session.DiskStore('sessions')
-	session = web.session.Session(app, store, initializer={'logged_in': 'False', 'username': 'anonymous', 'password': 'None'})
+	session = web.session.Session(app, store, initializer={'logged_in': 'False', 'username': 'anonymous', 'password': 'None', 'ip_address': 'None'})
 	web.config._session = session
 	session_data = session._initializer
 else:
@@ -54,13 +64,14 @@ render_no_login = web.template.render('templates/', base="layout_no_login", glob
 # LOGS
 
 def log_output(action, logged_in, user, recordID=None):
+	""" log information in console """
 	message = '*** '+str(datetime.datetime.now())+' | '+action
 	if recordID:
 		message += ': <'+recordID+'>'
 	message += ' | LOGGED IN: '+str(logged_in)+' | USER: '+user
 	print(message)
 
-# FORM
+# LOAD FORM
 
 with open(conf.myform) as config_form:
 	fields = json.load(config_form)
@@ -86,28 +97,31 @@ class Notfound:
     def GET(self):
         raise web.notfound()
 
+# LIMIT REQUESTS BY IP ADDRESSES
+
+def write_ip(timestamp, ip_add, request):
+	logs = open(conf.log_file, 'a')
+	logs.write( str(timestamp)+' --- '+ ip_add + ' --- '+ request+'\n')
+	logs.close()
+
+def check_ip(ip_add, current_time):
+	" limit user POST requests to XX a day"
+	is_user_blocked = False
+	limit = conf.limit_requests
+	today = current_time.split()[0]
+	data = open(conf.log_file, 'r').readlines()
+	user_requests = [(line.split(' --- ')[0].split()[0], line.split(' --- ')[1]) for line in data if ip_add in line.split(' --- ')[1] and line.split(' --- ')[0].split()[0] == today ]
+	if len(user_requests) > limit:
+		is_user_blocked = True
+	return is_user_blocked, limit
+
 # LOGIN / LOGOUT
-
-def logout(page):
-	"""default behaviour for login / logout"""
-	data = web.input()
-	login = data.login
-	passwd = data.passwd
-	if(login,passwd) in allowed:
-		session['logged_in'] = True
-		session['username'] = login
-		session['password'] = passwd
-		log_output('LOGIN from page CORRECT', session['logged_in'], session['username'])
-		raise web.seeother(prefixLocal+'welcome')
-	else:
-		log_output('LOGOUT from page CORRECT', session['logged_in'], session['username'])
-		return render.page(user=session['username'])
-
 
 def login_or_create(data,allowed):
 	if data:
 		login = data.login if data and 'login' in data else None
 		passwd = data.passwd if data and 'passwd' in data else None
+		session['ip_address'] = str(web.ctx['ip'])
 		if (login,passwd) in allowed:
 			session['logged_in'] = True
 			session['username'] = login
@@ -147,10 +161,10 @@ class Logout:
 		log_output('LOGOUT', session['logged_in'], session['username'])
 		session['logged_in'] = 'False'
 		session['username'] = 'anonymous'
+		session['ip_address'] = str(web.ctx['ip'])
 		raise web.seeother(prefixLocal+'/')
 
 	def POST(self):
-		#logout(prefixLocal+'/')
 		data = web.input()
 		login_or_create(data,allowed)
 
@@ -161,7 +175,7 @@ class Index:
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-
+		session['ip_address'] = str(web.ctx['ip'])
 		if (session['username'],session['password']) in allowed:
 			session['logged_in'] = 'True'
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
@@ -178,6 +192,7 @@ class Index:
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		session['ip_address'] = str(web.ctx['ip'])
 
 		# create a new record (logged users)
 		if actions.action.startswith('createRecord'):
@@ -219,20 +234,22 @@ class Record(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 
+		session['ip_address'] = str(web.ctx['ip'])
 		user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
 		logged_in = True if (session['username'],session['password']) in allowed else False
 		log_output('GET RECORD FORM', session['logged_in'], session['username'])
+		block_user, limit = check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		f = forms.get_form(conf.myform)
-		return render.record(record_form=f, pageID=name, user=user)
+		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit)
 
 	def POST(self, name):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-
 		f = forms.get_form(conf.myform)
 		user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
-
+		session['ip_address'] = str(web.ctx['ip'])
+		write_ip(str(datetime.datetime.now()), str(web.ctx['ip']), 'POST')
 
 		if not f.validates():
 			log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],recordID)
@@ -246,12 +263,13 @@ class Record(object):
 			if recordID:
 				userID = user.replace('@','-at-').replace('.','-dot-')
 				mapping.inputToRDF(recordData, userID, 'not modified')
-				if user == 'unknown' or user == 'anonymous':
+				if user == 'anonymous':
 					raise web.seeother(prefixLocal+'/')
 				else:
 					raise web.seeother(prefixLocal+'/welcome')
 			else:
 				login_or_create(data,allowed)
+
 # FORM: modify a  record (only logged in users)
 
 class Modify(object):
@@ -260,6 +278,7 @@ class Modify(object):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		session['ip_address'] = str(web.ctx['ip'])
 		if (session['username'],session['password']) in allowed:
 			session_data['logged_in'] = 'True'
 			graphToRebuild = conf.base+name+'/'
@@ -279,7 +298,8 @@ class Modify(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		recordData = web.input()
-		print(recordData)
+		session['ip_address'] = str(web.ctx['ip'])
+
 		if 'login' in recordData or 'action' in recordData:
 			login_or_create(recordData,allowed)
 		else:
@@ -301,6 +321,7 @@ class Review(object):
 		graphToRebuild = conf.base+name+'/'
 		recordID = name
 		data = queries.getData(graphToRebuild)
+		session['ip_address'] = str(web.ctx['ip'])
 		log_output('START REVIEW RECORD', session['logged_in'], session['username'], recordID )
 		f = forms.get_form(conf.myform)
 		ids_dropdown = get_dropdowns(fields)
@@ -312,6 +333,7 @@ class Review(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		actions = web.input()
+		session['ip_address'] = str(web.ctx['ip'])
 
 		# save the new record for future publication
 		if actions.action.startswith('save'):
@@ -339,7 +361,7 @@ class Review(object):
 
 class Documentation:
 	def GET(self):
-		return render.documentation(user='anonymous')
+		return render.documentation(user=session['username'])
 
 	def POST(self):
 		actions = web.input()
@@ -350,27 +372,28 @@ class Documentation:
 class Records:
 	def GET(self):
 		records = queries.getRecords()
-		print(records)
 		fh = forms.searchRecord()
+
 		return render.records(form=None, user=session['username'], data=records, title='Music resources', r_base=conf.base)
 
 	def POST(self):
 		actions = web.input()
 		login_or_create(actions,allowed)
 
-# VIEW : single records
+# VIEW : single record
 
 class View(object):
 	def GET(self, name):
 		record = conf.base+name
 		data = dict(queries.getData(record+'/'))
+		stage = data['stage'][0]
 		title = [data[k][0] for k,v in data.items() for field in fields if (field['disambiguate'] == "True" and k == field['id'])][0]
 		data_labels = { field['label']:v for k,v in data.items() for field in fields if k == field['id']}
-		return render.view(user=session['username'], graphdata=data_labels, graphID=name, title=title)
+		return render.view(user=session['username'], graphdata=data_labels, graphID=name, title=title, stage=stage)
 
 	def POST(self,name):
 		actions = web.input()
-		print("data",actions)
+
 		login_or_create(actions,allowed)
 
 # QUERY: endpoint GUI

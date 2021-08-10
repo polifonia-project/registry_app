@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
-import web , datetime , os, time, re, cgi, rdflib, conf , urllib.parse , queries , json
+import os
+import datetime
+import json
+import urllib.parse
+import web
+from web import form
+import rdflib
 from rdflib import URIRef , XSD, Namespace , Literal
 from rdflib.namespace import OWL, DC , DCTERMS, RDF , RDFS
 from rdflib.plugins.sparql import prepareQuery
 from SPARQLWrapper import SPARQLWrapper, JSON
-from web import form
 from pymantic import sparql
+import conf , queries
 
+# NAMESPACES
 WD = Namespace("http://www.wikidata.org/entity/")
 WDP = Namespace("http://www.wikidata.org/wiki/Property:")
 OL = Namespace("http://openlibrary.org/works/")
@@ -17,11 +24,13 @@ PROV = Namespace("http://www.w3.org/ns/prov#")
 SCHEMA = Namespace("https://schema.org/")
 base = conf.base
 
+# DATA ENDPOINT AND DIRECTORY
 server = sparql.SPARQLServer(conf.myEndpoint)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def getValuesFromFields(fieldPrefix, recordData, fields=None):
-	""" returns a set of tuples including ID and label for the selected fields"""
+	""" request form fields by field prefix, check if multiple values are available,
+	 returns a set of tuples including ID (for the URI) and label of values """
 	results = set()
 	for key, value in recordData.items():
 		if key.startswith(fieldPrefix+'-'): # multiple values from text box (wikidata)
@@ -42,7 +51,7 @@ def getRightURIbase(value):
 
 
 def inputToRDF(recordData, userID, stage, graphToClear=None):
-	""" transform input data into RDF, store in the triplestore, dump data locally """
+	""" transform input data into RDF, upload data to the triplestore, dump data locally """
 
 	# MAPPING FORM / PROPERTIES
 	with open(conf.myform) as config_form:
@@ -74,7 +83,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 
 	# GET VALUES FROM FIELDS, MAP THEIR TYPE, TRANSFORM TO RDF
 
-	wd.add(( URIRef(base+graph_name), RDF.type, SCHEMA.CreativeWork )) # main type for all resources
+	wd.add(( URIRef(base+graph_name), RDF.type, URIRef(conf.main_entity) )) # type of catalogued resource
 
 	for field in fields:
 		value = getValuesFromFields(field['id'], recordData, fields) if field['value'] == 'URI' else recordData[field['id']] # URI,literal or literal values

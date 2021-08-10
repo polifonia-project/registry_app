@@ -36,6 +36,7 @@ footer img {height: 3em;}
 #create_form {margin-bottom: 0px;}
 #create_form button { border: none; background-color: white; color: rgba(100,23,180,1);}
 h2, h3 { color: rgba(100,23,180,1) !important; text-align: center; text-transform: uppercase; font-weight: bold !important; margin: 1em 0px !important;}
+h2 span {font-size: 0.2em; display: inline-block; background-color: rgba(100,23,180,1); color:white; padding: 0.3em; vertical-align: super;}
 article {padding-bottom: 3em; padding-top: 0.5em; padding-left: 5em; padding-right: 5em;}
 article:nth-child(even), .articleBox, #yasr {background-color: #F5F6FA;}
 article p { font-size: 1.5em; line-height: 1.7em; padding: 0.5em 2em;}

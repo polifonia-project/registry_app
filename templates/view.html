@@ -1,10 +1,14 @@
-$def with (user, graphdata, graphID, title)
+$def with (user, graphdata, graphID, title, stage)
 
 $var user = user
 
 <section class="row articleBox">
 	<section class="col-md-7">
-			<h2 class="articleTitle">$title</h2>
+			<h2 class="articleTitle">$title
+			$if 'modified' in stage:
+				<span>draft</span>
+			</h2>
+
 			$for field,value in graphdata.items():
 				<section class="info-item">
 						$if isinstance(value[0],str):

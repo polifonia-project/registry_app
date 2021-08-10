@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/6443007/124133891-924c2700-da82-11eb-9
 
  * install the requirements `pip3 install -r requirements.txt`
 
- * run the app `python3 app.py 80`
+ * run the app `nohup python3 app.py 80` (NB. nohup is required!)
 
 ## Customize
 
@@ -26,6 +26,9 @@ wikidataEndpoint = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql' # t
 base = 'URI base of the dataset'
 name = 'name of the dataset' # same as the last bit of base
 myform = 'PATH to the JSON file to set up the form'
+main_entity = "https://schema.org/CreativeWork" # the class of the entity described in the form
+log_file = 'ip_logs.log' # log IP addresses to monitor users' POST requests
+limit_requests = 5 # max number of records per user/day
 ```
 
 #### The form `myform.json`
@@ -83,31 +86,6 @@ For each `key,value` in `values` a triple `<key rdfs:label value>` is uploaded i
 
 #### The dataset
 
-Every new resource is associated with the class `schema:CreativeWork`.
+Every new resource is associated with the class specified in the config file.
 
 For every new record (resource) a named graph is generated, which includes triples all having the same subject `<resourceURI>`. The named graph appears in the form `<resourceURI/>` (final slash added). Basic provenance is associated to graphs (creators, modifiers, dates, publication stage).
-
-
-## TODO
-
-Development
-
-- [ ] hash passwords (store them separately)
-- [ ] extend form with text area
-- [ ] extend form with multiple value select
-- [ ] extend form with the class to be associated to the main entity
-- [ ] extend form to describe different entities (e.g. resources and their creators, corresponding to different sections of the form)
-- [ ] implement (i.e. refactor existing) lookup service to alert users when they start entering data about an existing entry (see js checkRecords)
-- [ ] dump/update (and sync) data on github
-- [ ] never un-publish a resource that has been published once, add "draft" to the web page
-- [ ] set limits for anonymous contributions (use cookie sessions)
-- [ ] authentication with github / twitter
-- [ ] change URI design - slug
-- [ ] plan a maninpasta for data entry
-- [ ] twitter bot for engagement over time  
-- [x] extend form with dropdowns
-
-Specific to musow use case
-- [ ] define **classes / properties** to create the form. Change the current model or simply extend it?
-- [ ] decide whether to **integrate** this app with the current online catalogue or to **replace** it. In the first case, more development would be needed (send update requests to an external triplestore, e.g. via github dump). In the second case, existing data should be imported in the application (as-is or according to the new model).
-- [ ] work on the **UI** (homepage, record view, index of resources, other aggregated views?) and change links in footer, add documentation, etc.

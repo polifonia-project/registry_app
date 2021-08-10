@@ -87,9 +87,10 @@ def getData(graph):
 		PREFIX base: <'''+conf.base+'''>
 		PREFIX schema: <https://schema.org/>
 		SELECT DISTINCT *
-		WHERE { <'''+graph+'''> rdfs:label ?graph_title .
+		WHERE { <'''+graph+'''> rdfs:label ?graph_title ;
+								<'''+conf.base+'''publicationStage> ?stage
 				GRAPH <'''+graph+'''>
-				{	?subject a schema:CreativeWork .
+				{	?subject a <'''+conf.main_entity+'''> .
 					'''+patterns_string+'''}
 		}
 		'''
@@ -111,7 +112,7 @@ def getData(graph):
 				uri = v['value'].rsplit('/', 1)[-1]
 				label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
 				data[k].append([uri,label])
-	print("############ data",data)
+	#print("############ data",data)
 	return data
 
 
