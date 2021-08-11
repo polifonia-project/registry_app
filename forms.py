@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import web , datetime , os, time, re, cgi , json
 from web import form
-
+import conf
 
 def get_form(json_form):
 	""" read config in 'myform.json' and return a webpy form """
@@ -20,6 +20,8 @@ def get_form(json_form):
 		disabled = field['disabled'] if 'disabled' in field and len(field['disabled']) > 0 else ''
 		classes = field['class'] if 'class' in field and len(field['class']) > 0 else ''
 		classes = classes+' searchWikidata' if 'searchWikidata' in field and field['searchWikidata'] == 'True' else classes
+		classes = classes+' disambiguate' if "disambiguate" in field and field["disambiguate"] == 'True' else classes
+		classes = classes+' ('+conf.main_entity+')'
 		autocomplete = field['cache_autocomplete'] if 'cache_autocomplete' in field and len(field['cache_autocomplete']) > 0 else ''
 
 		# text box

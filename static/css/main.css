@@ -82,6 +82,7 @@ th {width: 200px !important;}
 
 
 /* create record */
+.form_row {padding-bottom: 0.7em;}
 #recordForm table tbody tr th{ width: 30%;}
 label[for='S_KEEPER_1']:after,
 label[for='S_CREATOR_1']:after,
@@ -93,6 +94,8 @@ label[for='S_COLL_6']:after {content: ' *'; color: rgba(100,23,180,1);}
 label, .sectionTitle, .label {text-transform: uppercase; font-weight: bold !important;}
 label[for='S_KEEPER_title'], label[for='S_CREATOR_title'], label[for='S_COLLECTION_title'], label[for='S_SUBJECT_title'], .sectionTitle {color: rgba(100,23,180,1); font-size: 2em; width: 100%; margin-top: 0.2em;}
 #S_KEEPER_title , #S_CREATOR_title, #S_COLLECTION_title, #S_SUBJECT_title {display: none;}
+
+#lookup, #close_section { margin-top: 1em;}
 
 /* modify record */
 .sectionTitle {margin: 1em 2rem;}

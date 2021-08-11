@@ -1,6 +1,10 @@
-const myPublicEndpoint = 'http://data.open.ac.uk/sparql';
+const myPublicEndpoint = 'http://0.0.0.0:3000/blazegraph/sparql'; // http://data.open.ac.uk/sparql
 const base = 'http://data.open.ac.uk/musow/';
-const webMusow = 'https://musow.kmi.open.ac.uk/resources/';
+const graph = ''; // http://data.open.ac.uk/context/musow
+const webBase = 'http://0.0.0.0:8080/view-'; // https://musow.kmi.open.ac.uk/resources/
+
+if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
+
 
  $(document).ready(function() {
 
@@ -28,6 +32,9 @@ const webMusow = 'https://musow.kmi.open.ac.uk/resources/';
 
   	// tooltips
   	$('.tip').tooltip();
+
+    // check prior records and alert if duplicate
+    checkPriorRecords('disambiguate');
 
   	// Named Entity Recognition in long texts
   	// nlpText('add an id without hashtag');
@@ -82,6 +89,7 @@ const webMusow = 'https://musow.kmi.open.ac.uk/resources/';
   		var result = confirm("Are you sure you want to delete this record?");
   		if (result) { } else { e.preventDefault(); return false; };
   	});
+
 
 });
 
@@ -188,7 +196,7 @@ function searchWD(searchterm) {
       			  }
       		  }, 3000);
 
-      			var query = "prefix bds: <http://www.bigdata.com/rdf/search#> select distinct ?s ?o ?desc FROM <http://data.open.ac.uk/context/musow> where { ?s <http://xmlns.com/foaf/0.1/homepage> ?home ; rdfs:label ?o ; rdfs:comment ?desc . ?o bds:search '"+q+"*' .}"
+      			var query = "prefix bds: <http://www.bigdata.com/rdf/search#> select distinct ?s ?o ?desc "+in_graph+" where { ?s rdfs:label ?o . OPTIONAL { ?s rdfs:comment ?desc} . ?o bds:search '"+q+"*' .}"
       			var encoded = encodeURIComponent(query)
 
       			$.ajax({
@@ -210,7 +218,7 @@ function searchWD(searchterm) {
         							// exclude named graphs from results
         							if ( myUrl.substring(myUrl.length-1) != "/") {
                         var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webMusow+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> - " + returnedJson.results.bindings[i].desc.value + "</div>");
+        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> - " + returnedJson.results.bindings[i].desc.value + "</div>");
         							    };
         							};
 
@@ -223,13 +231,6 @@ function searchWD(searchterm) {
           					        	$('#'+searchterm).after("<span class='tag "+oldID+"' data-input='"+searchterm+"' data-id='"+oldID+"'>"+oldLabel+"</span><input type='hidden' class='hiddenInput "+oldID+"' name='"+searchterm+"-"+oldID+"' value='"+oldID+","+encodeURIComponent(oldLabel)+"'/>");
           					        	$("#searchresult").hide();
           					        	$('#'+searchterm).val('');
-          					        	// check prior records and avoid the section to be filled
-          					        	// if (searchterm == 'S_KEEPER_1') {
-          					        	// 	checkPriorRecords('S_KEEPER_1', 'artchives');
-          					        	// };
-          					        	// if (searchterm == 'S_CREATOR_1') {
-          					        	// 	checkPriorRecords('S_CREATOR_1', 'artchives');
-          					        	// };
           					        });
 
           					    });
@@ -250,13 +251,6 @@ function searchWD(searchterm) {
   		        	$('#'+searchterm).after("<span class='tag "+item.title+"' data-input='"+searchterm+"' data-id='"+item.title+"'>"+item.label+"</span><input type='hidden' class='hiddenInput "+item.title+"' name='"+searchterm+"-"+item.title+"' value='"+item.title+","+encodeURIComponent(item.label)+"'/>");
   		        	$("#searchresult").hide();
   		        	$('#'+searchterm).val('');
-  		        	// check prior records and alert if duplicate
-  		        	// if (searchterm == 'S_KEEPER_1') {
-  		        	// 	checkPriorRecords('S_KEEPER_1', 'wikidata');
-  		        	// };
-  		        	// if (searchterm == 'S_CREATOR_1') {
-  		        	// 	checkPriorRecords('S_CREATOR_1', 'wikidata');
-  		        	// };
   		        	//colorForm();
   		        });
 
@@ -395,122 +389,49 @@ function nlpText(searchterm) {
 	}) );
 };
 
-// function popUpInfo(className) {
-// 	$('.'+className).each( function() {
-// 		var dataID = $(this).attr('data-id');
-// 		thisElem = $(this);
-//
-// 		$(this).attr('data-toggle','tooltip');
-// 		$(this).attr('data-placement','right');
-// 		$(this).attr('data-html','true');
-// 		// dispatcher Artchives / WD / AAT / ULAN
-// 		if (dataID.startsWith('MD')) {
-// 			base = "https://w3id.org/artchives/";
-// 		} // artchives
-// 		else if (dataID.startsWith('Q')) {
-// 			base = "http://www.wikidata.org/entity/";
-// 		} // WD
-// 		else {
-// 			base ="http://vocab.getty.edu/ulan/";
-// 			baseAAT ="http://vocab.getty.edu/aat/";
-// 		}; // Getty: TODO how to distinguish AAT and ULAN?
-//
-// 		var entity = base+dataID ;
-// 		var encoded = "PREFIX wdp: <http://www.wikidata.org/wiki/Property:> SELECT distinct ?g ?obj ?label ?type WHERE { GRAPH ?g { ?obj wdp:P921 <"+entity+"> ; a ?type ; rdfs:label ?label . } }"
-// 		$.ajax({
-// 		    type: 'GET',
-// 		    url: 'http://artchives.fondazionezeri.unibo.it/sparql?query=' + encoded,
-// 		    headers: {
-// 		 		Accept: 'application/sparql-results+json'
-// 		    	},
-// 		    success: function(returnedJson) {
-// 		    	historiansArray = new Array() ;
-// 		    	collectionsArray = new Array() ;
-// 		    	for (i = 0; i < returnedJson.results.bindings.length; i++) {
-// 		    		if ( returnedJson.results.bindings[i].type.value == 'http://www.wikidata.org/entity/Q5' ) {
-// 		    			historianArray = new Array();
-// 		    			var uri = returnedJson.results.bindings[i].obj.value ;
-// 						var qID = uri.substr(uri.lastIndexOf('/') + 1);
-// 		    			historianArray.push(qID) ;
-// 		    			historianArray.push(returnedJson.results.bindings[i].label.value) ;
-// 		    			historiansArray.push( historianArray );
-// 		    		};
-// 		    		if ( returnedJson.results.bindings[i].type.value == 'http://www.wikidata.org/entity/Q9388534' ) {
-// 		    			var uriSlash = returnedJson.results.bindings[i].g.value ;
-// 						var uri = uriSlash.substr(0, uriSlash.length-1) ;
-// 						var qID = uri.substr(uri.lastIndexOf('/') + 1);
-//
-// 		    			collectionArray = new Array();
-// 		    			collectionArray.push(qID) ;
-// 		    			collectionArray.push(returnedJson.results.bindings[i].label.value) ;
-// 		    			collectionsArray.push( collectionArray );
-// 		    		};
-//
-// 		    		var htmlText = '';
-// 		    		if (historiansArray.length) {
-// 		    			htmlText += "<p>Related art historians:</p>" ;
-// 		    			for (i = 0; i < historiansArray.length; i++) {
-// 		    				// TODO this has to be changed with the following when using the historian ID and not the graph ID for routing to historians' pages
-// 		    				// var historianID = historiansArray[i][0].substr(historiansArray[i][0].lastIndexOf('/') + 1)
-// 		    				var historianID = historiansArray[i][0];
-// 		    				var historianPage = '/historian-'+historianID;
-// 		    				htmlText += "<p><a href='"+historianPage+"'>"+historiansArray[i][1]+"</a></p>";
-// 		    			};
-// 		    		};
-//
-// 		    		if (collectionsArray.length) {
-// 		    			htmlText += "<p>Related collections:</p>" ;
-// 		    			for (i = 0; i < collectionsArray.length; i++) {
-// 		    				// var collectionID = collectionsArray[i][0].substr(collectionsArray[i][0].lastIndexOf('/') + 1);
-// 		    				var collectionID = collectionsArray[i][0];
-// 		    				var collectionPage = '/collection-'+collectionID;
-// 		    				htmlText += "<p><a href='"+collectionPage+"'>"+collectionsArray[i][1]+"</a></p>";
-// 		    			};
-// 		    		};
-// 		    	};
-// 		    	if (!historiansArray.length && !collectionsArray.length) { htmlText += "<p>No relations to other collections</p>" ; };
-// 	    		$('span[data-id='+dataID+']').attr('data-original-title', htmlText);
-//
-// 		    }
-// 		});
-//
-// 		$(this).tooltip({'trigger':'click'});
-//
-// 	});
-// };
 
-// function checkPriorRecords(term, prefix) {
-// 	if (prefix == 'wikidata') { var base = 'http://www.wikidata.org/entity/'; };
-// 	if (prefix == 'artchives') { var base = 'https://w3id.org/artchives/'; };
-//
-// 	var entity = base + $('span[data-input="'+term+'"]').attr('data-id');
-// 	var queryKeeper = "PREFIX wdp: <http://www.wikidata.org/wiki/Property:> SELECT DISTINCT ?collection WHERE {<"+entity+"> wdp:P1830 ?collection .}"
-// 	var queryCreator = "PREFIX wdp: <http://www.wikidata.org/wiki/Property:> SELECT DISTINCT ?collection WHERE {?collection wdp:P170 <"+entity+"> .}"
-//
-// 	if (term == 'S_KEEPER_1') {
-// 		var encoded = encodeURIComponent(queryKeeper);
-// 		var what = 'keeper';
-// 	};
-// 	if (term == 'S_CREATOR_1') {
-// 		var encoded = encodeURIComponent(queryCreator);
-// 		var what = 'creator';
-// 	};
-//
-// 	$.ajax({
-// 	    type: 'GET',
-// 	    url: myPublicEndpoint+'?query=' + encoded,
-// 	    headers: { Accept: 'application/sparql-results+json'},
-// 	    success: function(returnedJson) {
-// 	    	console.log(returnedJson);
-// 			if (!returnedJson.results.bindings.length) {
-//   			} else {
-//   				alert("This "+what+" has already been described in another record. Let\'s skip this section!");
-//   				var next = $('#'+term).parent().parent().nextAll(".sectionTitle");
-//
-// 		       	console.log(term);
-// 		       	$('html,body').animate({ scrollTop: next.offset().top }, 600);
-//
-//   			};
-// 	    }
-// 	});
-// };
+
+function checkPriorRecords(elem) {
+  $('.'+elem).keyup(function(e) {
+	  $("#lookup").show();
+	  var q = $('.'+elem).val();
+    var classes = $(this).attr('class');
+    var expression =  /\(([^)]+)\)/i;
+    var regex = new RegExp(expression);
+    if (classes.match(regex)) {
+      var res_class = ' a <'+classes.match(regex)[1]+'> ; ';
+    } else {var res_class = ''};
+    var query = "prefix bds: <http://www.bigdata.com/rdf/search#> select distinct ?s ?o "+in_graph+" where { ?s "+res_class+" rdfs:label ?o . ?o bds:search '"+q+"' .} LIMIT 5"
+    var encoded = encodeURIComponent(query);
+
+    $.ajax({
+  	    type: 'GET',
+  	    url: myPublicEndpoint+'?query=' + encoded,
+  	    headers: { Accept: 'application/sparql-results+json'},
+  	    success: function(returnedJson) {
+  	    	$("#lookup").empty();
+  			  if (!returnedJson.results.bindings.length) {
+          //$("#lookup").append("<h3>We found the following resources that are similar to the one you mention.</h3>")
+    			} else {
+            $("#lookup").append("<div>We already have some resources that match with yours. If this is the case, consider suggesting a different resource!</div>")
+            for (i = 0; i < returnedJson.results.bindings.length; i++) {
+                // exclude named graphs from results
+                var myUrl = returnedJson.results.bindings[i].s.value;
+                if ( myUrl.substring(myUrl.length-1) != "/") {
+                  var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
+                  $("#lookup").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a></div>");
+                };
+            };
+            $("#lookup").append("<span id='close_section' class='btn btn-dark'>Ok got it!</span>")
+            // close lookup suggestions
+            $('#close_section').on('click', function() {
+              var target = $(this).parent();
+              console.log(target);
+              target.hide();
+            });
+    			};
+  	    }
+  	});
+
+  });
+};
