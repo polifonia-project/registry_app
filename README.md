@@ -99,3 +99,6 @@ For each `key,value` in `values` a triple `<key rdfs:label value>` is uploaded i
 Every new resource is associated with the class specified in the config file.
 
 For every new record (resource) a named graph is generated, which includes triples all having the same subject `<resourceURI>`. The named graph appears in the form `<resourceURI/>` (final slash added). Basic provenance is associated to graphs (creators, modifiers, dates, publication stage).
+
+
+ test github API
