@@ -34,10 +34,10 @@ limit_requests = 5 # max number of records per user/day
 #### `main.js`
 
 ```
-const myPublicEndpoint = 'http://127.0.0.1:3000/blazegraph/sparql'; # lookup (autocomplete helper, search), leave http://127.0.0.1:3000/blazegraph/sparql if there is no remote SPARQL endpoint
+const myPublicEndpoint = 'http://127.0.0.1:3000/blazegraph/sparql'; # lookup (autocomplete helper, search), leave "http://127.0.0.1:3000/blazegraph/sparql" if there is no remote SPARQL endpoint
 const base = 'http://data.open.ac.uk/musow/'; # URI base of the dataset
 const graph = 'http://data.open.ac.uk/context/musow'; # to specify in which graph to look into. leave empty if data is in the default graph
-const webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the records on the web app (autocomplete helper). leave http://0.0.0.0:8080/view- if not served online
+const webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the records on the web app (autocomplete helper). leave "http://0.0.0.0:8080/view-" if not served online
 
 ```
 
