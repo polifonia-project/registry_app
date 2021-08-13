@@ -14,25 +14,25 @@ $if alert == False:
 		<h3>Thanks for helping musoW to grow!</h3>
 	</header>
 	<section class="row">
-		<section class="col-8">
-			<form id="recordForm" class="col-md-12" action="" method="POST">
+		<section class="col-md-8 col-lg-8 col-sm-8">
+			<form id="recordForm" class="col-md-12 col-sm-12 col-lg-12" action="" method="POST">
 				<input type='hidden' name='recordID' value=$:pageID>
 
 				<section class="row">
-					<section class="homeheading col-8">
+					<section class="homeheading col-md-8 col-lg-8 col-sm-8">
 						$for input in record_form.inputs:
 							<section class=" form_row">
 								$ id = input.get_default_id()
 								<section class="label col-12">
 									$:input.description
 								</section>
-								<section class="col-12">
+								<section class="col-md-12 col-sm-12 col-lg-12">
 									$:input.pre
 									$:input.render()
 								</section>
 							</section>
 					</section>
-					<section class="homeheading col-4">
+					<section class="homeheading col-md-4 col-sm-4 col-lg-4">
 						<h2>What did you find?</h2>
 					</section>
 				</section>

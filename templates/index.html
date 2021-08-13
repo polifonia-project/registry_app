@@ -23,13 +23,16 @@ $var pagination = pagination
         <button class="btn btn-dark" name="action" value="filterReviewed" type="submit">show under review ($underreview)</button>
       </form>
       <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
-        <button class="btn btn-dark" name="action" value="filterPublished" type="submit">published ($published)</button>
+        <button class="btn btn-dark" name="action" value="filterPublished" type="submit">show published ($published)</button>
       </form>
       <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
         <button class="btn btn-dark" name="action" value="filterAll" type="submit">show all ($alll)</button>
       </form>
     </section>
 </section>
+<script type="text/javascript">
+  $$("button[value='$filterName']").addClass("active");
+</script>
 <section class="col-md-12">
 
   <article>

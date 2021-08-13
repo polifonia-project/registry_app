@@ -373,7 +373,7 @@ class Record(object):
 				if user == 'anonymous':
 					raise web.seeother(prefixLocal+'/')
 				else:
-					raise web.seeother(prefixLocal+'/welcome')
+					raise web.seeother(prefixLocal+'welcome-1')
 			else:
 				login_or_create(data,allowed)
 
