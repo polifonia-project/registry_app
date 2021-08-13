@@ -3,19 +3,58 @@ $def with (user)
 $var user = user
 
 <section class="row homepage">
-  <section class="col-6">
-    <h1>musoW</h1>
-  </section>
-  <section class="col-4">
-    <section class="row">
-      <h2>MUSICAL DATA ON THE WEB</h2>
-      <p>musoW is a catalogue of musical resources on the web. We are tracking how the landscape of musical data on the web is evolving, to support support music education, creative industries, historians, and musicologists.</p>
+    <section class="col-4">
+      <span class="logo_homepage">musoW</span>
     </section>
+    <h1 class="col-7">Music data <span>on the web</span></h1>
+
+</section>
+
+<section class="row">
+  <section class="homeheading col-4">
+    <p class="caption">WHAT</p>
+    <h2>Mapping music heritage on the web</h2>
+  </section>
+  <section class="homeheadingtext col-7">
+    <h3>We are shaping the landscape of music data on the web</h3>
+    <p>musoW is a catalogue of musical resources available on the web realized
+      with the idea to support teachers in music education, creative industries, historians,
+      and musicologists in finding what they need.</p>
+    <p>Usually scholars and creatives need to combine diverse resources (music scores,
+      audiovisual materials, data) from digital music libraries and audiovisual archives.
+      They need to identify valuable sources of information, find similarities or cross-references.
+      Tech-savvy people want to access music data programmatically to develop their innovative projects.
+      The research of good music sources is mostly done manually, reviewing tons of websites.</p>
+    <p>In musoW we support users in searching over hundreds of online resources, including digital libraries,
+      archives, datasets, and related technologies.</p>
     <section class="row">
-      <button class="col-5 btn btn-dark" onclick="window.location.href='records'">explore musoW</button>
-      <form class="col-5" action='' method='POST' id="create_form">
-        <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">tell us something we don't know</button>
+      <button class="col-7 btn btn-dark" onclick="window.location.href='records'">explore musoW</button>
+    </section>
+  </section>
+
+</section>
+
+<section class="row">
+  <section class="homeheading col-4">
+    <p class="caption">HOW</p>
+    <h2>The knowledge graph of music resources</h2>
+  </section>
+  <section class="homeheadingtext col-7">
+    <h3>Crowdsourcing and curating music linked open data</h3>
+    <p>musoW is part of Polifonia, a European project dedicated to recreate the
+      connections between music, people, places, and events from the sixteenth century
+      to the modern day. To do so, Linked Open Data has been chosen as the lingua franca
+      to share data between applications and programmers.</p>
+    <p>Dozens of contributors populate musoW sharing new music resources,
+      therefore contributing to expand boundaries of our knowledge of music.
+      An editorial board reviews contents to ensure quality and correctness.
+      Contributions can be anonymous, and can be simply suggestions of new resources to be catalogued.</p>
+    <p style="font-weight: 500;">Consider contributing to musoW! it's easy and quick.</p>
+    <section class="row">
+      <form class="col-7" action='' method='POST' id="create_form">
+        <button class="btn btn-dark col-12" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
       </form>
     </section>
   </section>
+
 </section>

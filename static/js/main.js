@@ -79,7 +79,7 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
   	};
 
   	// append WD icon to input fields
-  	$('.searchWikidata').parent().prev().append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px;"/>');
+  	$('.searchWikidata').parent().prev().append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
 
   	// hide placeholder if filled
   	//colorForm();
@@ -90,7 +90,31 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
   		if (result) { } else { e.preventDefault(); return false; };
   	});
 
+    // change select aspect
+    $('section > select').addClass('custom-select');
 
+    // // filter records in the backend
+    // $("#filterPublished").click(function () {
+    //     var rows = $("#recordsList").find("tr").hide();
+    //     rows.filter(":has('th')").show();
+    //     rows.filter(":contains('published')").show();
+    //  });
+    //
+    // $("#filterNew").click(function () {
+    //     var rows = $("#recordsList").find("tr").hide();
+    //     rows.filter(":has('th')").show();
+    //     rows.filter(":contains('not modified')").show();
+    //  });
+    //
+    //  $("#filterReviewed").click(function () {
+    //      var rows = $("#recordsList").find("tr").hide();
+    //      rows.filter(":has('th')").show();
+    //      rows.filter(".modified").show();
+    //
+    //   });
+    //   $("#filterAll").click(function () {
+    //       var rows = $("#recordsList").find("tr").show();
+    //    });
 });
 
 function colorForm() {

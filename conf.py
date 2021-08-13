@@ -8,3 +8,4 @@ myform = 'myform.json'
 main_entity = "https://schema.org/CreativeWork"
 log_file = 'ip_logs.log' # log IP addresses of POST requests
 limit_requests = 50 # max number of records per IP address/day
+pagination = 4 # results per page in backend

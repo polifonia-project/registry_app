@@ -25,7 +25,7 @@ prefixLocal = ''
 urls = (
 	prefix + '/', 'Login',
 	prefix + '/logout', 'Logout',
-	prefix + '/welcome','Index',
+	prefix + '/welcome-(.+)','Index',
 	prefix + '/record-(.+)', 'Record',
 	prefix + '/modify-(.+)', 'Modify',
 	prefix + '/review-(.+)', 'Review',
@@ -92,6 +92,11 @@ def notfound():
 def internalerror():
     return web.internalerror(render.internalerror(user=session['username']))
 
+# UTILS
+
+def key(s):
+	fmt = "%Y-%m-%dT%H:%M:%S"
+	return datetime.datetime.strptime(s, fmt)
 
 class Notfound:
     def GET(self):
@@ -127,7 +132,7 @@ def login_or_create(data,allowed):
 			session['username'] = login
 			session['password'] = passwd
 			log_output('LOGIN CORRECT', session['logged_in'], session['username'])
-			raise web.seeother(prefixLocal+'welcome')
+			raise web.seeother(prefixLocal+'welcome-1')
 		elif login and passwd and (login,passwd) not in allowed:
 			log_output('LOGIN WRONG ATTEMPT', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'/')
@@ -146,7 +151,7 @@ class Login:
 		if(session.username,session.password) in allowed:
 			session.logged_in = True
 			log_output('HOMEPAGE LOGGED IN', session['logged_in'], session['username'])
-			raise web.seeother(prefixLocal+'welcome')
+			raise web.seeother(prefixLocal+'welcome-1')
 		else:
 			log_output('HOMEPAGE ANONYMOUS', session['logged_in'], session['username'])
 			return render.login(user='anonymous')
@@ -171,43 +176,116 @@ class Logout:
 # BACKEND Index: show list or records (only logged users)
 
 class Index:
-	def GET(self):
+	def GET(self, page):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
+		filterRecords = ''
 		if (session['username'],session['password']) in allowed:
 			session['logged_in'] = 'True'
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			records = reversed(sorted(queries.getRecords(), key=lambda tup: tup[4]))
+			# countings
+			alll = queries.countAll()
+			all, notreviewed, underreview, published = queries.getCountings()
+			results = queries.getRecordsPagination(page)
+			records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
 			log_output('WELCOME PAGE', session['logged_in'], session['username'])
-			return render.index(wikilist=records, user=session['username'], varIDpage=str(time.time()).replace('.','-') )
+
+			return render.index(
+				wikilist=records,
+				user=session['username'],
+				varIDpage=str(time.time()).replace('.','-'),
+				alll=alll,
+				all=all,
+				notreviewed=notreviewed,
+				underreview=underreview,
+				published=published,
+				page=page,
+				pagination=conf.pagination,
+				filter=filterRecords,
+				filterName = 'filterAll'
+				)
 		else:
 			session['logged_in'] = 'False'
 			log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'/')
 
-	def POST(self):
+	def POST(self, page):
 		actions = web.input()
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
 
+		filter_values = {
+			"filterNew": "?g base:publicationStage ?anyValue . FILTER (isLiteral(?anyValue) && lcase(str(?anyValue)) = 'not modified') .",
+			"filterReviewed": "?g base:publicationStage ?anyValue . FILTER (isLiteral(?anyValue) && lcase(str(?anyValue)) = 'modified') .",
+			"filterPublished": "?g base:publicationStage ?anyValue . FILTER (isLiteral(?anyValue) && lcase(str(?anyValue)) = 'published') .",
+			"filterAll": "none"
+		}
+
+		# filter records
+		if actions.action.startswith('filter'):
+			filterRecords = filter_values[actions.action]
+			filterRecords = filterRecords if filterRecords != 'none' else ''
+			filterName = actions.action
+			page = 1
+			results = queries.getRecordsPagination(page, filterRecords)
+			records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
+			alll = queries.countAll()
+			all, notreviewed, underreview, published = queries.getCountings(filterRecords)
+			filterRecords = filterRecords if filterRecords != '' else 'none'
+			return render.index(
+				wikilist=records,
+				user=session['username'],
+				varIDpage=str(time.time()).replace('.','-'),
+				alll=alll,
+				all=all,
+				notreviewed=notreviewed,
+				underreview=underreview,
+				published=published,
+				page=page,
+				pagination=conf.pagination,
+				filter= filterRecords,
+				filterName = filterName
+				)
 		# create a new record (logged users)
-		if actions.action.startswith('createRecord'):
+
+		elif actions.action.startswith('createRecord'):
 			record = actions.action.split("createRecord",1)[1]
 			log_output('START NEW RECORD (LOGGED IN)', session['logged_in'], session['username'], actions.action.split("createRecord",1)[1] )
 			raise web.seeother(prefixLocal+'record-'+record)
 
 		# delete a record (but not the dump in /records folder)
 		elif actions.action.startswith('deleteRecord'):
-			graph = actions.action.split("deleteRecord",1)[1]
+			graph = actions.action.split("deleteRecord",1)[1].split(' __')[0]
+			filterRecords = actions.action.split('deleteRecord',1)[1].split(' __')[1]
 			queries.deleteRecord(graph)
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			records = reversed(sorted(queries.getRecords(), key=lambda tup: tup[4]))
 			log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
-			return render.index(wikilist=records, user=session['username'], varIDpage=str(time.time()).replace('.','-') )
+			if filterRecords == 'none':
+				raise web.seeother(prefixLocal+'welcome-'+page)
+			else:
+				filterName = [k for k,v in filter_values.items() if v == filterRecords][0]
+				results = queries.getRecordsPagination(page,filterRecords)
+				records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
+				alll = queries.countAll()
+				all, notreviewed, underreview, published = queries.getCountings(filterRecords)
+				return render.index(
+					wikilist=records,
+					user=session['username'],
+					varIDpage=str(time.time()).replace('.','-'),
+					alll=alll,
+					all=all,
+					notreviewed=notreviewed,
+					underreview=underreview,
+					published=published,
+					page=page,
+					pagination=conf.pagination,
+					filter= filterRecords,
+					filterName = filterName
+					)
 
 		# modify a record
 		elif actions.action.startswith('modify'):
@@ -220,6 +298,35 @@ class Index:
 			record = actions.action.split(conf.name,1)[1].replace('/','')
 			log_output('REVIEW RECORD', session['logged_in'], session['username'], record )
 			raise web.seeother(prefixLocal+'review-'+record)
+
+		# change page
+		elif actions.action.startswith('changepage'):
+			pag = actions.action.split('changepage-',1)[1].split(' __')[0]
+			filterRecords = actions.action.split('changepage-',1)[1].split(' __')[1]
+			if filterRecords == 'none':
+				raise web.seeother(prefixLocal+'welcome-'+pag)
+			else:
+				filterName = [k for k,v in filter_values.items() if v == filterRecords][0]
+				results = queries.getRecordsPagination(pag, filterRecords)
+				records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
+				alll = queries.countAll()
+				all, notreviewed, underreview, published = queries.getCountings(filterRecords)
+				return render.index(
+					wikilist=records,
+					user=session['username'],
+					varIDpage=str(time.time()).replace('.','-'),
+					alll=alll,
+					all=all,
+					notreviewed=notreviewed,
+					underreview=underreview,
+					published=published,
+					page=page,
+					pagination=conf.pagination,
+					filter= filterRecords,
+					filterName = filterName
+					)
+
+
 
 		# login or create a new record
 		else:
@@ -308,7 +415,7 @@ class Modify(object):
 			graphToClear = conf.base+name+'/'
 			mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
 			log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
-			raise web.seeother(prefixLocal+'welcome')
+			raise web.seeother(prefixLocal+'welcome-1')
 
 # FORM: review a record for publication (only logged in users)
 
@@ -343,7 +450,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
 			log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
-			raise web.seeother(prefixLocal+'welcome')
+			raise web.seeother(prefixLocal+'welcome-1')
 
 		# publish
 		elif actions.action.startswith('publish'):
@@ -352,7 +459,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			mapping.inputToRDF(recordData, userID, 'published',graphToClear)
 			log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
-			raise web.seeother(prefixLocal+'welcome')
+			raise web.seeother(prefixLocal+'welcome-1')
 
 		# login or create new record
 		else:
@@ -374,7 +481,7 @@ class Records:
 		records = queries.getRecords()
 		fh = forms.searchRecord()
 
-		return render.records(form=None, user=session['username'], data=records, title='Music resources', r_base=conf.base)
+		return render.records(form=None, user=session['username'], data=records, title='Latest music resources', r_base=conf.base)
 
 	def POST(self):
 		actions = web.input()
@@ -452,6 +559,10 @@ class sparql:
         else:
             raise web.HTTPError(
                 "403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
+
+
+
+
 
 app.notfound = notfound
 app.internalerror = internalerror

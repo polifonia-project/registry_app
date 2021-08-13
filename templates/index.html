@@ -1,14 +1,39 @@
-$def with (wikilist, user, varIDpage)
+$def with (wikilist, user, varIDpage, alll, all, notreviewed,underreview,published, page,pagination,filter,filterName)
 $var user = user
+$var notreviewed = notreviewed
+$var underreview = underreview
+$var published = published
+$var alll = alll
+$var all = all
+$var page = page
+$var pagination = pagination
+
 <header class="row">
-  <h3 class="col-md-10">Welcome $user!</h3>
-  <form class="col-md-2" action='' method='POST' id="create_form">
-    <button class="btn btn-dark" name="action" value="createRecord$varIDpage" type="submit">Create a new record</button>
-  </form>
+  <h3 class="col-md-12 col-lg-12 col-sm-12">Welcome $user!</h3>
 </header>
+<section class="row filters justify-content-md-center justify-content-lg-center">
+    <section class="col-md-10 col-lg-10 col-sm-10">
+      <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST' id="create_form">
+        <button class="btn btn-dark" name="action" value="createRecord$varIDpage" type="submit">Create a new record</button>
+      </form>
+      <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
+        <button class="btn btn-dark" name="action" value="filterNew" type="submit">show not reviewed ($notreviewed)</button>
+      </form>
+      <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
+        <button class="btn btn-dark" name="action" value="filterReviewed" type="submit">show under review ($underreview)</button>
+      </form>
+      <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
+        <button class="btn btn-dark" name="action" value="filterPublished" type="submit">published ($published)</button>
+      </form>
+      <form class='col-md-2 col-lg-2 col-sm-2' action='' method='POST'>
+        <button class="btn btn-dark" name="action" value="filterAll" type="submit">show all ($alll)</button>
+      </form>
+    </section>
+</section>
 <section class="col-md-12">
+
   <article>
-    <h3>List of records</h3>
+    <h3>All records</h3>
     <table id="recordsList">
       <tr>
         <th>Record</th>
@@ -16,36 +41,51 @@ $var user = user
         <th>Modified by</th>
         <th>Last modified</th>
         <th>Stage</th>
-        <th> </th>
+        <th>Actions</th>
       </tr>
       $for result in wikilist:
-        <tr>
+        $ modified = 'modified' if result[5] == 'modified' else ''
+        <tr class="$modified">
           <td>$result[1]</td>
           <td>$result[2]</td>
           <td>$result[3]</td>
           <td>$result[4]</td>
-          <td>$result[5]</td>
+          <td class="stage">$result[5]</td>
           <td>
             $if result[5] == 'not modified' or result[5] == 'modified' or result[5] == '-':
               <form id="modified" action="" method='POST'>
-                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
-                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
-                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit">Start review</button>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0] __$filter" type="submit" title="delete"><i class="far fa-trash-alt"></i></button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit" title="modify"><i class="far fa-edit"></i></button>
+                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit" title="review and publish"><i class="far fa-check-circle"></i></button>
               </form>
-            $if result[5] == 'in review':
+            $elif result[5] == 'in review':
               <form id="review" action="" method='POST'>
-                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
-                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
-                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit">Review</button>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0] __$filter" type="submit" title="delete"><i class="far fa-trash-alt"></i></button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit" title="modify"><i class="far fa-edit"></i></button>
+                <button class="btn btn-dark" name="action" value="reviewRecord$:result[0]" type="submit" title="review and publish"><i class="far fa-check-circle"></i></button>
               </form>
-            $if result[5] == 'published':
+            $elif result[5] == 'published':
               <form id="published" action="" method='POST'>
-                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0]" type="submit">Delete</button>
-                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit">Modify</button>
+                <button class="btn btn-dark delete" data-toggle="modal" data-target="#popup" name="action" value="deleteRecord$:result[0] __$filter" type="submit" title="delete"><i class="far fa-trash-alt"></i></button>
+                <button class="btn btn-dark" name="action" value="modifyRecord$:result[0]" type="submit" title="modify"><i class="far fa-edit"></i></button>
               </form>
+            $else:
+              <span>unknown</span>
           </td>
         </tr>
     </table>
+    <section class="pagination justify-content-md-center justify-content-lg-center">
+      $ total = int(all)//int(pagination)
+      $ remainder = int(all) % int(pagination)
+      $if remainder > 0:
+        $ total = total + 1
+      <form id="paginate" action="" method='POST'>
+        $for n in range(0,total):
+          $ n = n + 1
+          $ strn = str(n)
+          <button class="btn btn-dark" name="action" value="changepage-$strn __$filter" type="submit">$strn</button>
+      </form>
+    </section>
   </article>
   <!-- <h2>Search</h2>
 

@@ -16,20 +16,21 @@ $def with (content)
 		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="static/css/main.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet">
 	</head>
 	<body class="cbp-spmenu-push">
 		<section class="container-fluid main_content">
 			<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
 			</section>
 			<nav class="row">
-				<span class="logo"><a href="/"><img src="static/imgs/logo.svg"></a></span>
+				<!-- <span class="logo"><a href="/"><img src="static/imgs/logo.svg"></a></span> -->
 				<!-- <a href="about">about</a> -->
-				<form action='' method='POST' id="create_form_menu">
-			    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">tell us something we don't know</button>
-			  </form>
+				<a href="/" class="logo_header">musoW</a>
 				<a href="records">Explore</a>
-				<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">login</a>
+				<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign in</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 					$if content.user == 'anonymous' or content.user == 'unknown':
 						<form action="" method="post">
@@ -51,7 +52,9 @@ $def with (content)
 
 				</div>
 				<div id="searchresult"></div>-->
-
+				<form action='' method='POST' id="create_form_menu">
+			    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
+			  </form>
 			</nav>
 			<main class="">
 				$:content
@@ -60,22 +63,23 @@ $def with (content)
 
 			<footer class="row">
 
-				<section class="col-3">
+				<section class="col-4">
 					<p>musoW is part of</p>
 					<p><a href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
 					<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
 					<p></p>
 				</section>
+
 				<section class="col-4">
-					<h3 class="articleSubtitle">documentation</h3>
+					<h3 class="articleSubtitle">links</h3>
 					<p><a href="https://github.com/polifonia-project/registry">github</a></p>
-				</section>
-				<section class="col-4">
-					<h3 class="articleSubtitle">query our data</h3>
 					<p><a href="http://data.open.ac.uk/sparql">SPARQL endpoint</a></p>
 					<p><a href="https://github.com/polifonia-project/registry">data dump</a></p>
 				</section>
-
+				<section class="col-4">
+					<h3 class="articleSubtitle">Contact</h3>
+					<p>open an issue on <a href="https://github.com/polifonia-project/registry">github</a></p>
+				</section>
 			</footer>
 		</section>
 	</body>
