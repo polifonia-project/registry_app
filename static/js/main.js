@@ -47,9 +47,9 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
   			searchWD(searchID);
   		};
 
-  		// if ( $(this).hasClass('searchGeneral') ) {
-  		// 	searchARTchivesGeneral('searchGeneral');
-  		// };
+  		if ( $(this).hasClass('searchGeneral') ) {
+  			searchCatalogue('search');
+  		};
   	});
 
   	// remove tag onclick
@@ -315,7 +315,7 @@ function searchResources(event) {
           };
         }
   });
-  // update offset
+  // update offset query
   var offset_query = offset_query+limit_query ;
   $(".showRes").html("show more");
   event.data.offset_query = offset_query;
@@ -325,6 +325,67 @@ function searchResources(event) {
   }
 };
 
+// search bar menu
+function searchCatalogue(searchterm) {
+  $('#'+searchterm).keyup(function(e) {
+    $("#searchresultmenu").show();
+    var q = $('#'+searchterm).val();
+    var query = "prefix bds: <http://www.bigdata.com/rdf/search#> select distinct ?s ?o ?desc "+in_graph+" where { ?o bds:search '"+q+"*'. ?s rdfs:label ?o ; a ?class .}"
+    var encoded = encodeURIComponent(query)
+    if (q == '') { $("#searchresultmenu").hide();}
+    $.ajax({
+          type: 'GET',
+          url: myPublicEndpoint+'?query=' + encoded,
+          headers: { Accept: 'application/sparql-results+json'},
+          success: function(returnedJson) {
+            $("#searchresultmenu").empty();
+            // autocomplete positioning
+  	      	var position = $('#'+searchterm).position();
+  	      	var leftpos = position.left;
+  	      	var offset = $('#'+searchterm).offset();
+      			var height = $('#'+searchterm).height();
+      			var width = $('#'+searchterm).width();
+      			var top = offset.top + height + 14 + "px";
+      			var right = offset.left + "px";
+
+      			$('#searchresultmenu').css( {
+      			    'position': 'absolute',
+      			    'margin-right': leftpos+'px',
+      			    'top': top,
+                'left': right,
+      			    'z-index':1000,
+      			    'background-color': 'white',
+      			    'border':'solid 1px grey',
+      			    'max-width':'600px',
+      			    'border-radius': '4px'
+      			});
+      	    $("#searchresultmenu").empty();
+
+            if (!returnedJson.length) {
+                  $("#searchresultmenu").empty();
+                  var nores = "<div class='wditem noresults'>Searching...</div>";
+                  $("#searchresultmenu").append(nores);
+                  // remove messages after 1 second
+                  setTimeout(function(){
+                    if ($('.noresults').length > 0) {
+                      $('.noresults').remove();
+                      }
+                    }, 1000);
+            };
+
+            for (i = 0; i < returnedJson.results.bindings.length; i++) {
+              var myUrl = returnedJson.results.bindings[i].s.value;
+              // exclude named graphs from results
+              if ( myUrl.substring(myUrl.length-1) != "/") {
+                var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
+                $("#searchresultmenu").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i> " + returnedJson.results.bindings[i].o.value + "</a></div>");
+                  };
+              };
+
+          }
+    });
+  });
+}
 
 // NLP
 function nlpText(searchterm) {
@@ -440,7 +501,7 @@ function nlpText(searchterm) {
 };
 
 
-
+// lookup when creating new records
 function checkPriorRecords(elem) {
   $('.'+elem).keyup(function(e) {
 	  $("#lookup").show();

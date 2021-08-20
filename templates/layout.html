@@ -25,60 +25,70 @@ $def with (content)
 		<section class="container-fluid main_content">
 			<section class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
 			</section>
-			<nav class="row">
+			<nav class="row navbar navbar-expand-lg sticky-top">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span>musoW</span>
+			  </button>
 				<!-- <span class="logo"><a href="/"><img src="static/imgs/logo.svg"></a></span> -->
 				<!-- <a href="about">about</a> -->
-				<a href="/" class="logo_header">musoW</a>
-				<a href="records">Explore</a>
-				<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign in</a>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					$if content.user == 'anonymous' or content.user == 'unknown':
-						<form action="" method="post">
-						    <div class="field-wrap">
-						      <label>Email</label><input name="login" type="email" required autocomplete="on"/>
-						    </div>
-						    <div class="field-wrap">
-						      <label>Password</label><input name="passwd" type="password" required autocomplete="on"/>
-						    </div>
-						    <button class="btn btn-dark"/>Login</button>
-						  </form>
-					$else:
-						<p>You are logged in.</p>
-						<p><a href="logout">Logout</a></p>
+				<section class="col-md-8 col-sm-12 collapse navbar-collapse" id="navbarSupportedContent">
+					<a href="/" class="logo_header">musoW</a>
+					<a href="records">Explore</a>
+					<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign in</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						$if content.user == 'anonymous' or content.user == 'unknown':
+							<form action="" method="post">
+							    <div class="field-wrap">
+							      <label>Email</label><input name="login" type="email" required autocomplete="on"/>
+							    </div>
+							    <div class="field-wrap">
+							      <label>Password</label><input name="passwd" type="password" required autocomplete="on"/>
+							    </div>
+							    <button class="btn btn-dark"/>Login</button>
+							  </form>
+						$else:
+							<p>You are logged in.</p>
+							<p><a href="logout">Logout</a></p>
+					</div>
+					<form action='' method='POST' id="create_form_menu">
+				    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
+				  </form>
+				</section>
+				<div class="searchmenu col-md-3 col-sm-12">
+					<!-- <i class="fas fa-search" aria-hidden="true"></i> -->
+					<input autocomplete="off" class="searchGeneral" placeholder="search..." id="search" name="search" type="text">
 				</div>
-				<!-- <div class="searchmenu">
-					<i class="fas fa-search" aria-hidden="true"></i>
-					<input autocomplete="off" class="searchGeneral" placeholder= "Search..." id="search" name="search" type="text">
+				<div id="searchresultmenu"></div>
 
-				</div>
-				<div id="searchresult"></div>-->
-				<form action='' method='POST' id="create_form_menu">
-			    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
-			  </form>
 			</nav>
 			<main class="">
 				$:content
-				<div class="push"></div>
+				<!-- <div class="push"></div> -->
 			</main>
 
-			<footer class="row">
+			<footer class="row justify-content-md-center">
 
-				<section class="col-4">
-					<p>musoW is part of</p>
-					<p><a href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
-					<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
-					<p></p>
+				<section class="col-md-4">
+					<section class="col-md-10">
+						<p>musoW is part of</p>
+						<p><a target="_blank" href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
+						<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
+						<p></p>
+					</section>
 				</section>
 
-				<section class="col-4">
-					<h3 class="articleSubtitle">links</h3>
-					<p><a href="https://github.com/polifonia-project/registry">github</a></p>
+				<section class="col-2">
+					<p><a href="/">Home</a></p>
+					<p><a href="records">Explore</a></p>
 					<p><a href="http://data.open.ac.uk/sparql">SPARQL endpoint</a></p>
-					<p><a href="https://github.com/polifonia-project/registry">data dump</a></p>
+					<p><a href="https://github.com/polifonia-project/registry">Get the data</a></p>
 				</section>
-				<section class="col-4">
-					<h3 class="articleSubtitle">Contact</h3>
-					<p>open an issue on <a href="https://github.com/polifonia-project/registry">github</a></p>
+				<section class="col-2">
+
+					<p><a href="https://github.com/polifonia-project/registry"><i class="fab fa-github"></i></a>
+						<a href="https://twitter.com/PolifoniaH2020"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.linkedin.com/company/polifonia-h2020/"><i class="fab fa-linkedin-in"></i></a> </p>
+					<p>open an issue on <a href="https://github.com/polifonia-project/registry/issues">github</a></p>
 				</section>
 			</footer>
 		</section>
