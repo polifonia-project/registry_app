@@ -106,7 +106,6 @@ th {width: 200px !important; text-transform: uppercase; font-family: 'Karla', sa
 .form_row {padding-bottom: 0.7em;}
 #recordForm table tbody tr th{ width: 30%;}
 
-
 /* hidden input fields titles */
 .sectionTitle {color: rgba(100,23,180,1); font-size: 2em; width: 100%; margin: 1em 2rem;}
 
@@ -119,6 +118,7 @@ th {width: 200px !important; text-transform: uppercase; font-family: 'Karla', sa
 /* both forms */
 .tip {width: 35px;margin-right: 1em;}
 .wditem{padding: 8px; border-bottom: solid 0.5px grey; z-index: 2000;}
+.wditem:last-of-type {border-bottom: none;}
 .blue{color: rgba(100,23,180,1) !important; cursor: pointer;}
 .intermediatetext {padding: 8px; color: gray; font-style: italic; margin-bottom: 0px !important;}
 sub {display: block; margin: 25px;}
@@ -177,7 +177,8 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 .noImage p {padding-top: 40%;}
 .noImage:hover .ImageCHI {background-color: rgba(100,23,180,1); -webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
 .entryTitle {background-color: white; font-size: 1.0em; padding: 0.3em; position: relative; }
-
+.hideRes, .showRes { margin: 20px 0px; background-color: rgba(100,23,180,1); color: white;}
+.relatedResources {margin: 20px 0px;}
 /* historian/collection template */
 /*.info-item {font-style: italic;}*/
 .sideBoxes {margin-top: 3em; margin-bottom: 3em;}

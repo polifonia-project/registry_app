@@ -1,0 +1,33 @@
+$def with (user, data, count)
+
+$var user = user
+
+<section class="row articleBox">
+	<section class="col-md-7">
+		$if data:
+			$ uri = next((result["subject"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No URI")
+			<h2 class="articleTitle">$next((result["object"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No label")</h2>
+			<section class="info-item">
+				$ s = 's' if count > 1 else ''
+				<h3 class="articleSubtitle">Appears in $count resource$s</h3>
+				<button class="showRes" data-count="$count" data-offset="0" data-limit="5" data-uri="$uri">show</button>
+				<section class="relatedResources">
+				</section>
+			</section>
+
+
+			<hr/>
+			<section class="info-item">
+				<h3 class="articleSubtitle">URI</h3>
+				<span class="small">$uri</span>
+			</section>
+		$else:
+			<h2>ooops, we don't have a page for this yet.</h2>
+	</section>
+	<!-- <section class="col-md-5 sideBoxes">
+		<section class="biblio">
+			<h3 class="biblio-label">Some field title with multiple values</h3>
+				<p>item iterator<p/>
+		</section>
+	</section> -->
+</section>

@@ -11,6 +11,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 server = sparql.SPARQLServer(conf.myEndpoint)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+def hello_blazegraph(q):
+	sparql = SPARQLWrapper(conf.myEndpoint)
+	sparql.setQuery(q)
+	sparql.setReturnFormat(JSON)
+	results = sparql.query().convert()
+	return results
+
 # LIST OF RECORDS IN THE BACKEND
 
 queryRecords = """
@@ -147,6 +154,7 @@ def countAll():
 	alll = results["results"]["bindings"][0]['count']['value']
 	return alll
 
+
 def getRecordCreator(graph_name):
 	""" get the label of the creator of a record """
 	creatorIRI, creatorLabel = None, None
@@ -208,6 +216,32 @@ def getData(graph):
 				data[k].append([uri,label])
 	#print("############ data",data)
 	return data
+
+
+# BROWSE LOCAL ENTITY
+
+
+def describeTerm(name):
+	""" ask if the resource exists, then describe it."""
+	ask = """ASK { ?s ?p <""" +conf.base+name+ """> .}"""
+	results = hello_blazegraph(ask)
+	if results["boolean"] == True: # new entity
+		describe = """DESCRIBE <"""+conf.base+name+ """>"""
+		return hello_blazegraph(describe)
+	else: # vocab term
+		ask = """ASK { ?s ?p ?o .
+				filter( regex( str(?o), '"""+name+"""$' ) )
+				}"""
+		results = hello_blazegraph(ask)
+		if results["boolean"] == True:
+			describe = """DESCRIBE ?o
+				WHERE { ?s ?p ?o .
+				filter( regex( str(?o), '"""+name+"""$' ) ) .
+				filter( regex( str(?o), '^"""+conf.base+"""' ) ) . }"""
+			print(hello_blazegraph(describe))
+			return hello_blazegraph(describe)
+		else:
+			return None
 
 
 # GRAPH methods

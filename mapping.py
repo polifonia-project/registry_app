@@ -47,7 +47,7 @@ def getValuesFromFields(fieldPrefix, recordData, fields=None):
 
 
 def getRightURIbase(value):
-	return WD if value.startswith('Q') else base
+	return WD if value.startswith('Q') else '' if value.startswith("http") else base
 
 
 def inputToRDF(recordData, userID, stage, graphToClear=None):
@@ -91,7 +91,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 		if field["disambiguate"] == 'True': # use the key 'disambiguate' as title of the graph
 			wd.add(( URIRef(base+graph_name+'/'), URIRef(field['property']), Literal(value) ))
 
-		# the main entity has the same URI of the graph
+		# the main entity has the same URI of the graph but the final /
 
 		if isinstance(value,str): # data properties
 			wd.add(( URIRef(base+graph_name), URIRef(field['property']), Literal(value) ))

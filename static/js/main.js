@@ -80,7 +80,7 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
 
   	// append WD icon to input fields
   	$('.searchWikidata').parent().prev().append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
-
+    $('.wikiEntity').append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
   	// hide placeholder if filled
   	//colorForm();
 
@@ -93,28 +93,8 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
     // change select aspect
     $('section > select').addClass('custom-select');
 
-    // // filter records in the backend
-    // $("#filterPublished").click(function () {
-    //     var rows = $("#recordsList").find("tr").hide();
-    //     rows.filter(":has('th')").show();
-    //     rows.filter(":contains('published')").show();
-    //  });
-    //
-    // $("#filterNew").click(function () {
-    //     var rows = $("#recordsList").find("tr").hide();
-    //     rows.filter(":has('th')").show();
-    //     rows.filter(":contains('not modified')").show();
-    //  });
-    //
-    //  $("#filterReviewed").click(function () {
-    //      var rows = $("#recordsList").find("tr").hide();
-    //      rows.filter(":has('th')").show();
-    //      rows.filter(".modified").show();
-    //
-    //   });
-    //   $("#filterAll").click(function () {
-    //       var rows = $("#recordsList").find("tr").show();
-    //    });
+    // show related resources in "term" page
+    $(".showRes").on("click", {count: $(".showRes").data("count"), uri: $(".showRes").data("uri"), limit_query: $(".showRes").data("limit"), offset_query: $(".showRes").data("offset")}, searchResources);
 });
 
 function colorForm() {
@@ -300,6 +280,52 @@ function searchWD(searchterm) {
 	});
 };
 
+// search catalogue resources on click and offset
+function searchResources(event) {
+  var uri = event.data.uri;
+  var count = event.data.count;
+  var offset_query = event.data.offset_query;
+  var limit_query = event.data.limit_query;
+
+  if (offset_query == "0") {
+    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o LIMIT "+limit_query+" "
+  } else {
+    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o OFFSET "+offset_query+" LIMIT "+limit_query+" "
+  }
+  var encoded = encodeURIComponent(query)
+
+  $.ajax({
+        type: 'GET',
+        url: myPublicEndpoint+'?query=' + encoded,
+        headers: { Accept: 'application/sparql-results+json'},
+        success: function(returnedJson) {
+          if (!returnedJson.results.bindings.length) {
+            $(".relatedResources").append("<div class='wditem noresults'>No more resources</div>");
+          } else {
+            for (i = 0; i < returnedJson.results.bindings.length; i++) {
+              var myUrl = returnedJson.results.bindings[i].o.value;
+              // exclude named graphs from results
+              if ( myUrl.substring(myUrl.length-1) != "/") {
+                var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
+                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + returnedJson.results.bindings[i].label.value + "</span></div>").hide();
+                $(".relatedResources").prepend(newItem);
+                newItem.show('slow');
+                };
+              };
+          };
+        }
+  });
+  // update offset
+  var offset_query = offset_query+limit_query ;
+  $(".showRes").html("show more");
+  event.data.offset_query = offset_query;
+  if (event.data.offset_query > count) {
+    $(".showRes").hide();
+    //$(".hideRes").show();
+  }
+};
+
+
 // NLP
 function nlpText(searchterm) {
 	$('textarea#'+searchterm).keypress( throttle(function(e) {
@@ -354,7 +380,7 @@ function nlpText(searchterm) {
 							    	var myRegexp = /<http:\/\/www.w3.org\/2002\/07\/owl#sameAs> <http:\/\/wikidata.org\/entity\/(.*)>/;
 									var match = myRegexp.exec(data);
 									var res = match[1];
-									console.log(data);
+									//console.log(data);
 									if (res && !$('textarea#'+searchterm).parent().next('.tags-nlp').children("span[data-id="+match[1]+"]").length ) {
 										// get Wikidata label
 										$.ajax({
@@ -450,7 +476,7 @@ function checkPriorRecords(elem) {
             // close lookup suggestions
             $('#close_section').on('click', function() {
               var target = $(this).parent();
-              console.log(target);
+              //console.log(target);
               target.hide();
             });
     			};

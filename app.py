@@ -32,6 +32,7 @@ urls = (
 	prefix + '/documentation', 'Documentation',
 	prefix + '/records', 'Records',
 	prefix + '/view-(.+)', 'View',
+	prefix + '/term-(.+)', 'Term',
 	prefix + '/(sparql)','sparql'
 )
 
@@ -57,7 +58,7 @@ def get_timestamp():
 
 # TEMPLATING
 
-render = web.template.render('templates/', base="layout", cache=False, globals={'session':session, 'time_now':get_timestamp, 'isinstance':isinstance,'str':str})
+render = web.template.render('templates/', base="layout", cache=False, globals={'session':session, 'time_now':get_timestamp, 'isinstance':isinstance,'str':str, 'next':next})
 render2 = web.template.render('templates/', globals={'session':session})
 render_no_login = web.template.render('templates/', base="layout_no_login", globals={'session':session, 'time_now':get_timestamp})
 
@@ -264,10 +265,10 @@ class Index:
 			queries.deleteRecord(graph)
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
-			if filterRecords == 'none':
+			if filterRecords == 'none' or filterRecords is None:
 				raise web.seeother(prefixLocal+'welcome-'+page)
 			else:
-				filterName = [k for k,v in filter_values.items() if v == filterRecords][0]
+				filterName = [k if v == filterRecords else 'filterName' for k,v in filter_values.items()][0]
 				results = queries.getRecordsPagination(page,filterRecords)
 				records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
 				alll = queries.countAll()
@@ -491,17 +492,28 @@ class Records:
 
 class View(object):
 	def GET(self, name):
-		record = conf.base+name
+		base = conf.base
+		record = base+name
 		data = dict(queries.getData(record+'/'))
 		stage = data['stage'][0]
 		title = [data[k][0] for k,v in data.items() for field in fields if (field['disambiguate'] == "True" and k == field['id'])][0]
 		data_labels = { field['label']:v for k,v in data.items() for field in fields if k == field['id']}
-		return render.view(user=session['username'], graphdata=data_labels, graphID=name, title=title, stage=stage)
+		return render.view(user=session['username'], graphdata=data_labels, graphID=name, title=title, stage=stage, base=base)
 
 	def POST(self,name):
 		actions = web.input()
 
 		login_or_create(actions,allowed)
+
+# TERM : vocabulary terms and newly created entities
+
+class Term(object):
+	def GET(self, name):
+		data = queries.describeTerm(name)
+		count = len([ result["subject"]["value"] for result in data["results"]["bindings"] if name in result["object"]["value"] ])
+		return render.term(user=session['username'], data=data, count=count)
+
+
 
 # QUERY: endpoint GUI
 

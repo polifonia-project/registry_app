@@ -1,4 +1,4 @@
-$def with (user, graphdata, graphID, title, stage)
+$def with (user, graphdata, graphID, title, stage, base)
 
 $var user = user
 
@@ -16,11 +16,16 @@ $var user = user
 						$else:
 							<h3 class="articleSubtitle">$field </h3>
 							$for uri_value in value:
-								$if uri_value[1].startswith('Q'):
-									<a href="$uri_value[0]">$uri_value[1]</a>.
+								$if uri_value[0].startswith('Q'):
+									<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">$uri_value[1]</a>
 								$else:
-									<a target='_blank' href="https://www.wikidata.org/wiki/$uri_value[0]">$uri_value[1]</a>.
+									<a target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
 				</section>
+			<hr/>
+			<section class="info-item">
+				<h3 class="articleSubtitle">URI</h3>
+				<span class="small">$base$graphID</span>
+			</section>
 	</section>
 	<!-- <section class="col-md-5 sideBoxes">
 		<section class="biblio">
