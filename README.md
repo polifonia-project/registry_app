@@ -20,6 +20,7 @@ https://user-images.githubusercontent.com/6443007/124133891-924c2700-da82-11eb-9
 #### Configuration file `conf.py`
 
 ```
+# data
 myEndpoint = 'local endpoint api url' # to update data in localhost
 myPublicEndpoint = 'public endpoint api url' # to fill in the autocomplete dropdown
 wikidataEndpoint = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql' # to fill in the autocomplete dropdown
@@ -27,8 +28,19 @@ base = 'URI base of the dataset'
 name = 'name of the dataset' # same as the last bit of base
 myform = 'PATH to the JSON file to set up the form'
 main_entity = "https://schema.org/CreativeWork" # the class of the entity described in the form
-log_file = 'ip_logs.log' # log IP addresses to monitor users' POST requests
-limit_requests = 5 # max number of records per user/day
+
+# backend
+log_file = 'ip_logs.log' # log file with IP addresses of POST requests
+limit_requests = 50 # set the max number of new records that can be created by IP address per day
+pagination = 4 # number of results shown per page in backend
+
+# github
+github_backup = True # change to False and ignore the following fields if you don't want data backup on github
+token = 'ghp_eL1OfbEnq**************************' # github access token
+owner = "marilenadaquino" # github owner of the repo (as it appears in the URL of the repo)
+repo_name = "crowdsourcing" # name of the repo where to dump files
+author = "marilenadaquino" # github username of the author of commits
+author_email = "marilena.daquino2@unibo.it" # author's email
 ```
 
 #### `main.js`

@@ -11,7 +11,7 @@ from urllib.parse import parse_qs
 import requests
 import web
 from web import form
-import forms, mapping, conf, queries , vocabs , allowed
+import forms, mapping, conf, queries , vocabs , allowed , github_sync
 
 
 web.config.debug = False
@@ -93,11 +93,6 @@ def notfound():
 def internalerror():
     return web.internalerror(render.internalerror(user=session['username']))
 
-# UTILS
-
-def key(s):
-	fmt = "%Y-%m-%dT%H:%M:%S"
-	return datetime.datetime.strptime(s, fmt)
 
 class Notfound:
     def GET(self):
@@ -120,6 +115,12 @@ def check_ip(ip_add, current_time):
 	if len(user_requests) > limit:
 		is_user_blocked = True
 	return is_user_blocked, limit
+
+# UTILS
+
+def key(s):
+	fmt = "%Y-%m-%dT%H:%M:%S"
+	return datetime.datetime.strptime(s, fmt)
 
 # LOGIN / LOGOUT
 
@@ -370,7 +371,8 @@ class Record(object):
 			log_output('CREATED RECORD', session['logged_in'], session['username'],recordID)
 			if recordID:
 				userID = user.replace('@','-at-').replace('.','-dot-')
-				mapping.inputToRDF(recordData, userID, 'not modified')
+				file_path = mapping.inputToRDF(recordData, userID, 'not modified')
+				github_sync.push(file_path,"main")
 				if user == 'anonymous':
 					raise web.seeother(prefixLocal+'/')
 				else:
@@ -414,7 +416,8 @@ class Modify(object):
 			recordID = recordData.recordID
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
-			mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
+			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
+			github_sync.push(file_path,"main")
 			log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -449,7 +452,8 @@ class Review(object):
 			recordID = recordData.recordID
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
-			mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
+			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
+			github_sync.push(file_path,"main")
 			log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -458,7 +462,8 @@ class Review(object):
 			recordData = web.input()
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
-			mapping.inputToRDF(recordData, userID, 'published',graphToClear)
+			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
+			github_sync.push(file_path,"main")
 			log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -512,8 +517,6 @@ class Term(object):
 		data = queries.describeTerm(name)
 		count = len([ result["subject"]["value"] for result in data["results"]["bindings"] if name in result["object"]["value"] ])
 		return render.term(user=session['username'], data=data, count=count)
-
-
 
 # QUERY: endpoint GUI
 
@@ -571,9 +574,6 @@ class sparql:
         else:
             raise web.HTTPError(
                 "403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
-
-
-
 
 
 app.notfound = notfound

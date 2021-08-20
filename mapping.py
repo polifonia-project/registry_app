@@ -106,3 +106,5 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 
 	# UPLOAD TO TRIPLESTORE
 	server.update('load <file:///'+dir_path+'/records/'+recordID+'.ttl> into graph <'+base+graph_name+'/>')
+
+	return 'records/'+recordID+'.ttl'
