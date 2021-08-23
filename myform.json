@@ -11,7 +11,8 @@
     "cache_autocomplete":"off",
     "property":"http://www.w3.org/2000/01/rdf-schema#label",
     "value":"Literal",
-    "disambiguate":"True"
+    "disambiguate":"True",
+    "browse":"True"
   },
   {
     "type":"Textbox",
@@ -25,7 +26,8 @@
     "cache_autocomplete":"off",
     "property":"http://purl.org/dc/terms/creator",
     "value":"URI",
-    "disambiguate":"False"
+    "disambiguate":"False",
+    "browse":"True"
   },
   {
     "type":"Textbox",
@@ -56,6 +58,7 @@
         "http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a":"Schema",
         "http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab":"Format"
       },
-    "disambiguate":"False"
+    "disambiguate":"False",
+    "browse":"True"
   }
 ]

@@ -15,7 +15,6 @@ import forms, mapping, conf, queries , vocabs , allowed , github_sync
 
 
 web.config.debug = False
-wikidir = os.path.realpath('records/') # RDF dump of records
 
 # ROUTING
 
@@ -57,8 +56,9 @@ def get_timestamp():
 	return str(time.time()).replace('.','-')
 
 # TEMPLATING
-
-render = web.template.render('templates/', base="layout", cache=False, globals={'session':session, 'time_now':get_timestamp, 'isinstance':isinstance,'str':str, 'next':next})
+def upper(s):
+	return s.upper()
+render = web.template.render('templates/', base="layout", cache=False, globals={'session':session, 'time_now':get_timestamp, 'isinstance':isinstance,'str':str, 'next':next, 'upper':upper})
 render2 = web.template.render('templates/', globals={'session':session})
 render_no_login = web.template.render('templates/', base="layout_no_login", globals={'session':session, 'time_now':get_timestamp})
 
@@ -485,9 +485,9 @@ class Documentation:
 class Records:
 	def GET(self):
 		records = queries.getRecords()
-		fh = forms.searchRecord()
-
-		return render.records(form=None, user=session['username'], data=records, title='Latest music resources', r_base=conf.base)
+		alll = queries.countAll()
+		filtersBrowse = queries.getBrowsingFilters()
+		return render.records(user=session['username'], data=records, title='Latest music resources', r_base=conf.base,alll=alll, filters=filtersBrowse)
 
 	def POST(self):
 		actions = web.input()

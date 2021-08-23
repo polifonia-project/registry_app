@@ -156,7 +156,7 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 /* about */
 .articleBox {padding-left: 2em; padding-right:2em;}
 .articleTitle {font-size: 5em; text-transform: none !important; text-align: left;}
-.articleSubtitle, .info-label {color: rgba(100,23,180,1); font-size: 1.3em !important; display: inline !important;}
+.articleSubtitle, .info-label {text-transform: uppercase; color: rgba(100,23,180,1); font-size: 1.1em !important; display: inline !important;}
 .columns {
   padding: 1em 0.2em;
   -webkit-column-count: 2; /* Chrome, Safari, Opera */
@@ -171,7 +171,7 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 .entryBox {margin: 20px; border: solid 1px black; box-shadow: 5px 10px; padding:0px; background-color: white;}
 .entryBox a {color: black; text-decoration: none !important;}
 .entryBox a:hover {color: rgba(100,23,180,1); text-decoration: none;}
-.imageBox {height: 200px; width: auto;}
+.imageBox {height: 100px; width: auto;}
 .noImage img {width: 100%; margin-top: 40px;}
 .imageBox:hover { filter: brightness(125%); -webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
 .withImage img {-webkit-filter: grayscale(100%); filter: grayscale(100%); max-width: 100%;}
@@ -211,6 +211,11 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 .notes .info-note {padding: 2em; background-color: gainsboro;}
 #mapid { height: 400px; }
 .tooltip-inner p a,.tooltip-inner p a:hover {color: white !important;}
+/* sort alphabetically records */
+.alphabet span { display: inline-block; margin:5px; padding:5px !important; border: solid 1px; box-shadow: 3px 5px; background-color: white; color:black;}
+.alphabet span:hover {color: rgba(100,23,180,1);-webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
+.alphaActive {color: rgba(100,23,180,1) !important;}
+.accordion-group {margin: 10px; height: 200px; overflow-y: auto; border-bottom: solid 1px rgba(100,23,180,1);}
 
 .documentation img {margin: 1em 0px; border: solid 1px grey; width: 100%;}
 .documentation h3 {margin-top: 1em;}

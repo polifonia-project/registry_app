@@ -74,7 +74,8 @@ Example
   "cache_autocomplete":"off", # if the prior is True, this should be False
   "property":"http://www.w3.org/2000/01/rdf-schema#label", # absolute URI of the property
   "value":"Literal", # Literal|URI the type of value (if searchWikidata is True, set value as URI)
-  "disambiguate":"True" # True|False if True, this field value is used to disambiguate new entries (to prevent users creating duplicates) and to assign a title to the named graph
+  "disambiguate":"True", # True|False if True, this field value is used to disambiguate new entries (to prevent users creating duplicates) and to assign a title to the named graph
+  "browse":"True" # True|False if you want records sorted by this field in the Explore page
 }
 ```
 
@@ -100,7 +101,8 @@ Example
       "http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a":"Schema",
       "http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab":"Format"
     },
-  "disambiguate":"False"
+  "disambiguate":"False",
+  "browse":"True" # True|False if you want records grouped by this field in the Explore page 
 }
 ```
 

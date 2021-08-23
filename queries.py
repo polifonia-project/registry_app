@@ -218,7 +218,7 @@ def getData(graph):
 	return data
 
 
-# BROWSE LOCAL ENTITY
+# BROWSE ENTITY (VOCAB TERMS; NEW ENTITIES MENTIONED IN RECORDS)
 
 
 def describeTerm(name):
@@ -243,6 +243,39 @@ def describeTerm(name):
 		else:
 			return None
 
+
+# EXPLORE METHODS
+
+def getBrowsingFilters():
+	props = [(f["property"], f["label"], f["type"], f["value"]) for f in fields if "browse" in f and f["browse"] == "True"]
+	return props
+
+def getFreqProps():
+	""" DO NOT USE THIS
+	return ordered list of property / field name / value type
+	returns only properties that have at least a value in every record """
+	queryProps = '''
+		select distinct ?p {
+		  { select distinct ?p {
+		    { select ?ex { ?ex a '''+conf.base+''' } limit 1 }
+		    ?ex ?p ?o
+		    }
+		  }
+
+		  filter not exists {
+		    ?f a '''+conf.base+''' .
+		    filter not exists { ?f ?p ?o }
+		  }
+		}
+	'''
+	results = hello_blazegraph(queryProps)
+	for result in results["results"]["bindings"]:
+		prop = result["p"]["value"]
+		field = [f["label"] for f in fields if f["property"] == prop][0]
+		value_type = ['Literal' if f["property"] == prop and f["value"] == 'Literal' \
+			else 'URI' if f["property"] == prop and f["value"] == 'URI' and "values" not in f \
+			else 'vocabulary'
+			for f in fields][0]
 
 # GRAPH methods
 

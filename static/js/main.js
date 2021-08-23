@@ -90,12 +90,54 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
   		if (result) { } else { e.preventDefault(); return false; };
   	});
 
-    // change select aspect
+    // change select aspect everywhere
     $('section > select').addClass('custom-select');
+
+    // sort alphabetically in EXPLORE
+    $('.list').each(function () {
+        var letter = $('a', this).text().toUpperCase().charAt(0);
+        if (!$(this).parent().find('[data-letter="'+ letter +'"]').length) {
+          $(this).parent().append('<section data-letter="'+ letter+'" id="'+ letter+'" class="collapse toBeWrapped"></section>');
+        	$(this).parent().parent().find($('.alphabet')).append('<span data-toggle="collapse" data-target="#'+ letter+'" aria-expanded="false" aria-controls="'+ letter+'" class="info_collapse" data-parent="#toc_resources">'+ letter +'</span>');
+        };
+        $(this).parent().find('[data-letter="'+ letter +'"]').append(this);
+      });
+    $('.toBeWrapped').wrapAll("<section class='accordion-group'></section>");
+
+    // focus on click
+    $('.resource_collapse').on('click', function (e) {
+        $(e.currentTarget).parent('span').addClass('active');
+    });
+    // close other dropdowns when opening one
+    var $myGroup = $('.accordion-group');
+    $('.collapse').on('show.bs.collapse', function () {
+        $('.resource_collapse').parent('span').removeClass('active');
+        $('.info_collapse').removeClass('alphaActive');
+        $myGroup.find('.collapse').collapse('hide');
+        var id = $(this).attr('id');
+        var dropLabel = $('.resource_collapse[data-target="#'+id+'"]');
+        dropLabel.parent('span').addClass('active');
+        // in browse by name the label of the tab is different
+        var alphaLabel = $('.info_collapse[data-target="#'+id+'"]');
+        alphaLabel.addClass('alphaActive');
+    });
+
+    // sort alphabet list
+    sortList("alphabet");
 
     // show related resources in "term" page
     $(".showRes").on("click", {count: $(".showRes").data("count"), uri: $(".showRes").data("uri"), limit_query: $(".showRes").data("limit"), offset_query: $(".showRes").data("offset")}, searchResources);
 });
+
+function sortList(ul) {
+  var ul = document.getElementById(ul);
+
+  Array.from(ul.getElementsByTagName("span"))
+    .sort((a, b) => a.textContent.localeCompare(b.textContent))
+    .forEach(span => ul.appendChild(span));
+}
+
+
 
 function colorForm() {
 	$('.searchWikidata').each( function() {
