@@ -3,19 +3,18 @@ $def with (user)
 $var user = user
 
 <section class="row homepage">
-    <section class="col-4">
-      <span class="logo_homepage">musoW</span>
+    <section class="col-md-4 col-sm-12">
+      <span class="logo_homepage text-center">musoW</span>
     </section>
-    <h1 class="col-7">Music data <span>on the web</span></h1>
-
+    <h1 class="col-md-7 col-sm-12">Music data <span>on the web</span></h1>
 </section>
 
 <section class="row">
-  <section class="homeheading col-4">
+  <section class="homeheading col-md-4 col-sm-12">
     <p class="caption">WHAT</p>
     <h2>Mapping music heritage on the web</h2>
   </section>
-  <section class="homeheadingtext col-7">
+  <section class="homeheadingtext col-md-7 col-sm-12">
     <h3>We are shaping the landscape of music data on the web</h3>
     <p>musoW is a catalogue of musical resources available on the web realized
       with the idea to support teachers in music education, creative industries, historians,
@@ -27,19 +26,19 @@ $var user = user
       The research of good music sources is mostly done manually, reviewing tons of websites.</p>
     <p>In musoW we support users in searching over hundreds of online resources, including digital libraries,
       archives, datasets, and related technologies.</p>
-    <section class="row">
-      <button class="col-7 btn btn-dark" onclick="window.location.href='records'">explore musoW</button>
-    </section>
+
+      <button class="col-md-7 col-sm-12 btn btn-dark" onclick="window.location.href='records'">explore musoW</button>
+
   </section>
 
 </section>
 
 <section class="row">
-  <section class="homeheading col-4">
+  <section class="homeheading col-md-4 col-sm-12">
     <p class="caption">HOW</p>
     <h2>The knowledge graph of music resources</h2>
   </section>
-  <section class="homeheadingtext col-7">
+  <section class="homeheadingtext col-md-7 col-sm-12">
     <h3>Crowdsourcing and curating music linked open data</h3>
     <p>musoW is part of Polifonia, a European project dedicated to recreate the
       connections between music, people, places, and events from the sixteenth century
@@ -48,13 +47,18 @@ $var user = user
     <p>Dozens of contributors populate musoW sharing new music resources,
       therefore contributing to expand boundaries of our knowledge of music.
       An editorial board reviews contents to ensure quality and correctness.
-      Contributions can be anonymous, and can be simply suggestions of new resources to be catalogued.</p>
+      Contributions can be anonymous, and can be simply suggestions of new resources to be catalogued.
+      </p>
     <p>Contribute to musoW! it's easy and quick.</p>
     <section class="row">
-      <form class="col-7" action='' method='POST' id="create_form">
-        <button class="btn btn-dark col-12" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
+      <form class="col-md-7 col-sm-12" action='' method='POST' id="create_form">
+        <button class="btn btn-dark col-md-12 col-sm-12" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
       </form>
-    </section>
+      </section>
+    <p>If you want to modify existing records you'll need an account.
+    New collaborators can request an account by posting a request on github.</p>
+    <button class="col-md-7 col-sm-12 btn btn-dark" onclick="window.location.href='https://github.com/polifonia-project/registry/issues/new'">Become a collaborator</button>
+
   </section>
 
 </section>

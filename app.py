@@ -46,8 +46,8 @@ store, session, session_data = u.initialize_session(app)
 # OAUTH APP
 
 allowed = allowed.allowed() # TO BE REMOVED
-clientId = conf.gitClientID;
-clientSecret = conf.gitClientSecret;
+clientId = conf.gitClientID
+clientSecret = conf.gitClientSecret
 
 # TEMPLATING
 
