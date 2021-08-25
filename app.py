@@ -12,7 +12,7 @@ import requests
 import web
 from web import form
 import forms, mapping, conf, queries , vocabs , allowed , github_sync
-
+import utils as u
 
 web.config.debug = False
 
@@ -20,10 +20,12 @@ web.config.debug = False
 
 prefix = ''
 #prefixLocal = '/musow/'
-prefixLocal = ''
+prefixLocal = prefix
 urls = (
 	prefix + '/', 'Login',
 	prefix + '/logout', 'Logout',
+	prefix + '/gitauth', 'Gitauth',
+	prefix + '/oauth-callback', 'Oauthcallback',
 	prefix + '/welcome-(.+)','Index',
 	prefix + '/record-(.+)', 'Record',
 	prefix + '/modify-(.+)', 'Modify',
@@ -39,51 +41,29 @@ app = web.application(urls, globals())
 
 # SESSIONS
 
-if web.config.get('_session') is None:
-	store = web.session.DiskStore('sessions')
-	session = web.session.Session(app, store, initializer={'logged_in': 'False', 'username': 'anonymous', 'password': 'None', 'ip_address': 'None'})
-	web.config._session = session
-	session_data = session._initializer
-else:
-	session = web.config._session
-	session_data = session._initializer
+store, session, session_data = u.initialize_session(app)
 
-# USERS: TODO Hash passwords, usernames must be emails
+# OAUTH APP
 
-allowed = allowed.allowed()
-
-def get_timestamp():
-	return str(time.time()).replace('.','-')
+allowed = allowed.allowed() # TO BE REMOVED
+clientId = conf.gitClientID;
+clientSecret = conf.gitClientSecret;
 
 # TEMPLATING
-def upper(s):
-	return s.upper()
-render = web.template.render('templates/', base="layout", cache=False, globals={'session':session, 'time_now':get_timestamp, 'isinstance':isinstance,'str':str, 'next':next, 'upper':upper})
+
+render = web.template.render('templates/', base="layout", cache=False,
+								globals={'session':session, 'time_now':u.get_timestamp,
+								'isinstance':isinstance,'str':str, 'next':next,
+								'upper':u.upper})
 render2 = web.template.render('templates/', globals={'session':session})
-render_no_login = web.template.render('templates/', base="layout_no_login", globals={'session':session, 'time_now':get_timestamp})
+render_no_login = web.template.render('templates/', base="layout_no_login", globals={'session':session, 'time_now':u.get_timestamp})
 
-# LOGS
-
-def log_output(action, logged_in, user, recordID=None):
-	""" log information in console """
-	message = '*** '+str(datetime.datetime.now())+' | '+action
-	if recordID:
-		message += ': <'+recordID+'>'
-	message += ' | LOGGED IN: '+str(logged_in)+' | USER: '+user
-	print(message)
-
-# LOAD FORM
+# LOAD FORM, IMPORT VOCABS
 
 with open(conf.myform) as config_form:
 	fields = json.load(config_form)
 
-# IMPORT VOCABS
-
 vocabs.import_vocabs(fields)
-
-def get_dropdowns(fields):
-	ids_dropdown= [field['id'] for field in fields if field['type'] == 'Dropdown']
-	return ids_dropdown
 
 # ERROR HANDLER
 
@@ -93,28 +73,12 @@ def notfound():
 def internalerror():
     return web.internalerror(render.internalerror(user=session['username']))
 
-
 class Notfound:
     def GET(self):
         raise web.notfound()
 
-# LIMIT REQUESTS BY IP ADDRESSES
-
-def write_ip(timestamp, ip_add, request):
-	logs = open(conf.log_file, 'a')
-	logs.write( str(timestamp)+' --- '+ ip_add + ' --- '+ request+'\n')
-	logs.close()
-
-def check_ip(ip_add, current_time):
-	" limit user POST requests to XX a day"
-	is_user_blocked = False
-	limit = conf.limit_requests
-	today = current_time.split()[0]
-	data = open(conf.log_file, 'r').readlines()
-	user_requests = [(line.split(' --- ')[0].split()[0], line.split(' --- ')[1]) for line in data if ip_add in line.split(' --- ')[1] and line.split(' --- ')[0].split()[0] == today ]
-	if len(user_requests) > limit:
-		is_user_blocked = True
-	return is_user_blocked, limit
+app.notfound = notfound
+app.internalerror = internalerror
 
 # UTILS
 
@@ -126,46 +90,103 @@ def key(s):
 
 def login_or_create(data,allowed):
 	if data:
-		login = data.login if data and 'login' in data else None
-		passwd = data.passwd if data and 'passwd' in data else None
-		session['ip_address'] = str(web.ctx['ip'])
-		if (login,passwd) in allowed:
-			session['logged_in'] = True
-			session['username'] = login
-			session['password'] = passwd
-			log_output('LOGIN CORRECT', session['logged_in'], session['username'])
-			raise web.seeother(prefixLocal+'welcome-1')
-		elif login and passwd and (login,passwd) not in allowed:
-			log_output('LOGIN WRONG ATTEMPT', session['logged_in'], session['username'])
-			raise web.seeother(prefixLocal+'/')
-		elif 'action' in data and data.action.startswith('createRecord'):
+		# login = data.login if data and 'login' in data else None
+		# passwd = data.passwd if data and 'passwd' in data else None
+		# session['ip_address'] = str(web.ctx['ip'])
+		# if (login,passwd) in allowed:
+		# 	session['logged_in'] = True
+		# 	session['username'] = login
+		# 	session['password'] = passwd
+		# 	u.log_output('LOGIN CORRECT', session['logged_in'], session['username'])
+		# 	raise web.seeother(prefixLocal+'welcome-1')
+		# elif login and passwd and (login,passwd) not in allowed:
+		# 	u.log_output('LOGIN WRONG ATTEMPT', session['logged_in'], session['username'])
+		# 	raise web.seeother(prefixLocal+'/')
+		if 'action' in data and data.action.startswith('createRecord'):
 			record = data.action.split("createRecord",1)[1]
-			log_output('START NEW RECORD', session['logged_in'], session['username'])
+			u.log_output('START NEW RECORD', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'record-'+record)
 		else:
-			log_output('ELSE', session['logged_in'], session['username'])
+			u.log_output('ELSE', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'/')
 	else:
 		print("what??")
 
+# GITHUB LOGIN
+
+class Gitauth:
+	def GET(self):
+		return web.seeother("https://github.com/login/oauth/authorize?client_id="+clientId+"&scope=repo read:user")
+
+class Oauthcallback:
+	def GET(self):
+		data = web.input()
+		body = {
+			"client_id" : clientId,
+			"client_secret" : clientSecret,
+			"code" : data.code
+		}
+
+		req = requests.post('https://github.com/login/oauth/access_token', data=body,
+							headers={"accept": "application/json"})
+
+		if req.status_code == 200:
+			try:
+				# get access token
+				res = req.json()
+				access_token = res["access_token"]
+				req_user = requests.get("https://api.github.com/user",
+										headers={"Authorization": "token "+access_token})
+
+				if req_user.status_code == 200:
+					# get username
+					res_user = req_user.json()
+					userlogin = res_user["login"]
+					usermail = res_user["email"]
+					# get repo collaborators and check if the logged user is collaborators
+					is_valid_user = github_sync.get_github_users(userlogin)
+					if is_valid_user == True:
+						session['logged_in'] = 'True'
+						session['username'] = usermail
+						session['ip_address'] = str(web.ctx['ip'])
+						# do not store the token
+						u.log_output('HOMEPAGE LOGGED IN VIA GITHUB', session['logged_in'], session['username'])
+						raise web.seeother(prefixLocal+'welcome-1')
+
+			except Exception as err:
+				print("error", err)
+				raise
+		else:
+			print("bad request to github oauth")
+			return internalerror()
+
+# CLASSIC LOGIN : TO BE REMOVED
+
 class Login:
 	def GET(self):
-		if(session.username,session.password) in allowed:
-			session.logged_in = True
-			log_output('HOMEPAGE LOGGED IN', session['logged_in'], session['username'])
+		# if(session.username,session.password) in allowed:
+		# 	session.logged_in = True
+		# 	u.log_output('HOMEPAGE LOGGED IN', session['logged_in'], session['username'])
+		# 	raise web.seeother(prefixLocal+'welcome-1')
+		# else:
+		# 	u.log_output('HOMEPAGE ANONYMOUS', session['logged_in'], session['username'])
+		# 	return render.login(user='anonymous')
+		if session.username != 'anonymous':
+			u.log_output('HOMEPAGE LOGGED IN', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'welcome-1')
 		else:
-			log_output('HOMEPAGE ANONYMOUS', session['logged_in'], session['username'])
+			u.log_output('HOMEPAGE ANONYMOUS', session['logged_in'], session['username'])
 			return render.login(user='anonymous')
 
 	def POST(self):
 		data = web.input()
+		allowed = ''
 		login_or_create(data,allowed)
 
 
 class Logout:
 	def GET(self):
-		log_output('LOGOUT', session['logged_in'], session['username'])
+		u.log_output('LOGOUT', session['logged_in'], session['username'])
 		session['logged_in'] = 'False'
 		session['username'] = 'anonymous'
 		session['ip_address'] = str(web.ctx['ip'])
@@ -184,7 +205,8 @@ class Index:
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
 		filterRecords = ''
-		if (session['username'],session['password']) in allowed:
+		# if (session['username'],session['password']) in allowed:
+		if session.username != 'anonymous':
 			session['logged_in'] = 'True'
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			# countings
@@ -192,7 +214,7 @@ class Index:
 			all, notreviewed, underreview, published = queries.getCountings()
 			results = queries.getRecordsPagination(page)
 			records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
-			log_output('WELCOME PAGE', session['logged_in'], session['username'])
+			u.log_output('WELCOME PAGE', session['logged_in'], session['username'])
 
 			return render.index(
 				wikilist=records,
@@ -210,7 +232,7 @@ class Index:
 				)
 		else:
 			session['logged_in'] = 'False'
-			log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
+			u.log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'/')
 
 	def POST(self, page):
@@ -256,7 +278,7 @@ class Index:
 
 		elif actions.action.startswith('createRecord'):
 			record = actions.action.split("createRecord",1)[1]
-			log_output('START NEW RECORD (LOGGED IN)', session['logged_in'], session['username'], actions.action.split("createRecord",1)[1] )
+			u.log_output('START NEW RECORD (LOGGED IN)', session['logged_in'], session['username'], actions.action.split("createRecord",1)[1] )
 			raise web.seeother(prefixLocal+'record-'+record)
 
 		# delete a record (but not the dump in /records folder)
@@ -265,7 +287,7 @@ class Index:
 			filterRecords = actions.action.split('deleteRecord',1)[1].split(' __')[1]
 			queries.deleteRecord(graph)
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
+			u.log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
 			if filterRecords == 'none' or filterRecords is None:
 				raise web.seeother(prefixLocal+'welcome-'+page)
 			else:
@@ -292,13 +314,13 @@ class Index:
 		# modify a record
 		elif actions.action.startswith('modify'):
 			record = actions.action.split(conf.name,1)[1].replace('/','')
-			log_output('MODIFY RECORD', session['logged_in'], session['username'], record )
+			u.log_output('MODIFY RECORD', session['logged_in'], session['username'], record )
 			raise web.seeother(prefixLocal+'modify-'+record)
 
 		# start review of a record
 		elif actions.action.startswith('review'):
 			record = actions.action.split(conf.name,1)[1].replace('/','')
-			log_output('REVIEW RECORD', session['logged_in'], session['username'], record )
+			u.log_output('REVIEW RECORD', session['logged_in'], session['username'], record )
 			raise web.seeother(prefixLocal+'review-'+record)
 
 		# change page
@@ -344,10 +366,12 @@ class Record(object):
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 
 		session['ip_address'] = str(web.ctx['ip'])
-		user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
-		logged_in = True if (session['username'],session['password']) in allowed else False
-		log_output('GET RECORD FORM', session['logged_in'], session['username'])
-		block_user, limit = check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
+		#user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
+		user = session['username']
+		logged_in = True if user != 'anonymous' else False
+		#logged_in = True if (session['username'],session['password']) in allowed else False
+		u.log_output('GET RECORD FORM', session['logged_in'], session['username'])
+		block_user, limit = u.check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		f = forms.get_form(conf.myform)
 		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit)
 
@@ -356,23 +380,25 @@ class Record(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		f = forms.get_form(conf.myform)
-		user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
+		#user = session['username'] if (session['username'],session['password']) in allowed else 'anonymous'
+		user = session['username']
 		session['ip_address'] = str(web.ctx['ip'])
-		write_ip(str(datetime.datetime.now()), str(web.ctx['ip']), 'POST')
+		u.write_ip(str(datetime.datetime.now()), str(web.ctx['ip']), 'POST')
 
 		if not f.validates():
-			log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],recordID)
+			u.log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],recordID)
 			return render.record(record_form=f, pageID=name, user=user)
 		else:
 			recordData = web.input()
 			if 'login' in recordData or 'action' in recordData:
 				login_or_create(recordData,allowed)
 			recordID = recordData.recordID if 'recordID' in recordData else None
-			log_output('CREATED RECORD', session['logged_in'], session['username'],recordID)
+			u.log_output('CREATED RECORD', session['logged_in'], session['username'],recordID)
 			if recordID:
 				userID = user.replace('@','-at-').replace('.','-dot-')
 				file_path = mapping.inputToRDF(recordData, userID, 'not modified')
-				github_sync.push(file_path,"main")
+				if conf.github_backup == True:
+					github_sync.push(file_path,"main")
 				if user == 'anonymous':
 					raise web.seeother(prefixLocal+'/')
 				else:
@@ -389,14 +415,15 @@ class Modify(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
-		if (session['username'],session['password']) in allowed:
+		#if (session['username'],session['password']) in allowed:
+		if session['username'] != 'anonymous':
 			session_data['logged_in'] = 'True'
 			graphToRebuild = conf.base+name+'/'
 			recordID = name
 			data = queries.getData(graphToRebuild)
-			log_output('START MODIFY RECORD', session['logged_in'], session['username'], recordID )
+			u.log_output('START MODIFY RECORD', session['logged_in'], session['username'], recordID )
 			f = forms.get_form(conf.myform)
-			ids_dropdown = get_dropdowns(fields)
+			ids_dropdown = u.get_dropdowns(fields)
 			return render.modify(graphdata=data, pageID=recordID, record_form=f, user=session['username'],ids_dropdown=ids_dropdown) # render the form filled
 		else:
 			session['logged_in'] = 'False'
@@ -417,8 +444,9 @@ class Modify(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
-			github_sync.push(file_path,"main")
-			log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
+			if conf.github_backup == True:
+				github_sync.push(file_path,"main")
+			u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
 # FORM: review a record for publication (only logged in users)
@@ -433,9 +461,9 @@ class Review(object):
 		recordID = name
 		data = queries.getData(graphToRebuild)
 		session['ip_address'] = str(web.ctx['ip'])
-		log_output('START REVIEW RECORD', session['logged_in'], session['username'], recordID )
+		u.log_output('START REVIEW RECORD', session['logged_in'], session['username'], recordID )
 		f = forms.get_form(conf.myform)
-		ids_dropdown = get_dropdowns(fields)
+		ids_dropdown = u.get_dropdowns(fields)
 		return render.review(graphdata=data, pageID=recordID, record_form=f, graph=graphToRebuild, user=session['username'], ids_dropdown=ids_dropdown) # render the form filled
 
 
@@ -453,8 +481,9 @@ class Review(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
-			github_sync.push(file_path,"main")
-			log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
+			if conf.github_backup == True:
+				github_sync.push(file_path,"main")
+			u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
 		# publish
@@ -463,8 +492,9 @@ class Review(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
-			github_sync.push(file_path,"main")
-			log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
+			if conf.github_backup == True:
+				github_sync.push(file_path,"main")
+			u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 			raise web.seeother(prefixLocal+'welcome-1')
 
 		# login or create new record
@@ -545,10 +575,10 @@ class sparql:
         if accept is None or accept == "*/*" or accept == "":
             accept = "application/sparql-results+xml"
         if is_post: # CHANGE
-            req = requests.post('http://artchives.fondazionezeri.unibo.it:3000/sparql', data=data,
+            req = requests.post(conf.myPublicEndpoint, data=data,
                                 headers={'content-type': content_type, "accept": accept})
         else: # CHANGE
-            req = requests.get("%s?%s" % ('http://artchives.fondazionezeri.unibo.it:3000/sparql', data),
+            req = requests.get("%s?%s" % (conf.myPublicEndpoint, data),
                                headers={'content-type': content_type, "accept": accept})
 
         if req.status_code == 200:
@@ -575,9 +605,6 @@ class sparql:
             raise web.HTTPError(
                 "403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
 
-
-app.notfound = notfound
-app.internalerror = internalerror
 
 if __name__ == "__main__":
 	app.run()

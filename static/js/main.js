@@ -104,10 +104,14 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
       });
     $('.toBeWrapped').wrapAll("<section class='accordion-group'></section>");
 
+    // sort alphabet list
+    sortList("alphabet");
+
     // focus on click
     $('.resource_collapse').on('click', function (e) {
         $(e.currentTarget).parent('span').addClass('active');
     });
+
     // close other dropdowns when opening one
     var $myGroup = $('.accordion-group');
     $('.collapse').on('show.bs.collapse', function () {
@@ -121,22 +125,21 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
         var alphaLabel = $('.info_collapse[data-target="#'+id+'"]');
         alphaLabel.addClass('alphaActive');
     });
-
-    // sort alphabet list
-    sortList("alphabet");
+    // show more in EXPLORE
+    $(".showMore").hide();
 
     // show related resources in "term" page
     $(".showRes").on("click", {count: $(".showRes").data("count"), uri: $(".showRes").data("uri"), limit_query: $(".showRes").data("limit"), offset_query: $(".showRes").data("offset")}, searchResources);
 });
 
+// sort alphabetically
 function sortList(ul) {
   var ul = document.getElementById(ul);
 
   Array.from(ul.getElementsByTagName("span"))
     .sort((a, b) => a.textContent.localeCompare(b.textContent))
     .forEach(span => ul.appendChild(span));
-}
-
+};
 
 
 function colorForm() {
@@ -483,7 +486,6 @@ function nlpText(searchterm) {
 							    	var myRegexp = /<http:\/\/www.w3.org\/2002\/07\/owl#sameAs> <http:\/\/wikidata.org\/entity\/(.*)>/;
 									var match = myRegexp.exec(data);
 									var res = match[1];
-									//console.log(data);
 									if (res && !$('textarea#'+searchterm).parent().next('.tags-nlp').children("span[data-id="+match[1]+"]").length ) {
 										// get Wikidata label
 										$.ajax({
@@ -542,7 +544,6 @@ function nlpText(searchterm) {
 	}) );
 };
 
-
 // lookup when creating new records
 function checkPriorRecords(elem) {
   $('.'+elem).keyup(function(e) {
@@ -579,12 +580,89 @@ function checkPriorRecords(elem) {
             // close lookup suggestions
             $('#close_section').on('click', function() {
               var target = $(this).parent();
-              //console.log(target);
               target.hide();
             });
     			};
   	    }
   	});
 
+  });
+};
+
+// get values by property in EXPLORE page, e.g. creators
+function getPropertyValue(elemID, prop, typeProp, typeField) {
+  // TODO extend for vocabulary terms
+  if (typeProp == 'URI' && (typeField == 'Textbox' || typeField == 'Dropdown') ) {
+    var query = "select distinct ?o ?oLabel (COUNT(?s) AS ?count) "+in_graph+" where { ?s <"+prop+"> ?o. ?o rdfs:label ?oLabel . } GROUP BY ?o ?oLabel ORDER BY DESC(?count) lcase(?oLabel)";
+  } else {var query = "none"};
+
+  const len = 3;
+  var encoded = encodeURIComponent(query);
+  $.ajax({
+        type: 'GET',
+        url: myPublicEndpoint+'?query=' + encoded,
+        headers: { Accept: 'application/sparql-results+json'},
+        success: function(returnedJson) {
+          var allresults = [];
+          var results = [];
+          for (i = 0; i < returnedJson.results.bindings.length; i++) {
+            var res = returnedJson.results.bindings[i].o.value;
+            var resLabel = returnedJson.results.bindings[i].oLabel.value;
+            var count = returnedJson.results.bindings[i].count.value;
+            var result = "<button onclick=getRecordsByPropValue(this,'."+elemID+"results') id='"+res+"' class='queryGroup' data-property='"+prop+"' data-value='"+res+"' data-toggle='collapse' data-target='#"+elemID+"results' aria-expanded='false' aria-controls='"+elemID+"results' class='info_collapse'>"+resLabel+" ("+count+")</button>";
+            if (allresults.indexOf(result) === -1) {
+              allresults.push(result);
+              results.push($(result).hide());
+              $("#"+elemID).append($(result).hide());
+            };
+
+          };
+
+          // show more in EXPLORE
+          if (results.length > len) {
+            // show first batch
+            $("#"+elemID).find("button:lt("+len+")").show('smooth');
+            console.log("yes longer");
+            $("#"+elemID).next(".showMore").show();
+
+            // show more based on var len
+            let counter = 1;
+            $("#"+elemID).next(".showMore").on("click", function() {
+              ++counter;
+              var offset = counter*len;
+              var limit = offset+len;
+              console.log(counter, offset, limit);
+              $("#"+elemID).find("button:lt("+limit+")").show('smooth');
+            });
+
+          } else if (results.length > 0 && results.length <= len) {
+            $("#"+elemID).find("button:not(.showMore)").show('smooth');
+          };
+
+        } // end function
+
+  });
+
+};
+
+// get records by value and property in EXPLORE
+function getRecordsByPropValue(el, resElem) {
+  if ($(resElem).length) {$(resElem).empty();}
+  var prop = $(el).data("property");
+  var val = $(el).data("value");
+  var query = "select distinct ?s ?sLabel "+in_graph+" where { ?s <"+prop+"> <"+val+">; rdfs:label ?sLabel . } ORDER BY ?sLabel"
+  var encoded = encodeURIComponent(query);
+  $.ajax({
+        type: 'GET',
+        url: myPublicEndpoint+'?query=' + encoded,
+        headers: { Accept: 'application/sparql-results+json'},
+        success: function(returnedJson) {
+          for (i = 0; i < returnedJson.results.bindings.length; i++) {
+            var res = returnedJson.results.bindings[i].s.value;
+            var resID = res.substr(res.lastIndexOf('/') + 1)
+            var resLabel = returnedJson.results.bindings[i].sLabel.value;
+            $(resElem).append("<section><a href='view-"+resID+"'>"+resLabel+"</a></section>");
+          };
+        }
   });
 };

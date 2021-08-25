@@ -14,6 +14,7 @@ a {text-decoration: underline !important; color: black !important;}
 .logo img {width: auto; height: 3em; margin-right: 1em;}
 button, input.btn {border-radius: 0px !important; border: solid 1px black !important; box-shadow: 3px 7px  black !important;}
 .btn {background-color: rgba(100,23,180,1); }
+.noBtn {border:none !important; box-shadow: none !important; background-color: white; margin-top: 15px;}
 .active {background-color: rgba(255,0,0,1) !important; }
 .logo_header {display:inline-block; padding: 5px; color: rgba(100,23,180,1); border: solid 1px rgba(100,23,180,1); box-shadow: 3px 7px; }
 nav, footer {padding: 1em 4em; letter-spacing: 0.01em;}
@@ -211,11 +212,16 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 .notes .info-note {padding: 2em; background-color: gainsboro;}
 #mapid { height: 400px; }
 .tooltip-inner p a,.tooltip-inner p a:hover {color: white !important;}
+
 /* sort alphabetically records */
-.alphabet span { display: inline-block; margin:5px; padding:5px !important; border: solid 1px; box-shadow: 3px 5px; background-color: white; color:black;}
-.alphabet span:hover {color: rgba(100,23,180,1);-webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
+.alphabet span, .queryGroup { display: inline-block; margin:5px; padding:5px !important; border: solid 1px; box-shadow: 3px 5px; background-color: white; color:black;}
+.alphabet span:hover, .queryGroup:hover {color: rgba(100,23,180,1);-webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
 .alphaActive {color: rgba(100,23,180,1) !important;}
-.accordion-group {margin: 10px; height: 200px; overflow-y: auto; border-bottom: solid 1px rgba(100,23,180,1);}
+.accordion-group, .resultAccordion {margin: 10px; height: 300px; overflow-y: auto; border-bottom: solid 1px rgba(100,23,180,1);}
+.showMore {margin: 5px;}
+/* filter by URI/label */
+
+
 
 .documentation img {margin: 1em 0px; border: solid 1px grey; width: 100%;}
 .documentation h3 {margin-top: 1em;}

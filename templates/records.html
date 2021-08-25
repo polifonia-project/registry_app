@@ -10,11 +10,11 @@ $var user = user
 
 		$for filter in filters:
 			<section class="row">
-				<section class="homeheading col-4">
+				<section class="homeheading col-md-4 col-sm-8">
 					<p class="caption">$filter[1]</p>
 					<h2>Browse by $filter[1]</h2>
 				</section>
-				<section class="homeheadingtext col-7">
+				<section class="homeheadingtext col-md-7 col-sm-8">
 					$if filter[2] == 'Textbox' and filter[3] == 'Literal':
 						<p>Filter alphabetically</p>
 						$if filter[0] == 'http://www.w3.org/2000/01/rdf-schema#label':
@@ -26,10 +26,36 @@ $var user = user
 										<a href="view-$record[0].rsplit('/')[-2]" class="resource_collapse">$record[1]</a>
 									</section>
 							</section>
+						$else:
+							<p>COMING SOON</p>
 					$elif filter[2] == 'Textbox' and filter[3] == 'URI':
-						<p>Filter alphabetically by name</p>
+						<p>Filter by most recurring values</p>
+						$ elemID = filter[1].replace(' ','')
+						$ results = elemID+"results"
+						<section id="$elemID" class="indexURI">
+						</section>
+						<button class="showMore" type="button">show more</button>
+						<script type="text/javascript">
+							getPropertyValue("$elemID", "$filter[0]", "$filter[3]", "$filter[2]");
+						</script>
+						<section class="resultAccordion">
+							<section id="$results" class="$results collapse"></section>
+						</section>
+
 					$elif filter[2] == 'Dropdown' and filter[3] == 'URI':
-						<p>Filter by $filter[1] values</p>
+						<p>Filter by most recurring values</p>
+						$ elemID = filter[1].replace(' ','')
+						$ results = elemID+"results"
+						<section id="$elemID" class="indexURI">
+						</section>
+						<button class="showMore" type="button">show more</button>
+						<script type="text/javascript">
+							getPropertyValue("$elemID", "$filter[0]", "$filter[3]", "$filter[2]");
+						</script>
+						<section class="resultAccordion">
+							<section id="$results" class="$results collapse"></section>
+						</section>
+
 					$else:
 						<p>-</p>
 				</section>
