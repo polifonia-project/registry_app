@@ -1,0 +1,25 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://purl.org/spar/datacite/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://data.open.ac.uk/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.open.ac.uk/musow/1629984135-759795> a <https://schema.org/CreativeWork> ;
+    rdfs:label "repo let me finish" ;
+    ns3:creator <http://www.wikidata.org/entity/Q56457363> ;
+    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab> .
+
+<http://data.open.ac.uk/musow/1629984135-759795/> rdfs:label "repo let me finish" ;
+    ns4:publicationStage "not modified"^^xsd:string ;
+    ns1:generatedAtTime "2021-08-26T14:55:30.946357"^^xsd:dateTime ;
+    ns1:wasGeneratedBy ns4:marilena-dot-daquino2-at-unibo-dot-it .
+
+ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab> rdfs:label "Format"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q56457363> rdfs:label "Marilena Daquino"^^xsd:string .
+
