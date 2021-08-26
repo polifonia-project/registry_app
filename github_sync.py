@@ -50,3 +50,15 @@ def push(local_file_path, branch=None):
 		repo.update_file(contents.path, message, data, contents.sha, author=author)  # Add, commit and push branch
 	else:  # If file doesn't exist, create it in the same relative path of the local file
 		repo.create_file(local_file_path, message, data, branch=branch, author=author)  # Add, commit and push branch
+
+
+def delete_file(local_file_path, branch):
+	token = conf.token
+	owner = conf.owner
+	repo_name = conf.repo_name
+	g = Github(token)
+	repo = g.get_repo(owner+"/"+repo_name)
+	author = InputGitAuthor(conf.author,conf.author_email) # commit author
+	contents = repo.get_contents(local_file_path)
+	message = "deleted file "+local_file_path
+	repo.delete_file(contents.path, message, contents.sha, branch=branch)

@@ -340,8 +340,9 @@ select-selected.select-arrow-active:after {
 }
 
 @media screen and (min-width: 320px)
-  and (max-width: 580px) {
-    .homepage {height: 50%;}
-    .logo_homepage {margin: 10px 30px;}
+  and (max-width: 760px) {
+    .homepage {height: 60%;}
+    .logo_homepage {margin: 1em; text-align: center; display:block;}
+    .homepage h1 {text-align: center; margin-top: -3em;}
     .homeheading h2 { font-size: 3em;}
 }

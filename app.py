@@ -287,6 +287,9 @@ class Index:
 			filterRecords = actions.action.split('deleteRecord',1)[1].split(' __')[1]
 			queries.deleteRecord(graph)
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
+			if conf.github_backup == True: # hardcoded, to be improved
+				file_path = "records/"+graph.split(conf.base)[1].rsplit('/',1)[0]+".ttl"
+				github_sync.delete_file(file_path,"main")
 			u.log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
 			if filterRecords == 'none' or filterRecords is None:
 				raise web.seeother(prefixLocal+'welcome-'+page)
