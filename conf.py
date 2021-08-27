@@ -15,12 +15,14 @@ limit_requests = 50 # max number of records per IP address/day
 pagination = 4 # results per page in backend
 
 # github
-github_backup = False # change to False and ignore the token field if you don't want data backup on github
-token = 'ghp_eL1OfbEnq******************' # github access token
-owner = "polifonia-project" # polifonia-project
-repo_name = "registry" # registry
+github_backup = True # change to False and ignore the token field if you don't want data backup on github
+token = 'ghp_eL1OfbEnqPC******************' # github access token
+# owner = "polifonia-project" # polifonia-project
+# repo_name = "registry" # registry
+owner = "marilenadaquino"
+repo_name = "crowdsourcing"
 author = "marilenadaquino" # default author of commits
 author_email = "marilena.daquino2@unibo.it" # default author of commits
 # github authentication
-gitClientID = "09******************" # create a OAuth app if you want to enable github authentication
-gitClientSecret = "47c1e******************"
+gitClientID = "09f******************" # create a OAuth app if you want to enable github authentication
+gitClientSecret = "47c1e0******************"

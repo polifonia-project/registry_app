@@ -6,7 +6,7 @@ $if alert == False:
 		<button id="showRight"><i class="far fa-lightbulb"></i> help</button>
 		<script type="text/javascript">
 			$$('#cbp-spmenu-s2').load( "./documentation #documentation", function() {
-				$$(".documentation").removeClass('col-md-7').addClass('col-md-12');
+				$$(".documentation").removeClass('col-md-7').addClass('col-md-12 col-sm-4');
 				$$("h2").css('font-size','3em');
 			} );
 			setTimeout( function(){ document.getElementById( "recordForm" ).reset(); }, 5 );

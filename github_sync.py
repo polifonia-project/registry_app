@@ -2,17 +2,48 @@ import os , json
 import requests
 from github import Github, InputGitAuthor
 import conf
-# based on https://towardsdatascience.com/all-the-things-you-can-do-with-github-api-and-python-f01790fca131
-
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+# OAUTH APP
+
+clientId = conf.gitClientID
+clientSecret = conf.gitClientSecret
+
+def ask_user_permission(code):
+	""" get user permission when authenticating via github"""
+	res = None
+	body = {
+		"client_id" : clientId,
+		"client_secret" : clientSecret,
+		"code" : code
+	}
+
+	req = requests.post('https://github.com/login/oauth/access_token', data=body,
+						headers={"accept": "application/json"})
+	if req.status_code == 200:
+		res = req.json()
+	return res
+
+
+def get_user_login(res):
+	""" get github user information """
+	userlogin, usermail = None, None
+	access_token = res["access_token"]
+	req_user = requests.get("https://api.github.com/user",
+							headers={"Authorization": "token "+access_token})
+
+	if req_user.status_code == 200:
+		res_user = req_user.json()
+		userlogin = res_user["login"]
+		usermail = res_user["email"]
+	return userlogin, usermail
+
 
 def get_github_users(userlogin):
+	""" match user with collaborators of github repository"""
 	is_valid_user = False
 	if conf.token != '' and conf.owner != '' and conf.repo_name != '':
-		# req = requests.get("https://api.github.com/repos/"+conf.owner+"/"+conf.repo_name+"/collaborators",
-		# 					headers={"Authorization": "token "+conf.token})
 		req = requests.get("https://api.github.com/repos/"+conf.owner+"/"+conf.repo_name+"/collaborators",
 							headers={"Authorization": "token "+conf.token})
 		if req.status_code == 200:

@@ -43,13 +43,13 @@ author = "marilenadaquino" # github username of the author of commits
 author_email = "marilena.daquino2@unibo.it" # author's email
 ```
 
-#### `main.js`
+#### `static/js/conf.js`
 
 ```
-const myPublicEndpoint = 'http://127.0.0.1:3000/blazegraph/sparql'; # lookup (autocomplete helper, search), leave "http://127.0.0.1:3000/blazegraph/sparql" if there is no remote SPARQL endpoint
-const base = 'http://data.open.ac.uk/musow/'; # URI base of the dataset
-const graph = 'http://data.open.ac.uk/context/musow'; # to specify in which graph to look into. leave empty if data is in the default graph
-const webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the records on the web app (autocomplete helper). leave "http://0.0.0.0:8080/view-" if not served online
+var myPublicEndpoint = 'http://127.0.0.1:3000/blazegraph/sparql'; # lookup (autocomplete helper, search), leave "http://127.0.0.1:3000/blazegraph/sparql" if there is no remote SPARQL endpoint
+var base = 'http://data.open.ac.uk/musow/'; # URI base of the dataset
+var graph = 'http://data.open.ac.uk/context/musow'; # to specify in which graph to look into. leave empty if data is in the default graph
+var webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the records on the web app (autocomplete helper). leave "http://0.0.0.0:8080/view-" if not served online
 
 ```
 
@@ -102,7 +102,7 @@ Example
       "http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab":"Format"
     },
   "disambiguate":"False",
-  "browse":"True" # True|False if you want records grouped by this field in the Explore page 
+  "browse":"True" # True|False if you want records grouped by this field in the Explore page
 }
 ```
 

@@ -93,6 +93,7 @@ article p { font-size: 1.5em; line-height: 1.7em; padding: 0.5em 2em;}
 /* backend homepage */
 .filters {margin: 0 auto; text-align: center; padding: 2em;}
 .filters  form {display: inline;}
+.filters button {margin: 5px;}
 .delete {background-color: rgba(255,0,0,1) !important;  }
 .delete:hover {background-color: rgba(255,10,10,1) !important;}
 /* records table */
@@ -181,7 +182,8 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 .noImage p {padding-top: 40%;}
 .noImage:hover .ImageCHI {background-color: rgba(100,23,180,1); -webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
 .entryTitle {background-color: white; font-size: 1.0em; padding: 0.3em; position: relative; }
-.hideRes, .showRes { margin: 20px 0px; background-color: rgba(100,23,180,1); color: white;}
+.hideRes, .showRes, .showMore { margin: 20px 0px; background-color: rgba(100,23,180,1); color: white;}
+.hideRes:hover, .showRes:hover, .showMore:hover {filter: brightness(125%); -webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
 .relatedResources {margin: 20px 0px;}
 /* historian/collection template */
 /*.info-item {font-style: italic;}*/
@@ -215,8 +217,8 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 
 /* sort alphabetically records */
 .alphabet span, .queryGroup { display: inline-block; margin:5px; padding:5px !important; border: solid 1px; box-shadow: 3px 5px; background-color: white; color:black;}
-.alphabet span:hover, .queryGroup:hover {color: rgba(100,23,180,1);-webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
-.alphaActive {color: rgba(100,23,180,1) !important;}
+.alphabet span:hover, .queryGroup:hover {color: rgba(100,23,180,1); -webkit-transition-duration: 0.4s; transition-duration: 0.4s;}
+.alphaActive {color: rgba(100,23,180,1) !important; border-color: rgba(100,23,180,1); }
 .accordion-group, .resultAccordion {margin: 10px; height: 300px; overflow-y: auto; border-bottom: solid 1px rgba(100,23,180,1);}
 .showMore {margin: 5px;}
 /* filter by URI/label */
@@ -341,8 +343,36 @@ select-selected.select-arrow-active:after {
 
 @media screen and (min-width: 320px)
   and (max-width: 760px) {
+    /* homepage */
     .homepage {height: 60%;}
     .logo_homepage {margin: 1em; text-align: center; display:block;}
     .homepage h1 {text-align: center; margin-top: -3em;}
     .homeheading h2 { font-size: 3em;}
+    .homeheading {padding-bottom: 0px;}
+    .homeheadingtext {padding-top: 0px;}
+    /* backend: force table columns to behave like rows */
+  	tr, td { display: grid !important; width: 100%;}
+  	tr:nth-of-type(1) {display: none !important;}
+    tr {margin-top: 20px;}
+  	tr td {border: none !important;position: relative;padding-left: 50%;}
+  	td:before {position: absolute;top: 6px; left: 6px;
+      font-weight: 500; font-family: 'Karla', sans-serif; font-size: 15px !important;
+  		padding-right: 10px; white-space: nowrap;}
+  	td:nth-of-type(1):before { content: "RECORD"; }
+  	td:nth-of-type(2):before { content: "CREATED BY"; }
+  	td:nth-of-type(3):before { content: "MODIFIED BY"; }
+  	td:nth-of-type(4):before { content: "LAST MODIFIED"; }
+  	td:nth-of-type(5):before { content: "STAGE"; }
+  	td:nth-of-type(6):before { content: "ACTIONS"; }
+
+    /* documentation */
+    .cbp-spmenu-vertical {width: 70%; border-left: solid 1px;}
+    .cbp-spmenu-left {  left: -70%;}
+    .cbp-spmenu-right {  right: -70%;}
+    .cbp-spmenu-push-toright {  left: -70%;}
+    .cbp-spmenu-push-toleft {  left: -70%;}
+
+    /* form */
+    form .homeheading h2 {display: none;}
+    #lookup {position: fixed;top: 10px; left:3em; box-shadow: 3px 5px; z-index: 100000; border: solid 1px; background-color: white; width: 30em; padding: 1em;}
 }

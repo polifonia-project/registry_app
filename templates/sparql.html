@@ -1,56 +1,16 @@
 $def with (active, user)
-<html>
-    <head>
-        <title>ARTchives SPARQL endpoint</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script type="text/javascript" src="./static/js/jquery.min.js"></script>
-        <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./static/js/artchives.js"></script>
-        <link rel="stylesheet" type="text/css" href="./static/css/artchives.css">
-        <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    </head>
-    <body>
-        <nav>
-            <span class="logo"><a href="/"><img src="./static/imgs/logo.png"></a></span>
-            <a href="about">about</a>
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">login</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                $if user == 'anonymous':
-                    <form action="" method="POST">
-                        <div class="field-wrap">
-                          <label>Email</label><input name="login" type="email" required autocomplete="on"/>
-                        </div>
-                        <div class="field-wrap">
-                          <label>Password</label><input name="passwd" type="password" required autocomplete="on"/>
-                        </div>
-                        <button class="btn btn-dark"/>Login</button>
-                      </form>
-                $else:
-                    <p>You are logged in.</p>
-                    <p><a href="logout">Logout</a></p>
-            </div>
-        </nav>
+$var user = user
 
-        <div class="cover-container col-md-12 articleBox">
-            <div class="cover">
-                <h2 class="cover-heading">ARTchives - SPARQL endpoint</h2>
-                <div id="yasqe"></div>
-                <div id="yasr"></div>
-            </div>
-        </div>
+<header class="row">
+  <h3 class="col-md-12 col-lg-12 col-sm-12">SPARQL endpoint</h3>
+</header>
+<article class="">
+  <div id="yasqe"></div>
+  <div id="yasr"></div>
+</article>
 
-
-        <!-- SPARQL GUI -->
-        <footer>
-            <a href="credits">credits</a>
-            <a href="documentation">documentation</a>
-            <a href="sparql">query</a>
-        </footer>
-        <link rel="stylesheet" type="text/css" href="./static/css/yasgui.css">
-        <script src='./static/js/yasr.bundled.min.js'></script>
-        <script src='./static/js/yasqe.bundled.min.js'></script>
-        <script src="./static/js/sparql.js"></script>
-    </body>
-</html>
+<!-- SPARQL GUI -->
+<link rel="stylesheet" type="text/css" href="./static/css/yasgui.css">
+<script src='static/js/yasr.bundled.min.js'></script>
+<script src='static/js/yasqe.bundled.min.js'></script>
+<script src="static/js/sparql.js"></script>

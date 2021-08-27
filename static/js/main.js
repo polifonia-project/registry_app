@@ -1,7 +1,3 @@
-const myPublicEndpoint = 'http://0.0.0.0:3000/blazegraph/sparql'; // http://data.open.ac.uk/sparql
-const base = 'http://data.open.ac.uk/musow/';
-const graph = ''; // http://data.open.ac.uk/context/musow
-const webBase = 'http://0.0.0.0:8080/view-'; // https://musow.kmi.open.ac.uk/resources/
 
 if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
 
@@ -78,6 +74,8 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
   		};
   	};
 
+    // hide lookup
+    $("#lookup").hide();
   	// append WD icon to input fields
   	$('.searchWikidata').parent().prev().append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
     $('.wikiEntity').append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
@@ -596,7 +594,7 @@ function getPropertyValue(elemID, prop, typeProp, typeField) {
     var query = "select distinct ?o ?oLabel (COUNT(?s) AS ?count) "+in_graph+" where { ?s <"+prop+"> ?o. ?o rdfs:label ?oLabel . } GROUP BY ?o ?oLabel ORDER BY DESC(?count) lcase(?oLabel)";
   } else {var query = "none"};
 
-  const len = 3;
+  const len = 10;
   var encoded = encodeURIComponent(query);
   $.ajax({
         type: 'GET',
@@ -616,13 +614,13 @@ function getPropertyValue(elemID, prop, typeProp, typeField) {
               $("#"+elemID).append($(result).hide());
             };
 
+
           };
 
           // show more in EXPLORE
           if (results.length > len) {
             // show first batch
             $("#"+elemID).find("button:lt("+len+")").show('smooth');
-            console.log("yes longer");
             $("#"+elemID).next(".showMore").show();
 
             // show more based on var len
@@ -647,6 +645,7 @@ function getPropertyValue(elemID, prop, typeProp, typeField) {
 
 // get records by value and property in EXPLORE
 function getRecordsByPropValue(el, resElem) {
+  $(el).toggleClass("alphaActive");
   if ($(resElem).length) {$(resElem).empty();}
   var prop = $(el).data("property");
   var val = $(el).data("value");

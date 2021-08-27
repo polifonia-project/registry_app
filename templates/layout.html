@@ -5,22 +5,22 @@ $def with (content)
 	    <title>musoW</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="static/js/popper.min.js"></script>
-		<script type="text/javascript" src="static/js/jquery.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="static/js/wikidata-sdk.min.js"></script>
-		<script type="text/javascript" src="static/js/main.js"></script>
-		<script type="text/javascript" src="static/js/classie.js"></script>
-		<script type="text/javascript" src="static/js/lodash-core.js"></script>
-		<link rel="icon" type="image/png" href="static/imgs/favicon.png">
-		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="static/css/main.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet">
+			<script type="text/javascript" src="static/js/conf.js"></script>
+			<script src="static/js/popper.min.js"></script>
+			<script type="text/javascript" src="static/js/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="static/js/wikidata-sdk.min.js"></script>
+			<script type="text/javascript" src="static/js/main.js"></script>
+			<script type="text/javascript" src="static/js/classie.js"></script>
+			<script type="text/javascript" src="static/js/lodash-core.js"></script>
+			<link rel="icon" type="image/png" href="static/imgs/favicon.png">
+			<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="static/css/main.css">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet">
 	</head>
 	<body class="cbp-spmenu-push">
 		<section class="container-fluid main_content">
@@ -38,15 +38,6 @@ $def with (content)
 					<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign in</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						$if content.user == 'anonymous' or content.user == 'unknown':
-							<!-- <form action="" method="post">
-							    <div class="field-wrap">
-							      <label>Email</label><input name="login" type="email" required autocomplete="on"/>
-							    </div>
-							    <div class="field-wrap">
-							      <label>Password</label><input name="passwd" type="password" required autocomplete="on"/>
-							    </div>
-							    <button class="btn btn-dark"/>Login</button>
-							</form> -->
 							<p class="small noBtn"><a href="gitauth">authenticate via github <i class="fab fa-github"></i></a> </p>
 						$else:
 							<p>You are logged in.</p>
@@ -71,18 +62,16 @@ $def with (content)
 			<footer class="row justify-content-md-center">
 
 				<section class="col-md-4 col-sm-12">
-					<section class="col-md-10 col-sm-12">
 						<p>musoW is part of</p>
 						<p><a target="_blank" href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
 						<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
 						<p></p>
-					</section>
 				</section>
 
 				<section class="col-md-2 col-sm-10">
 					<p><a href="/">Home</a></p>
 					<p><a href="records">Explore</a></p>
-					<p><a href="http://data.open.ac.uk/sparql">SPARQL endpoint</a></p>
+					<p><a href="sparql">SPARQL endpoint</a></p>
 					<p><a href="https://github.com/polifonia-project/registry">Get the data</a></p>
 				</section>
 				<section class="col-md-2 col-sm-10">
@@ -90,7 +79,7 @@ $def with (content)
 					<p><a href="https://github.com/polifonia-project/registry"><i class="fab fa-github"></i></a>
 						<a href="https://twitter.com/PolifoniaH2020"><i class="fab fa-twitter"></i></a>
 						<a href="https://www.linkedin.com/company/polifonia-h2020/"><i class="fab fa-linkedin-in"></i></a> </p>
-					<p>Do you want an account? Become a collaborator! open an issue on <a href="https://github.com/polifonia-project/registry/issues">github</a></p>
+					<p>Become a collaborator! send us a request on <a href="https://github.com/polifonia-project/registry/issues">github</a></p>
 				</section>
 			</footer>
 		</section>

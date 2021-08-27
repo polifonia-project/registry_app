@@ -16,6 +16,8 @@ def initialize_session(app):
 	else:
 		session = web.config._session
 		session_data = session._initializer
+
+	web.config.session_parameters['timeout'] = 86400
 	return store, session, session_data
 
 
