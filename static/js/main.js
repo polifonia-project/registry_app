@@ -237,6 +237,7 @@ function searchWD(searchterm) {
   	      if(!data.search.length){
   	      	$("#searchresult").append("<div class='wditem noresults'>No matches in Wikidata...looking into the catalogue</div>");
   	      	// remove messages after 3 seconds
+            console.log("here first");
       			setTimeout(function(){
       			  if ($('.noresults').length > 0) {
       			    $('.noresults').remove();
@@ -245,27 +246,28 @@ function searchWD(searchterm) {
 
       			var query = "prefix bds: <http://www.bigdata.com/rdf/search#> select distinct ?s ?o ?desc "+in_graph+" where { ?s rdfs:label ?o . OPTIONAL { ?s rdfs:comment ?desc} . ?o bds:search '"+q+"*' .}"
       			var encoded = encodeURIComponent(query)
-
+            console.log("here");
       			$.ajax({
       				    type: 'GET',
       				    url: myPublicEndpoint+'?query=' + encoded,
       				    headers: { Accept: 'application/sparql-results+json'},
       				    success: function(returnedJson) {
-      				    	$("#searchresult").empty();
-
-                    if (!returnedJson.length) {
-        		      				$("#searchresult").empty();
-        					    		$("#searchresult").append("<div class='wditem noresults'>No results in Wikidata and catalogue</div>");
-        		      				// remove messages after 3 seconds
-        								  setTimeout(function(){ if ($('.noresults').length > 0) { $('.noresults').remove(); } }, 3000);
-        		      	};
+      				    	// $("#searchresult").empty();
+                    console.log(returnedJson);
+                    // if (!returnedJson.length) {
+        		      	// 			// $("#searchresult").empty();
+        					  //   		$("#searchresult").append("<div class='wditem noresults'>No results in Wikidata and catalogue</div>");
+        		      	// 			// remove messages after 3 seconds
+        						// 		  setTimeout(function(){ if ($('.noresults').length > 0) { $('.noresults').remove(); } }, 3000);
+        		      	// };
 
         						for (i = 0; i < returnedJson.results.bindings.length; i++) {
         							var myUrl = returnedJson.results.bindings[i].s.value;
         							// exclude named graphs from results
         							if ( myUrl.substring(myUrl.length-1) != "/") {
                         var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> - " + returnedJson.results.bindings[i].desc.value + "</div>");
+                        if (returnedJson.results.bindings[i].desc !== undefined) {var desc = '- '+returnedJson.results.bindings[i].desc.value} else {var desc = ''}
+        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> " + desc + "</div>");
         							    };
         							};
 
