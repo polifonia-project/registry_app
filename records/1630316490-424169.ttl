@@ -1,0 +1,24 @@
+@prefix ns1: <http://data.open.ac.uk/musow/> .
+@prefix ns2: <http://purl.org/spar/datacite/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.open.ac.uk/musow/1630316490-424169> a <https://schema.org/CreativeWork> ;
+    rdfs:label "" ;
+    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
+    ns2:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre> .
+
+<http://data.open.ac.uk/musow/1630316490-424169/> rdfs:label "" ;
+    ns1:publicationStage "not modified"^^xsd:string ;
+    ns3:generatedAtTime "2021-08-30T15:41:36.904724"^^xsd:dateTime ;
+    ns3:wasGeneratedBy ns1:marilena-dot-daquino2-at-unibo-dot-it .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<http://data.open.ac.uk/musow/ontology/scope/genre> rdfs:label "genre"^^xsd:string .
+
+<http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository"^^xsd:string .
+
