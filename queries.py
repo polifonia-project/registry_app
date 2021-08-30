@@ -26,7 +26,7 @@ queryRecords = """
 	SELECT DISTINCT ?g ?title ?userLabel ?modifierLabel ?date ?stage
 	WHERE
 	{ GRAPH ?g {
-	    ?s ?p ?o .
+		?s ?p ?o .
 
 		OPTIONAL { ?g rdfs:label ?title; prov:wasGeneratedBy ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
 			OPTIONAL {?g prov:wasInfluencedBy ?modifier. ?modifier rdfs:label ?modifierLabel .} }
@@ -38,9 +38,9 @@ queryRecords = """
 		BIND(COALESCE(?modifierLabel, '-') AS ?modifierLabel ).
 		BIND(COALESCE(?title, 'none', '-') AS ?title ).
 		filter not exists {
-	      ?g prov:generatedAtTime ?date2
-	      filter (?date2 > ?date)
-	    }
+		  ?g prov:generatedAtTime ?date2
+		  filter (?date2 > ?date)
+		}
 
 	  }
 	  FILTER( str(?g) != '"""+conf.base+"""vocabularies/' )
@@ -73,7 +73,7 @@ def getRecordsPagination(page, filterRecords=''):
 		SELECT DISTINCT ?g ?title ?userLabel ?modifierLabel ?date ?stage
 		WHERE
 		{ GRAPH ?g {
-		    ?s ?p ?o .
+			?s ?p ?o .
 
 			OPTIONAL { ?g rdfs:label ?title; prov:wasGeneratedBy ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
 				OPTIONAL {?g prov:wasInfluencedBy ?modifier. ?modifier rdfs:label ?modifierLabel .} }
@@ -85,9 +85,9 @@ def getRecordsPagination(page, filterRecords=''):
 			BIND(COALESCE(?modifierLabel, '-') AS ?modifierLabel ).
 			BIND(COALESCE(?title, 'none', '-') AS ?title ).
 			filter not exists {
-		      ?g prov:generatedAtTime ?date2
-		      filter (?date2 > ?date)
-		    }
+			  ?g prov:generatedAtTime ?date2
+			  filter (?date2 > ?date)
+			}
 
 		  }
 		  """+filterRecords+"""
@@ -119,7 +119,7 @@ def getCountings(filterRecords=''):
 			?g base:publicationStage ?stage .
 			"""+filterRecords+"""
 			}
-		  	FILTER( str(?g) != '"""+conf.base+"""vocabularies/' ) .
+			FILTER( str(?g) != '"""+conf.base+"""vocabularies/' ) .
 
 		}
 		GROUP BY ?stage
@@ -144,7 +144,7 @@ def countAll():
 		SELECT (COUNT(DISTINCT ?g) AS ?count)
 		WHERE
 		{ GRAPH ?g { ?s ?p ?o .}
-		  	FILTER( str(?g) != '"""+conf.base+"""vocabularies/' ) .
+			FILTER( str(?g) != '"""+conf.base+"""vocabularies/' ) .
 		}
 		"""
 	sparql = SPARQLWrapper(conf.myEndpoint)
@@ -202,19 +202,28 @@ def getData(graph):
 	sparql.setReturnFormat(JSON)
 	results = sparql.query().convert()
 
+	def compare_sublists(l, lol):
+		for sublist in lol:
+			temp = [i for i in sublist if i in l]
+			if sorted(temp) == sorted(l):
+				return True
+		return False
+
 	data = defaultdict(list)
 	for result in results["results"]["bindings"]:
 		result.pop('subject',None)
 		result.pop('graph_title',None)
 		for k,v in result.items():
 			if '_label' not in k and v['type'] == 'literal': # string values
-				if v['value'] not in data[k]:
+				if v['value'] not in data[k]: # unique values
 					data[k].append(v['value'])
 			elif v['type'] == 'uri': # uri values
 				uri = v['value'].rsplit('/', 1)[-1]
 				label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
-				data[k].append([uri,label])
-	#print("############ data",data)
+
+				if compare_sublists([uri,label], data[k]) == False:
+					data[k].append([uri,label])
+	print("############ data",data)
 	return data
 
 
@@ -257,14 +266,14 @@ def getFreqProps():
 	queryProps = '''
 		select distinct ?p {
 		  { select distinct ?p {
-		    { select ?ex { ?ex a '''+conf.base+''' } limit 1 }
-		    ?ex ?p ?o
-		    }
+			{ select ?ex { ?ex a '''+conf.base+''' } limit 1 }
+			?ex ?p ?o
+			}
 		  }
 
 		  filter not exists {
-		    ?f a '''+conf.base+''' .
-		    filter not exists { ?f ?p ?o }
+			?f a '''+conf.base+''' .
+			filter not exists { ?f ?p ?o }
 		  }
 		}
 	'''

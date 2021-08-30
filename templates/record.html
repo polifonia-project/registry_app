@@ -23,13 +23,20 @@ $if alert == False:
 						$for input in record_form.inputs:
 							<section class=" form_row">
 								$ id = input.get_default_id()
-								<section class="label col-12">
-									$:input.description
-								</section>
-								<section class="col-md-12 col-sm-12 col-lg-12">
-									$:input.pre
-									$:input.render()
-								</section>
+								$if type(input) == Checkbox:
+									<section class="col-md-12 col-sm-12 col-lg-12">
+										$:input.pre
+										$:input.render()
+										$:input.description
+									</section>
+								$else:
+									<section class="label col-12">
+										$:input.description
+									</section>
+									<section class="col-md-12 col-sm-12 col-lg-12">
+										$:input.pre
+										$:input.render()
+									</section>
 							</section>
 					</section>
 					<section class="homeheading col-md-4 col-sm-4 col-lg-4">

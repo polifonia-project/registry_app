@@ -3,6 +3,12 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://data.open.ac.uk/musow/ontology/scope/genre> rdfs:label "genre" .
+
+<http://data.open.ac.uk/musow/ontology/scope/geographical> rdfs:label "geographical" .
+
+<http://data.open.ac.uk/musow/ontology/scope/temporal> rdfs:label "temporal" .
+
 <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository" .
 
 <http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab> rdfs:label "Format" .

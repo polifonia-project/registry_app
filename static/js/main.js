@@ -103,7 +103,7 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
     $('.toBeWrapped').wrapAll("<section class='accordion-group'></section>");
 
     // sort alphabet list
-    sortList("alphabet");
+    if (document.getElementById("alphabet")) {sortList("alphabet");}
 
     // focus on click
     $('.resource_collapse').on('click', function (e) {
@@ -336,7 +336,6 @@ function searchResources(event) {
     var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o OFFSET "+offset_query+" LIMIT "+limit_query+" "
   }
   var encoded = encodeURIComponent(query)
-
   $.ajax({
         type: 'GET',
         url: myPublicEndpoint+'?query=' + encoded,
@@ -590,7 +589,7 @@ function checkPriorRecords(elem) {
 // get values by property in EXPLORE page, e.g. creators
 function getPropertyValue(elemID, prop, typeProp, typeField) {
   // TODO extend for vocabulary terms
-  if (typeProp == 'URI' && (typeField == 'Textbox' || typeField == 'Dropdown') ) {
+  if (typeProp == 'URI' && (typeField == 'Textbox' || typeField == 'Dropdown'|| typeField == 'Checkbox') ) {
     var query = "select distinct ?o ?oLabel (COUNT(?s) AS ?count) "+in_graph+" where { ?s <"+prop+"> ?o. ?o rdfs:label ?oLabel . } GROUP BY ?o ?oLabel ORDER BY DESC(?count) lcase(?oLabel)";
   } else {var query = "none"};
 

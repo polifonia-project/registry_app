@@ -60,5 +60,23 @@
       },
     "disambiguate":"False",
     "browse":"True"
+  },
+  {
+    "type":"Checkbox",
+    "id":"resource_scope",
+    "label":"Scope",
+    "prepend":"The resource may collect music items according to several criteria, multiple choice allowed",
+    "disabled":"False",
+    "class":"col-md-11",
+    "cache_autocomplete":"off",
+    "property":"http://purl.org/spar/datacite/hasScope",
+    "value":"URI",
+    "values":{
+        "http://data.open.ac.uk/musow/ontology/scope/geographical":"geographical",
+        "http://data.open.ac.uk/musow/ontology/scope/temporal":"temporal",
+        "http://data.open.ac.uk/musow/ontology/scope/genre":"genre"
+      },
+    "disambiguate":"False",
+    "browse":"True"
   }
 ]

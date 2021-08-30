@@ -3,7 +3,7 @@ $def with (user, data, title,r_base,alll,filters)
 $var user = user
 
 <header class="row">
-  <h3 class="col-md-12 col-lg-12 col-sm-12">Discover music data on the web. <br> There are $alll resources</h3>
+  <h3 class="col-md-12 col-lg-12 col-sm-12">Discover music data on the web. <br> Explore $alll resources</h3>
 </header>
 <section class="row articleBox">
 	<section class="col-md-10 col-sm-12">
@@ -42,7 +42,7 @@ $var user = user
 							<section id="$results" class="$results collapse"></section>
 						</section>
 
-					$elif filter[2] == 'Dropdown' and filter[3] == 'URI':
+					$elif filter[2] in ['Dropdown','Checkbox'] and filter[3] == 'URI':
 						<p>Filter by most recurring values</p>
 						$ elemID = filter[1].replace(' ','')
 						$ results = elemID+"results"
@@ -55,7 +55,6 @@ $var user = user
 						<section class="resultAccordion">
 							<section id="$results" class="$results collapse"></section>
 						</section>
-
 					$else:
 						<p>-</p>
 				</section>

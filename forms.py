@@ -48,6 +48,27 @@ def get_form(json_form):
 			pre = prepend,
 			class_= classes), )
 
+		if field['type'] == 'Checkbox':
+			prepend_title = '<section class="checkbox_group_label label col-12">'+description+'</section>'
+			i = 0
+			params = params + (form.Checkbox(myid+'-'+str(i),
+			value=dropdown_values[0][0]+','+dropdown_values[0][1],
+			description = dropdown_values[0][1],
+			id=myid,
+			pre = prepend_title+prepend,
+			class_= classes+' checkbox_group',
+			checked=False), )
+
+			for value in dropdown_values[1:]:
+				i += 1
+				params = params + (form.Checkbox(myid+'-'+str(i),
+				value=value[0]+','+value[1],
+				description = value[1],
+				id=myid,
+				pre = '',
+				class_= classes+' checkbox_group following_checkbox',
+				checked=False), )
+
 	myform = form.Form(*params)
 	return myform
 

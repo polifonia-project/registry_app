@@ -146,6 +146,9 @@ input[type='text']:focus, input[type='textarea']:focus, textarea:focus {outline:
 input[value="Save"], input[value="Start review process"] {margin: 2em auto; width: 15em;}
 input[value="Publish"] {background-color: rgba(100,23,180,1) !important; border-color: rgba(100,23,180,1);}
 input[value="Publish"]:hover {background-color: rgba(100,23,180,1) !important; border-color: rgba(100,23,180,1);}
+input.checkbox_group {max-width: 20px;}
+input.following_checkbox {margin-left: 2.2em;}
+.checkbox_group_label {padding-left: 2.2em;}
 i.fa-info-circle{color: rgba(100,23,180,1);}
 i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 
@@ -224,7 +227,7 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 /* filter by URI/label */
 
 
-
+.documentation {margin-top: 5em;}
 .documentation img {margin: 1em 0px; border: solid 1px grey; width: 100%;}
 .documentation h3 {margin-top: 1em;}
 .documentation h4 {font-size: 1.1em; color: rgba(100,23,180,1); margin-top: 1em; font-weight: bold;}
@@ -366,6 +369,7 @@ select-selected.select-arrow-active:after {
   	td:nth-of-type(6):before { content: "ACTIONS"; }
 
     /* documentation */
+    .documentation {margin-top: 8em;}
     .cbp-spmenu-vertical {width: 70%; border-left: solid 1px;}
     .cbp-spmenu-left {  left: -70%;}
     .cbp-spmenu-right {  right: -70%;}

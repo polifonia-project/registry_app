@@ -49,7 +49,8 @@ store, session, session_data = u.initialize_session(app)
 render = web.template.render('templates/', base="layout", cache=False,
 								globals={'session':session,'time_now':u.get_timestamp,
 								'isinstance':isinstance,'str':str, 'next':next,
-								'upper':u.upper})
+								'upper':u.upper, 'get_type':web.form.Checkbox.get_type, 'type':type,
+								'Checkbox':web.form.Checkbox})
 render2 = web.template.render('templates/', globals={'session':session})
 
 # LOAD FORM, IMPORT VOCABS
@@ -307,6 +308,7 @@ class Record(object):
 			return render.record(record_form=f, pageID=name, user=user)
 		else:
 			recordData = web.input()
+			print(recordData)
 			if 'action' in recordData:
 				create_record(recordData)
 			recordID = recordData.recordID if 'recordID' in recordData else None
@@ -468,9 +470,10 @@ class View(object):
 class Term(object):
 	def GET(self, name):
 		data = queries.describeTerm(name)
+		print(data)
 		count = len([ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
-					if name in result["object"]["value"] ])
+					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
 
 		return render.term(user=session['username'], data=data, count=count)
 

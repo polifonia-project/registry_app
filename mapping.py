@@ -90,6 +90,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 		# TODO disambiguate as URI, value
 		if field["disambiguate"] == 'True': # use the key 'disambiguate' as title of the graph
 			wd.add(( URIRef(base+graph_name+'/'), URIRef(field['property']), Literal(value) ))
+			wd.add(( URIRef(base+graph_name+'/'), RDFS.label, Literal(value) ))
 
 		# the main entity has the same URI of the graph but the final /
 
