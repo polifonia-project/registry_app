@@ -1,21 +1,24 @@
-@prefix ns1: <http://data.open.ac.uk/musow/> .
+@prefix ns1: <http://purl.org/spar/datacite/> .
 @prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <http://purl.org/spar/datacite/> .
+@prefix ns3: <http://data.open.ac.uk/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://data.open.ac.uk/musow/1630339329-8158982> a <https://schema.org/CreativeWork> ;
-    rdfs:label "" ;
-    ns3:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> .
+    rdfs:label "at least a title" ;
+    ns1:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> .
 
-<http://data.open.ac.uk/musow/1630339329-8158982/> rdfs:label "" ;
-    ns1:publicationStage "not modified"^^xsd:string ;
-    ns2:generatedAtTime "2021-08-30T18:02:17.977171"^^xsd:dateTime ;
-    ns2:wasGeneratedBy ns1:anonymous .
+<http://data.open.ac.uk/musow/1630339329-8158982/> rdfs:label "at least a title" ;
+    ns3:publicationStage "modified"^^xsd:string ;
+    ns2:generatedAtTime "2021-08-30T18:44:36.189120"^^xsd:dateTime ;
+    ns2:wasGeneratedBy ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
 
-ns1:anonymous rdfs:label "anonymous" .
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository"^^xsd:string .
 
