@@ -1,0 +1,21 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://purl.org/spar/datacite/> .
+@prefix ns3: <http://data.open.ac.uk/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.open.ac.uk/musow/1630331296-758903> a <https://schema.org/CreativeWork> ;
+    rdfs:label "checkbox create" ;
+    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> .
+
+<http://data.open.ac.uk/musow/1630331296-758903/> rdfs:label "checkbox create" ;
+    ns3:publicationStage "not modified"^^xsd:string ;
+    ns1:generatedAtTime "2021-08-30T15:48:29.648440"^^xsd:dateTime ;
+    ns1:wasGeneratedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository"^^xsd:string .
+
