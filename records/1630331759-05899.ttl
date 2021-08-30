@@ -1,7 +1,7 @@
-@prefix ns1: <http://purl.org/spar/datacite/> .
+@prefix ns1: <http://data.open.ac.uk/musow/> .
 @prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <http://purl.org/dc/terms/> .
-@prefix ns4: <http://data.open.ac.uk/musow/> .
+@prefix ns3: <http://purl.org/spar/datacite/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,16 +9,16 @@
 
 <http://data.open.ac.uk/musow/1630331759-05899> a <https://schema.org/CreativeWork> ;
     rdfs:label "try two checkbox" ;
-    ns3:creator <http://www.wikidata.org/entity/Q18141405> ;
-    ns1:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
-    ns1:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre>,
+    ns4:creator <http://www.wikidata.org/entity/Q18141405> ;
+    ns3:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
+    ns3:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre>,
         <http://data.open.ac.uk/musow/ontology/scope/geographical> .
 
 <http://data.open.ac.uk/musow/1630331759-05899/> rdfs:label "try two checkbox" ;
-    ns4:publicationStage "modified"^^xsd:string ;
-    ns2:generatedAtTime "2021-08-30T16:37:59.642516"^^xsd:dateTime ;
-    ns2:wasGeneratedBy ns4:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:wasInfluencedBy ns4:marilena-dot-daquino2-at-unibo-dot-it .
+    ns1:publicationStage "modified"^^xsd:string ;
+    ns2:generatedAtTime "2021-08-30T16:38:06.226958"^^xsd:dateTime ;
+    ns2:wasGeneratedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it .
 
 <http://data.open.ac.uk/musow/ontology/scope/genre> rdfs:label "genre"^^xsd:string .
 
@@ -28,5 +28,5 @@
 
 <http://www.wikidata.org/entity/Q18141405> rdfs:label "Marianna"^^xsd:string .
 
-ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
