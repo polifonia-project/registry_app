@@ -32,6 +32,7 @@ urls = (
 	prefix + '/review-(.+)', 'Review',
 	prefix + '/documentation', 'Documentation',
 	prefix + '/records', 'Records',
+	prefix + '/model', 'DataModel',
 	prefix + '/view-(.+)', 'View',
 	prefix + '/term-(.+)', 'Term',
 	prefix + '/(sparql)','sparql'
@@ -53,12 +54,15 @@ render = web.template.render('templates/', base="layout", cache=False,
 								'Checkbox':web.form.Checkbox})
 render2 = web.template.render('templates/', globals={'session':session})
 
-# LOAD FORM, IMPORT VOCABS
+# LOAD FORM, IMPORT VOCABS, QUERY LOV VOCABULARIES
 
 with open(conf.myform) as config_form:
 	fields = json.load(config_form)
 
 vocabs.import_vocabs(fields)
+res_class = conf.main_entity # get main class from conf py
+res_class_label = u.get_LOV_labels(res_class,'class')
+props_labels = [ u.get_LOV_labels(field["property"],'property') for field in fields]
 
 # ERROR HANDLER
 
@@ -419,6 +423,7 @@ class Review(object):
 		# login or create new record
 		else:
 			create_record(actions)
+
 # FORM: view documentation
 
 class Documentation:
@@ -476,6 +481,12 @@ class Term(object):
 					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
 
 		return render.term(user=session['username'], data=data, count=count)
+
+# DATA MODEL
+
+class DataModel:
+	def GET(self):
+		return render.datamodel(user=session['username'], data=props_labels, res_class=res_class_label)
 
 # QUERY: endpoint GUI
 
