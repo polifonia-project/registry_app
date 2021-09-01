@@ -1,0 +1,18 @@
+$def with(user, data,res_class)
+$var user = user
+
+
+<section class="row articleBox">
+	<section class="col-md-7">
+			$ title = res_class[1] if res_class[1] != res_class[0] else 'no title'
+			<h2 class="articleTitle">The data model</h2>
+			<h3 class="articleSubtitle">CLASS: <span>$:title</span></h3>
+			<p class="small"><a target='_blank' href="$res_class[0]">$res_class[0]</a></p>
+			$for prop_label in data:
+				<section class="info-item">
+					$ prop_title = prop_label[1]
+					<h3 class="articleSubtitle">$:prop_title</h3>
+					<p class="small"><a target='_blank' href="$:prop_label[0]">$prop_label[0]</a></p>
+				</section>
+	</section>
+</section>
