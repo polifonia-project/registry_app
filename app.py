@@ -488,6 +488,10 @@ class DataModel:
 	def GET(self):
 		return render.datamodel(user=session['username'], data=props_labels, res_class=res_class_label)
 
+	def POST(self):
+		data = web.input()
+		create_record(data)
+
 # QUERY: endpoint GUI
 
 class sparql:
