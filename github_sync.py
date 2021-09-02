@@ -37,7 +37,7 @@ def get_user_login(res):
 		res_user = req_user.json()
 		userlogin = res_user["login"]
 		usermail = res_user["email"]
-	return userlogin, usermail
+	return userlogin, usermail, access_token
 
 
 def get_github_users(userlogin):
@@ -54,16 +54,17 @@ def get_github_users(userlogin):
 	return is_valid_user
 
 
-def push(local_file_path, branch=None):
+def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=None):
 	""" create a new file or update an existing file.
 	the remote file has the same relative path of the local one"""
-
-	token = conf.token
+	token = conf.token if bearer_token is None else bearer_token
+	user = conf.author if gituser is None else gituser
+	usermail = conf.author_email if email is None else email
 	owner = conf.owner
 	repo_name = conf.repo_name
 	g = Github(token)
 	repo = g.get_repo(owner+"/"+repo_name)
-	author = InputGitAuthor(conf.author,conf.author_email) # commit author
+	author = InputGitAuthor(user,usermail) # commit author
 	remote_file_path ="/contents/"+local_file_path # check if the file exists in repo
 
 	try:
@@ -83,13 +84,16 @@ def push(local_file_path, branch=None):
 		repo.create_file(local_file_path, message, data, branch=branch, author=author)  # Add, commit and push branch
 
 
-def delete_file(local_file_path, branch):
-	token = conf.token
+def delete_file(local_file_path, branch, gituser=None, email=None, bearer_token=None):
+	""" delete files form github """
+	token = conf.token if bearer_token is None else bearer_token
+	user = conf.author if gituser is None else gituser
+	usermail = conf.author_email if email is None else email
 	owner = conf.owner
 	repo_name = conf.repo_name
 	g = Github(token)
 	repo = g.get_repo(owner+"/"+repo_name)
-	author = InputGitAuthor(conf.author,conf.author_email) # commit author
+	author = InputGitAuthor(user,usermail) # commit author
 	contents = repo.get_contents(local_file_path)
 	message = "deleted file "+local_file_path
 	repo.delete_file(contents.path, message, contents.sha, branch=branch)

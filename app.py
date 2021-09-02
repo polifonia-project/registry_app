@@ -110,12 +110,14 @@ class Oauthcallback:
 		res = github_sync.ask_user_permission(code)
 
 		if res:
-			userlogin, usermail = github_sync.get_user_login(res)
+			userlogin, usermail, bearer_token = github_sync.get_user_login(res)
 			is_valid_user = github_sync.get_github_users(userlogin)
 			if is_valid_user == True:
 				session['logged_in'] = 'True'
 				session['username'] = usermail
+				session['gituser'] = userlogin
 				session['ip_address'] = str(web.ctx['ip'])
+				session['bearer_token'] = bearer_token
 				# do not store the token
 				u.log_output('LOGIN VIA GITHUB', session['logged_in'], session['username'])
 				raise web.seeother(prefixLocal+'welcome-1')
@@ -146,6 +148,8 @@ class Logout:
 		session['logged_in'] = 'False'
 		session['username'] = 'anonymous'
 		session['ip_address'] = str(web.ctx['ip'])
+		session['bearer_token'] = 'None'
+		session['gituser'] = 'None'
 		raise web.seeother(prefixLocal+'/')
 
 	def POST(self):
@@ -227,7 +231,7 @@ class Index:
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			if conf.github_backup == True: # path hardcoded, to be improved
 				file_path = "records/"+graph.split(conf.base)[1].rsplit('/',1)[0]+".ttl"
-				github_sync.delete_file(file_path,"main")
+				github_sync.delete_file(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 			u.log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
 			if filterRecords in ['none',None]:
 				raise web.seeother(prefixLocal+'welcome-'+page)
@@ -321,7 +325,7 @@ class Record(object):
 				userID = user.replace('@','-at-').replace('.','-dot-')
 				file_path = mapping.inputToRDF(recordData, userID, 'not modified')
 				if conf.github_backup == True:
-					github_sync.push(file_path,"main")
+					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 				whereto = prefixLocal+'/' if user == 'anonymous' else prefixLocal+'welcome-1'
 				raise web.seeother(whereto)
 			else:
@@ -366,7 +370,7 @@ class Modify(object):
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main")
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 			u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -405,7 +409,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main")
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 			u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -416,7 +420,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main")
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 			u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 			raise web.seeother(prefixLocal+'welcome-1')
 

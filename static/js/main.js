@@ -1,6 +1,6 @@
 
 if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
-
+var wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>'
 
  $(document).ready(function() {
 
@@ -77,8 +77,8 @@ if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
     // hide lookup
     $("#lookup").hide();
   	// append WD icon to input fields
-  	$('.searchWikidata').parent().prev().append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
-    $('.wikiEntity').append(' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>');
+  	$('.searchWikidata').parent().prev().append(wd_img);
+    $('.wikiEntity').append(wd_img);
   	// hide placeholder if filled
   	//colorForm();
 
@@ -291,7 +291,7 @@ function searchWD(searchterm) {
 
   	      // fill the dropdown
   	      $.each(data.search, function(i, item) {
-  	        $("#searchresult").append("<div class='wditem'><a class='blue' target='_blank' href='http://www.wikidata.org/entity/"+item.title+"'><i class='fas fa-external-link-alt'></i></a> <a class='blue' data-id='" + item.title + "'>" + item.label + "</a> - " + item.description + "</div>");
+  	        $("#searchresult").append("<div class='wditem'><a class='blue' target='_blank' href='http://www.wikidata.org/entity/"+item.title+"'>"+wd_img+"</a> <a class='blue' data-id='" + item.title + "'>" + item.label + "</a> - " + item.description + "</div>");
 
             // add tag if the user chooses an item from wd
   	      	$('a[data-id="'+ item.title+'"]').each( function() {

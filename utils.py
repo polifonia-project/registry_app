@@ -14,7 +14,7 @@ def initialize_session(app):
 	Sessions are pickled in folder /sessions"""
 	if web.config.get('_session') is None:
 		store = web.session.DiskStore('sessions')
-		session = web.session.Session(app, store, initializer={'logged_in': 'False', 'username': 'anonymous', 'password': 'None', 'ip_address': 'None'})
+		session = web.session.Session(app, store, initializer={'logged_in': 'False', 'username': 'anonymous', 'gituser': 'None', 'bearer_token': 'None', 'ip_address': 'None'})
 		web.config._session = session
 		session_data = session._initializer
 	else:
