@@ -370,7 +370,7 @@ class Modify(object):
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(modified)')
 			u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -409,7 +409,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(reviewed)')
 			u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
 
@@ -420,7 +420,7 @@ class Review(object):
 			graphToClear = conf.base+name+'/'
 			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
 			if conf.github_backup == True:
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
+				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(published)')
 			u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 			raise web.seeother(prefixLocal+'welcome-1')
 

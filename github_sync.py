@@ -54,7 +54,7 @@ def get_github_users(userlogin):
 	return is_valid_user
 
 
-def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=None):
+def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=None, action=''):
 	""" create a new file or update an existing file.
 	the remote file has the same relative path of the local one"""
 	token = conf.token if bearer_token is None else bearer_token
@@ -70,7 +70,7 @@ def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=
 	try:
 		contents = repo.get_contents(local_file_path) # Retrieve the online file to get its SHA and path
 		update=True
-		message = "updated file "+local_file_path
+		message = "updated file "+local_file_path+' '+action
 	except:
 		update=False
 		message = "created file "+local_file_path
