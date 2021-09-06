@@ -1,0 +1,17 @@
+#!/bin/sh
+# open folder
+app_path="/Users/$USER/Desktop/"
+app_folder=$app_path'crowd'
+# activate virtualenv
+cd $app_folder
+# activate virtualenv
+source $app_folder/bin/activate
+# launch blazegraph
+lsof -ti tcp:3000 | xargs kill
+java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Dbigdata.propertyFile=blaze.properties -jar blazegraph.jar &
+# launch app
+sleep 3
+lsof -ti tcp:8080 | xargs kill
+python3 app.py 8080
+# kill everything when exiting terminal
+trap 'kill $(ps -o pid= --ppid $$) 2>/dev/null' exit
