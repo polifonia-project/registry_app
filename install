@@ -1,7 +1,7 @@
 #!/bin/sh
 p='\033[0;35m'
 app_path="/Users/$USER/Desktop/"
-app_folder=$app_path'crowd'
+app_folder=$app_path'crowdsourcing'
 app_file=$app_folder'/app.py'
 
 echo "${p}Hello there! let's have a look at what we need to install"
@@ -60,10 +60,13 @@ source bin/activate
 # install requirements
 pip3 install -r $app_folder'/requirements.txt'
 
+# executable run
+chmod 755 $app_folder'/run'
+
 if [ ! -f $app_folder'/blazegraph.jar' ]; then
   # download blazegraph
   echo "no blazegraph"
-  curl -L "https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar" --output $app_folder"blazegraph.jar"
+  curl -L "https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar" --output blazegraph.jar
   echo "downloaded blazegraph"
 fi
 
