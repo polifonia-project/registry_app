@@ -66,7 +66,7 @@ def getRecordsPagination(page, filterRecords=''):
 	""" get all the records created by users to list them in the backend welcome page """
 	newpage = int(page)-1
 	offset = str(0) if int(page) == 1 \
-		else str((conf.pagination*newpage))
+		else str(( int(conf.pagination) *newpage))
 	queryRecordsPagination = """
 		PREFIX prov: <http://www.w3.org/ns/prov#>
 		PREFIX base: <"""+conf.base+""">
@@ -95,7 +95,7 @@ def getRecordsPagination(page, filterRecords=''):
 
 		}
 		ORDER BY DESC(?date)
-		LIMIT """+str(conf.pagination)+"""
+		LIMIT """+conf.pagination+"""
 		OFFSET  """+offset+"""
 		"""
 	print("filterRecords",filterRecords)

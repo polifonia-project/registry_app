@@ -26,7 +26,7 @@ def get_form(json_form):
 
 		# text box
 		placeholder = field['placeholder'] if 'placeholder' in field else None
-
+		default = field['defaultvalue'] if 'defaultvalue' in field else ''
 		# dropdown
 		dropdown_values = [(k,v) for k,v in field['values'].items()] if 'values' in field else None
 
@@ -37,7 +37,9 @@ def get_form(json_form):
 			id=myid,
 			placeholder=placeholder,
 			pre = prepend,
-			class_= classes), )
+			class_= classes,
+			value=default), )
+
 
 		if field['type'] == 'Dropdown':
 			params = params + (form.Dropdown(myid,

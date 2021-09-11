@@ -85,6 +85,11 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 
 	wd.add(( URIRef(base+graph_name), RDF.type, URIRef(conf.main_entity) )) # type of catalogued resource
 
+	# if the user did not specify any disambiguate field
+	is_any_disambiguate = ["yes" for field in fields if field['disambiguate'] == 'True']
+	if len(is_any_disambiguate) == 0:
+		wd.add(( URIRef(base+graph_name+'/'), RDFS.label, Literal("no title") ))
+		
 	for field in fields:
 		value = getValuesFromFields(field['id'], recordData, fields) if field['value'] == 'URI' else recordData[field['id']] # URI,literal or literal values
 		# TODO disambiguate as URI, value

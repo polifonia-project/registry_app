@@ -7,6 +7,7 @@ import sys
 import re
 import logging
 import cgi
+from importlib import reload
 from urllib.parse import parse_qs
 import requests
 import web
@@ -23,6 +24,8 @@ prefix = ''
 prefixLocal = prefix
 urls = (
 	prefix + '/', 'Login',
+	prefix + '/setup', 'Setup',
+	prefix + '/template', 'Template',
 	prefix + '/logout', 'Logout',
 	prefix + '/gitauth', 'Gitauth',
 	prefix + '/oauth-callback', 'Oauthcallback',
@@ -50,7 +53,7 @@ store, session, session_data = u.initialize_session(app)
 render = web.template.render('templates/', base="layout", cache=False,
 								globals={'session':session,'time_now':u.get_timestamp,
 								'isinstance':isinstance,'str':str, 'next':next,
-								'upper':u.upper, 'get_type':web.form.Checkbox.get_type, 'type':type,
+								'upper':u.upper, 'toid':u.toid, 'get_type':web.form.Checkbox.get_type, 'type':type,
 								'Checkbox':web.form.Checkbox})
 render2 = web.template.render('templates/', globals={'session':session})
 
@@ -67,14 +70,14 @@ props_labels = [ u.get_LOV_labels(field["property"],'property') for field in fie
 # ERROR HANDLER
 
 def notfound():
-    return web.notfound(render.notfound(user=session['username']))
+	return web.notfound(render.notfound(user=session['username']))
 
 def internalerror():
-    return web.internalerror(render.internalerror(user=session['username']))
+	return web.internalerror(render.internalerror(user=session['username']))
 
 class Notfound:
-    def GET(self):
-        raise web.notfound()
+	def GET(self):
+		raise web.notfound()
 
 app.notfound = notfound
 app.internalerror = internalerror
@@ -102,6 +105,7 @@ class Gitauth:
 	def GET(self):
 		return web.seeother("https://github.com/login/oauth/authorize?client_id="+clientId+"&scope=repo read:user")
 
+
 class Oauthcallback:
 	def GET(self):
 		data = web.input()
@@ -126,10 +130,67 @@ class Oauthcallback:
 			print("bad request to github oauth")
 			return internalerror()
 
+# INITIAL SETUP
+
+class Setup:
+	def GET(self):
+
+		# reload conf
+		reload(conf)
+		f = forms.get_form('setup.json')
+		data = u.get_vars_from_module('conf')
+		return render.setup(f=f,user='anonymous',data=data)
+
+	def POST(self):
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
+		else:
+			original_status=conf.status
+			# override the module conf and conf.json
+			file = open('conf.py', 'w')
+			file.writelines('# -*- coding: utf-8 -*-\n')
+			file.writelines('status= "modified"\n')
+			file.writelines('myform = "myform.json"\n')
+			file.writelines('log_file = "ip_logs.log"\n')
+			file.writelines('wikidataEndpoint = "https://query.wikidata.org/bigdata/namespace/wdq/sparql"\n')
+			for k,v in data.items():
+				file.writelines(k+'''="'''+v+'''"\n''')
+			# write the json config file for javascript
+			jsfile = open('static/js/conf.js', 'w')
+			jsfile.writelines('var myPublicEndpoint = "'+data.myPublicEndpoint+'";\n')
+			jsfile.writelines('var base = "'+data.base+'";\n')
+			# TODO, support for data served in a single graph
+			jsfile.writelines('var graph = "";\n')
+			# reload conf
+			reload(conf)
+			# render login
+			if original_status == 'modified':
+				raise web.seeother(prefixLocal+'/welcome-1')
+			else:
+				raise web.seeother(prefixLocal+'template')
+
+class Template:
+	def GET(self):
+		with open(conf.myform) as config_form:
+			fields = json.load(config_form)
+		res_type = conf.main_entity
+		return render.template(f=fields,user='anonymous',res_type=res_type)
+
+	def POST(self):
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
+		else:
+			u.fields_to_json(data, conf.myform)
+			reload(conf)
+			raise web.seeother(prefixLocal+'/welcome-1')
 # CLASSIC LOGIN : TO BE REMOVED
 
 class Login:
 	def GET(self):
+		if conf.status=='not modified':
+			raise web.seeother('setup')
 		if session.username != 'anonymous':
 			u.log_output('HOMEPAGE LOGGED IN', session['logged_in'], session['username'])
 			raise web.seeother(prefixLocal+'welcome-1')
@@ -165,24 +226,36 @@ class Index:
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
 		filterRecords = ''
-		if session.username != 'anonymous':
-			session['logged_in'] = 'True'
-			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			alll = queries.countAll()
-			all, notreviewed, underreview, published = queries.getCountings()
-			results = queries.getRecordsPagination(page)
-			records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
+		userID = session['username'].replace('@','-at-').replace('.','-dot-')
+		alll = queries.countAll()
+		all, notreviewed, underreview, published = queries.getCountings()
+		results = queries.getRecordsPagination(page)
+		records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
+
+		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
+							(clientId == '' and session['username'] == 'anonymous') else 'False'
+
+		if (session['username'] != 'anonymous') or \
+			(clientId == '' and session['username'] == 'anonymous'):
 			u.log_output('WELCOME PAGE', session['logged_in'], session['username'])
 
 			return render.index(wikilist=records, user=session['username'],
 				varIDpage=str(time.time()).replace('.','-'), alll=alll, all=all,
 				notreviewed=notreviewed,underreview=underreview,
-				published=published, page=page,pagination=conf.pagination,
+				published=published, page=page,pagination=int(conf.pagination),
 				filter=filterRecords, filterName = 'filterAll')
 		else:
-			session['logged_in'] = 'False'
-			u.log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
-			raise web.seeother(prefixLocal+'/')
+			if clientId == '':
+				session['logged_in'] = 'False'
+				return render.index(wikilist=records, user=session['username'],
+					varIDpage=str(time.time()).replace('.','-'), alll=alll, all=all,
+					notreviewed=notreviewed,underreview=underreview,
+					published=published, page=page,pagination=int(conf.pagination),
+					filter=filterRecords, filterName = 'filterAll')
+			else:
+				session['logged_in'] = 'False'
+				u.log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
+				raise web.seeother(prefixLocal+'/')
 
 	def POST(self, page):
 		actions = web.input()
@@ -214,7 +287,7 @@ class Index:
 				varIDpage=str(time.time()).replace('.','-'),
 				alll=alll, all=all, notreviewed=notreviewed,
 				underreview=underreview, published=published,
-				page=page, pagination=conf.pagination,
+				page=page, pagination=int(conf.pagination),
 				filter= filterRecords, filterName = filterName)
 
 		# create a new record (logged users)
@@ -229,7 +302,7 @@ class Index:
 			filterRecords = actions.action.split('deleteRecord',1)[1].split(' __')[1]
 			queries.deleteRecord(graph)
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			if conf.github_backup == True: # path hardcoded, to be improved
+			if conf.github_backup == "True": # path hardcoded, to be improved
 				file_path = "records/"+graph.split(conf.base)[1].rsplit('/',1)[0]+".ttl"
 				github_sync.delete_file(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 			u.log_output('DELETE RECORD', session['logged_in'], session['username'], graph )
@@ -246,18 +319,18 @@ class Index:
 					varIDpage=str(time.time()).replace('.','-'),
 					alll=alll, all=all, notreviewed=notreviewed,
 					underreview=underreview, published=published,
-					page=page, pagination=conf.pagination,
+					page=page, pagination=int(conf.pagination),
 					filter= filterRecords, filterName = filterName)
 
 		# modify a record
 		elif actions.action.startswith('modify'):
-			record = actions.action.split(conf.name,1)[1].replace('/','')
+			record = actions.action.split(conf.base,1)[1].replace('/','')
 			u.log_output('MODIFY RECORD', session['logged_in'], session['username'], record )
 			raise web.seeother(prefixLocal+'modify-'+record)
 
 		# start review of a record
 		elif actions.action.startswith('review'):
-			record = actions.action.split(conf.name,1)[1].replace('/','')
+			record = actions.action.split(conf.base,1)[1].replace('/','')
 			u.log_output('REVIEW RECORD', session['logged_in'], session['username'], record )
 			raise web.seeother(prefixLocal+'review-'+record)
 
@@ -278,7 +351,7 @@ class Index:
 					varIDpage=str(time.time()).replace('.','-'),
 					alll=alll, all=all, notreviewed=notreviewed,
 					underreview=underreview, published=published,
-					page=page, pagination=conf.pagination,
+					page=page, pagination=int(conf.pagination),
 					filter= filterRecords, filterName = filterName)
 
 		# login or create a new record
@@ -324,7 +397,7 @@ class Record(object):
 			if recordID:
 				userID = user.replace('@','-at-').replace('.','-dot-')
 				file_path = mapping.inputToRDF(recordData, userID, 'not modified')
-				if conf.github_backup == True:
+				if conf.github_backup == "True":
 					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
 				whereto = prefixLocal+'/' if user == 'anonymous' else prefixLocal+'welcome-1'
 				raise web.seeother(whereto)
@@ -340,8 +413,11 @@ class Modify(object):
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
-		if session['username'] != 'anonymous':
-			session_data['logged_in'] = 'True'
+		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
+							(clientId == '' and session['username'] == 'anonymous') else 'False'
+
+		if (session['username'] != 'anonymous') or \
+			(clientId == '' and session['username'] == 'anonymous'):
 			graphToRebuild = conf.base+name+'/'
 			recordID = name
 			data = queries.getData(graphToRebuild)
@@ -369,7 +445,7 @@ class Modify(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
-			if conf.github_backup == True:
+			if conf.github_backup == "True":
 				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(modified)')
 			u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
@@ -382,17 +458,24 @@ class Review(object):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-		graphToRebuild = conf.base+name+'/'
-		recordID = name
-		data = queries.getData(graphToRebuild)
-		session['ip_address'] = str(web.ctx['ip'])
-		u.log_output('START REVIEW RECORD', session['logged_in'], session['username'], recordID )
-		f = forms.get_form(conf.myform)
-		ids_dropdown = u.get_dropdowns(fields)
-		return render.review(graphdata=data, pageID=recordID, record_form=f,
-							graph=graphToRebuild, user=session['username'],
-							ids_dropdown=ids_dropdown)
+		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
+							(clientId == '' and session['username'] == 'anonymous') else 'False'
 
+		if (session['username'] != 'anonymous') or \
+			(clientId == '' and session['username'] == 'anonymous'):
+			graphToRebuild = conf.base+name+'/'
+			recordID = name
+			data = queries.getData(graphToRebuild)
+			session['ip_address'] = str(web.ctx['ip'])
+			u.log_output('START REVIEW RECORD', session['logged_in'], session['username'], recordID )
+			f = forms.get_form(conf.myform)
+			ids_dropdown = u.get_dropdowns(fields)
+			return render.review(graphdata=data, pageID=recordID, record_form=f,
+								graph=graphToRebuild, user=session['username'],
+								ids_dropdown=ids_dropdown)
+		else:
+			session['logged_in'] = 'False'
+			raise web.seeother(prefixLocal+'/')
 
 	def POST(self, name):
 		web.header("Content-Type","text/html; charset=utf-8")
@@ -408,7 +491,7 @@ class Review(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
-			if conf.github_backup == True:
+			if conf.github_backup == "True":
 				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(reviewed)')
 			u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 			raise web.seeother(prefixLocal+'welcome-1')
@@ -419,7 +502,7 @@ class Review(object):
 			userID = session['username'].replace('@','-at-').replace('.','-dot-')
 			graphToClear = conf.base+name+'/'
 			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
-			if conf.github_backup == True:
+			if conf.github_backup == "True":
 				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(published)')
 			u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 			raise web.seeother(prefixLocal+'welcome-1')
@@ -499,59 +582,59 @@ class DataModel:
 # QUERY: endpoint GUI
 
 class sparql:
-    def GET(self, active):
-        content_type = web.ctx.env.get('CONTENT_TYPE')
-        return self.__run_query_string(active, web.ctx.env.get("QUERY_STRING"), content_type)
+	def GET(self, active):
+		content_type = web.ctx.env.get('CONTENT_TYPE')
+		return self.__run_query_string(active, web.ctx.env.get("QUERY_STRING"), content_type)
 
-    def POST(self, active):
-        content_type = web.ctx.env.get('CONTENT_TYPE')
-        web.debug("The content_type value: ")
-        web.debug(content_type)
+	def POST(self, active):
+		content_type = web.ctx.env.get('CONTENT_TYPE')
+		web.debug("The content_type value: ")
+		web.debug(content_type)
 
-        cur_data = web.data()
-        if "application/x-www-form-urlencoded" in content_type:
-            print ("QUERY TO ENDPOINT:", cur_data)
-            return self.__run_query_string(active, cur_data, True, content_type)
-        elif "application/sparql-query" in content_type:
-            print("QUERY TO ENDPOINT:", cur_data)
-            return self.__contact_tp(cur_data, True, content_type)
-        else:
-            raise web.redirect("/sparql")
+		cur_data = web.data()
+		if "application/x-www-form-urlencoded" in content_type:
+			print ("QUERY TO ENDPOINT:", cur_data)
+			return self.__run_query_string(active, cur_data, True, content_type)
+		elif "application/sparql-query" in content_type:
+			print("QUERY TO ENDPOINT:", cur_data)
+			return self.__contact_tp(cur_data, True, content_type)
+		else:
+			raise web.redirect("/sparql")
 
-    def __contact_tp(self, data, is_post, content_type):
-        accept = web.ctx.env.get('HTTP_ACCEPT')
-        if accept is None or accept == "*/*" or accept == "":
-            accept = "application/sparql-results+xml"
-        if is_post: # CHANGE
-            req = requests.post(conf.myPublicEndpoint, data=data,
-                                headers={'content-type': content_type, "accept": accept})
-        else: # CHANGE
-            req = requests.get("%s?%s" % (conf.myPublicEndpoint, data),
-                               headers={'content-type': content_type, "accept": accept})
+	def __contact_tp(self, data, is_post, content_type):
+		accept = web.ctx.env.get('HTTP_ACCEPT')
+		if accept is None or accept == "*/*" or accept == "":
+			accept = "application/sparql-results+xml"
+		if is_post: # CHANGE
+			req = requests.post(conf.myPublicEndpoint, data=data,
+								headers={'content-type': content_type, "accept": accept})
+		else: # CHANGE
+			req = requests.get("%s?%s" % (conf.myPublicEndpoint, data),
+							   headers={'content-type': content_type, "accept": accept})
 
-        if req.status_code == 200:
-            web.header('Access-Control-Allow-Origin', '*')
-            web.header('Access-Control-Allow-Credentials', 'true')
-            web.header('Content-Type', req.headers["content-type"])
+		if req.status_code == 200:
+			web.header('Access-Control-Allow-Origin', '*')
+			web.header('Access-Control-Allow-Credentials', 'true')
+			web.header('Content-Type', req.headers["content-type"])
 
-            return req.text
-        else:
-            raise web.HTTPError(
-                str(req.status_code), {"Content-Type": req.headers["content-type"]}, req.text)
+			return req.text
+		else:
+			raise web.HTTPError(
+				str(req.status_code), {"Content-Type": req.headers["content-type"]}, req.text)
 
-    def __run_query_string(self, active, query_string, is_post=False,
-                           content_type="application/x-www-form-urlencoded"):
-        parsed_query = parse_qs(query_string)
-        if query_string is None or query_string.strip() == "":
-            return render.sparql(active, user='anonymous')
-        if re.search("updates?", query_string, re.IGNORECASE) is None:
-            if "query" in parsed_query:
-                return self.__contact_tp(query_string, is_post, content_type)
-            else:
-                raise web.redirect(conf.myPublicEndpoint)
-        else:
-            raise web.HTTPError(
-                "403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
+	def __run_query_string(self, active, query_string, is_post=False,
+						   content_type="application/x-www-form-urlencoded"):
+		parsed_query = parse_qs(query_string)
+		if query_string is None or query_string.strip() == "":
+			return render.sparql(active, user='anonymous')
+		if re.search("updates?", query_string, re.IGNORECASE) is None:
+			if "query" in parsed_query:
+				return self.__contact_tp(query_string, is_post, content_type)
+			else:
+				raise web.redirect(conf.myPublicEndpoint)
+		else:
+			raise web.HTTPError(
+				"403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
 
 
 if __name__ == "__main__":

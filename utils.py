@@ -5,7 +5,7 @@ import json
 import web
 import requests
 import conf
-
+from collections import defaultdict,OrderedDict
 
 # WEBPY STUFF
 
@@ -37,7 +37,7 @@ def log_output(action, logged_in, user, recordID=None):
 
 def write_ip(timestamp, ip_add, request):
 	""" write IP addresses in a log file"""
-	logs = open(conf.log_file, 'a')
+	logs = open(conf.log_file, 'a+')
 	logs.write( str(timestamp)+' --- '+ ip_add + ' --- '+ request+'\n')
 	logs.close()
 
@@ -46,7 +46,7 @@ def check_ip(ip_add, current_time):
 	limit user POST requests to XX a day"""
 
 	is_user_blocked = False
-	limit = conf.limit_requests
+	limit = int(conf.limit_requests)
 	today = current_time.split()[0]
 	data = open(conf.log_file, 'r').readlines()
 	user_requests = [(line.split(' --- ')[0].split()[0], line.split(' --- ')[1]) for line in data if ip_add in line.split(' --- ')[1] and line.split(' --- ')[0].split()[0] == today ]
@@ -72,11 +72,9 @@ def upper(s):
 
 # METHODS FOR DATA MODEL
 
-
-
 def camel_case_split(identifier):
-    matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', identifier)
-    return " ".join([m.group(0) for m in matches])
+	matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', identifier)
+	return " ".join([m.group(0) for m in matches])
 
 def split_uri(term):
 	last_term = term.rsplit("/",1)[1]
@@ -105,3 +103,65 @@ def get_LOV_labels(term, term_type=None):
 					else split_uri(term)
 
 	return term, label
+
+# CONFIG STUFF
+
+def get_vars_from_module(module_name):
+	""" get all variables from a python module, e.g. conf"""
+	module = globals().get(module_name, None)
+	book = {}
+	if module:
+		book = {key: value for key, value in module.__dict__.items() if not (key.startswith('__') or key.startswith('_'))}
+	return book
+
+def toid(s):
+	s = s.lower()
+	s = s.replace(" ", "_")
+	return s
+
+def fields_to_json(data, json_file):
+	""" setup/update the json file with the form template
+	as modified via the web page *template* """
+	print(data)
+	list_dicts = defaultdict(dict)
+	list_ids = sorted([k.split("__")[0] for k in data.keys()])
+
+	for k,v in data.items():
+		# group k,v by number in the k to preserve the order
+		# e.g. '4__type__scope': 'Checkbox'
+		idx, json_key , field_id = k.split("__")
+		list_dicts[int(idx)]["id"] = field_id
+		list_dicts[int(idx)][json_key] = v
+	list_dicts = dict(list_dicts)
+	for n,d in list_dicts.items():
+		# cleanup existing k,v
+		if 'values' in d:
+			values_pairs = d['values'].replace('\r','').strip().split('\n')
+			d["value"] = "URI"
+			d['values'] = { pair.split(",")[0].strip():pair.split(",")[1].strip() for pair in values_pairs }
+		d["disambiguate"] = "True" if 'disambiguate' in d else "False"
+		d["browse"] = "True" if 'browse' in d else "False"
+		# default if missing
+		if d["type"] == "None":
+			d["type"] = "Textbox" if "values" not in d else "Dropdown"
+		if len(d["label"]) == 0:
+			d["label"] = "no label"
+		if len(d["property"]) == 0:
+			d["property"] = "http://example.org/"+d["id"]
+		# add default values
+		d['searchWikidata'] = "True" if d['type'] == 'Textbox' and d['value'] == 'URI' else "False"
+		d["disabled"] = "False"
+		d["class"]= "col-md-11"
+		d["cache_autocomplete"] ="off"
+	# add a default disambiguate if none is selected
+	is_any_disambiguate = ["yes" for n,d in list_dicts.items() if d['disambiguate'] == 'True']
+	if len(is_any_disambiguate) == 0:
+		ids_disamb = [[n, d["disambiguate"]] for n,d in list_dicts.items() if d['type'] == 'Textbox' and d['value'] == 'URI']
+		if len(ids_disamb) > 0:
+			list_dicts[ids_disamb[0][0]]["disambiguate"] = "True"
+
+	ordict = OrderedDict(sorted(list_dicts.items()))
+	ordlist = [d for k,d in ordict.items()]
+	# store the dict as json file
+	with open(json_file, 'w') as fout:
+		fout.write(json.dumps(ordlist, indent=1))

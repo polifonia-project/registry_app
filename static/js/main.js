@@ -1,6 +1,6 @@
 
 if (graph.length) {var in_graph = "FROM <"+graph+">"} else {var in_graph = ""}
-var wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>'
+const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wikidata-logo-without-paddings.svg" style="width:20px ; padding-bottom: 5px; filter: grayscale(100%);"/>'
 
  $(document).ready(function() {
 
@@ -128,17 +128,21 @@ var wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Wik
 
     // show related resources in "term" page
     $(".showRes").on("click", {count: $(".showRes").data("count"), uri: $(".showRes").data("uri"), limit_query: $(".showRes").data("limit"), offset_query: $(".showRes").data("offset")}, searchResources);
+
+    // sortable blocks in template setup
+    moveUpAndDown() ;
+
+    // remove fields from form template
+    $(".trash").click(function(e){
+       e.preventDefault();
+       $(this).parent().remove();
+    });
 });
 
-// sort alphabetically
-function sortList(ul) {
-  var ul = document.getElementById(ul);
 
-  Array.from(ul.getElementsByTagName("span"))
-    .sort((a, b) => a.textContent.localeCompare(b.textContent))
-    .forEach(span => ul.appendChild(span));
-};
-
+////////////////
+// ADD RECORD //
+////////////////
 
 function colorForm() {
 	$('.searchWikidata').each( function() {
@@ -267,7 +271,7 @@ function searchWD(searchterm) {
         							if ( myUrl.substring(myUrl.length-1) != "/") {
                         var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
                         if (returnedJson.results.bindings[i].desc !== undefined) {var desc = '- '+returnedJson.results.bindings[i].desc.value} else {var desc = ''}
-        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> " + desc + "</div>");
+        								$("#searchresult").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a> " + desc + "</div>");
         							    };
         							};
 
@@ -325,50 +329,6 @@ function searchWD(searchterm) {
 	});
 };
 
-// search catalogue resources on click and offset
-function searchResources(event) {
-  var uri = event.data.uri;
-  var count = event.data.count;
-  var offset_query = event.data.offset_query;
-  var limit_query = event.data.limit_query;
-
-  if (offset_query == "0") {
-    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o LIMIT "+limit_query+" "
-  } else {
-    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o OFFSET "+offset_query+" LIMIT "+limit_query+" "
-  }
-  var encoded = encodeURIComponent(query)
-  $.ajax({
-        type: 'GET',
-        url: myPublicEndpoint+'?query=' + encoded,
-        headers: { Accept: 'application/sparql-results+json'},
-        success: function(returnedJson) {
-          if (!returnedJson.results.bindings.length) {
-            $(".relatedResources").append("<div class='wditem noresults'>No more resources</div>");
-          } else {
-            for (i = 0; i < returnedJson.results.bindings.length; i++) {
-              var myUrl = returnedJson.results.bindings[i].o.value;
-              // exclude named graphs from results
-              if ( myUrl.substring(myUrl.length-1) != "/") {
-                var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + returnedJson.results.bindings[i].label.value + "</span></div>").hide();
-                $(".relatedResources").prepend(newItem);
-                newItem.show('slow');
-                };
-              };
-          };
-        }
-  });
-  // update offset query
-  var offset_query = offset_query+limit_query ;
-  $(".showRes").html("show more");
-  event.data.offset_query = offset_query;
-  if (event.data.offset_query > count) {
-    $(".showRes").hide();
-    //$(".hideRes").show();
-  }
-};
-
 // search bar menu
 function searchCatalogue(searchterm) {
   $('#'+searchterm).keyup(function(e) {
@@ -422,7 +382,7 @@ function searchCatalogue(searchterm) {
               // exclude named graphs from results
               if ( myUrl.substring(myUrl.length-1) != "/") {
                 var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-                $("#searchresultmenu").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i> " + returnedJson.results.bindings[i].o.value + "</a></div>");
+                $("#searchresultmenu").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i> " + returnedJson.results.bindings[i].o.value + "</a></div>");
                   };
               };
 
@@ -572,7 +532,7 @@ function checkPriorRecords(elem) {
                 var myUrl = returnedJson.results.bindings[i].s.value;
                 if ( myUrl.substring(myUrl.length-1) != "/") {
                   var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-                  $("#lookup").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='"+webBase+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a></div>");
+                  $("#lookup").append("<div class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <a class='orangeText' data-id=" + returnedJson.results.bindings[i].s.value + "'>" + returnedJson.results.bindings[i].o.value + "</a></div>");
                 };
             };
             $("#lookup").append("<span id='close_section' class='btn btn-dark'>Ok got it!</span>")
@@ -587,6 +547,69 @@ function checkPriorRecords(elem) {
 
   });
 };
+
+///////////////
+// TERM PAGE //
+///////////////
+
+// search catalogue resources on click and offset
+function searchResources(event) {
+  var uri = event.data.uri;
+  var count = event.data.count;
+  var offset_query = event.data.offset_query;
+  var limit_query = event.data.limit_query;
+
+  if (offset_query == "0") {
+    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o LIMIT "+limit_query+" "
+  } else {
+    var query = "select distinct ?o ?label "+in_graph+" where { ?o ?p <"+uri+"> ; rdfs:label ?label . } ORDER BY ?o OFFSET "+offset_query+" LIMIT "+limit_query+" "
+  }
+  var encoded = encodeURIComponent(query)
+  $.ajax({
+        type: 'GET',
+        url: myPublicEndpoint+'?query=' + encoded,
+        headers: { Accept: 'application/sparql-results+json'},
+        success: function(returnedJson) {
+          if (!returnedJson.results.bindings.length) {
+            $(".relatedResources").append("<div class='wditem noresults'>No more resources</div>");
+          } else {
+            for (i = 0; i < returnedJson.results.bindings.length; i++) {
+              var myUrl = returnedJson.results.bindings[i].o.value;
+              // exclude named graphs from results
+              if ( myUrl.substring(myUrl.length-1) != "/") {
+                var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
+                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + returnedJson.results.bindings[i].label.value + "</span></div>").hide();
+                $(".relatedResources").prepend(newItem);
+                newItem.show('slow');
+                };
+              };
+          };
+        }
+  });
+  // update offset query
+  var offset_query = offset_query+limit_query ;
+  $(".showRes").html("show more");
+  event.data.offset_query = offset_query;
+  if (event.data.offset_query > count) {
+    $(".showRes").hide();
+    //$(".hideRes").show();
+  }
+};
+
+
+//////////////
+// EXPLORE //
+//////////////
+
+// sort alphabetically
+function sortList(ul) {
+  var ul = document.getElementById(ul);
+
+  Array.from(ul.getElementsByTagName("span"))
+    .sort((a, b) => a.textContent.localeCompare(b.textContent))
+    .forEach(span => ul.appendChild(span));
+};
+
 
 // get values by property in EXPLORE page, e.g. creators
 function getPropertyValue(elemID, prop, typeProp, typeField) {
@@ -665,4 +688,226 @@ function getRecordsByPropValue(el, resElem) {
           };
         }
   });
+};
+
+
+//////////////
+// TEMPLATE //
+//////////////
+
+// update index of fields in template page (to store the final order)
+function updateindex() {
+  $('.sortable .block_field').each(function(){
+    var idx = $(".block_field").index(this);
+    $(this).attr( "data-index", idx );
+    var everyChild = this.getElementsByTagName("*");
+    for (var i = 0; i< everyChild.length; i++) {
+      var childid = everyChild[i].id;
+      var childname = everyChild[i].name;
+      if (childid != undefined) {
+        if (!isNaN(+childid.charAt(0))) { everyChild[i].id = idx+'__'+childid.split(/__(.+)/)[1]}
+        else {everyChild[i].id = idx+'__'+childid;}
+      };
+      if (childname != undefined) {
+        if (!isNaN(+childname.charAt(0))) { everyChild[i].name = idx+'__'+childname.split(/__(.+)/)[1]}
+        else {everyChild[i].name = idx+'__'+childname;}
+      };
+    };
+  });
+};
+
+// move blocks up/down when clicking on arrow
+function moveUpAndDown() {
+  var selected=0;
+  var itemlist = $('.sortable');
+  var nodes = $(itemlist).children();
+  var len=$(itemlist).children().length;
+  // initialize index
+  updateindex();
+
+  $(".sortable .block_field").click(function(){
+      selected= $(this).index();
+  });
+
+  $(".up").click(function(e){
+   e.preventDefault();
+   if(selected>0) {
+        jQuery($(itemlist).children().eq(selected-1)).before(jQuery($(itemlist).children().eq(selected)));
+        selected=selected-1;
+        updateindex();
+      };
+
+  });
+
+  $(".down").click(function(e){
+     e.preventDefault();
+    if(selected < len) {
+        jQuery($(itemlist).children().eq(selected+1)).after(jQuery($(itemlist).children().eq(selected)));
+        selected=selected+1;
+        updateindex();
+      };
+  });
+
+
+};
+
+// if field type is selected
+function is_selected(st, field) {
+  if (st == field) {return "selected='selected'"} else {return ""};
+};
+
+// add new field in template
+function add_field(field, res_type) {
+  console.log(field);
+  var contents = "";
+  var temp_id = Date.now().toString(); // to be replaced with label id before submitting
+
+  var field_type = "<section class='row'>\
+    <label class='col-md-3'>FIELD TYPE</label>\
+    <select onchange='change_fields(this)' class='col-md-8 ("+res_type+") custom-select' id='type__"+temp_id+"' name='type__"+temp_id+"'>\
+      <option value='None'>Select</option>\
+      <option value='Textbox' "+is_selected('Textbox',field)+">Textbox (text values or name of entities)</option>\
+      <option value='Dropdown' "+is_selected('Dropdown',field)+">Dropdown (select one value from a list)</option>\
+      <option value='Checkbox' "+is_selected('Checkbox',field)+">Checkbox (multiple choice)</option>\
+    </select>\
+  </section>";
+
+  var field_name = "<section class='row'>\
+    <label class='col-md-3'>DISPLAY NAME</label>\
+    <input type='text' id='label__"+temp_id+"' class='col-md-8' name='label__"+temp_id+"'/>\
+  </section>";
+
+  var field_prepend = "<section class='row'>\
+    <label class='col-md-3'>DESCRIPTION <br><span class='comment'>a short explanation of the expected value</span></label>\
+    <textarea id='prepend__"+temp_id+"' class='col-md-8 align-self-start' name='prepend__"+temp_id+"'></textarea>\
+  </section>";
+
+  var field_property = "<section class='row'>\
+    <label class='col-md-3'>RDF PROPERTY</label>\
+    <input type='text' id='property__"+temp_id+"' class='col-md-8' name='property__"+temp_id+"'/>\
+  </section>";
+
+  var field_value = "<section class='row'>\
+    <label class='col-md-3'>VALUE TYPE</label>\
+    <select class='col-md-8 ("+res_type+") custom-select' id='value__"+temp_id+"' name='value__"+temp_id+"' onchange='add_disambiguate("+temp_id+",this)'>\
+      <option value='None'>Select</option>\
+      <option value='Literal'>Free text (Literal)</option>\
+      <option value='URI'>Entity (URI from Wikidata or catalogue)</option>\
+    </select>\
+  </section>";
+
+  var field_placeholder = "<section class='row'>\
+    <label class='col-md-3'>PLACEHOLDER <br><span class='comment'>an example value to be shown to the user (optional)</span></label>\
+    <input type='text' id='placeholder__"+temp_id+"' class='col-md-8 align-self-start' name='placeholder__"+temp_id+"'/>\
+  </section>";
+
+  var field_values = "<section class='row'>\
+    <label class='col-md-3'>VALUES <br><span class='comment'>write one value per row in the form uri, label</span></label>\
+    <textarea id='values__"+temp_id+"' class='col-md-8 values_area align-self-start' name='values__"+temp_id+"'></textarea>\
+  </section>";
+
+  var field_browse = "<section class='row'>\
+    <label class='col-md-11 col-sm-6' for='browse__"+temp_id+"'>use this value as a filter for browsing resources in <em>Explore</em> page</label>\
+    <input type='checkbox' id='browse__"+temp_id+"' name='browse__"+temp_id+"'>\
+  </section>";
+  var open_addons = "<section id='addons__"+temp_id+"'>";
+  var close_addons = "</section>";
+  var up_down = '<a href="#" class="up"><i class="fas fa-arrow-up"></i></a> <a href="#" class="down"><i class="fas fa-arrow-down"></i></a><a href="#" class="trash"><i class="far fa-trash-alt"></i></a>';
+
+  contents += field_type + field_name + field_prepend + field_property + open_addons;
+  if (field =='Textbox') { contents += field_value + field_placeholder; }
+  else {contents += field_values; };
+  contents += field_browse + close_addons + up_down;
+  $(".sortable").append("<section class='block_field'>"+contents+"</section>");
+  updateindex();
+  moveUpAndDown() ;
+  $(".trash").click(function(e){
+     e.preventDefault();
+     $(this).parent().remove();
+  });
+};
+
+// if value == literal add disambiguate checkbox
+function add_disambiguate(temp_id, el) {
+  var field_disambiguate = "<section class='row'>\
+    <label class='left col-md-11 col-sm-6' for='disambiguate__"+temp_id+"'>use this value as primary label (e.g. book title)</label>\
+    <input class='disambiguate' onClick='disable_other_cb(this)' type='checkbox' id='disambiguate__"+temp_id+"' name='disambiguate__"+temp_id+"'>\
+    </section>";
+
+  if (el.value == 'Literal') {
+      $(el).parent().parent().append(field_disambiguate);
+      updateindex();
+  } else {
+    $("input[id*='disambiguate__"+temp_id+"']").parent().remove();
+    updateindex();
+  }
+};
+
+// if one disambiguate is checked, disable others
+function disable_other_cb(ckType) {
+  var ckName = document.getElementsByClassName('disambiguate');
+  var checked = document.getElementById(ckType.id);
+
+    if (checked.checked) {
+      for(var i=0; i < ckName.length; i++){
+          if(!ckName[i].checked){ ckName[i].disabled = true; }
+          else{ ckName[i].disabled = false;}
+      }
+    }
+    else {
+      for(var i=0; i < ckName.length; i++){ ckName[i].disabled = false; }
+    }
+};
+
+// when changing field type, change the form
+function change_fields(sel) {
+  var new_field_type = sel.value;
+  var block_field = $(sel).parent().parent();
+
+  var idx = sel.id;
+  var temp_id = idx.substr(idx.lastIndexOf("__")).replace('__', '');
+
+  var regExp = /\(([^)]+)\)/;
+  var matches = regExp.exec(sel.classList.value);
+  var res_type = matches[1];
+
+  var field_value = "<section class='row'>\
+    <label class='col-md-3'>VALUE TYPE</label>\
+    <select class='col-md-8 ("+res_type+") custom-select' id='value__"+temp_id+"' name='value__"+temp_id+"' onchange='add_disambiguate("+temp_id+",this)'>\
+      <option value='None'>Select</option>\
+      <option value='Literal'>Free text (Literal)</option>\
+      <option value='URI'>Entity (URI from Wikidata or catalogue)</option>\
+    </select>\
+  </section>";
+
+  var field_placeholder = "<section class='row'>\
+    <label class='col-md-3'>PLACEHOLDER <br><span class='comment'>an example value to be shown to the user (optional)</span></label>\
+    <input type='text' id='placeholder__"+temp_id+"' class='col-md-8 align-self-start' name='placeholder__"+temp_id+"'/>\
+  </section>";
+
+  var field_values = "<section class='row'>\
+    <label class='col-md-3'>VALUES <br><span class='comment'>write one value per row in the form uri, label</span></label>\
+    <textarea id='values__"+temp_id+"' class='col-md-8 values_area align-self-start' name='values__"+temp_id+"'></textarea>\
+  </section>";
+
+  if (new_field_type == 'Textbox') {
+    if (block_field.find('.row > textarea[id*="values__"]').length) {
+      block_field.find('.row > textarea[id*="values__"]').parent().after(field_value+field_placeholder);
+      block_field.find('.row > textarea[id*="values__"]').parent().detach();
+    }
+    updateindex();
+  }
+  if (new_field_type == 'Dropdown' || new_field_type == 'Checkbox'){
+    if (block_field.find('.row > select[id*="value__"]').length) {
+      block_field.find('.row > select[id*="value__"]').parent().after(field_values);
+      block_field.find('.row > select[id*="value__"]').parent().detach();
+      if (block_field.find('.row > input[id*="disambiguate__"]').length) {
+        block_field.find('.row > input[id*="disambiguate__"]').parent().detach();
+      }
+      if (block_field.find('.row > input[id*="placeholder__"]').length) {
+        block_field.find('.row > input[id*="placeholder__"]').parent().detach();
+      }
+      updateindex();
+    }
+  }
 };
