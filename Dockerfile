@@ -11,7 +11,6 @@ RUN pip install -r requirements.txt
 COPY ./wait-for-it.sh /wait-for-it.sh 
 
 RUN ["chmod", "+x", "/wait-for-it.sh"]
-EXPOSE 80
 
 # CMD ["/bin/bash"] 
 # if you want to debug something

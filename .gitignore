@@ -7,5 +7,8 @@ __pycache__/
 sessions/
 *.log
 
+# Blazegraph data
+data/blaze.jnl
+
 # This file is created dynamically during the runtime
 static/js/conf.js

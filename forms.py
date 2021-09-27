@@ -33,7 +33,7 @@ def get_form(json_form):
 		# The StringIO wrapper was used to re-use the json.load function 
 		# without any other change. 
 		text = config_form.read()
-		text = parse_config_variables(text)
+		text = parse_config_variables(text, conf)
 		buf = io.StringIO(text)
 		buf.seek(0)
 		fields = json.load(buf)
