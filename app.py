@@ -98,6 +98,20 @@ def create_record(data):
 		u.log_output('ELSE', session['logged_in'], session['username'])
 		#raise web.seeother(prefixLocal+'/')
 
+def init_js_config(data):
+	"""Initializes the JS config by the given data
+
+	Parameters
+	----------
+	data: dict
+		Dictionary that is either the initial config or the given data record.
+	"""
+	with open('static/js/conf.js', 'w') as jsfile:
+		jsfile.writelines('var myPublicEndpoint = "'+data.myPublicEndpoint+'";\n')
+		jsfile.writelines('var base = "'+ data.base +'";\n')
+		# TODO, support for data served in a single graph
+		jsfile.writelines('var graph = "";\n')
+
 # GITHUB LOGIN
 clientId = conf.gitClientID
 
@@ -131,12 +145,16 @@ class Oauthcallback:
 			return internalerror()
 
 # INITIAL SETUP
+u.reload_config()
+init_js_config(conf)
+
 
 class Setup:
 	def GET(self):
 
 		# reload conf
-		reload(conf)
+		u.log_output("SETUP:GET",session['logged_in'], session['username'])
+		u.reload_config()
 		f = forms.get_form('setup.json')
 		data = u.get_vars_from_module('conf')
 		return render.setup(f=f,user='anonymous',data=data)
@@ -146,6 +164,8 @@ class Setup:
 		if 'action' in data:
 			create_record(data)
 		else:
+			u.log_output("SETUP:POST",session['logged_in'], session['username'])
+
 			original_status=conf.status
 			# override the module conf and conf.json
 			file = open('conf.py', 'w')
@@ -157,13 +177,9 @@ class Setup:
 			for k,v in data.items():
 				file.writelines(k+'''="'''+v+'''"\n''')
 			# write the json config file for javascript
-			jsfile = open('static/js/conf.js', 'w')
-			jsfile.writelines('var myPublicEndpoint = "'+data.myPublicEndpoint+'";\n')
-			jsfile.writelines('var base = "'+data.base+'";\n')
 			# TODO, support for data served in a single graph
-			jsfile.writelines('var graph = "";\n')
-			# reload conf
-			reload(conf)
+			init_js_config(data)
+			u.reload_config()
 			# render login
 			if original_status == 'modified':
 				raise web.seeother(prefixLocal+'/welcome-1')
@@ -183,7 +199,7 @@ class Template:
 			create_record(data)
 		else:
 			u.fields_to_json(data, conf.myform)
-			reload(conf)
+			u.reload_config()
 			raise web.seeother(prefixLocal+'/welcome-1')
 # CLASSIC LOGIN : TO BE REMOVED
 
@@ -584,9 +600,11 @@ class DataModel:
 class sparql:
 	def GET(self, active):
 		content_type = web.ctx.env.get('CONTENT_TYPE')
+		u.log_output("SPARQL:GET", session['logged_in'], session['username'])
 		return self.__run_query_string(active, web.ctx.env.get("QUERY_STRING"), content_type)
 
 	def POST(self, active):
+		u.log_output("SPARQL:POST", session['logged_in'], session['username'])
 		content_type = web.ctx.env.get('CONTENT_TYPE')
 		web.debug("The content_type value: ")
 		web.debug(content_type)
@@ -603,36 +621,60 @@ class sparql:
 
 	def __contact_tp(self, data, is_post, content_type):
 		accept = web.ctx.env.get('HTTP_ACCEPT')
+		u.log_output("__contact_tp", session['logged_in'], session['username'])
 		if accept is None or accept == "*/*" or accept == "":
+			u.log_output("--accept None", session['logged_in'], session['username'])
 			accept = "application/sparql-results+xml"
 		if is_post: # CHANGE
-			req = requests.post(conf.myPublicEndpoint, data=data,
+			u.log_output("--post", session['logged_in'], session['username'])
+			req = requests.post(conf.myEndpoint, data=data,
 								headers={'content-type': content_type, "accept": accept})
 		else: # CHANGE
-			req = requests.get("%s?%s" % (conf.myPublicEndpoint, data),
+			u.log_output("--get", session['logged_in'], session['username'])
+			req = requests.get("%s?%s" % (conf.myEndpoint, data),
 							   headers={'content-type': content_type, "accept": accept})
 
+		u.log_output("--result received", session['logged_in'], session['username'])
+
 		if req.status_code == 200:
+			u.log_output("--200", session['logged_in'], session['username'])
+
 			web.header('Access-Control-Allow-Origin', '*')
 			web.header('Access-Control-Allow-Credentials', 'true')
 			web.header('Content-Type', req.headers["content-type"])
 
 			return req.text
 		else:
+			u.log_output("--ERROR", session['logged_in'], session['username'])
+
 			raise web.HTTPError(
 				str(req.status_code), {"Content-Type": req.headers["content-type"]}, req.text)
 
 	def __run_query_string(self, active, query_string, is_post=False,
 						   content_type="application/x-www-form-urlencoded"):
-		parsed_query = parse_qs(query_string)
-		if query_string is None or query_string.strip() == "":
+		
+		u.log_output("__run_query_string", session['logged_in'], session['username'])
+		try:
+			query_str_decoded = query_string.decode('utf-8')
+		except Exception as e:
+			u.log_output("--not bytes but string", session['logged_in'], session['username'])
+			query_str_decoded = query_string
+		u.log_output(query_str_decoded, session['logged_in'], session['username'])
+		parsed_query = parse_qs(query_str_decoded)
+
+		if query_str_decoded is None or query_str_decoded.strip() == "":
+			u.log_output('->render', session['logged_in'], session['username'])
 			return render.sparql(active, user='anonymous')
-		if re.search("updates?", query_string, re.IGNORECASE) is None:
+		if re.search("updates?", query_str_decoded, re.IGNORECASE) is None:
+			u.log_output('-update=NO', session['logged_in'], session['username'])
 			if "query" in parsed_query:
+				u.log_output('--query=YES', session['logged_in'], session['username'])
 				return self.__contact_tp(query_string, is_post, content_type)
 			else:
+				u.log_output('--query=NO', session['logged_in'], session['username'])
 				raise web.redirect(conf.myPublicEndpoint)
 		else:
+			u.log_output('-update=YES', session['logged_in'], session['username'])
 			raise web.HTTPError(
 				"403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
 

@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Specific webpy folders
+sessions/
+*.log
+
+# This file is created dynamically during the runtime
+static/js/conf.js

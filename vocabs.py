@@ -3,6 +3,9 @@ from pymantic import sparql
 import conf , os , rdflib
 from rdflib import URIRef , XSD, Namespace , Literal
 from rdflib.namespace import RDFS
+import utils as u
+
+u.reload_config()
 
 server = sparql.SPARQLServer(conf.myEndpoint)
 dir_path = os.path.dirname(os.path.realpath(__file__))

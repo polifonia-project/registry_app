@@ -53,6 +53,25 @@ var webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the recor
 
 ```
 
+## Run with Docker
+### Prerequisites
+you need to have a Docker installed on your system:
+- [Windows](https://docs.docker.com/desktop/windows/install/)
+- [macOs](https://docs.docker.com/desktop/mac/install/)
+- [Linux](https://docs.docker.com/engine/install/)
+
+
+### Configuration
+No extra action needs to be done, the default setting will work.
+
+The configuration is loaded from `conf.py`, the only thing that is different is the endpoint for Blazegraph. This is set in `docker-compose.yml` by BLAZEGRAPH_ENDPOINT.
+
+### Run 
+- Ensure that your Docker engine is running
+- Run ```docker compose up```
+  - the first build might take couple of minutes
+- access your web browser on [http://localhost:80](http://localhost:80)
+
 #### The form `myform.json`
 
 So far, only text boxes and dropdowns (select) are supported.  
