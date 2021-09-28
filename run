@@ -2,7 +2,6 @@
 # open folder
 APP_PATH="/Users/$USER/Desktop/"
 APP_FOLDER=$APP_PATH'crowdsourcing'
-BLAZEGRAPH_DATA_PATH="./"
 
 # activate virtualenv
 cd $APP_FOLDER

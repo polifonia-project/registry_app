@@ -10,10 +10,8 @@ services:
         - ./data:/data
         - ./vocabs:/app/vocabs
         - ./records:/app/records
-        - ./blaze.properties:/RWStore.properties
+        - ./blaze_vm.properties:/RWStore.properties
       restart: always
-      environment: 
-        - BLAZEGRAPH_DATA_PATH=/app/data/
   web:
       container_name: web
       build: .
