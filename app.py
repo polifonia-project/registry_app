@@ -653,11 +653,11 @@ class sparql:
 	def __run_query_string(self, active, query_string, is_post=False,
 						   content_type="application/x-www-form-urlencoded"):
 		
-		u.log_output("__run_query_string", session['logged_in'], session['username'])
+		# u.log_output("__run_query_string", session['logged_in'], session['username'])
 		try:
 			query_str_decoded = query_string.decode('utf-8')
 		except Exception as e:
-			u.log_output("--not bytes but string", session['logged_in'], session['username'])
+			# u.log_output("--not bytes but string", session['logged_in'], session['username'])
 			query_str_decoded = query_string
 		# u.log_output(query_str_decoded, session['logged_in'], session['username'])
 		parsed_query = parse_qs(query_str_decoded)
