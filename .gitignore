@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Vagrant/VM/Docker
+.vagrant/
+
 # Specific webpy folders
 sessions/
 *.log
