@@ -55,22 +55,39 @@ var webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the recor
 
 ## Run with Docker
 ### Prerequisites
-you need to have a Docker installed on your system:
-- [Windows](https://docs.docker.com/desktop/windows/install/)
-- [macOs](https://docs.docker.com/desktop/mac/install/)
-- [Linux](https://docs.docker.com/engine/install/)
+1. Docker - you need to have a Docker installed on your system
+  - [Windows](https://docs.docker.com/desktop/windows/install/) - update to the newest version of Windows to ensure that Docker can be installed. For example, if you have a Windows Home, ensure you have at [least the version 2004](https://golb.hplar.ch/2020/05/docker-windows-home-2004.html) 
+  - [macOs](https://docs.docker.com/desktop/mac/install/)
+  - [Linux](https://docs.docker.com/engine/install/)
+2. The repository ready on your filesystem. 
+- [git](https://git-scm.com/downloads) for easier installation and update (optional, recommended). Then
+  - then ```git clone https://github.com/marilenadaquino/crowdsourcing.git``` 
+- Otherwise, [download the zip repository](https://github.com/marilenadaquino/crowdsourcing/archive/refs/heads/main.zip) and then unpack it.
 
-
-### Configuration
+### Installation and Configuration
 No extra action needs to be done, the default setting will work.
 
-The configuration is loaded from `conf.py`, the only thing that is different is the endpoint for Blazegraph. This is set in `docker-compose.yml` by BLAZEGRAPH_ENDPOINT.
+The configuration is loaded from `conf.py`, the only thing that is different is setting up the endpoints for Blazegraph and the application. This is set in `docker-compose.yml` by two properties:
+- ```BLAZEGRAPH_ENDPOINT=http://db:8080/bigdata/sparql```
+- ```PUBLIC_BLAZEGRAPH_ENDPOINT=http://localhost:8080/sparql```
 
-### Run 
-- Ensure that your Docker engine is running
-- Run ```docker compose up```
+### Run
+1. Ensure that your Docker engine is running
+2. Run ```docker compose up```
   - the first build might take couple of minutes
-- access your web browser on [http://localhost:80](http://localhost:80)
+3. access your web browser on [http://localhost:8080](http://localhost:8080)
+
+
+## Run with Vagrant
+
+### Prerequisites
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+
+## Run
+1. clone the repository
+2. cd into the repository and run ```vagrant up```
+3. access your web browser on [http://localhost:8080](http://localhost:8080)
 
 #### The form `myform.json`
 

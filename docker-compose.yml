@@ -12,6 +12,8 @@ services:
         - ./records:/app/records
         - ./blaze.properties:/RWStore.properties
       restart: always
+      environment: 
+        - BLAZEGRAPH_DATA_PATH=/app/data/
   web:
       container_name: web
       build: .

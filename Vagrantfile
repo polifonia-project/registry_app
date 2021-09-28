@@ -40,6 +40,7 @@ $web_run = <<SCRIPT
 BLAZEGRAPH_PORT=3000
 BLAZEGRAPH_PATH="/var/lib/blazegraph.jar"
 APP_DIR="/app"
+BLAZEGRAPH_DATA_PATH="/app/data/"
 
 lsof -ti tcp:3000 | xargs kill
 java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Djetty.host=127.0.0.1 -Dbigdata.propertyFile=/app/blaze.properties -jar /var/lib/blazegraph.jar &
