@@ -15,9 +15,7 @@ python3.7 -m pip install pip
 SCRIPT
 
 $install = <<SCRIPT
-BLAZEGRAPH_PORT=3000
 BLAZEGRAPH_PATH="/var/lib/blazegraph.jar"
-APP_DIR="/app"
 
 if [ ! -f "$BLAZEGRAPH_PATH" ]; then
 	curl -L "https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar" --output $BLAZEGRAPH_PATH
@@ -26,8 +24,6 @@ fi
 SCRIPT
 
 $web_install = <<SCRIPT
-BLAZEGRAPH_PORT=3000
-BLAZEGRAPH_PATH="/var/lib/blazegraph.jar"
 APP_DIR="/app"
 
 echo -n "Installing webapp..."
@@ -37,16 +33,21 @@ python3.7 -m pip install -r $APP_DIR/requirements.txt
 SCRIPT
 
 $web_run = <<SCRIPT
-BLAZEGRAPH_PORT=3000
-BLAZEGRAPH_PATH="/var/lib/blazegraph.jar"
-APP_DIR="/app"
 
-lsof -ti tcp:3000 | xargs kill
-java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Djetty.host=127.0.0.1 -Dbigdata.propertyFile=/app/blaze_vm.properties -jar /var/lib/blazegraph.jar &
+BLAZEGRAPH_PATH="/var/lib/blazegraph.jar"
+BLAZEGRAPH_PORT=3000
+BLAZEGRAPH_PROPERTY_FILE="/app/blaze_vm.properties"
+APP_DIR="/app"
+WEBAPP_PORT=8080
+
+echo -n "Running Blazegraph..."
+lsof -ti tcp:${BLAZEGRAPH_PORT} | xargs kill
+java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=${BLAZEGRAPH_PORT} -Dbigdata.propertyFile=$BLAZEGRAPH_PROPERTY_FILE -jar $BLAZEGRAPH_PATH &
 sleep 3
 
+echo -n "Running webapp..."
 cd $APP_DIR
-python3 app.py 8080 &
+python3 app.py $WEBAPP_PORT &
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -64,6 +65,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.provision "shell", inline: $bootstrap
   config.vm.provision "shell", run: "always", inline: $install, privileged: true
-  config.vm.provision "shell", run: "always", inline: $web_install, privileged: true
+  config.vm.provision "shell", run: "always", inline: $web_install, privileged: false
   config.vm.provision "shell", run: "always", inline: $web_run, privileged: false
 end
