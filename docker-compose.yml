@@ -7,9 +7,7 @@ services:
       #  ports:
       #   - 8888:8080
       volumes:
-        - ./data:/data
-        - ./vocabs:/app/vocabs
-        - ./records:/app/records
+        - .:/app
         - ./blaze_vm.properties:/RWStore.properties
       restart: always
   web:
