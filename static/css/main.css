@@ -112,7 +112,7 @@ th {width: 200px !important; text-transform: uppercase; font-family: 'Karla', sa
 /* create record */
 .form_row {padding-bottom: 0.7em;}
 #recordForm table tbody tr th{ width: 30%;}
-
+.mandatory {color: red !important; font-size: 1.3em;}
 /* hidden input fields titles */
 .sectionTitle {color: rgba(100,23,180,1); font-size: 2em; width: 100%; margin: 1em 2rem;}
 

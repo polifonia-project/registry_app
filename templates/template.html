@@ -75,13 +75,14 @@ $var is_git_auth = is_git_auth
 												$uri, $lab
 										</textarea>
 									</section>
-								<!-- BROWSE -->
-								<section class="row">
-									$ checked_browse = "checked=checked" if 'browse'in field and field["browse"] == "True" else ""
 
-									<label class="left col-md-11 col-sm-6" for="browse__$id">use this value as a filter for browsing resources in <em>Explore</em> page</label>
-									<input $checked_browse type="checkbox" id="browse__$id" name="browse__$id">
-								</section>
+								$if 'value' in field and field['value'] == 'URI':
+									<!-- BROWSE -->
+									<section class="row">
+										$ checked_browse = "checked=checked" if 'browse'in field and field["browse"] == "True" else ""
+										<label class="left col-md-11 col-sm-6" for="browse__$id">use this value as a filter in <em>Explore</em> page</label>
+										<input $checked_browse type="checkbox" id="browse__$id" name="browse__$id">
+									</section>
 								$if 'value' in field and field['value'] == 'Literal':
 									$ checked_disambiguate = "checked=checked" if 'disambiguate'in field and field["disambiguate"] == "True" else ""
 									<!-- DISAMBIGUATE -->

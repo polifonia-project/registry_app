@@ -4,11 +4,10 @@ $var user = user
 $var is_git_auth=is_git_auth
 
 <header class="row">
-  <h3 class="col-md-12 col-lg-12 col-sm-12">Discover music data on the web. <br> Explore $alll resources</h3>
+	<h3 class="col-md-12 col-lg-12 col-sm-12">Discover music data on the web. <br> Explore $alll resources</h3>
 </header>
 <section class="row articleBox">
 	<section class="col-md-10 col-sm-12">
-
 		$for filter in filters:
 			<section class="row">
 				<section class="homeheading col-md-4 col-sm-12">
@@ -18,17 +17,16 @@ $var is_git_auth=is_git_auth
 				<section class="homeheadingtext col-md-7 col-sm-12">
 					$if filter[2] == 'Textbox' and filter[3] == 'Literal':
 						<p>Filter alphabetically</p>
-						$if filter[0] == 'http://www.w3.org/2000/01/rdf-schema#label':
 							<section id="toc_resources">
 								<section class="alphabet" id="alphabet">
 								</section>
 								$for record in data:
-									<section class="list upper(record[1][0])">
-										<a href="view-$record[0].rsplit('/')[-2]" class="resource_collapse">$record[1]</a>
-									</section>
+									$if record[5] != 'not modified':
+										<section class="list upper(record[1][0])">
+											<a href="view-$record[0].rsplit('/')[-2]" class="resource_collapse">$record[1]</a>
+										</section>
+
 							</section>
-						$else:
-							<p>COMING SOON</p>
 					$elif filter[2] == 'Textbox' and filter[3] == 'URI':
 						<p>Filter by most recurring values</p>
 						$ elemID = filter[1].replace(' ','')
@@ -63,10 +61,10 @@ $var is_git_auth=is_git_auth
 	</section>
 	<section class="col-md-2 col-sm-12">
 
-		<section class="row">
+		<!-- <section class="row">
 			<h3 class="col-md-12 col-sm-12 text-left">$title</h3>
-			$for record in reversed(list(data)[-6:]):
-			  $ stage = '' if 'modified' not in record[5] else ' (draft)'
+			$for record in list(data)[:6]:
+				$ stage = '' if 'modified' not in record[5] else ' (draft)'
 				$ recid = record[0][:-1].split(r_base)[1]
 					<section class="col-md-12 col-sm-5 entryBox">
 						<section class="imageBox noImage">
@@ -77,6 +75,6 @@ $var is_git_auth=is_git_auth
 						</section>
 					</section>
 
-		</section>
+		</section> -->
 	</section>
 </section>

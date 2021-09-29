@@ -64,9 +64,7 @@ with open(conf.myform) as config_form:
 	fields = json.load(config_form)
 
 vocabs.import_vocabs(fields)
-res_class = conf.main_entity # get main class from conf py
-res_class_label = u.get_LOV_labels(res_class,'class')
-props_labels = [ u.get_LOV_labels(field["property"],'property') for field in fields]
+
 
 # ERROR HANDLER
 
@@ -400,7 +398,7 @@ class Record(object):
 		u.log_output('GET RECORD FORM', session['logged_in'], session['username'])
 		block_user, limit = u.check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		f = forms.get_form(conf.myform)
-		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth)
+		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth,invalid=False)
 
 	def POST(self, name):
 		web.header("Content-Type","text/html; charset=utf-8")
@@ -413,8 +411,8 @@ class Record(object):
 		u.write_ip(str(datetime.datetime.now()), str(web.ctx['ip']), 'POST')
 		block_user, limit = u.check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		if not f.validates():
-			u.log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],recordID)
-			return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth)
+			u.log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],name)
+			return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth,invalid=True)
 		else:
 			recordData = web.input()
 			#print(recordData)
@@ -455,7 +453,7 @@ class Modify(object):
 			f = forms.get_form(conf.myform)
 			ids_dropdown = u.get_dropdowns(fields)
 			return render.modify(graphdata=data, pageID=recordID, record_form=f,
-							user=session['username'],ids_dropdown=ids_dropdown,is_git_auth=is_git_auth)
+							user=session['username'],ids_dropdown=ids_dropdown,is_git_auth=is_git_auth,invalid=False)
 		else:
 			session['logged_in'] = 'False'
 			raise web.seeother(prefixLocal+'/')
@@ -467,18 +465,29 @@ class Modify(object):
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		recordData = web.input()
 		session['ip_address'] = str(web.ctx['ip'])
-
+		is_git_auth = github_sync.is_git_auth()
+		f = forms.get_form(conf.myform)
 		if 'action' in recordData:
 			create_record(recordData)
 		else:
-			recordID = recordData.recordID
-			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			graphToClear = conf.base+name+'/'
-			file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
-			if conf.github_backup == "True":
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(modified)')
-			u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
-			raise web.seeother(prefixLocal+'welcome-1')
+			if not f.validates():
+				graphToRebuild = conf.base+name+'/'
+				recordID = name
+				data = queries.getData(graphToRebuild)
+				u.log_output('INVALID MODIFY RECORD', session['logged_in'], session['username'], recordID )
+				f = forms.get_form(conf.myform)
+				ids_dropdown = u.get_dropdowns(fields)
+				return render.modify(graphdata=data, pageID=recordID, record_form=f,
+								user=session['username'],ids_dropdown=ids_dropdown,is_git_auth=is_git_auth,invalid=True)
+			else:
+				recordID = recordData.recordID
+				userID = session['username'].replace('@','-at-').replace('.','-dot-')
+				graphToClear = conf.base+name+'/'
+				file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
+				if conf.github_backup == "True":
+					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(modified)')
+				u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
+				raise web.seeother(prefixLocal+'welcome-1')
 
 # FORM: review a record for publication (only logged in users)
 
@@ -503,7 +512,7 @@ class Review(object):
 			ids_dropdown = u.get_dropdowns(fields)
 			return render.review(graphdata=data, pageID=recordID, record_form=f,
 								graph=graphToRebuild, user=session['username'],
-								ids_dropdown=ids_dropdown,is_git_auth=is_git_auth)
+								ids_dropdown=ids_dropdown,is_git_auth=is_git_auth,invalid=False)
 		else:
 			session['logged_in'] = 'False'
 			raise web.seeother(prefixLocal+'/')
@@ -514,29 +523,53 @@ class Review(object):
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		actions = web.input()
 		session['ip_address'] = str(web.ctx['ip'])
-
+		f = forms.get_form(conf.myform)
 		# save the new record for future publication
 		if actions.action.startswith('save'):
-			recordData = web.input()
-			recordID = recordData.recordID
-			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			graphToClear = conf.base+name+'/'
-			file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
-			if conf.github_backup == "True":
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(reviewed)')
-			u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
-			raise web.seeother(prefixLocal+'welcome-1')
+			if not f.validates():
+				graphToRebuild = conf.base+name+'/'
+				recordID = name
+				data = queries.getData(graphToRebuild)
+				session['ip_address'] = str(web.ctx['ip'])
+				u.log_output('INVALID REVIEW RECORD', session['logged_in'], session['username'], recordID )
+				f = forms.get_form(conf.myform)
+				ids_dropdown = u.get_dropdowns(fields)
+				return render.review(graphdata=data, pageID=recordID, record_form=f,
+									graph=graphToRebuild, user=session['username'],
+									ids_dropdown=ids_dropdown,is_git_auth=is_git_auth,invalid=True)
+			else:
+				recordData = web.input()
+				recordID = recordData.recordID
+				userID = session['username'].replace('@','-at-').replace('.','-dot-')
+				graphToClear = conf.base+name+'/'
+				file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
+				if conf.github_backup == "True":
+					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(reviewed)')
+				u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
+				raise web.seeother(prefixLocal+'welcome-1')
 
 		# publish
 		elif actions.action.startswith('publish'):
-			recordData = web.input()
-			userID = session['username'].replace('@','-at-').replace('.','-dot-')
-			graphToClear = conf.base+name+'/'
-			file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
-			if conf.github_backup == "True":
-				github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(published)')
-			u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
-			raise web.seeother(prefixLocal+'welcome-1')
+			if not f.validates():
+				graphToRebuild = conf.base+name+'/'
+				recordID = name
+				data = queries.getData(graphToRebuild)
+				session['ip_address'] = str(web.ctx['ip'])
+				u.log_output('INVALID REVIEW RECORD', session['logged_in'], session['username'], recordID )
+				f = forms.get_form(conf.myform)
+				ids_dropdown = u.get_dropdowns(fields)
+				return render.review(graphdata=data, pageID=recordID, record_form=f,
+									graph=graphToRebuild, user=session['username'],
+									ids_dropdown=ids_dropdown,is_git_auth=is_git_auth,invalid=True)
+			else:
+				recordData = web.input()
+				userID = session['username'].replace('@','-at-').replace('.','-dot-')
+				graphToClear = conf.base+name+'/'
+				file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
+				if conf.github_backup == "True":
+					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'], '(published)')
+				u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
+				raise web.seeother(prefixLocal+'welcome-1')
 
 		# login or create new record
 		else:
@@ -561,10 +594,11 @@ class Records:
 		#threading.Thread(target=u.fileWatcher).start()
 		is_git_auth = github_sync.is_git_auth()
 		records = queries.getRecords()
+		print("records",records)
 		alll = queries.countAll()
 		filtersBrowse = queries.getBrowsingFilters()
 		return render.records(user=session['username'], data=records,
-							title='Latest added resources', r_base=conf.base,
+							title='Latest resources', r_base=conf.base,
 							alll=alll, filters=filtersBrowse,is_git_auth=is_git_auth)
 
 	def POST(self):
@@ -581,9 +615,12 @@ class View(object):
 		record = base+name
 		data = dict(queries.getData(record+'/'))
 		stage = data['stage'][0]
-		title = [data[k][0] for k,v in data.items() \
+		try:
+			title = [data[k][0] for k,v in data.items() \
 				for field in fields if (field['disambiguate'] == "True" \
 				and k == field['id'])][0]
+		except Exception as e:
+			title = "No title"
 		data_labels = { field['label']:v for k,v in data.items() \
 						for field in fields if k == field['id']}
 
@@ -618,6 +655,9 @@ class Term(object):
 class DataModel:
 	def GET(self):
 		is_git_auth = github_sync.is_git_auth()
+		res_class = conf.main_entity # get main class from conf py
+		res_class_label = u.get_LOV_labels(res_class,'class')
+		props_labels = [ u.get_LOV_labels(field["property"],'property') for field in fields]
 		return render.datamodel(user=session['username'], data=props_labels, res_class=res_class_label,is_git_auth=is_git_auth)
 
 	def POST(self):

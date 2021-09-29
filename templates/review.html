@@ -1,4 +1,4 @@
-$def with (graphdata, pageID, record_form, graph, user,ids_dropdown,is_git_auth)
+$def with (graphdata, pageID, record_form, graph, user,ids_dropdown,is_git_auth,invalid)
 $var user = user
 $var is_git_auth = is_git_auth
 
@@ -10,7 +10,10 @@ $var is_git_auth = is_git_auth
 			$$("h2").css('font-size','2em');
 		} );
 	</script>
-	<h3>Review record</h3>
+	$if invalid == True:
+		<h3>The form is not valid, please check mandatory fields</h3>
+	$else:
+		<h3>Review record</h3>
 </header>
 
 <section class="row">

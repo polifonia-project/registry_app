@@ -74,13 +74,16 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
   		};
   	};
 
-    // hide lookup
+    // hide lookup when creating a record
     $("#lookup").hide();
   	// append WD icon to input fields
   	$('.searchWikidata').parent().prev().append(wd_img);
     $('.wikiEntity').append(wd_img);
   	// hide placeholder if filled
   	//colorForm();
+
+    // style mandatory fields
+    $(".disambiguate").parent().prev(".label").append("<span class='mandatory'>*</span>")
 
   	// prevent POST when deleting records
   	$('.delete').click(function(e) {
@@ -123,6 +126,7 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
         var alphaLabel = $('.info_collapse[data-target="#'+id+'"]');
         alphaLabel.addClass('alphaActive');
     });
+
     // show more in EXPLORE
     $(".showMore").hide();
 
@@ -615,7 +619,7 @@ function sortList(ul) {
 function getPropertyValue(elemID, prop, typeProp, typeField) {
   // TODO extend for vocabulary terms
   if (typeProp == 'URI' && (typeField == 'Textbox' || typeField == 'Dropdown'|| typeField == 'Checkbox') ) {
-    var query = "select distinct ?o ?oLabel (COUNT(?s) AS ?count) "+in_graph+" where { ?s <"+prop+"> ?o. ?o rdfs:label ?oLabel . } GROUP BY ?o ?oLabel ORDER BY DESC(?count) lcase(?oLabel)";
+    var query = "select distinct ?o ?oLabel (COUNT(?s) AS ?count) "+in_graph+" where { GRAPH ?g { ?s <"+prop+"> ?o. ?o rdfs:label ?oLabel . } ?g <"+base+"publicationStage> ?stage . FILTER( str(?stage) != 'not modified' ) } GROUP BY ?o ?oLabel ORDER BY DESC(?count) lcase(?oLabel)";
   } else {var query = "none"};
 
   const len = 10;
@@ -673,7 +677,7 @@ function getRecordsByPropValue(el, resElem) {
   if ($(resElem).length) {$(resElem).empty();}
   var prop = $(el).data("property");
   var val = $(el).data("value");
-  var query = "select distinct ?s ?sLabel "+in_graph+" where { ?s <"+prop+"> <"+val+">; rdfs:label ?sLabel . } ORDER BY ?sLabel"
+  var query = "select distinct ?s ?sLabel "+in_graph+" where { GRAPH ?g { ?s <"+prop+"> <"+val+">; rdfs:label ?sLabel . } ?g <"+base+"publicationStage> ?stage . FILTER( str(?stage) != 'not modified' ) } ORDER BY ?sLabel"
   var encoded = encodeURIComponent(query);
   $.ajax({
         type: 'GET',
@@ -806,10 +810,7 @@ function add_field(field, res_type) {
     <textarea id='values__"+temp_id+"' class='col-md-8 values_area align-self-start' name='values__"+temp_id+"'></textarea>\
   </section>";
 
-  var field_browse = "<section class='row'>\
-    <label class='col-md-11 col-sm-6' for='browse__"+temp_id+"'>use this value as a filter for browsing resources in <em>Explore</em> page</label>\
-    <input type='checkbox' id='browse__"+temp_id+"' name='browse__"+temp_id+"'>\
-  </section>";
+
   var open_addons = "<section id='addons__"+temp_id+"'>";
   var close_addons = "</section>";
   var up_down = '<a href="#" class="up"><i class="fas fa-arrow-up"></i></a> <a href="#" class="down"><i class="fas fa-arrow-down"></i></a><a href="#" class="trash"><i class="far fa-trash-alt"></i></a>';
@@ -817,7 +818,7 @@ function add_field(field, res_type) {
   contents += field_type + field_name + field_prepend + field_property + open_addons;
   if (field =='Textbox') { contents += field_value + field_placeholder; }
   else {contents += field_values; };
-  contents += field_browse + close_addons + up_down;
+  contents += close_addons + up_down;
   $(".sortable").append("<section class='block_field'>"+contents+"</section>");
   updateindex();
   moveUpAndDown() ;
@@ -834,11 +835,26 @@ function add_disambiguate(temp_id, el) {
     <input class='disambiguate' onClick='disable_other_cb(this)' type='checkbox' id='disambiguate__"+temp_id+"' name='disambiguate__"+temp_id+"'>\
     </section>";
 
+  var field_browse = "<section class='row'>\
+    <label class='col-md-11 col-sm-6' for='browse__"+temp_id+"'>use this value as a filter in <em>Explore</em> page</label>\
+    <input type='checkbox' id='browse__"+temp_id+"' name='browse__"+temp_id+"'>\
+  </section>";
+
   if (el.value == 'Literal') {
+      $("input[id*='browse__"+temp_id+"']").parent().remove();
       $(el).parent().parent().append(field_disambiguate);
       updateindex();
-  } else {
-    $("input[id*='disambiguate__"+temp_id+"']").parent().remove();
+  } else if (el.value == 'URI') {
+    console.log("here");
+    if ($("input[id*='disambiguate__"+temp_id+"']") != undefined) {
+      console.log("here");
+      //$("input[id*='disambiguate__"+temp_id+"']").parent().after(field_browse);
+      $("section[id*='addons__"+temp_id+"']").after(field_browse);
+      $("input[id*='disambiguate__"+temp_id+"']").parent().remove();
+    } else {
+
+      $("section[id*='addons__"+temp_id+"']").after(field_browse);
+    }
     updateindex();
   }
 };
@@ -850,12 +866,16 @@ function disable_other_cb(ckType) {
 
     if (checked.checked) {
       for(var i=0; i < ckName.length; i++){
-          if(!ckName[i].checked){ ckName[i].disabled = true; }
-          else{ ckName[i].disabled = false;}
+          ckName[i].checked = false;
+          // if(!ckName[i].checked){ ckName[i].disabled = true; }
+          // else{ ckName[i].disabled = false;}
       }
+      checked.checked = true;
     }
     else {
-      for(var i=0; i < ckName.length; i++){ ckName[i].disabled = false; }
+      for(var i=0; i < ckName.length; i++){
+        ckName[i].disabled = false;
+      }
     }
 };
 

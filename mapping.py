@@ -92,7 +92,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 	is_any_disambiguate = ["yes" for field in fields if field['disambiguate'] == 'True']
 	if len(is_any_disambiguate) == 0:
 		wd.add(( URIRef(base+graph_name+'/'), RDFS.label, Literal("no title") ))
-		
+
 	for field in fields:
 		value = getValuesFromFields(field['id'], recordData, fields) if field['value'] == 'URI' else recordData[field['id']] # URI,literal or literal values
 		# TODO disambiguate as URI, value
@@ -102,7 +102,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 
 		# the main entity has the same URI of the graph but the final /
 
-		if isinstance(value,str): # data properties
+		if isinstance(value,str) and len(value) >= 1: # data properties
 			wd.add(( URIRef(base+graph_name), URIRef(field['property']), Literal(value) ))
 		else: # object properties
 			for entity in value:

@@ -102,14 +102,15 @@ def getRecordsPagination(page, filterRecords=''):
 		LIMIT """+conf.pagination+"""
 		OFFSET  """+offset+"""
 		"""
-	print("filterRecords",filterRecords)
-	records = set()
+
+	records = list()
 	sparql = SPARQLWrapper(conf.myEndpoint)
 	sparql.setQuery(queryRecordsPagination)
 	sparql.setReturnFormat(JSON)
 	results = sparql.query().convert()
 	for result in results["results"]["bindings"]:
-		records.add( (result["g"]["value"], result["title"]["value"], result["userLabel"]["value"], result["modifierLabel"]["value"], result["date"]["value"], result["stage"]["value"] ))
+		records.append( (result["g"]["value"], result["title"]["value"], result["userLabel"]["value"], result["modifierLabel"]["value"], result["date"]["value"], result["stage"]["value"] ))
+	
 	return records
 
 
@@ -264,7 +265,7 @@ def describeTerm(name):
 def getBrowsingFilters():
 	with open(conf.myform) as config_form:
 		fields = json.load(config_form)
-	props = [(f["property"], f["label"], f["type"], f["value"]) for f in fields if "browse" in f and f["browse"] == "True"]
+	props = [(f["property"], f["label"], f["type"], f["value"]) for f in fields if ("browse" in f and f["browse"] == "True") or ("disambiguate" in f and f["disambiguate"] == "True")]
 	return props
 
 def getFreqProps():

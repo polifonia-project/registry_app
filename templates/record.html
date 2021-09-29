@@ -1,4 +1,4 @@
-$def with(record_form, pageID, user, alert, limit, is_git_auth)
+$def with(record_form, pageID, user, alert, limit, is_git_auth,invalid)
 $var user = user
 $var is_git_auth = is_git_auth
 
@@ -12,7 +12,10 @@ $if alert == False:
 			} );
 			setTimeout( function(){ document.getElementById( "recordForm" ).reset(); }, 5 );
 		</script>
-		<h3>Thanks for helping musoW to grow!</h3>
+		$if invalid == True:
+			<h3>The form is not valid, please check mandatory fields</h3>
+		$else:
+			<h3>Thanks for helping musoW to grow!</h3>
 	</header>
 	<section class="row">
 		<section class="col-md-8 col-lg-8 col-sm-8">

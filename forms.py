@@ -5,18 +5,18 @@ import conf
 
 def parse_config_variables(text:str, conf):
 	""" Parses and replace the variables in the text by their values from config.
-	
+
 	Parameters
 	----------
 	text: str
 		The input string representing the config
 	conf
 		The config module
-	
+
 	Returns
 	-------
 	str
-		The same text with the replaced wildards 
+		The same text with the replaced wildards
 	"""
 	params = {
         '$myEndpoint': conf.myEndpoint,
@@ -30,8 +30,8 @@ def get_form(json_form):
 	""" read config in 'myform.json' and return a webpy form """
 	import io
 	with open(json_form) as config_form:
-		# The StringIO wrapper was used to re-use the json.load function 
-		# without any other change. 
+		# The StringIO wrapper was used to re-use the json.load function
+		# without any other change.
 		text = config_form.read()
 		text = parse_config_variables(text, conf)
 		buf = io.StringIO(text)
@@ -62,14 +62,23 @@ def get_form(json_form):
 
 		# Text box
 		if field['type'] == 'Textbox':
-			params = params + (form.Textbox(myid,
-			description = description,
-			id=myid,
-			placeholder=placeholder,
-			pre = prepend,
-			class_= classes,
-			value=default), )
-
+			if "disambiguate" in field and field["disambiguate"] == 'True':
+				vpass = form.regexp(r".{1,200}$", 'must be between 1 and 200 characters')
+				params = params + (form.Textbox(myid, vpass,
+				description = description,
+				id=myid,
+				placeholder=placeholder,
+				pre = prepend,
+				class_= classes,
+				value=default) , )
+			else:
+				params = params + (form.Textbox(myid,
+				description = description,
+				id=myid,
+				placeholder=placeholder,
+				pre = prepend,
+				class_= classes,
+				value=default), )
 
 		if field['type'] == 'Dropdown':
 			params = params + (form.Dropdown(myid,

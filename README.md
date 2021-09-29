@@ -1,8 +1,5 @@
 # crowdsourcing linked data
 
-## How does it look like
-
-https://user-images.githubusercontent.com/6443007/124133891-924c2700-da82-11eb-95fe-e525d57d0b47.mov
 
 
 ## Install and run
@@ -56,12 +53,12 @@ var webBase = 'https://musow.kmi.open.ac.uk/resources/'; # URL base of the recor
 ## Run with Docker
 ### Prerequisites
 1. Docker - you need to have a Docker installed on your system
-  - [Windows](https://docs.docker.com/desktop/windows/install/) - update to the newest version of Windows to ensure that Docker can be installed. For example, if you have a Windows Home, ensure you have at [least the version 2004](https://golb.hplar.ch/2020/05/docker-windows-home-2004.html) 
+  - [Windows](https://docs.docker.com/desktop/windows/install/) - update to the newest version of Windows to ensure that Docker can be installed. For example, if you have a Windows Home, ensure you have at [least the version 2004](https://golb.hplar.ch/2020/05/docker-windows-home-2004.html)
   - [macOs](https://docs.docker.com/desktop/mac/install/)
   - [Linux](https://docs.docker.com/engine/install/)
-2. The repository ready on your filesystem. 
+2. The repository ready on your filesystem.
 - [git](https://git-scm.com/downloads) for easier installation and update (optional, recommended). Then
-  - then ```git clone https://github.com/marilenadaquino/crowdsourcing.git``` 
+  - then ```git clone https://github.com/marilenadaquino/crowdsourcing.git```
 - Otherwise, [download the zip repository](https://github.com/marilenadaquino/crowdsourcing/archive/refs/heads/main.zip) and then unpack it.
 
 ### Installation and Configuration
