@@ -14,6 +14,7 @@ import web
 from web import form
 import forms, mapping, conf, queries , vocabs  , github_sync
 import utils as u
+#import threading
 
 web.config.debug = False
 
@@ -200,6 +201,7 @@ class Template:
 		else:
 			u.fields_to_json(data, conf.myform)
 			u.reload_config()
+			#threading.Thread(target=u.fileWatcher).start()
 			raise web.seeother(prefixLocal+'/welcome-1')
 # CLASSIC LOGIN : TO BE REMOVED
 
@@ -405,7 +407,7 @@ class Record(object):
 			return render.record(record_form=f, pageID=name, user=user)
 		else:
 			recordData = web.input()
-			print(recordData)
+			#print(recordData)
 			if 'action' in recordData:
 				create_record(recordData)
 			recordID = recordData.recordID if 'recordID' in recordData else None
@@ -534,13 +536,15 @@ class Documentation:
 		return render.documentation(user=session['username'])
 
 	def POST(self):
-		actions = web.input()
-		create_record(actions)
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
 
 # VIEW : lists of types of records of the catalogue
 
 class Records:
 	def GET(self):
+		#threading.Thread(target=u.fileWatcher).start()
 		records = queries.getRecords()
 		alll = queries.countAll()
 		filtersBrowse = queries.getBrowsingFilters()
@@ -549,8 +553,9 @@ class Records:
 							alll=alll, filters=filtersBrowse)
 
 	def POST(self):
-		actions = web.input()
-		create_record(actions)
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
 
 # VIEW : single record
 
@@ -571,20 +576,25 @@ class View(object):
 
 	def POST(self,name):
 		data = web.input()
-		create_record(data)
+		if 'action' in data:
+			create_record(data)
 
 # TERM : vocabulary terms and newly created entities
 
 class Term(object):
 	def GET(self, name):
 		data = queries.describeTerm(name)
-		print(data)
+		#print(data)
 		count = len([ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
 					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
 
 		return render.term(user=session['username'], data=data, count=count)
 
+	def POST(self,name):
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
 # DATA MODEL
 
 class DataModel:
@@ -593,7 +603,8 @@ class DataModel:
 
 	def POST(self):
 		data = web.input()
-		create_record(data)
+		if 'action' in data:
+			create_record(data)
 
 # QUERY: endpoint GUI
 
@@ -608,6 +619,10 @@ class sparql:
 		content_type = web.ctx.env.get('CONTENT_TYPE')
 		web.debug("The content_type value: ")
 		web.debug(content_type)
+
+		data = web.input()
+		if 'action' in data:
+			create_record(data)
 
 		cur_data = web.data()
 		if "application/x-www-form-urlencoded" in content_type:
@@ -652,7 +667,7 @@ class sparql:
 
 	def __run_query_string(self, active, query_string, is_post=False,
 						   content_type="application/x-www-form-urlencoded"):
-		
+
 		# u.log_output("__run_query_string", session['logged_in'], session['username'])
 		try:
 			query_str_decoded = query_string.decode('utf-8')

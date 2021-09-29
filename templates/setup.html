@@ -1,0 +1,47 @@
+$def with(f,user,data)
+$var user = user
+
+<header class="row">
+	<h3>Setup your application</h3>
+</header>
+<section class="row">
+	<section class="col-md-8 col-lg-8 col-sm-8">
+		<form id="setupForm" class="col-md-12 col-sm-12 col-lg-12" action="" method="POST">
+			<section class="row">
+				<section class="homeheading col-md-8 col-lg-8 col-sm-8">
+					$for input in f.inputs:
+						<section class=" form_row">
+						$ id = input.get_default_id()
+						$if type(input) == Checkbox:
+							<section class="col-md-12 col-sm-12 col-lg-12">
+								$:input.pre
+								$:input.render()
+								$:input.description
+							</section>
+						$else:
+							<section class="label col-12">
+								$:input.description
+							</section>
+							<section class="col-md-12 col-sm-12 col-lg-12">
+								$:input.pre
+								$if id in data:
+									$:input.set_value(data[id])
+								$:input.render()
+							</section>
+						</section>
+				</section>
+			</section>
+			<section class="buttonsSection">
+				<input class="btn btn-dark" type="submit" value="Save"/>
+			</section>
+		</form>
+	</section>
+	<section class="homeheading col-md-4 col-sm-4 col-lg-4">
+		<p class="caption">Links</p>
+		<p><a href="https://github.com/join">create a github account</a></p>
+		<p><a href="https://docs.github.com/en/get-started/quickstart/create-a-repo">create a github repository</a></p>
+		<p><a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">get a github bearer token</a></p>
+		<p><a href="https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app">create a github OAuth application</a></p>
+	</section>
+
+</section>

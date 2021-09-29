@@ -179,16 +179,18 @@ def getRecordCreator(graph_name):
 
 # TRIPLE PATTERNS FROM THE FORM
 
-with open(conf.myform) as config_form:
-	fields = json.load(config_form)
 
-patterns = [ 'OPTIONAL {?subject <'+field['property']+'> ?'+field['id']+'.}. ' if field['value'] == 'Literal' else 'OPTIONAL {?subject <'+field['property']+'> ?'+field['id']+'. ?'+field['id']+' rdfs:label ?'+field['id']+'_label .} .' for field in fields]
-patterns_string = ''.join(patterns)
 
 # REBUILD GRAPH TO MODIFY/REVIEW RECORD
 
 def getData(graph):
 	""" get a named graph and rebuild results for modifying the record"""
+	with open(conf.myform) as config_form:
+		fields = json.load(config_form)
+
+	patterns = [ 'OPTIONAL {?subject <'+field['property']+'> ?'+field['id']+'.}. ' if field['value'] == 'Literal' else 'OPTIONAL {?subject <'+field['property']+'> ?'+field['id']+'. ?'+field['id']+' rdfs:label ?'+field['id']+'_label .} .' for field in fields]
+	patterns_string = ''.join(patterns)
+
 	queryNGraph = '''
 		PREFIX base: <'''+conf.base+'''>
 		PREFIX schema: <https://schema.org/>
@@ -260,6 +262,8 @@ def describeTerm(name):
 # EXPLORE METHODS
 
 def getBrowsingFilters():
+	with open(conf.myform) as config_form:
+		fields = json.load(config_form)
 	props = [(f["property"], f["label"], f["type"], f["value"]) for f in fields if "browse" in f and f["browse"] == "True"]
 	return props
 
@@ -282,6 +286,8 @@ def getFreqProps():
 		}
 	'''
 	results = hello_blazegraph(queryProps)
+	with open(conf.myform) as config_form:
+		fields = json.load(config_form)
 	for result in results["results"]["bindings"]:
 		prop = result["p"]["value"]
 		field = [f["label"] for f in fields if f["property"] == prop][0]

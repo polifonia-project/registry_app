@@ -11,9 +11,11 @@ from collections import defaultdict,OrderedDict
 from importlib import reload
 
 # WEBPY STUFF
+template_json = open(conf.myform)
+template_text = template_json.read()
 
 def reload_config():
-	"""Reload the config from conf.py and overrides the blazegraph endpoint 
+	"""Reload the config from conf.py and overrides the blazegraph endpoint
 	   if the env variable is specified.
 	"""
 	load_dotenv()
@@ -23,6 +25,19 @@ def reload_config():
 
 	conf.myEndpoint = myEndpoint
 	conf.myPublicEndpoint = myPublicEndpoint
+
+def fileWatcher():
+	""" Read changes in myform.json and reload it"""
+	global template_json , template_text
+	while True:
+		f = open(conf.myform)
+		content = f.read()
+		f.close()
+		if content != template_text:
+			print("Template modified! Reloading it...")
+			template_json = json.loads(content)
+			template_text = content
+		time.sleep(0.5)
 
 def initialize_session(app):
 	""" initialize user session.
@@ -104,8 +119,6 @@ def get_LOV_labels(term, term_type=None):
 	label_en = "http://www.w3.org/2000/01/rdf-schema#label@en"
 	req = requests.get(lov_api+term+t)
 
-
-
 	if req.status_code == 200:
 		res = req.json()
 		for result in res["results"]:
@@ -148,6 +161,7 @@ def fields_to_json(data, json_file):
 		list_dicts[int(idx)]["id"] = field_id
 		list_dicts[int(idx)][json_key] = v
 	list_dicts = dict(list_dicts)
+	print(list_dicts)
 	for n,d in list_dicts.items():
 		# cleanup existing k,v
 		if 'values' in d:
