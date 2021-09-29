@@ -6,6 +6,9 @@ from rdflib import URIRef , XSD, Namespace , Literal
 from rdflib.namespace import OWL, DC , DCTERMS, RDF , RDFS
 from rdflib.plugins.sparql import prepareQuery
 from pymantic import sparql
+import utils as u
+
+u.reload_config()
 
 ssl._create_default_https_context = ssl._create_unverified_context
 server = sparql.SPARQLServer(conf.myEndpoint)
@@ -17,6 +20,7 @@ def hello_blazegraph(q):
 	sparql.setReturnFormat(JSON)
 	results = sparql.query().convert()
 	return results
+
 
 # LIST OF RECORDS IN THE BACKEND
 

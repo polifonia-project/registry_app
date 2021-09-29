@@ -1,13 +1,28 @@
+import os
 import re
 import time
 import datetime
 import json
+from dotenv import load_dotenv
 import web
 import requests
 import conf
 from collections import defaultdict,OrderedDict
+from importlib import reload
 
 # WEBPY STUFF
+
+def reload_config():
+	"""Reload the config from conf.py and overrides the blazegraph endpoint 
+	   if the env variable is specified.
+	"""
+	load_dotenv()
+	reload(conf)
+	myEndpoint = os.getenv('BLAZEGRAPH_ENDPOINT', conf.myEndpoint)
+	myPublicEndpoint = os.getenv('PUBLIC_BLAZEGRAPH_ENDPOINT', conf.myPublicEndpoint)
+
+	conf.myEndpoint = myEndpoint
+	conf.myPublicEndpoint = myPublicEndpoint
 
 def initialize_session(app):
 	""" initialize user session.

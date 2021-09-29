@@ -1,13 +1,13 @@
 #!/bin/sh
 p='\033[0;35m'
-app_path="/Users/$USER/Desktop/"
-app_folder=$app_path'crowdsourcing'
-app_file=$app_folder'/app.py'
+APP_PATH="/Users/$USER/Desktop/"
+APP_FOLDER=$APP_PATH'crowdsourcing'
+APP_FILE=$APP_FOLDER'/app.py'
 
 echo "${p}Hello there! let's have a look at what we need to install"
 
 # check the path exists, else throw error
-if [ -d $app_path ]; then
+if [ -d $APP_PATH ]; then
   # if python is not installed, install it
   if ! hash python; then
       echo "${p}python is not installed, let me install it first!"
@@ -36,21 +36,21 @@ if [ -d $app_path ]; then
   fi
 else
   echo 'Where should we install the application? Provide a full path (e.g. /Users/YOURNAME/Desktop/)'
-  read $app_path
+  read $APP_PATH
 fi
 
 # create the folder
-if [ ! -d $app_folder ]; then
-  mkdir -p $app_folder;
-  echo "$app_folder created"
+if [ ! -d $APP_FOLDER ]; then
+  mkdir -p $APP_FOLDER;
+  echo "$APP_FOLDER created"
 fi
 
-cd $app_folder
+cd $APP_FOLDER
 
-if [ ! -f $app_file ]; then
+if [ ! -f $APP_FILE ]; then
   # download repo
   echo "downloading github repo"
-  git clone https://github.com/marilenadaquino/crowdsourcing $app_folder
+  git clone https://github.com/marilenadaquino/crowdsourcing $APP_FOLDER
   echo "cloned repo"
 fi
 
@@ -58,12 +58,12 @@ fi
 virtualenv .
 source bin/activate
 # install requirements
-pip3 install -r $app_folder'/requirements.txt'
+pip3 install -r $APP_FOLDER'/requirements.txt'
 
 # executable run
-chmod 755 $app_folder'/run'
+chmod 755 $APP_FOLDER'/run'
 
-if [ ! -f $app_folder'/blazegraph.jar' ]; then
+if [ ! -f $APP_FOLDER'/blazegraph.jar' ]; then
   # download blazegraph
   echo "no blazegraph"
   curl -L "https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_2_1_6_RC/blazegraph.jar" --output blazegraph.jar

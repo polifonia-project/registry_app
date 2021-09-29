@@ -12,6 +12,9 @@ from rdflib.plugins.sparql import prepareQuery
 from SPARQLWrapper import SPARQLWrapper, JSON
 from pymantic import sparql
 import conf , queries
+import utils as u
+
+u.reload_config()
 
 # NAMESPACES
 WD = Namespace("http://www.wikidata.org/entity/")

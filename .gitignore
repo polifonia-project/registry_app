@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Vagrant/VM/Docker
+.vagrant/
+
+# Specific webpy folders
+sessions/
+*.log
+
+# Blazegraph data
+data/blaze.jnl
+
+# This file is created dynamically during the runtime
+static/js/conf.js

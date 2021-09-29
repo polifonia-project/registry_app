@@ -3,10 +3,40 @@ import web , datetime , os, time, re, cgi , json
 from web import form
 import conf
 
+def parse_config_variables(text:str, conf):
+	""" Parses and replace the variables in the text by their values from config.
+	
+	Parameters
+	----------
+	text: str
+		The input string representing the config
+	conf
+		The config module
+	
+	Returns
+	-------
+	str
+		The same text with the replaced wildards 
+	"""
+	params = {
+        '$myEndpoint': conf.myEndpoint,
+        '$myPublicEndpoint': conf.myPublicEndpoint
+    }
+	for k, v in params.items():
+		text = text.replace(k, v)
+	return text
+
 def get_form(json_form):
 	""" read config in 'myform.json' and return a webpy form """
+	import io
 	with open(json_form) as config_form:
-		fields = json.load(config_form)
+		# The StringIO wrapper was used to re-use the json.load function 
+		# without any other change. 
+		text = config_form.read()
+		text = parse_config_variables(text, conf)
+		buf = io.StringIO(text)
+		buf.seek(0)
+		fields = json.load(buf)
 
 	params = ()
 

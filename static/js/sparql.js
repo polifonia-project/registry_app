@@ -3,7 +3,7 @@ var yasqe = YASQE(document.getElementById("yasqe"), {
 	sparql: {
 		showQueryButton: true,
 		endpoint: myPublicEndpoint,
-		requestMethod: "GET"
+		requestMethod: "POST" // TODO: this does not work with GET
 	}
 });
 
