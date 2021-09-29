@@ -2,13 +2,21 @@ import os , json
 import requests
 from github import Github, InputGitAuthor
 import conf
+import utils as u
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # OAUTH APP
 
+
 clientId = conf.gitClientID
 clientSecret = conf.gitClientSecret
+
+def is_git_auth():
+	""" Return True if the app requires github auth"""
+	
+	u.reload_config()
+	return True if conf.gitClientID != "" else False
 
 def ask_user_permission(code):
 	""" get user permission when authenticating via github"""

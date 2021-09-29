@@ -14,7 +14,7 @@ $def with (content)
 			<script type="text/javascript" src="static/js/main.js"></script>
 			<script type="text/javascript" src="static/js/classie.js"></script>
 			<script type="text/javascript" src="static/js/lodash-core.js"></script>
-		
+
 			<link rel="icon" type="image/png" href="static/imgs/favicon.png">
 			<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
 			<link rel="stylesheet" type="text/css" href="static/css/main.css">
@@ -34,18 +34,16 @@ $def with (content)
 				<!-- <span class="logo"><a href="/"><img src="static/imgs/logo.svg"></a></span> -->
 				<!-- <a href="about">about</a> -->
 				<section class="col-md-8 col-sm-12 collapse navbar-collapse" id="navbarSupportedContent">
-					<a href="/" class="logo_header">musoW</a>
-					<a href="records">Explore</a>
-					<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign in</a>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						$if content.user == 'anonymous' or content.user == 'unknown':
-							<p class="small noBtn"><a href="gitauth">authenticate via github <i class="fab fa-github"></i></a> </p>
-							<p class="small noBtn"><a href="welcome-1">or enter in anonymous mode</a> </p>
-
+					<span><a href="/" class="logo_header">musoW</a>
+					<a href="records">Explore</a></span>
+					$if content.user == 'anonymous' or content.user == 'unknown':
+						$if content.is_git_auth == True:
+							<button class="btn btn-dark" onclick="window.location.href='gitauth'"  role="button" id="dropdownMenuLink">Member area <i class="fab fa-github"></i></button>
 						$else:
-							<p>You are logged in.</p>
-							<p><a href="logout">Logout</a></p>
-					</div>
+							<button class="btn btn-dark" onclick="window.location.href='welcome-1'" role="button" id="dropdownMenuLink">Member area</button>
+					$else:
+							<button class="btn btn-dark" onclick="window.location.href='logout'" role="button" id="dropdownMenuLink">Logout</button>
+
 					<form action='' method='POST' id="create_form_menu">
 				    <button class="btn btn-dark" name="action" value="createRecord$time_now()" type="submit">Add a resource</button>
 				  </form>

@@ -71,10 +71,12 @@ props_labels = [ u.get_LOV_labels(field["property"],'property') for field in fie
 # ERROR HANDLER
 
 def notfound():
-	return web.notfound(render.notfound(user=session['username']))
+	is_git_auth = github_sync.is_git_auth()
+	return web.notfound(render.notfound(user=session['username'], is_git_auth=is_git_auth))
 
 def internalerror():
-	return web.internalerror(render.internalerror(user=session['username']))
+	is_git_auth = github_sync.is_git_auth()
+	return web.internalerror(render.internalerror(user=session['username'],is_git_auth=is_git_auth))
 
 class Notfound:
 	def GET(self):
@@ -114,10 +116,12 @@ def init_js_config(data):
 		jsfile.writelines('var graph = "";\n')
 
 # GITHUB LOGIN
-clientId = conf.gitClientID
+
+
 
 class Gitauth:
 	def GET(self):
+		clientId = conf.gitClientID
 		return web.seeother("https://github.com/login/oauth/authorize?client_id="+clientId+"&scope=repo read:user")
 
 
@@ -152,13 +156,13 @@ init_js_config(conf)
 
 class Setup:
 	def GET(self):
-
+		is_git_auth = github_sync.is_git_auth()
 		# reload conf
 		u.log_output("SETUP:GET",session['logged_in'], session['username'])
 		u.reload_config()
 		f = forms.get_form('setup.json')
 		data = u.get_vars_from_module('conf')
-		return render.setup(f=f,user='anonymous',data=data)
+		return render.setup(f=f,user='anonymous',data=data, is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -189,10 +193,12 @@ class Setup:
 
 class Template:
 	def GET(self):
+		is_git_auth = github_sync.is_git_auth()
+		# reload template form
 		with open(conf.myform) as config_form:
 			fields = json.load(config_form)
 		res_type = conf.main_entity
-		return render.template(f=fields,user='anonymous',res_type=res_type)
+		return render.template(f=fields,user='anonymous',res_type=res_type, is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -203,10 +209,12 @@ class Template:
 			u.reload_config()
 			#threading.Thread(target=u.fileWatcher).start()
 			raise web.seeother(prefixLocal+'/welcome-1')
-# CLASSIC LOGIN : TO BE REMOVED
+
+# LOGIN : Homepage
 
 class Login:
 	def GET(self):
+		is_git_auth = github_sync.is_git_auth()
 		if conf.status=='not modified':
 			raise web.seeother('setup')
 		if session.username != 'anonymous':
@@ -214,7 +222,7 @@ class Login:
 			raise web.seeother(prefixLocal+'welcome-1')
 		else:
 			u.log_output('HOMEPAGE ANONYMOUS', session['logged_in'], session['username'])
-			return render.login(user='anonymous')
+			return render.login(user='anonymous',is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -242,6 +250,7 @@ class Index:
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		is_git_auth = github_sync.is_git_auth()
 		session['ip_address'] = str(web.ctx['ip'])
 		filterRecords = ''
 		userID = session['username'].replace('@','-at-').replace('.','-dot-')
@@ -251,25 +260,25 @@ class Index:
 		records = reversed(sorted(results, key=lambda tup: key(tup[4][:-5]) ))
 
 		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
-							(clientId == '' and session['username'] == 'anonymous') else 'False'
+							(conf.gitClientID == '' and session['username'] == 'anonymous') else 'False'
 
 		if (session['username'] != 'anonymous') or \
-			(clientId == '' and session['username'] == 'anonymous'):
+			(conf.gitClientID == '' and session['username'] == 'anonymous'):
 			u.log_output('WELCOME PAGE', session['logged_in'], session['username'])
 
 			return render.index(wikilist=records, user=session['username'],
 				varIDpage=str(time.time()).replace('.','-'), alll=alll, all=all,
 				notreviewed=notreviewed,underreview=underreview,
 				published=published, page=page,pagination=int(conf.pagination),
-				filter=filterRecords, filterName = 'filterAll')
+				filter=filterRecords, filterName = 'filterAll',is_git_auth=is_git_auth)
 		else:
-			if clientId == '':
+			if conf.gitClientID == '':
 				session['logged_in'] = 'False'
 				return render.index(wikilist=records, user=session['username'],
 					varIDpage=str(time.time()).replace('.','-'), alll=alll, all=all,
 					notreviewed=notreviewed,underreview=underreview,
 					published=published, page=page,pagination=int(conf.pagination),
-					filter=filterRecords, filterName = 'filterAll')
+					filter=filterRecords, filterName = 'filterAll',is_git_auth=is_git_auth)
 			else:
 				session['logged_in'] = 'False'
 				u.log_output('WELCOME PAGE NOT LOGGED IN', session['logged_in'], session['username'])
@@ -281,7 +290,7 @@ class Index:
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
 		session['ip_address'] = str(web.ctx['ip'])
-
+		is_git_auth = github_sync.is_git_auth()
 		filter_values = {
 			"filterNew": "?g base:publicationStage ?anyValue . FILTER (isLiteral(?anyValue) && lcase(str(?anyValue)) = 'not modified') .",
 			"filterReviewed": "?g base:publicationStage ?anyValue . FILTER (isLiteral(?anyValue) && lcase(str(?anyValue)) = 'modified') .",
@@ -306,7 +315,7 @@ class Index:
 				alll=alll, all=all, notreviewed=notreviewed,
 				underreview=underreview, published=published,
 				page=page, pagination=int(conf.pagination),
-				filter= filterRecords, filterName = filterName)
+				filter= filterRecords, filterName = filterName, is_git_auth=is_git_auth)
 
 		# create a new record (logged users)
 		elif actions.action.startswith('createRecord'):
@@ -338,7 +347,7 @@ class Index:
 					alll=alll, all=all, notreviewed=notreviewed,
 					underreview=underreview, published=published,
 					page=page, pagination=int(conf.pagination),
-					filter= filterRecords, filterName = filterName)
+					filter= filterRecords, filterName = filterName, is_git_auth=is_git_auth)
 
 		# modify a record
 		elif actions.action.startswith('modify'):
@@ -370,7 +379,7 @@ class Index:
 					alll=alll, all=all, notreviewed=notreviewed,
 					underreview=underreview, published=published,
 					page=page, pagination=int(conf.pagination),
-					filter= filterRecords, filterName = filterName)
+					filter= filterRecords, filterName = filterName, is_git_auth=is_git_auth)
 
 		# login or create a new record
 		else:
@@ -384,27 +393,28 @@ class Record(object):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-
+		is_git_auth = github_sync.is_git_auth()
 		session['ip_address'] = str(web.ctx['ip'])
 		user = session['username']
 		logged_in = True if user != 'anonymous' else False
 		u.log_output('GET RECORD FORM', session['logged_in'], session['username'])
 		block_user, limit = u.check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		f = forms.get_form(conf.myform)
-		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit)
+		return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth)
 
 	def POST(self, name):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		is_git_auth = github_sync.is_git_auth()
 		f = forms.get_form(conf.myform)
 		user = session['username']
 		session['ip_address'] = str(web.ctx['ip'])
 		u.write_ip(str(datetime.datetime.now()), str(web.ctx['ip']), 'POST')
-
+		block_user, limit = u.check_ip(str(web.ctx['ip']), str(datetime.datetime.now()) )
 		if not f.validates():
 			u.log_output('SUBMIT INVALID FORM', session['logged_in'], session['username'],recordID)
-			return render.record(record_form=f, pageID=name, user=user)
+			return render.record(record_form=f, pageID=name, user=user, alert=block_user, limit=limit, is_git_auth=is_git_auth)
 		else:
 			recordData = web.input()
 			#print(recordData)
@@ -430,12 +440,14 @@ class Modify(object):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		is_git_auth = github_sync.is_git_auth()
+
 		session['ip_address'] = str(web.ctx['ip'])
 		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
-							(clientId == '' and session['username'] == 'anonymous') else 'False'
+							(conf.gitClientID == '' and session['username'] == 'anonymous') else 'False'
 
 		if (session['username'] != 'anonymous') or \
-			(clientId == '' and session['username'] == 'anonymous'):
+			(conf.gitClientID == '' and session['username'] == 'anonymous'):
 			graphToRebuild = conf.base+name+'/'
 			recordID = name
 			data = queries.getData(graphToRebuild)
@@ -443,7 +455,7 @@ class Modify(object):
 			f = forms.get_form(conf.myform)
 			ids_dropdown = u.get_dropdowns(fields)
 			return render.modify(graphdata=data, pageID=recordID, record_form=f,
-							user=session['username'],ids_dropdown=ids_dropdown)
+							user=session['username'],ids_dropdown=ids_dropdown,is_git_auth=is_git_auth)
 		else:
 			session['logged_in'] = 'False'
 			raise web.seeother(prefixLocal+'/')
@@ -476,11 +488,12 @@ class Review(object):
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+		is_git_auth = github_sync.is_git_auth()
 		session_data['logged_in'] = 'True' if (session['username'] != 'anonymous') or \
-							(clientId == '' and session['username'] == 'anonymous') else 'False'
+							(conf.gitClientID == '' and session['username'] == 'anonymous') else 'False'
 
 		if (session['username'] != 'anonymous') or \
-			(clientId == '' and session['username'] == 'anonymous'):
+			(conf.gitClientID == '' and session['username'] == 'anonymous'):
 			graphToRebuild = conf.base+name+'/'
 			recordID = name
 			data = queries.getData(graphToRebuild)
@@ -490,7 +503,7 @@ class Review(object):
 			ids_dropdown = u.get_dropdowns(fields)
 			return render.review(graphdata=data, pageID=recordID, record_form=f,
 								graph=graphToRebuild, user=session['username'],
-								ids_dropdown=ids_dropdown)
+								ids_dropdown=ids_dropdown,is_git_auth=is_git_auth)
 		else:
 			session['logged_in'] = 'False'
 			raise web.seeother(prefixLocal+'/')
@@ -533,7 +546,8 @@ class Review(object):
 
 class Documentation:
 	def GET(self):
-		return render.documentation(user=session['username'])
+		is_git_auth = github_sync.is_git_auth()
+		return render.documentation(user=session['username'],is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -545,12 +559,13 @@ class Documentation:
 class Records:
 	def GET(self):
 		#threading.Thread(target=u.fileWatcher).start()
+		is_git_auth = github_sync.is_git_auth()
 		records = queries.getRecords()
 		alll = queries.countAll()
 		filtersBrowse = queries.getBrowsingFilters()
 		return render.records(user=session['username'], data=records,
 							title='Latest added resources', r_base=conf.base,
-							alll=alll, filters=filtersBrowse)
+							alll=alll, filters=filtersBrowse,is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -561,6 +576,7 @@ class Records:
 
 class View(object):
 	def GET(self, name):
+		is_git_auth = github_sync.is_git_auth()
 		base = conf.base
 		record = base+name
 		data = dict(queries.getData(record+'/'))
@@ -572,7 +588,7 @@ class View(object):
 						for field in fields if k == field['id']}
 
 		return render.view(user=session['username'], graphdata=data_labels,
-						graphID=name, title=title, stage=stage, base=base)
+						graphID=name, title=title, stage=stage, base=base,is_git_auth=is_git_auth)
 
 	def POST(self,name):
 		data = web.input()
@@ -584,22 +600,25 @@ class View(object):
 class Term(object):
 	def GET(self, name):
 		data = queries.describeTerm(name)
+		is_git_auth = github_sync.is_git_auth()
 		#print(data)
 		count = len([ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
 					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
 
-		return render.term(user=session['username'], data=data, count=count)
+		return render.term(user=session['username'], data=data, count=count,is_git_auth=is_git_auth)
 
 	def POST(self,name):
 		data = web.input()
 		if 'action' in data:
 			create_record(data)
+
 # DATA MODEL
 
 class DataModel:
 	def GET(self):
-		return render.datamodel(user=session['username'], data=props_labels, res_class=res_class_label)
+		is_git_auth = github_sync.is_git_auth()
+		return render.datamodel(user=session['username'], data=props_labels, res_class=res_class_label,is_git_auth=is_git_auth)
 
 	def POST(self):
 		data = web.input()
@@ -632,7 +651,7 @@ class sparql:
 			# print("QUERY TO ENDPOINT:", cur_data)
 			return self.__contact_tp(cur_data, True, content_type)
 		else:
-			raise web.redirect("/sparql")
+			raise web.redirect(prefixLocal+"sparql")
 
 	def __contact_tp(self, data, is_post, content_type):
 		accept = web.ctx.env.get('HTTP_ACCEPT')
@@ -679,7 +698,8 @@ class sparql:
 
 		if query_str_decoded is None or query_str_decoded.strip() == "":
 			# u.log_output('->render', session['logged_in'], session['username'])
-			return render.sparql(active, user='anonymous')
+			is_git_auth = github_sync.is_git_auth()
+			return render.sparql(active, user='anonymous',is_git_auth=is_git_auth)
 		if re.search("updates?", query_str_decoded, re.IGNORECASE) is None:
 			# u.log_output('-update=NO', session['logged_in'], session['username'])
 			if "query" in parsed_query:

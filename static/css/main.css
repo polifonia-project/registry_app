@@ -58,7 +58,7 @@ article p { font-size: 1.5em; line-height: 1.7em; padding: 0.5em 2em;}
 
 /* login */
 .dropdown-menu {padding: 2em !important;}
-.dropdown-menu a {color: rgb(255,0,0) !important;}
+/* .dropdown-menu a {color: rgb(255,0,0) !important;} */
 .field-wrap label {width: 100%; margin-top: 0.5em;}
 .field-wrap input {width: 100%; margin: 0.5em 0px;}
 
@@ -360,6 +360,14 @@ select-selected.select-arrow-active:after {
 
 @media screen and (min-width: 320px)
   and (max-width: 760px) {
+    /* menu */
+    .logo_header:before {content: 'Home ';}
+    .logo_header {border: none; box-shadow: none;}
+    #navbarSupportedContent span {display: block; margin: 0 auto; text-align: center;}
+    #navbarSupportedContent button, #navbarSupportedContent form {
+      display: block;
+      margin: 10px auto !important;
+    }
     /* homepage */
     .homepage {height: 60%;}
     .logo_homepage {margin: 1em; text-align: center; display:block;}

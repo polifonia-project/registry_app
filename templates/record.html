@@ -1,5 +1,6 @@
-$def with(record_form, pageID, user, alert, limit)
+$def with(record_form, pageID, user, alert, limit, is_git_auth)
 $var user = user
+$var is_git_auth = is_git_auth
 
 $if alert == False:
 	<header class="row needDoc">
