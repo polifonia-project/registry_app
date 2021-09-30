@@ -177,6 +177,7 @@ class Setup:
 			file.writelines('myform = "myform.json"\n')
 			file.writelines('log_file = "ip_logs.log"\n')
 			file.writelines('wikidataEndpoint = "https://query.wikidata.org/bigdata/namespace/wdq/sparql"\n')
+			data = u.validate_setup(data)
 			for k,v in data.items():
 				file.writelines(k+'''="'''+v+'''"\n''')
 			# write the json config file for javascript

@@ -74,7 +74,7 @@ article p { font-size: 1.5em; line-height: 1.7em; padding: 0.5em 2em;}
   justify-content: center;
   align-items: center;
 }
-.logo_homepage { display:inline-block; margin: 0 auto; padding: 0px 0.2em; font-size: 8vw;color: white; border: solid 1vw white; vertical-align: top;}
+.logo_homepage { display:inline-block; margin: 0 auto; padding: 0px 0.2em; font-size: 8vw;color: white; border: solid 0.5vw white; vertical-align: top;}
 .homepage h1 {color: white; font-size: 8vw; line-height: 1.2em; padding: 1em;}
 .homepage h2, .homepage p {color: white !important; text-align: left;}
 .box:nth-child(even) {background-color: rgba(100,23,180,1);}

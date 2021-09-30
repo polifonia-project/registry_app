@@ -4,6 +4,8 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
 
  $(document).ready(function() {
 
+   
+
     // loader
     $(".se-pre-con").fadeOut("slow");
 
@@ -29,6 +31,8 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
   	// tooltips
   	$('.tip').tooltip();
 
+    // fields without tooltip
+    $('.input_or_select').not(':has(.tip)').css("padding-left","3.2em");
     // check prior records and alert if duplicate
     checkPriorRecords('disambiguate');
 

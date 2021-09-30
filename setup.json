@@ -107,7 +107,7 @@
     "cache_autocomplete":"off",
     "property":"http://rdfs.org/ns/void#feature",
     "value":"URI",
-    "defaultvalue":"True",
+    "defaultvalue":"False",
     "disambiguate":"False",
     "browse":"False"
   },

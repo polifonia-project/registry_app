@@ -194,3 +194,22 @@ def fields_to_json(data, json_file):
 	# store the dict as json file
 	with open(json_file, 'w') as fout:
 		fout.write(json.dumps(ordlist, indent=1))
+
+def validate_setup(data):
+	""" Validate user input in setup page and check errors / missing values"""
+	for k,v in data.items():
+		k["myEndpoint"] = k["myEndpoint"] if k["myEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
+		k["myPublicEndpoint"] = k["myPublicEndpoint"] if k["myPublicEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
+		k["base"] = k["base"] if k["base"].startswith("http") else "http://example.org/base/"
+		k["main_entity"] = k["main_entity"] if k["main_entity"].startswith("http") else "http://example.org/entity/"
+		k["limit_requests"] = k["limit_requests"] if isinstance(int(k["limit_requests"]), int) else "50"
+		k["pagination"] = k["pagination"] if isinstance(int(k["pagination"]), int) else "10"
+		k["github_backup"] = k["github_backup"] if k["github_backup"] in ["True", "False"] else "False"
+		# github backup
+		if k["github_backup"] == "True" \
+			and (len(k["repo_name"]) > 1 and len(k["owner"]) > 1 and len(k["author_email"]) > 1 and len(k["token"]) > 1):
+			k["github_backup"] = "True"
+		else:
+			k["github_backup"] = "False"
+
+	return data
