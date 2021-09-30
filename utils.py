@@ -197,19 +197,20 @@ def fields_to_json(data, json_file):
 
 def validate_setup(data):
 	""" Validate user input in setup page and check errors / missing values"""
-	for k,v in data.items():
-		k["myEndpoint"] = k["myEndpoint"] if k["myEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
-		k["myPublicEndpoint"] = k["myPublicEndpoint"] if k["myPublicEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
-		k["base"] = k["base"] if k["base"].startswith("http") else "http://example.org/base/"
-		k["main_entity"] = k["main_entity"] if k["main_entity"].startswith("http") else "http://example.org/entity/"
-		k["limit_requests"] = k["limit_requests"] if isinstance(int(k["limit_requests"]), int) else "50"
-		k["pagination"] = k["pagination"] if isinstance(int(k["pagination"]), int) else "10"
-		k["github_backup"] = k["github_backup"] if k["github_backup"] in ["True", "False"] else "False"
-		# github backup
-		if k["github_backup"] == "True" \
-			and (len(k["repo_name"]) > 1 and len(k["owner"]) > 1 and len(k["author_email"]) > 1 and len(k["token"]) > 1):
-			k["github_backup"] = "True"
-		else:
-			k["github_backup"] = "False"
+	print(data)
+
+	data["myEndpoint"] = data["myEndpoint"] if "myEndpoint" in data and data["myEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
+	data["myPublicEndpoint"] = data["myPublicEndpoint"] if data["myPublicEndpoint"].startswith("http") else "http://127.0.0.1:3000/blazegraph/sparql"
+	data["base"] = data["base"] if data["base"].startswith("http") else "http://example.org/base/"
+	data["main_entity"] = data["main_entity"] if data["main_entity"].startswith("http") else "http://example.org/entity/"
+	data["limit_requests"] = data["limit_requests"] if isinstance(int(data["limit_requests"]), int) else "50"
+	data["pagination"] = data["pagination"] if isinstance(int(data["pagination"]), int) else "10"
+	data["github_backup"] = data["github_backup"] if data["github_backup"] in ["True", "False"] else "False"
+	# github backup
+	if data["github_backup"] == "True" \
+		and (len(data["repo_name"]) > 1 and len(data["owner"]) > 1 and len(data["author_email"]) > 1 and len(data["token"]) > 1):
+		data["github_backup"] = "True"
+	else:
+		data["github_backup"] = "False"
 
 	return data

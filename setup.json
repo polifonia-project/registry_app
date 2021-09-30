@@ -5,7 +5,7 @@
     "label":"my endpoint",
     "placeholder":"$myEndpoint",
     "prepend":"The local URL of your triplestore, do not change for default settings",
-    "disabled":"False",
+    "disabled":"True",
     "class":"col-md-11",
     "searchWikidata":"False",
     "cache_autocomplete":"off",

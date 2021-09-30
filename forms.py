@@ -47,11 +47,11 @@ def get_form(json_form):
 		pre_a = "<span class='tip' data-toggle='tooltip' data-placement='bottom' title='"
 		pre_b = "'><i class='fas fa-info-circle'></i></span>"
 		prepend = pre_a+field['prepend']+pre_b if 'prepend' in field and len(field['prepend']) > 0 else ''
-		disabled = field['disabled'] if 'disabled' in field and len(field['disabled']) > 0 else ''
+		disabled = 'disabled' if 'disabled' in field and field['disabled'] == "True" else ''
 		classes = field['class'] if 'class' in field and len(field['class']) > 0 else ''
 		classes = classes+' searchWikidata' if 'searchWikidata' in field and field['searchWikidata'] == 'True' else classes
 		classes = classes+' disambiguate' if "disambiguate" in field and field["disambiguate"] == 'True' else classes
-		classes = classes+' ('+conf.main_entity+')'
+		classes = classes+' ('+conf.main_entity+') '+disabled
 		autocomplete = field['cache_autocomplete'] if 'cache_autocomplete' in field and len(field['cache_autocomplete']) > 0 else ''
 
 		# text box

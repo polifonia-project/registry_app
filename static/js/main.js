@@ -4,7 +4,7 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
 
  $(document).ready(function() {
 
-   
+
 
     // loader
     $(".se-pre-con").fadeOut("slow");
@@ -17,6 +17,9 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
   	    return false;
   	  }
   	});
+
+    // disable forms
+    $(".disabled").attr("disabled","disabled");
 
   	// URL detection
     $('.info-url').each(function(element) {
