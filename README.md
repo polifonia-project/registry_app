@@ -18,6 +18,10 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
       - [Data backup on Github](#data-backup-on-github)
       - [User authentication with Github](#user-authentication-with-github)
    - [Form template](#form-template)
+      - [Textbox](#textbox)
+      - [Dropdown and checkbox](#dropdown-and-checkbox)
+      - [Add and move fields](#add-and-move-fields)
+      - [Delete fields](#delete-fields)
  - [Get started](#tutorial)
  - [Access data](#access-data)
  - [Limitations](#limitations)
@@ -50,15 +54,10 @@ github or not
 **With the installer**
 
  * download `install` from the latest release
-
  * in the terminal, change the permissions `chmod 755 path/to/install`
-
  * run the script `./install.sh`. The installer clones the repository in the folder `/Users/{USERNAME}/crowdsourcing`, creates a virtual environment, installs dependencies, and downloads blazegraph triplestore.
-
  * open the folder `/Users/{USERNAME}/crowdsourcing` and run the executable script `run.sh`
-
  * open your browser at http://0.0.0.0:8080/
-
  * follow the instructions for [customization](#customize)
 
 **From source**
@@ -66,17 +65,11 @@ github or not
 _(No virtualenv for simplicity)_
 
  * download the source code from the latest release or clone the repository
-
  * install `requirements.txt` with pip (`pip3 install requirements.txt`)
-
  * download the latest version of blazegraph [link](https://github.com/blazegraph/database/releases/tag/BLAZEGRAPH_2_1_6_RC) and move the file `blazegraph.jar` in the root folder of the cloned repository
-
  * in the terminal, launch blazegraph `java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -server -Xmx2g -Djetty.port=3000 -Dbigdata.propertyFile=blaze.properties -jar blazegraph.jar` (NB. `-Xmx2g` requires 2GB RAM, change according to your preference)
-
  * launch the web application `python3 app.py 8080`
-
  * open your browser at http://0.0.0.0:8080/
-
  * follow the instructions for [customization](#customize)
 
 **With Docker**
@@ -84,28 +77,21 @@ _(No virtualenv for simplicity)_
  * install Docker on your system
 
    - [Windows](https://docs.docker.com/desktop/windows/install/) - update to the newest version of Windows to ensure that Docker can be installed. For example, if you have a Windows Home, ensure you have at [least the version 2004](https://golb.hplar.ch/2020/05/docker-windows-home-2004.html)
-
    - [macOs](https://docs.docker.com/desktop/mac/install/)
-
    - [Linux](https://docs.docker.com/engine/install/)
 
  * clone or download the repository
 
    - with [git](https://git-scm.com/downloads) for easier installation and update (optional, recommended) ```git clone https://github.com/marilenadaquino/crowdsourcing.git```
-
    - or [download the zip repository](https://github.com/marilenadaquino/crowdsourcing/archive/refs/heads/main.zip) and unpack it.
-
    - no extra action is needed for configuration. The configuration is loaded from `conf.py`. The only difference regards the set up of the endpoints for Blazegraph and the application (in two containers). This is set in `docker-compose.yml` by two properties:
 
       - ```BLAZEGRAPH_ENDPOINT=http://db:8080/bigdata/sparql```
       - ```PUBLIC_BLAZEGRAPH_ENDPOINT=http://localhost:8080/sparql```
 
  * ensure that your Docker engine is running
-
  * run ```docker compose up``` (the first build might take couple of minutes)
-
  * access your web browser at [http://localhost:8080](http://localhost:8080)
-
  * follow the instructions for [customization](#customize)
 
 
@@ -114,17 +100,11 @@ _(No virtualenv for simplicity)_
 **With Vagrant**
 
  * ensure you have [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-
  * ensure you have [Vagrant](https://www.vagrantup.com/downloads.html)
-
  * clone the repository
-
  * cd into the repository and run ```vagrant up```
-
  * access your web browser at [http://localhost:8080](http://localhost:8080)
-
  * follow the instructions for [customization](#customize)
-
 
 ## Customize
 
@@ -155,11 +135,9 @@ Changes to the config file have immediate effect (no need to restart the applica
 
  - **MY PUBLIC ENDPOINT** (default `http://127.0.0.1:3000/blazegraph/sparql`) the public URL of your SPARQL endpoint (for front-end functionalities, e.g. autocomplete).
 
-  * If you are running the application locally, this value must be the same as **MY ENDPOINT**.
-
-  * If run remotely, the web application provides an out-of-the-box read-only SPARQL endpoint at `{YOURDOMAIN}/sparql`. Use this URL.
-
-  * if you are running the app in docker, change `docker-compose.yml`
+    * If you are running the application locally, this value must be the same as **MY ENDPOINT**.
+    * If run remotely, the web application provides an out-of-the-box read-only SPARQL endpoint at `{YOURDOMAIN}/sparql`. Use this URL.
+    * if you are running the app in docker, change `docker-compose.yml`
 
  - **URI BASE** the URI base of new resources. Be aware that dereferencing methods are not provided. Use persistent URI providers (e.g. [w3id](https://w3id.org/)).
 
@@ -293,11 +271,13 @@ Checkboxes appear as follows. The user can select multiple values.
 
 ![checkbox example](docs/checkbox.png)
 
-**Add / move / delete fields**
+#### Add and move fields
 
 To add a new field to your template, use the buttons at the bottom of the page.
 
 ![add field](docs/add_field.png)
+
+#### Delete fields
 
 Fields can be sorted and reshuffled. Move fields up and down with the arrows at the bottom of the box. To delete a field use the bin icon.  
 
