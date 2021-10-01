@@ -1,6 +1,6 @@
 @prefix ns1: <http://data.open.ac.uk/musow/> .
-@prefix ns2: <http://purl.org/spar/datacite/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://purl.org/spar/datacite/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,17 +8,16 @@
 
 <http://data.open.ac.uk/musow/1630331465-161933> a <https://schema.org/CreativeWork> ;
     rdfs:label "checkbox now?" ;
-    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
-    ns2:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre>,
+    ns3:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
+    ns3:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre>,
         <http://data.open.ac.uk/musow/ontology/scope/geographical>,
         <http://data.open.ac.uk/musow/ontology/scope/temporal> .
 
 <http://data.open.ac.uk/musow/1630331465-161933/> rdfs:label "checkbox now?" ;
-    ns1:publicationStage "not modified"^^xsd:string ;
-    ns3:generatedAtTime "2021-08-30T15:54:06.591599"^^xsd:dateTime ;
-    ns3:wasGeneratedBy ns1:marilena-dot-daquino2-at-unibo-dot-it .
-
-ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+    ns1:publicationStage "modified"^^xsd:string ;
+    ns2:generatedAtTime "2021-10-01T18:34:37.930534"^^xsd:dateTime ;
+    ns2:wasGeneratedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it .
 
 <http://data.open.ac.uk/musow/ontology/scope/genre> rdfs:label "genre"^^xsd:string .
 
@@ -27,4 +26,6 @@ ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <http://data.open.ac.uk/musow/ontology/scope/temporal> rdfs:label "temporal"^^xsd:string .
 
 <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository"^^xsd:string .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
