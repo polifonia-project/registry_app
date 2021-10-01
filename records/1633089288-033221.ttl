@@ -1,7 +1,7 @@
-@prefix ns1: <http://purl.org/spar/datacite/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://purl.org/dc/terms/> .
 @prefix ns3: <http://data.open.ac.uk/musow/> .
-@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://purl.org/spar/datacite/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,15 +9,15 @@
 
 <http://data.open.ac.uk/musow/1633089288-033221> a <https://schema.org/CreativeWork> ;
     rdfs:label "hello world" ;
-    ns4:creator ns3:MD1633089298655 ;
-    ns1:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
-    ns1:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre> .
+    ns2:creator ns3:MD1633089298655 ;
+    ns4:hasGeneralResourceType <http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> ;
+    ns4:hasScope <http://data.open.ac.uk/musow/ontology/scope/genre> .
 
 <http://data.open.ac.uk/musow/1633089288-033221/> rdfs:label "hello world" ;
-    ns3:publicationStage "published"^^xsd:string ;
-    ns2:generatedAtTime "2021-10-01T13:55:15.648408"^^xsd:dateTime ;
-    ns2:wasGeneratedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
+    ns3:publicationStage "modified"^^xsd:string ;
+    ns1:generatedAtTime "2021-10-01T18:32:10.872673"^^xsd:dateTime ;
+    ns1:wasGeneratedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
 
 ns3:MD1633089298655 rdfs:label "Federico Fellini"^^xsd:string .
 
