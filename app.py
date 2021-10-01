@@ -179,7 +179,7 @@ class Setup:
 			file.writelines('log_file = "ip_logs.log"\n')
 			file.writelines('wikidataEndpoint = "https://query.wikidata.org/bigdata/namespace/wdq/sparql"\n')
 			data = u.validate_setup(data)
-			
+
 			for k,v in data.items():
 				file.writelines(k+'''="'''+v+'''"\n''')
 			# write the json config file for javascript
@@ -641,7 +641,7 @@ class Term(object):
 	def GET(self, name):
 		data = queries.describeTerm(name)
 		is_git_auth = github_sync.is_git_auth()
-		#print(data)
+
 		count = len([ result["subject"]["value"] \
 					for result in data["results"]["bindings"] \
 					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])

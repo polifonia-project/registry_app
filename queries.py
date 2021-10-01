@@ -110,7 +110,7 @@ def getRecordsPagination(page, filterRecords=''):
 	results = sparql.query().convert()
 	for result in results["results"]["bindings"]:
 		records.append( (result["g"]["value"], result["title"]["value"], result["userLabel"]["value"], result["modifierLabel"]["value"], result["date"]["value"], result["stage"]["value"] ))
-	
+
 	return records
 
 
@@ -254,7 +254,7 @@ def describeTerm(name):
 				WHERE { ?s ?p ?o .
 				filter( regex( str(?o), '"""+name+"""$' ) ) .
 				filter( regex( str(?o), '^"""+conf.base+"""' ) ) . }"""
-			print(hello_blazegraph(describe))
+			
 			return hello_blazegraph(describe)
 		else:
 			return None
