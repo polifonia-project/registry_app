@@ -5,38 +5,22 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
 ## Table of Contents
 
  - [Introduction](#introduction)
-
  - [Requirements](#requirements)
-
  - [Install and run](#install-and-run)
-
    - [Mac](#mac)
-
       - [With the installer](#with-the-installer)
-
       - [From source](#from-source)
-
       - [With Docker](#with-docker)
-
    - [Windows](#windows)
-
       - [With Vagrant](#with-vagrant)
-
  - [Customize](#customize)
-
    - [Setup](#setup)
-
       - [Data backup on Github](#data-backup-on-github)
-
       - [User authentication with Github](#user-authentication-with-github)
-
    - [Form template](#form-template)
-
-   - [Tutorial](#tutorial)
-
-   - [Access data](#access-data)
-
-   - [Limitations](#limitations)
+ - [Get started](#tutorial)
+ - [Access data](#access-data)
+ - [Limitations](#limitations)
 
 ## Introduction
 
@@ -276,9 +260,9 @@ When **FIELD TYPE** is set to `Textbox`, the following fields appear.
 
 ![literal](docs/template_literal.png)
 
-If the value is set to `Free text (Literal)`, a checkbox is shown at the bottom of the box. If checked, the value of this field is mandatory (i.e. cannot be left blank by users) and it is used as a title to be shown in the record web page. Only one field can be flagged as primary label.
+When **VALUE TYPE** is set to `Free text (Literal)`, a checkbox is shown at the bottom of the box (`use this value as primary label`). If checked, the value of this field is mandatory (i.e. cannot be left blank by users) and it is used as a title to be shown in the record web page. Only one field can be flagged as primary label.
 
-The final field will appear as follows.
+The final field appears as follows.
 
 ![textbox example](docs/textbox_example.png)
 
@@ -287,71 +271,38 @@ The final field will appear as follows.
 
 ![literal](docs/template_uri.png)
 
-If the value is set to, the textbox will provide autocomplete suggestions while typing. Suggested entities are queried from Wikidata and, if no result is found in Wikidata, from the catalogue.
+When **VALUE TYPE** is set to `Entity (URI from Wikidata or catalogue)`, a checkbox is shown at the bottom of the box (`use this value as a filter in Explore page`). When checked, a filter based on values of this field is created in the `Explore` page.
+
+The final textbox appears as follows. While typing, autocomplete suggestions are shown. Suggested entities are retrieved from Wikidata and, if no result is found in Wikidata, from the catalogue.
 
 ![textbox example](docs/textbox_example2.png)
 
-#### Dropdown
+#### Dropdown and checkbox
 
-#### Checkbox
- * ****
+When **FIELD TYPE** is set to `Dropdown` or `Checkbox`, the following fields appear.
+
+ * **VALUES** a list of terms to populate the dropdown. Every row includes values in the form `URI, label`, e.g. `http://example.org/myvalue, my value`. Include only one value per row.
+
+ * `use this value as a filter in Explore page` checkbox. When checked, a filter based on values of this field is created in the `Explore` page.
+
+Dropdowns appear as follows. The user can select only one value from the list.
+
+![dropdown example](docs/dropdown.png)
+
+Checkboxes appear as follows. The user can select multiple values.
+
+![checkbox example](docs/checkbox.png)
 
 **Add / move / delete fields**
 
-#### The form `myform.json`
+To add a new field to your template, use the buttons at the bottom of the page.
 
-So far, only text boxes and dropdowns (select) are supported.  
+![add field](docs/add_field.png)
 
-**Textbox**
+Fields can be sorted and reshuffled. Move fields up and down with the arrows at the bottom of the box. To delete a field use the bin icon.  
 
-Example
+![move field](docs/move.png)
 
-```
-{
-  "type":"Textbox",
-  "id":"resource_title", # unique id of the field, DO NOT USE "_label"
-  "label":"Title", # field name shown to users
-  "placeholder":"e.g. Listening Experience database",
-  "prepend":"The title as recorded on the website of the resource",
-  "disabled":"False", # True|False if the input is disabled
-  "class":"col-md-11",
-  "searchWikidata":"False", # True|False lookup into Wikidata and the dataset
-  "cache_autocomplete":"off", # if the prior is True, this should be False
-  "property":"http://www.w3.org/2000/01/rdf-schema#label", # absolute URI of the property
-  "value":"Literal", # Literal|URI the type of value (if searchWikidata is True, set value as URI)
-  "disambiguate":"True", # True|False if True, this field value is used to disambiguate new entries (to prevent users creating duplicates) and to assign a title to the named graph
-  "browse":"True" # True|False if you want records sorted by this field in the Explore page
-}
-```
-
-When `searchWikidata` is True, multiple values are allowed (e.g. multiple creator names). If no match is found in Wikidata or the dataset, new entities are created with the base URI specified in configs.
-
-**Dropdown**
-
-Example
-
-```
-{
-  "type":"Dropdown",
-  "id":"resource_type",
-  "label":"Type",
-  "prepend":"The type of resource described, choose from the list",
-  "disabled":"False",
-  "class":"col-md-11",
-  "cache_autocomplete":"off",
-  "property":"http://purl.org/spar/datacite/hasGeneralResourceType",
-  "value":"URI", # always use a controlled vocabulary
-  "values":{
-      "http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2":"Repository",
-      "http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a":"Schema",
-      "http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab":"Format"
-    },
-  "disambiguate":"False",
-  "browse":"True" # True|False if you want records grouped by this field in the Explore page
-}
-```
-
-For each `key,value` in `values` a triple `<key rdfs:label value>` is uploaded in a dedicated named graph called `base+'vocabularies/'`. Dropdowns allow only one term to be selected.
 
 #### The dataset
 

@@ -817,6 +817,10 @@ function add_field(field, res_type) {
     <textarea id='values__"+temp_id+"' class='col-md-8 values_area align-self-start' name='values__"+temp_id+"'></textarea>\
   </section>";
 
+  var field_browse = "<section class='row'>\
+    <label class='col-md-11 col-sm-6' for='browse__"+temp_id+"'>use this value as a filter in <em>Explore</em> page</label>\
+    <input type='checkbox' id='browse__"+temp_id+"' name='browse__"+temp_id+"'>\
+  </section>"
 
   var open_addons = "<section id='addons__"+temp_id+"'>";
   var close_addons = "</section>";
@@ -824,7 +828,7 @@ function add_field(field, res_type) {
 
   contents += field_type + field_name + field_prepend + field_property + open_addons;
   if (field =='Textbox') { contents += field_value + field_placeholder; }
-  else {contents += field_values; };
+  else {contents += field_values + field_browse; };
   contents += close_addons + up_down;
   $(".sortable").append("<section class='block_field'>"+contents+"</section>");
   updateindex();
