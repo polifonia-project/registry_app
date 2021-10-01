@@ -22,6 +22,7 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
       - [Dropdown and checkbox](#dropdown-and-checkbox)
       - [Add fields](#add-fields)
       - [Move and delete fields](#move-and-delete-fields)
+   - [Static contents](#static-contents)
  - [Get started](#get-started)
  - [Access data](#access-data)
       - [The dataset](#the-dataset)
@@ -283,6 +284,10 @@ Fields can be sorted and reshuffled. Move fields up and down with the arrows at 
 
 ![move field](docs/move.png)
 
+### Static contents
+
+TODO
+
 ## Get started
 
 ### Overview
@@ -409,14 +414,21 @@ When clicking on values, the website redirects either to Wikidata pages (e.g. `F
 
 ### Explore the catalogue
 
-Records can be browsed in the page `Explore`. Records are grouped according to filters, as specified in the Template.
+Records can be browsed in the page `Explore`. Records are grouped according to filters as specified in the Template.
 
-By default, a filter is created for the text field defined as **primary label**. Records are grouped by alphabetical order.
+Records filtered by string values are grouped and sorted in alphabetical order. By default, a filter is created for the text field defined as **primary label**.
 
 ![browse1.png](docs/browse1.png)
 
+Filters based on entities are grouped by frequency of values, and then sorted alphabetically.
+
+![filter.png](docs/filter.png)
 
 #### Text search
+
+The top-right search bar in the menu looks into the catalogue for resources. The search is performed on the primary labels of the records.
+
+![search.png](docs/search.png)
 
 
 ## Access data
