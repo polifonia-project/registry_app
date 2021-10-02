@@ -1,11 +1,10 @@
 # CLEF. Crowdsourcing Linked Entities via web Form
 
-CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open Data native cataloguing system tailored for small-medium crowdsourcing projects.
+CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open Data native cataloguing system tailored to small-medium crowdsourcing projects.
 
 ## Table of Contents
 
  - [Introduction](#introduction)
- - [Requirements](#requirements)
  - [Install and run](#install-and-run)
    - [Mac](#mac)
       - [With the installer](#with-the-installer)
@@ -37,23 +36,25 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
       - [User interface](#user-interface)
       - [SPARQL endpoint](#sparql-endpoint)
       - [Data backup on github](#data-backup-on-github)
+ - [Deployment](#deployment)
  - [Limitations](#limitations)
 
 ## Introduction
 
-CLEF is a content management system
+CLEF is a lightweight content management system that allows users to easily deploy online solutions for collaborative projects.
 
-  - reuse of wikidata
+With CLEF users can setup crowdsourcing campaigns, ensure quality of data collected, and showcase results thanks to a built-in web application for browsing and exploration.
 
-editorial process
+Some highlights:
 
-Crowdsourcing: github authentication and anonymous contribution
-
-local and remote
-
-SPARQL endpoint
-
-Why to use it? use case (multiple contributors to github,  lightweight cms easy to install)
+  - **customisable**: create your template for data collection
+  - **collaborative**: allow everybody to contribute to your catalogue
+  - **peer-reviewed contents**: allow a restricted number of people to review records before publication
+  - **consistent data**: ensure collaborators reference the same contents using Wikidata for autocomplete suggestions
+  - **authentication and backup powered by github**: use github to authenticate reviewers and to backup your data
+  - **release 5-star data** in CLEF data is stored, served, and queried as Linked Open Data.
+  - **show results immediately** CLEF comes with an online browsable catalogue, that can be immediately explored (no need to develop another application for showcasing your data!)
+  - **local or remote** use it from your desktop or on a remote server.
 
 
 ## Requirements
@@ -519,6 +520,12 @@ When Github backup is enabled, a backup of data is provided as `.ttl` files (a f
 
 Versioning is provided by github. Every time a change happens to a record in the application, an update is sent to Github. Be aware that the synchronization between the triplestore and the repository is one-way, that is, changes happening on github are not sent to the triplestore.
 
+## Deployment
+
+CLEF is based on **[web.py](https://webpy.org/)**. To deploy CLEF in production server, you'll need a professional web server process, such as [Gunicorn](https://gunicorn.org/), which will serve the app.
+
+See [how to deploy web.py applications](https://webpy.readthedocs.io/en/latest/deploying.html).
+
 ## Limitations
 
 Web form
@@ -544,7 +551,7 @@ Data
  * object property **values do not have a class** associated. The class can be inferred either Wikidata (when applicable) and/or from the restrictions on the property, as specified in the reused ontology.
  * while the system does not prevent a user to create new properties or classes, **custom ontologies** are not fully supported (i.e. these are not dereferenced)
  * no automatic **import mechanisms** are currently implemented. To import data, you'll need to check data consistency autonomously and import data in the triplestore. Likewise, versioning of this data is not ensured in github if the application runs with github backup enabled.
- * github **synchronization is one-way**. Changes made directly on the github repository do not affect the triplestore.
+ * github **synchronization is one-way**. Changes made directly on the github repository do not affect the triplestore. E.g. if two users working locally update the same repository, these cannot import in their local triplestore the records created by other users.
 
 Explore interface
 
