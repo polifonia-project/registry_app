@@ -24,6 +24,13 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
       - [Move and delete fields](#move-and-delete-fields)
    - [Static contents](#static-contents)
  - [Get started](#get-started)
+      - [Overview](#overview)
+      - [Create a record](#create-a-record)
+        - [The data entry interface](#the-data-entry-interface)
+        - [The editorial process](#the-editorial-process)
+      - [Visualize records](#visualize-records)
+      - [Explore the catalogue](#explore-the-catalogue)
+        - [Text search](#text-search)
  - [Access data](#access-data)
       - [The dataset](#the-dataset)
       - [The data model](#the-data-model)
@@ -124,6 +131,7 @@ Changes to the config file have immediate effect (no need to restart the applica
 
 ![setup page](docs/setup.png)
 
+ - **MY PROJECT** the short name of your project, to be shown in the menu and across pages
  - **MY ENDPOINT** (default `http://127.0.0.1:3000/blazegraph/sparql`, readonly value) the local URL of your SPARQL endpoint. Changes are disabled. To modify the default port you'll have to modify the following files:
 
     * change `myEndpoint` in `conf.py`
@@ -286,7 +294,27 @@ Fields can be sorted and reshuffled. Move fields up and down with the arrows at 
 
 ### Static contents
 
-TODO
+Static contents of the web application are in the folder `static`. These include stylesheets, javascript code and images
+
+```
+/static
+  /css
+    ...
+    main.css # the main css stylesheet of the application
+  /js
+    main.js # the main js script of the application
+  /imgs
+```
+
+#### Modifying web pages
+
+The name of the project is stored in the configuration file. To recall the variable name in web pages, use the variable `$project`.
+
+Web pages templates are available in the folder `templates/`. All pages are based on a shared template called `layout.html`, which includes menu, header, and footer.
+
+The public homepage of the application is called `login.html`, while the member area welcome page is called `index.html`.
+
+_NB. Once you are logged in, the public home page is replaced by the member area welcome page. Logout to see the public homepage_
 
 ## Get started
 
@@ -426,7 +454,7 @@ Filters based on entities are grouped by frequency of values, and then sorted al
 
 #### Text search
 
-The top-right search bar in the menu looks into the catalogue for resources. The search is performed on the primary labels of the records.
+The top-right search bar in the menu looks into the catalogue for resources. The search is performed on the **primary labels** of records.
 
 ![search.png](docs/search.png)
 

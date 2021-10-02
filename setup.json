@@ -1,6 +1,22 @@
 [
   {
     "type":"Textbox",
+    "id":"myProject",
+    "label":"project name",
+    "placeholder":"",
+    "prepend":"The name of your project, to be shown in the web pages",
+    "disabled":"False",
+    "class":"col-md-11",
+    "searchWikidata":"False",
+    "cache_autocomplete":"off",
+    "property":"http://purl.org/dc/terms/title",
+    "value":"Literal",
+    "defaultvalue":"hello world",
+    "disambiguate":"False",
+    "browse":"False"
+  },
+  {
+    "type":"Textbox",
     "id":"myEndpoint",
     "label":"my endpoint",
     "placeholder":"$myEndpoint",
