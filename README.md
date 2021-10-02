@@ -56,11 +56,6 @@ Some highlights:
   - **show results immediately** CLEF comes with an online browsable catalogue, that can be immediately explored (no need to develop another application for showcasing your data!)
   - **local or remote** use it from your desktop or on a remote server.
 
-
-## Requirements
-
-github or not
-
 ## Install and run
 
 ### Mac
