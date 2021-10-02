@@ -43,6 +43,7 @@ urls = (
 )
 
 app = web.application(urls, globals())
+wsgiapp = app.wsgifunc()
 
 # SESSIONS
 
@@ -107,7 +108,7 @@ def init_js_config(data):
 	data: dict
 		Dictionary that is either the initial config or the given data record.
 	"""
-	with open('static/js/conf.js', 'w') as jsfile:
+	with open('./static/js/conf.js', 'w') as jsfile:
 		jsfile.writelines('var myPublicEndpoint = "'+data.myPublicEndpoint+'";\n')
 		jsfile.writelines('var base = "'+ data.base +'";\n')
 		# TODO, support for data served in a single graph
