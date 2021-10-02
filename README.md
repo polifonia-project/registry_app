@@ -67,15 +67,17 @@ github or not
 **With the installer**
 
  * download `install` from the latest release
- * in the terminal, change the permissions `chmod 755 path/to/install`
- * run the script `./install.sh`. The installer clones the repository in the folder `/Users/{USERNAME}/crowdsourcing`, creates a virtual environment, installs dependencies, and downloads blazegraph triplestore.
- * open the folder `/Users/{USERNAME}/crowdsourcing` and run the executable script `run.sh`
+ * open the terminal, change the permissions to the file `chmod 755 Downloads/install`
+ * in the terminal, run the script `./install.sh`. The installer clones the repository in the folder `/Users/{USERNAME}/Desktop/crowdsourcing`, creates a virtual environment, installs dependencies, and downloads blazegraph triplestore.
+ * open the folder `/Users/{USERNAME}/Desktop/crowdsourcing` and run the executable script `run.sh` (double click)
  * open your browser at http://0.0.0.0:8080/
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 **From source**
 
-_(No virtualenv for simplicity)_
+_(No virtualenv)_
 
  * download the source code from the latest release or clone the repository
  * install `requirements.txt` with pip (`pip3 install requirements.txt`)
@@ -84,6 +86,8 @@ _(No virtualenv for simplicity)_
  * launch the web application `python3 app.py 8080`
  * open your browser at http://0.0.0.0:8080/
  * follow the instructions for [customization](#customize)
+
+See section [Setup](#setup) for detail on how to change default ports.
 
 **With Docker**
 
@@ -107,6 +111,8 @@ _(No virtualenv for simplicity)_
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 <hr>
 
 ### Windows
@@ -120,11 +126,13 @@ _(No virtualenv for simplicity)_
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 ## Customize
 
 ### Setup
 
-When running the application for the first time, a web page is shown to setup basic configuration. The setup web page is also available in the Member area (the backend) of the application.
+When running the application for the first time, a web page is shown to setup basic configuration. The setup web page is also available from the Member area (the backend) of the application.
 
 Changes to the config file have immediate effect (no need to restart the application). The config file (`conf.py`) is in the root folder of the application, and can be directly modified.
 
