@@ -30,6 +30,7 @@ if [ -d $APP_PATH ]; then
       brew upgrade python3
       brew install git
       pip3 install --user pipenv
+      pip3 install virtualenv
       exit 1
   else
     echo "${p}...and it is updated"
@@ -50,7 +51,7 @@ cd $APP_FOLDER
 if [ ! -f $APP_FILE ]; then
   # download repo
   echo "downloading github repo"
-  git clone https://github.com/marilenadaquino/crowdsourcing $APP_FOLDER
+  git clone https://github.com/polifonia-project/crowdsourcing $APP_FOLDER
   echo "cloned repo"
 fi
 
