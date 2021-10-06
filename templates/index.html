@@ -1,4 +1,4 @@
-$def with (wikilist, user, varIDpage, alll, all, notreviewed,underreview,published, page,pagination,filter,filterName,is_git_auth)
+$def with (wikilist, user, varIDpage, alll, all, notreviewed,underreview,published, page,pagination,filter,filterName,is_git_auth, project)
 $var user = user
 $var notreviewed = notreviewed
 $var underreview = underreview
@@ -8,6 +8,7 @@ $var all = all
 $var page = page
 $var pagination = pagination
 $var is_git_auth = is_git_auth
+$var project = project
 
 <header class="row">
   $ user_welcome = " "+user if user != 'anonymous' else ""

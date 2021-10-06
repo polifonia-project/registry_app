@@ -2,7 +2,7 @@ $def with (content)
 
 <html>
 	<head>
-	    <title>musoW</title>
+	    <title>$content.project</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 			<script type="text/javascript" src="static/js/conf.js"></script>
@@ -29,12 +29,12 @@ $def with (content)
 			</section>
 			<nav class="row navbar navbar-expand-lg sticky-top">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span>musoW</span>
+			    <span>$content.project</span>
 			  </button>
 				<!-- <span class="logo"><a href="/"><img src="static/imgs/logo.svg"></a></span> -->
 				<!-- <a href="about">about</a> -->
 				<section class="col-md-8 col-sm-12 collapse navbar-collapse" id="navbarSupportedContent">
-					<span><a href="/" class="logo_header">musoW</a>
+					<span><a href="/" class="logo_header">$content.project</a>
 					<a href="records">Explore</a></span>
 					$if content.user == 'anonymous' or content.user == 'unknown':
 						$if content.is_git_auth == True:
@@ -63,7 +63,7 @@ $def with (content)
 			<footer class="row justify-content-md-center">
 
 				<section class="col-md-4 col-sm-12">
-						<p>musoW is part of</p>
+						<p>$content.project is part of</p>
 						<p><a target="_blank" href="https://polifonia-project.eu/"><img src="static/imgs/logo.svg"></a> <img src="static/imgs/logoeu.jpg"></p>
 						<p>Polifonia has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement N. 101004746</p>
 						<p></p>

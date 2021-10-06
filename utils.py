@@ -214,3 +214,31 @@ def validate_setup(data):
 		data["github_backup"] = "False"
 
 	return data
+
+def init_js_config(data):
+	"""Initializes the JS config by the given data
+
+	Parameters
+	----------
+	data: dict
+		Dictionary that is either the initial config or the given data record.
+	"""
+	with open('static/js/conf.js', 'w') as jsfile:
+		jsfile.writelines('var myPublicEndpoint = "'+data.myPublicEndpoint+'";\n')
+		jsfile.writelines('var base = "'+ data.base +'";\n')
+		# TODO, support for data served in a single graph
+		jsfile.writelines('var graph = "";\n')
+
+
+# UTILS
+
+def key(s):
+	"""Return a datetime from a timestamp
+
+	Parameters
+	----------
+	s: str
+		A string representing a timestamp
+	"""
+	fmt = "%Y-%m-%dT%H:%M:%S"
+	return datetime.datetime.strptime(s, fmt)

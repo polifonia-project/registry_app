@@ -1,11 +1,10 @@
 # CLEF. Crowdsourcing Linked Entities via web Form
 
-CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open Data native cataloguing system tailored for small-medium crowdsourcing projects.
+CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open Data native cataloguing system tailored to small-medium crowdsourcing projects.
 
 ## Table of Contents
 
  - [Introduction](#introduction)
- - [Requirements](#requirements)
  - [Install and run](#install-and-run)
    - [Mac](#mac)
       - [With the installer](#with-the-installer)
@@ -22,35 +21,40 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
       - [Dropdown and checkbox](#dropdown-and-checkbox)
       - [Add fields](#add-fields)
       - [Move and delete fields](#move-and-delete-fields)
+   - [Static contents](#static-contents)
  - [Get started](#get-started)
+      - [Overview](#overview)
+      - [Create a record](#create-a-record)
+        - [The data entry interface](#the-data-entry-interface)
+        - [The editorial process](#the-editorial-process)
+      - [Visualize records](#visualize-records)
+      - [Explore the catalogue](#explore-the-catalogue)
+        - [Text search](#text-search)
  - [Access data](#access-data)
       - [The dataset](#the-dataset)
       - [The data model](#the-data-model)
       - [User interface](#user-interface)
       - [SPARQL endpoint](#sparql-endpoint)
       - [Data backup on github](#data-backup-on-github)
+ - [Deployment](#deployment)
  - [Limitations](#limitations)
 
 ## Introduction
 
-CLEF is a content management system
+CLEF is a lightweight content management system that allows users to easily deploy online solutions for collaborative projects.
 
-  - reuse of wikidata
+With CLEF users can setup crowdsourcing campaigns, ensure quality of data collected, and showcase results thanks to a built-in web application for browsing and exploration.
 
-editorial process
+Some highlights:
 
-Crowdsourcing: github authentication and anonymous contribution
-
-local and remote
-
-SPARQL endpoint
-
-Why to use it? use case (multiple contributors to github,  lightweight cms easy to install)
-
-
-## Requirements
-
-github or not
+  - **customisable**: create your template for data collection
+  - **collaborative**: allow everybody to contribute to your catalogue
+  - **peer-reviewed contents**: allow a restricted number of people to review records before publication
+  - **consistent data**: ensure collaborators reference the same contents using Wikidata for autocomplete suggestions
+  - **authentication and backup powered by github**: use github to authenticate reviewers and to backup your data
+  - **release 5-star data** in CLEF data is stored, served, and queried as Linked Open Data.
+  - **show results immediately** CLEF comes with an online browsable catalogue, that can be immediately explored (no need to develop another application for showcasing your data!)
+  - **local or remote** use it from your desktop or on a remote server.
 
 ## Install and run
 
@@ -59,15 +63,17 @@ github or not
 **With the installer**
 
  * download `install` from the latest release
- * in the terminal, change the permissions `chmod 755 path/to/install`
- * run the script `./install.sh`. The installer clones the repository in the folder `/Users/{USERNAME}/crowdsourcing`, creates a virtual environment, installs dependencies, and downloads blazegraph triplestore.
- * open the folder `/Users/{USERNAME}/crowdsourcing` and run the executable script `run.sh`
+ * open the terminal, change the permissions to the file `chmod 755 Downloads/install`
+ * in the terminal, run the script `./install.sh`. The installer clones the repository in the folder `/Users/{USERNAME}/Desktop/crowdsourcing`, creates a virtual environment, installs dependencies, and downloads blazegraph triplestore.
+ * open the folder `/Users/{USERNAME}/Desktop/crowdsourcing` and run the executable script `run.sh` (double click)
  * open your browser at http://0.0.0.0:8080/
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 **From source**
 
-_(No virtualenv for simplicity)_
+_(No virtualenv)_
 
  * download the source code from the latest release or clone the repository
  * install `requirements.txt` with pip (`pip3 install requirements.txt`)
@@ -76,6 +82,8 @@ _(No virtualenv for simplicity)_
  * launch the web application `python3 app.py 8080`
  * open your browser at http://0.0.0.0:8080/
  * follow the instructions for [customization](#customize)
+
+See section [Setup](#setup) for detail on how to change default ports.
 
 **With Docker**
 
@@ -99,6 +107,8 @@ _(No virtualenv for simplicity)_
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 <hr>
 
 ### Windows
@@ -112,17 +122,20 @@ _(No virtualenv for simplicity)_
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
 
+See section [Setup](#setup) for detail on how to change default ports.
+
 ## Customize
 
 ### Setup
 
-When running the application for the first time, a web page is shown to setup basic configuration. The setup web page is also available in the Member area (the backend) of the application.
+When running the application for the first time, a web page is shown to setup basic configuration. The setup web page is also available from the Member area (the backend) of the application.
 
 Changes to the config file have immediate effect (no need to restart the application). The config file (`conf.py`) is in the root folder of the application, and can be directly modified.
 
 
 ![setup page](docs/setup.png)
 
+ - **MY PROJECT** the short name of your project, to be shown in the menu and across pages
  - **MY ENDPOINT** (default `http://127.0.0.1:3000/blazegraph/sparql`, readonly value) the local URL of your SPARQL endpoint. Changes are disabled. To modify the default port you'll have to modify the following files:
 
     * change `myEndpoint` in `conf.py`
@@ -283,6 +296,30 @@ Fields can be sorted and reshuffled. Move fields up and down with the arrows at 
 
 ![move field](docs/move.png)
 
+### Static contents
+
+Static contents of the web application are in the folder `static`. These include stylesheets, javascript code and images
+
+```
+/static
+  /css
+    ...
+    main.css # the main css stylesheet of the application
+  /js
+    main.js # the main js script of the application
+  /imgs
+```
+
+#### Modifying web pages
+
+The name of the project is stored in the configuration file. To recall the variable name in web pages, use the variable `$project`.
+
+Web pages templates are available in the folder `templates/`. All pages are based on a shared template called `layout.html`, which includes menu, header, and footer.
+
+The public homepage of the application is called `login.html`, while the member area welcome page is called `index.html`.
+
+_NB. Once you are logged in, the public home page is replaced by the member area welcome page. Logout to see the public homepage_
+
 ## Get started
 
 ### Overview
@@ -409,14 +446,21 @@ When clicking on values, the website redirects either to Wikidata pages (e.g. `F
 
 ### Explore the catalogue
 
-Records can be browsed in the page `Explore`. Records are grouped according to filters, as specified in the Template.
+Records can be browsed in the page `Explore`. Records are grouped according to filters as specified in the Template.
 
-By default, a filter is created for the text field defined as **primary label**. Records are grouped by alphabetical order.
+Records filtered by string values are grouped and sorted in alphabetical order. By default, a filter is created for the text field defined as **primary label**.
 
 ![browse1.png](docs/browse1.png)
 
+Filters based on entities are grouped by frequency of values, and then sorted alphabetically.
+
+![filter.png](docs/filter.png)
 
 #### Text search
+
+The top-right search bar in the menu looks into the catalogue for resources. The search is performed on the **primary labels** of records.
+
+![search.png](docs/search.png)
 
 
 ## Access data
@@ -471,6 +515,12 @@ When Github backup is enabled, a backup of data is provided as `.ttl` files (a f
 
 Versioning is provided by github. Every time a change happens to a record in the application, an update is sent to Github. Be aware that the synchronization between the triplestore and the repository is one-way, that is, changes happening on github are not sent to the triplestore.
 
+## Deployment
+
+CLEF is based on **[web.py](https://webpy.org/)**. To deploy CLEF in production server, you'll need a professional web server process, such as [Gunicorn](https://gunicorn.org/), which will serve the app.
+
+See [how to deploy web.py applications](https://webpy.readthedocs.io/en/latest/deploying.html).
+
 ## Limitations
 
 Web form
@@ -496,7 +546,7 @@ Data
  * object property **values do not have a class** associated. The class can be inferred either Wikidata (when applicable) and/or from the restrictions on the property, as specified in the reused ontology.
  * while the system does not prevent a user to create new properties or classes, **custom ontologies** are not fully supported (i.e. these are not dereferenced)
  * no automatic **import mechanisms** are currently implemented. To import data, you'll need to check data consistency autonomously and import data in the triplestore. Likewise, versioning of this data is not ensured in github if the application runs with github backup enabled.
- * github **synchronization is one-way**. Changes made directly on the github repository do not affect the triplestore.
+ * github **synchronization is one-way**. Changes made directly on the github repository do not affect the triplestore. E.g. if two users working locally update the same repository, these cannot import in their local triplestore the records created by other users.
 
 Explore interface
 

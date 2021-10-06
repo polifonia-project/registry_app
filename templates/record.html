@@ -1,6 +1,7 @@
-$def with(record_form, pageID, user, alert, limit, is_git_auth,invalid)
+$def with(record_form, pageID, user, alert, limit, is_git_auth,invalid,project)
 $var user = user
 $var is_git_auth = is_git_auth
+$var project = project
 
 $if alert == False:
 	<header class="row needDoc">
@@ -15,7 +16,7 @@ $if alert == False:
 		$if invalid == True:
 			<h3>The form is not valid, please check mandatory fields</h3>
 		$else:
-			<h3>Thanks for helping musoW to grow!</h3>
+			<h3>Thanks for helping $project to grow!</h3>
 	</header>
 	<section class="row">
 		<section class="col-md-8 col-lg-8 col-sm-8">
