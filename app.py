@@ -48,6 +48,7 @@ urls = (
 )
 
 app = web.application(urls, globals())
+wsgiapp = app.wsgifunc()
 
 # SESSIONS
 

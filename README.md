@@ -119,8 +119,12 @@ See section [Setup](#setup) for detail on how to change default ports.
  * ensure you have [Vagrant](https://www.vagrantup.com/downloads.html)
  * clone the repository
  * cd into the repository and run ```vagrant up```
+   - The first time this command will take longer, as the underlying virtual machine needs to be downloaded and provisioned. The second time, the provisioning is skipped and the runtime is much faster.
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
+ * If you change the configuration or update the git repository, [reload the running vagrant](https://www.vagrantup.com/docs/cli/reload)
+    - ```vagrant reload```
+
 
 See section [Setup](#setup) for detail on how to change default ports.
 
@@ -520,6 +524,11 @@ Versioning is provided by github. Every time a change happens to a record in the
 CLEF is based on **[web.py](https://webpy.org/)**. To deploy CLEF in production server, you'll need a professional web server process, such as [Gunicorn](https://gunicorn.org/), which will serve the app.
 
 See [how to deploy web.py applications](https://webpy.readthedocs.io/en/latest/deploying.html).
+
+### Deployment using Docker Compose
+The ```docker-compose.prod.yml``` is set up for the server deployment using three docker containers, with nginx handling the static files as described above.
+1. ```docker-compose -f "docker-compose.prod.yml" up -d --build'```
+2. The app listens on port 80, so if you run this locally, access your browser at: [http://localhost](http://localhost)
 
 ## Limitations
 
