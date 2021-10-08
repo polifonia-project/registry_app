@@ -119,8 +119,12 @@ See section [Setup](#setup) for detail on how to change default ports.
  * ensure you have [Vagrant](https://www.vagrantup.com/downloads.html)
  * clone the repository
  * cd into the repository and run ```vagrant up```
+   - The first time this command will take longer, as the underlying virtual machine needs to be downloaded and provisioned. The second time, the provisioning is skipped and the runtime is much faster.
  * access your web browser at [http://localhost:8080](http://localhost:8080)
  * follow the instructions for [customization](#customize)
+ * If you change the configuration or update the git repository, [reload the running vagrant](https://www.vagrantup.com/docs/cli/reload)
+    - ```vagrant reload```
+
 
 See section [Setup](#setup) for detail on how to change default ports.
 
