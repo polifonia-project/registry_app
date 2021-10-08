@@ -525,6 +525,11 @@ CLEF is based on **[web.py](https://webpy.org/)**. To deploy CLEF in production 
 
 See [how to deploy web.py applications](https://webpy.readthedocs.io/en/latest/deploying.html).
 
+### Deployment using Docker Compose
+The ```docker-compose.prod.yml``` is set up for the server deployment using three docker containers, with nginx handling the static files as described above.
+1. ```docker-compose -f "docker-compose.prod.yml" up -d --build'```
+2. The app listens on port 80, so if you run this locally, access your browser at: [http://localhost](http://localhost)
+
 ## Limitations
 
 Web form
