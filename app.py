@@ -449,7 +449,7 @@ class Record(object):
 			the record ID (a timestamp)
 		"""
 
-		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -526,7 +526,7 @@ class Modify(object):
 			the record ID (a timestamp)
 		"""
 
-		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -561,7 +561,7 @@ class Modify(object):
 		name: str
 			the record ID (a timestamp)
 		"""
-
+		
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -611,7 +611,7 @@ class Review(object):
 			the record ID (a timestamp)
 		"""
 
-		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -721,7 +721,7 @@ class Review(object):
 class Documentation:
 	def GET(self):
 		""" Editorial guidelines"""
-
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		is_git_auth = github_sync.is_git_auth()
 		return render.documentation(user=session['username'],
 									is_git_auth=is_git_auth,project=conf.myProject)
@@ -738,7 +738,7 @@ class Documentation:
 class Records:
 	def GET(self):
 		""" EXPLORE page """
-
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		#threading.Thread(target=u.fileWatcher).start()
 		is_git_auth = github_sync.is_git_auth()
 		records = queries.getRecords()
@@ -768,7 +768,7 @@ class View(object):
 		name: str
 			the record ID (a timestamp)
 		"""
-
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		is_git_auth = github_sync.is_git_auth()
 		base = conf.base
 		record = base+name
@@ -813,7 +813,7 @@ class Term(object):
 		name: str
 			the ID of the term, generally the last part of the URL
 		"""
-
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		data = queries.describeTerm(name)
 		is_git_auth = github_sync.is_git_auth()
 
@@ -872,7 +872,7 @@ class sparql:
 			If the query string includes an update, return error, else sends
 			the query to the endpoint (__contact_tp)
 		"""
-
+		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		u.log_output("SPARQL:GET", session['logged_in'], session['username'])
 		content_type = web.ctx.env.get('CONTENT_TYPE')
 		return self.__run_query_string(active, web.ctx.env.get("QUERY_STRING"), content_type)
