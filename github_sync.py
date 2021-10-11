@@ -14,7 +14,7 @@ clientSecret = conf.gitClientSecret
 
 def is_git_auth():
 	""" Return True if the app requires github auth"""
-	
+
 	u.reload_config()
 	return True if conf.gitClientID != "" else False
 
@@ -73,7 +73,6 @@ def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=
 	g = Github(token)
 	repo = g.get_repo(owner+"/"+repo_name)
 	author = InputGitAuthor(user,usermail) # commit author
-	remote_file_path ="/contents/"+local_file_path # check if the file exists in repo
 
 	try:
 		contents = repo.get_contents(local_file_path) # Retrieve the online file to get its SHA and path
@@ -88,9 +87,12 @@ def push(local_file_path, branch='main', gituser=None, email=None, bearer_token=
 
 	if update == True:  # If file already exists, update it
 		repo.update_file(contents.path, message, data, contents.sha, author=author)  # Add, commit and push branch
-	else:  # If file doesn't exist, create it in the same relative path of the local file
-		repo.create_file(local_file_path, message, data, branch=branch, author=author)  # Add, commit and push branch
-
+	else:
+		try:
+			# If file doesn't exist, create it in the same relative path of the local file
+			repo.create_file(local_file_path, message, data, branch=branch, author=author)  # Add, commit and push branch
+		except Exception as e:
+			print(e)
 
 def delete_file(local_file_path, branch, gituser=None, email=None, bearer_token=None):
 	""" delete files form github """
