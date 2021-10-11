@@ -1,7 +1,7 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <http://purl.org/spar/datacite/> .
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
 @prefix ns3: <http://data.open.ac.uk/musow/> .
-@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://purl.org/spar/datacite/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,18 +9,21 @@
 
 <http://data.open.ac.uk/musow/1633969186-4416883> a <https://schema.org/CreativeWork> ;
     rdfs:label "hello there" ;
-    ns4:creator <http://www.wikidata.org/entity/Q56457363> ;
-    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> .
+    ns1:creator <http://www.wikidata.org/entity/Q56457363> ;
+    ns4:hasGeneralResourceType <http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> ;
+    ns4:hasScope <http://data.open.ac.uk/musow/ontology/scope/geographical> .
 
 <http://data.open.ac.uk/musow/1633969186-4416883/> rdfs:label "hello there" ;
     ns3:publicationStage "modified"^^xsd:string ;
-    ns1:generatedAtTime "2021-10-11T18:24:04.148224"^^xsd:dateTime ;
-    ns1:wasGeneratedBy ns3:anonymous ;
-    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
+    ns2:generatedAtTime "2021-10-11T18:24:28.843069"^^xsd:dateTime ;
+    ns2:wasGeneratedBy ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
 
 ns3:anonymous rdfs:label "anonymous" .
 
 ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<http://data.open.ac.uk/musow/ontology/scope/geographical> rdfs:label "geographical"^^xsd:string .
 
 <http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> rdfs:label "Schema"^^xsd:string .
 
