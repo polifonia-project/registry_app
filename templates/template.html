@@ -69,11 +69,11 @@ $var project = project
 								$else:
 									<!-- VALUES -->
 									<section class="row">
-										<label class='col-md-3'>VALUES <br><span class="comment">write one value per row in the form uri, label</span></label>
+										<label class='col-md-3'>VALUES <br><span class="comment">write one pair uri, label (comma separated) per row</span></label>
 										$ num_rows = len(field["values"])*2
 										<textarea id='values__$id' class='col-md-8 values_area' name='values__$id' rows="$num_rows">
-											$for uri,lab in field["values"].items():
-												$uri, $lab
+										$for uri,lab in field["values"].items():
+											$uri.strip(), $:lab.strip()
 										</textarea>
 									</section>
 

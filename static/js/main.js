@@ -70,6 +70,12 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
   		this.style.height = (this.scrollHeight) + 'px';
   	});
 
+    // remove exceding whitespaces in text area
+    $('textarea[id*="values__"]').each(function () {
+      $(this).val($.trim($(this).val()).replace(/\s*[\r\n]+\s*/g, '\n'));
+    });
+
+
   	// Show documentation in the right sidebar
   	if ($('header').hasClass('needDoc')) {
   		var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
@@ -855,6 +861,7 @@ function add_disambiguate(temp_id, el) {
       $("input[id*='browse__"+temp_id+"']").parent().remove();
       $(el).parent().parent().append(field_disambiguate);
       updateindex();
+      moveUpAndDown() ;
   } else if (el.value == 'URI') {
     console.log("here");
     if ($("input[id*='disambiguate__"+temp_id+"']") != undefined) {
@@ -867,6 +874,7 @@ function add_disambiguate(temp_id, el) {
       $("section[id*='addons__"+temp_id+"']").after(field_browse);
     }
     updateindex();
+    moveUpAndDown() ;
   }
 };
 
@@ -927,6 +935,7 @@ function change_fields(sel) {
       block_field.find('.row > textarea[id*="values__"]').parent().detach();
     }
     updateindex();
+    moveUpAndDown() ;
   }
   if (new_field_type == 'Dropdown' || new_field_type == 'Checkbox'){
     if (block_field.find('.row > select[id*="value__"]').length) {
@@ -939,6 +948,7 @@ function change_fields(sel) {
         block_field.find('.row > input[id*="placeholder__"]').parent().detach();
       }
       updateindex();
+      moveUpAndDown() ;
     }
   }
 };
