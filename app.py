@@ -449,7 +449,7 @@ class Record(object):
 			the record ID (a timestamp)
 		"""
 
-		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -505,7 +505,10 @@ class Record(object):
 				userID = user.replace('@','-at-').replace('.','-dot-')
 				file_path = mapping.inputToRDF(recordData, userID, 'not modified')
 				if conf.github_backup == "True":
-					github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
+					try:
+						github_sync.push(file_path,"main", session['gituser'], session['username'], session['bearer_token'])
+					except Exception as e:
+						print(e)
 				whereto = prefixLocal+'/' if user == 'anonymous' else prefixLocal+'welcome-1'
 				raise web.seeother(whereto)
 			else:
@@ -523,7 +526,7 @@ class Modify(object):
 			the record ID (a timestamp)
 		"""
 
-		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -588,8 +591,11 @@ class Modify(object):
 				graphToClear = conf.base+name+'/'
 				file_path = mapping.inputToRDF(recordData, userID, 'modified', graphToClear)
 				if conf.github_backup == "True":
-					github_sync.push(file_path,"main", session['gituser'],
+					try:
+						github_sync.push(file_path,"main", session['gituser'],
 									session['username'], session['bearer_token'], '(modified)')
+					except Exception as e:
+						print(e)
 				u.log_output('MODIFIED RECORD', session['logged_in'], session['username'], recordID )
 				raise web.seeother(prefixLocal+'welcome-1')
 
@@ -605,7 +611,7 @@ class Review(object):
 			the record ID (a timestamp)
 		"""
 
-		web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
+		#web.header("Cache-Control", "no-cache, max-age=0, must-revalidate, no-store")
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -670,8 +676,11 @@ class Review(object):
 				graphToClear = conf.base+name+'/'
 				file_path = mapping.inputToRDF(recordData, userID, 'modified',graphToClear)
 				if conf.github_backup == "True":
-					github_sync.push(file_path,"main", session['gituser'],
+					try:
+						github_sync.push(file_path,"main", session['gituser'],
 									session['username'], session['bearer_token'], '(reviewed)')
+					except Exception as e:
+						print(e)
 				u.log_output('REVIEWED (NOT PUBLISHED) RECORD', session['logged_in'], session['username'], recordID )
 				raise web.seeother(prefixLocal+'welcome-1')
 
@@ -695,8 +704,11 @@ class Review(object):
 				graphToClear = conf.base+name+'/'
 				file_path= mapping.inputToRDF(recordData, userID, 'published',graphToClear)
 				if conf.github_backup == "True":
-					github_sync.push(file_path,"main", session['gituser'],
+					try:
+						github_sync.push(file_path,"main", session['gituser'],
 								session['username'], session['bearer_token'], '(published)')
+					except Exception as e:
+						print(e)
 				u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 				raise web.seeother(prefixLocal+'welcome-1')
 
