@@ -1,0 +1,31 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://purl.org/spar/datacite/> .
+@prefix ns3: <http://data.open.ac.uk/musow/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.open.ac.uk/musow/1633969186-4416883> a <https://schema.org/CreativeWork> ;
+    rdfs:label "hello there" ;
+    ns1:creator <http://www.wikidata.org/entity/Q56457363> ;
+    ns2:hasGeneralResourceType <http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> ;
+    ns2:hasScope <http://data.open.ac.uk/musow/ontology/scope/geographical> .
+
+<http://data.open.ac.uk/musow/1633969186-4416883/> rdfs:label "hello there" ;
+    ns3:publicationStage "published"^^xsd:string ;
+    ns4:generatedAtTime "2021-10-11T18:33:49.385225"^^xsd:dateTime ;
+    ns4:wasGeneratedBy ns3:anonymous ;
+    ns4:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<http://data.open.ac.uk/musow/ontology/scope/geographical> rdfs:label "geographical"^^xsd:string .
+
+<http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> rdfs:label "Schema"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q56457363> rdfs:label "Marilena Daquino"^^xsd:string .
+
