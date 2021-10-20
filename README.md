@@ -479,7 +479,7 @@ For every new record (resource) a **named graph** is generated, which includes t
 Basic **provenance** information is associated with named graphs, namely:
 
  * **RDFS.label** the label corresponds to the field set as primary label in Setup
- * **PROV.wasGeneratedBy** the creator of the resource. Can be anonymous, if the user did not log in, or a URI including a normalised string of the github user email `<BASE>+<GITHUB_EMAIL>`
+ * **PROV.wasAttributedTo** the creator of the resource. Can be anonymous, if the user did not log in, or a URI including a normalised string of the github user email `<BASE>+<GITHUB_EMAIL>`
  * **PROV.wasInfluencedBy** the modifier of the resource.
  * **PROV.generatedAtTime** the datetime of the creation/change. While temporal information is stored, versioning information is not stored in the graph. To get versioning information on the modified files, users must use github.
  * **base.publicationStage** the stage of the record in the editorial process. Values (literals) include:

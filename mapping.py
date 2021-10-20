@@ -69,7 +69,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 	# PROVENANCE: creator, contributor, publication stage
 
 	if stage == 'not modified':
-		wd.add(( URIRef(base+graph_name+'/'), PROV.wasGeneratedBy, URIRef(base+userID) ))
+		wd.add(( URIRef(base+graph_name+'/'), PROV.wasAttributedTo, URIRef(base+userID) ))
 		wd.add(( URIRef(base+userID), RDFS.label , Literal(userID.replace('-dot-','.').replace('-at-', '@') ) ))
 	else:
 		# modifier
@@ -78,7 +78,7 @@ def inputToRDF(recordData, userID, stage, graphToClear=None):
 		# creator
 		creatorIRI, creatorLabel = queries.getRecordCreator(graphToClear)
 		if creatorIRI is not None and creatorLabel is not None:
-			wd.add(( URIRef(base+graph_name+'/'), PROV.wasGeneratedBy, URIRef(creatorIRI) ))
+			wd.add(( URIRef(base+graph_name+'/'), PROV.wasAttributedTo, URIRef(creatorIRI) ))
 			wd.add(( URIRef(creatorIRI), RDFS.label , Literal(creatorLabel ) ))
 		queries.clearGraph(graphToClear)
 	wd.add(( URIRef(base+graph_name+'/'), PROV.generatedAtTime, Literal(datetime.datetime.now(),datatype=XSD.dateTime)  ))

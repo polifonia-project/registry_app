@@ -32,7 +32,7 @@ queryRecords = """
 	{ GRAPH ?g {
 		?s ?p ?o .
 
-		OPTIONAL { ?g rdfs:label ?title; prov:wasGeneratedBy ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
+		OPTIONAL { ?g rdfs:label ?title; prov:wasAttributedTo ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
 			OPTIONAL {?g prov:wasInfluencedBy ?modifier. ?modifier rdfs:label ?modifierLabel .} }
 		OPTIONAL {?g rdfs:label ?title; prov:generatedAtTime ?date ; base:publicationStage ?stage . }
 
@@ -79,7 +79,7 @@ def getRecordsPagination(page, filterRecords=''):
 		{ GRAPH ?g {
 			?s ?p ?o .
 
-			OPTIONAL { ?g rdfs:label ?title; prov:wasGeneratedBy ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
+			OPTIONAL { ?g rdfs:label ?title; prov:wasAttributedTo ?user; prov:generatedAtTime ?date ; base:publicationStage ?stage. ?user rdfs:label ?userLabel .
 				OPTIONAL {?g prov:wasInfluencedBy ?modifier. ?modifier rdfs:label ?modifierLabel .} }
 			OPTIONAL {?g rdfs:label ?title; prov:generatedAtTime ?date ; base:publicationStage ?stage . }
 
@@ -166,7 +166,7 @@ def getRecordCreator(graph_name):
 	queryRecordCreator = """
 		PREFIX prov: <http://www.w3.org/ns/prov#>
 		SELECT DISTINCT ?creatorIRI ?creatorLabel
-		WHERE { <"""+graph_name+"""> prov:wasGeneratedBy ?creatorIRI .
+		WHERE { <"""+graph_name+"""> prov:wasAttributedTo ?creatorIRI .
 		?creatorIRI rdfs:label ?creatorLabel . }"""
 
 	sparql = SPARQLWrapper(conf.myEndpoint)
@@ -254,7 +254,7 @@ def describeTerm(name):
 				WHERE { ?s ?p ?o .
 				filter( regex( str(?o), '"""+name+"""$' ) ) .
 				filter( regex( str(?o), '^"""+conf.base+"""' ) ) . }"""
-			
+
 			return hello_blazegraph(describe)
 		else:
 			return None
