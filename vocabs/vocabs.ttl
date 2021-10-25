@@ -3,15 +3,457 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://data.open.ac.uk/musow/ontology/scope/genre> rdfs:label "genre" .
+<http://purl.org/ontology/mo/AnalogSignal> rdfs:label "AnalogSignal" .
 
-<http://data.open.ac.uk/musow/ontology/scope/geographical> rdfs:label "geographical" .
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument" .
 
-<http://data.open.ac.uk/musow/ontology/scope/temporal> rdfs:label "temporal" .
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "MusicArtist" .
 
-<http://data.open.ac.uk/musow/type/33fcf2b3ec4686d9cd06051c726d0ba2> rdfs:label "Repository" .
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "MusicalManifestation" .
 
-<http://data.open.ac.uk/musow/type/520d0db389f362bf79ef56ca0af3dcab> rdfs:label "Format" .
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "MusicalWork" .
 
-<http://data.open.ac.uk/musow/type/7146a60667b422e69fd050fe1df6859a> rdfs:label "Schema" .
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance" .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record" .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording" .
+
+<http://purl.org/ontology/mo/Signal> rdfs:label "Signal" .
+
+<http://purl.org/ontology/mo/Track> rdfs:label "Track" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs" .
+
+<https://w3id.org/musow/vocab/api> rdfs:label "Offers a Web API" .
+
+<https://w3id.org/musow/vocab/architecture> rdfs:label "architecture" .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies" .
+
+<https://w3id.org/musow/vocab/artist> rdfs:label "Artist" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio",
+        "audio" .
+
+<https://w3id.org/musow/vocab/audio-annotation> rdfs:label "audio annotation" .
+
+<https://w3id.org/musow/vocab/audio-beat-tracking> rdfs:label "audio beat tracking" .
+
+<https://w3id.org/musow/vocab/audio-chord-estimation> rdfs:label "audio chord estimation" .
+
+<https://w3id.org/musow/vocab/audio-classification> rdfs:label "audio classification" .
+
+<https://w3id.org/musow/vocab/audio-cover-song-identification> rdfs:label "audio cover song identification" .
+
+<https://w3id.org/musow/vocab/audio-downbeat-estimation> rdfs:label "audio downbeat estimation" .
+
+<https://w3id.org/musow/vocab/audio-effects-annotation> rdfs:label "audio effects annotation" .
+
+<https://w3id.org/musow/vocab/audio-fingerprinting> rdfs:label "audio fingerprinting" .
+
+<https://w3id.org/musow/vocab/audio-key-detection> rdfs:label "audio key detection" .
+
+<https://w3id.org/musow/vocab/audio-melody-extraction> rdfs:label "audio melody extraction" .
+
+<https://w3id.org/musow/vocab/audio-music-similarity-and-retrieval> rdfs:label "audio music similarity and retrieval" .
+
+<https://w3id.org/musow/vocab/audio-offset-detection> rdfs:label "audio offset detection" .
+
+<https://w3id.org/musow/vocab/audio-onset-detection> rdfs:label "audio onset detection" .
+
+<https://w3id.org/musow/vocab/audio-pattern-matching> rdfs:label "audio pattern matching" .
+
+<https://w3id.org/musow/vocab/audio-tag-classification> rdfs:label "audio tag classification" .
+
+<https://w3id.org/musow/vocab/audio-tempo-estimation> rdfs:label "audio tempo estimation" .
+
+<https://w3id.org/musow/vocab/automatic-lyrics-to-audio-alignment> rdfs:label "automatic lyrics-to-audio alignment" .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents" .
+
+<https://w3id.org/musow/vocab/cap/xml> rdfs:label "cap/xml" .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue" .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY" .
+
+<https://w3id.org/musow/vocab/cc-by-3.0> rdfs:label "CC BY 3.0" .
+
+<https://w3id.org/musow/vocab/cc-by-4.0> rdfs:label "CC-BY 4.0" .
+
+<https://w3id.org/musow/vocab/cc-by-nc> rdfs:label "CC-BY-NC" .
+
+<https://w3id.org/musow/vocab/cc-by-nc-nd> rdfs:label "CC-BY-NC-ND" .
+
+<https://w3id.org/musow/vocab/cc-by-nc-sa> rdfs:label "CC-BY-NC-SA" .
+
+<https://w3id.org/musow/vocab/cc-by-sa> rdfs:label "CC-BY-SA" .
+
+<https://w3id.org/musow/vocab/cc0> rdfs:label "CC0" .
+
+<https://w3id.org/musow/vocab/codicology> rdfs:label "codicology" .
+
+<https://w3id.org/musow/vocab/comparative-studies> rdfs:label "comparative studies" .
+
+<https://w3id.org/musow/vocab/contour-shape> rdfs:label "Contour/Shape" .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright" .
+
+<https://w3id.org/musow/vocab/csv> rdfs:label "csv" .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies" .
+
+<https://w3id.org/musow/vocab/customers> rdfs:label "customers" .
+
+<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation" .
+
+<https://w3id.org/musow/vocab/data-conversion> rdfs:label "data conversion" .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump" .
+
+<https://w3id.org/musow/vocab/data-visualization> rdfs:label "data visualization" .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset" .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers" .
+
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition" .
+
+<https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library" .
+
+<https://w3id.org/musow/vocab/discography> rdfs:label "discography" .
+
+<https://w3id.org/musow/vocab/discovery-of-repeated-themes-&-sections> rdfs:label "discovery of repeated themes & sections" .
+
+<https://w3id.org/musow/vocab/djvu> rdfs:label "djvu" .
+
+<https://w3id.org/musow/vocab/drum-transcription> rdfs:label "drum transcription" .
+
+<https://w3id.org/musow/vocab/ead> rdfs:label "ead" .
+
+<https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography" .
+
+<https://w3id.org/musow/vocab/finale> rdfs:label "finale" .
+
+<https://w3id.org/musow/vocab/flac> rdfs:label "flac" .
+
+<https://w3id.org/musow/vocab/format> rdfs:label "Format" .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb" .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre" .
+
+<https://w3id.org/musow/vocab/genre-recognition> rdfs:label "genre recognition" .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical" .
+
+<https://w3id.org/musow/vocab/gif> rdfs:label "gif" .
+
+<https://w3id.org/musow/vocab/gnu-fdl> rdfs:label "GNU-FDL" .
+
+<https://w3id.org/musow/vocab/gnu-gpl> rdfs:label "GNU-GPL" .
+
+<https://w3id.org/musow/vocab/gp3/gp4> rdfs:label "gp3/gp4" .
+
+<https://w3id.org/musow/vocab/gp3/gp4-collection> rdfs:label "gp3/gp4 collection" .
+
+<https://w3id.org/musow/vocab/gp3/gp4-editor> rdfs:label "gp3/gp4 editor" .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M" .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony" .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history" .
+
+<https://w3id.org/musow/vocab/history-of-instruments> rdfs:label "history of instruments" .
+
+<https://w3id.org/musow/vocab/history-of-theatre> rdfs:label "history of theatre" .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html" .
+
+<https://w3id.org/musow/vocab/html5> rdfs:label "html5" .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces" .
+
+<https://w3id.org/musow/vocab/humdrum> rdfs:label "humdrum" .
+
+<https://w3id.org/musow/vocab/iconography> rdfs:label "iconography" .
+
+<https://w3id.org/musow/vocab/iiif> rdfs:label "iiif" .
+
+<https://w3id.org/musow/vocab/image-annotation> rdfs:label "image annotation" .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats" .
+
+<https://w3id.org/musow/vocab/jpg> rdfs:label "jpg" .
+
+<https://w3id.org/musow/vocab/js> rdfs:label "js" .
+
+<https://w3id.org/musow/vocab/json> rdfs:label "json" .
+
+<https://w3id.org/musow/vocab/json-ld> rdfs:label "json-ld" .
+
+<https://w3id.org/musow/vocab/kb> rdfs:label "~Kb" .
+
+<https://w3id.org/musow/vocab/kern> rdfs:label "kern" .
+
+<https://w3id.org/musow/vocab/lab> rdfs:label "lab" .
+
+<https://w3id.org/musow/vocab/latex> rdfs:label "latex" .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning" .
+
+<https://w3id.org/musow/vocab/libretto> rdfs:label "Libretto" .
+
+<https://w3id.org/musow/vocab/lilypond> rdfs:label "lilypond" .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners" .
+
+<https://w3id.org/musow/vocab/listening-experience> rdfs:label "Listening experience" .
+
+<https://w3id.org/musow/vocab/literary-studies> rdfs:label "literary studies" .
+
+<https://w3id.org/musow/vocab/lod-publication> rdfs:label "lod publication" .
+
+<https://w3id.org/musow/vocab/lt-10> rdfs:label "<10" .
+
+<https://w3id.org/musow/vocab/lt-100> rdfs:label "<100" .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000" .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000" .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000" .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M" .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics" .
+
+<https://w3id.org/musow/vocab/machine-learning> rdfs:label "machine learning" .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data" .
+
+<https://w3id.org/musow/vocab/mag/xml> rdfs:label "mag/xml" .
+
+<https://w3id.org/musow/vocab/marc> rdfs:label "marc" .
+
+<https://w3id.org/musow/vocab/marcxml> rdfs:label "marcxml" .
+
+<https://w3id.org/musow/vocab/mb> rdfs:label "~Mb" .
+
+<https://w3id.org/musow/vocab/measure-annotation> rdfs:label "measure annotation" .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media" .
+
+<https://w3id.org/musow/vocab/mei/xml> rdfs:label "mei/xml" .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody" .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata",
+        "Metadata" .
+
+<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation" .
+
+<https://w3id.org/musow/vocab/mets/xml> rdfs:label "mets/xml" .
+
+<https://w3id.org/musow/vocab/midi> rdfs:label "midi" .
+
+<https://w3id.org/musow/vocab/midi-collection> rdfs:label "midi collection" .
+
+<https://w3id.org/musow/vocab/mit-license> rdfs:label "MIT License" .
+
+<https://w3id.org/musow/vocab/mods/xml> rdfs:label "mods/xml" .
+
+<https://w3id.org/musow/vocab/mov> rdfs:label "mov" .
+
+<https://w3id.org/musow/vocab/mp3> rdfs:label "mp3" .
+
+<https://w3id.org/musow/vocab/mpeg-a> rdfs:label "mpeg-a" .
+
+<https://w3id.org/musow/vocab/mu2> rdfs:label "mu2" .
+
+<https://w3id.org/musow/vocab/multiple-fundamental-frequency-estimation-&-tracking> rdfs:label "multiple fundamental frequency estimation & tracking" .
+
+<https://w3id.org/musow/vocab/musedata> rdfs:label "musedata" .
+
+<https://w3id.org/musow/vocab/musescore> rdfs:label "musescore" .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis" .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation" .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history" .
+
+<https://w3id.org/musow/vocab/music-information-retrieval> rdfs:label "music information retrieval" .
+
+<https://w3id.org/musow/vocab/music-learning> rdfs:label "music learning" .
+
+<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening" .
+
+<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology" .
+
+<https://w3id.org/musow/vocab/music-publishing-history> rdfs:label "music publishing history" .
+
+<https://w3id.org/musow/vocab/music-recommendation> rdfs:label "music recommendation" .
+
+<https://w3id.org/musow/vocab/music-selling> rdfs:label "music selling" .
+
+<https://w3id.org/musow/vocab/music-style> rdfs:label "music style" .
+
+<https://w3id.org/musow/vocab/musical-pattern-matching> rdfs:label "musical pattern matching" .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource" .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology" .
+
+<https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml" .
+
+<https://w3id.org/musow/vocab/mxl> rdfs:label "mxl" .
+
+<https://w3id.org/musow/vocab/myr> rdfs:label "myr" .
+
+<https://w3id.org/musow/vocab/network-analysis> rdfs:label "network analysis" .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified" .
+
+<https://w3id.org/musow/vocab/notearray> rdfs:label "notearray" .
+
+<https://w3id.org/musow/vocab/noteworthy> rdfs:label "noteworthy" .
+
+<https://w3id.org/musow/vocab/ogg> rdfs:label "ogg" .
+
+<https://w3id.org/musow/vocab/omr> rdfs:label "omr" .
+
+<https://w3id.org/musow/vocab/ontology> rdfs:label "Ontology" .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access" .
+
+<https://w3id.org/musow/vocab/organology> rdfs:label "organology" .
+
+<https://w3id.org/musow/vocab/owl> rdfs:label "owl" .
+
+<https://w3id.org/musow/vocab/paleography> rdfs:label "paleography" .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf" .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance" .
+
+<https://w3id.org/musow/vocab/performanceperformance> rdfs:label "performanceperformance" .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers" .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records" .
+
+<https://w3id.org/musow/vocab/png> rdfs:label "png" .
+
+<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music" .
+
+<https://w3id.org/musow/vocab/privative> rdfs:label "Privative" .
+
+<https://w3id.org/musow/vocab/project> rdfs:label "Project" .
+
+<https://w3id.org/musow/vocab/prov> rdfs:label "prov" .
+
+<https://w3id.org/musow/vocab/psychological-testing> rdfs:label "psychological testing" .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher" .
+
+<https://w3id.org/musow/vocab/py> rdfs:label "py" .
+
+<https://w3id.org/musow/vocab/python> rdfs:label "python" .
+
+<https://w3id.org/musow/vocab/query-by-singing/humming> rdfs:label "query by singing/humming" .
+
+<https://w3id.org/musow/vocab/query-by-tapping> rdfs:label "query by tapping" .
+
+<https://w3id.org/musow/vocab/ram> rdfs:label "ram" .
+
+<https://w3id.org/musow/vocab/rdf> rdfs:label "rdf" .
+
+<https://w3id.org/musow/vocab/real-time-audio-to-score-alignment-(a.k.a-score-following)> rdfs:label "real-time audio to score alignment (a.k.a score following)" .
+
+<https://w3id.org/musow/vocab/realaudio> rdfs:label "realaudio" .
+
+<https://w3id.org/musow/vocab/recommendation> rdfs:label "recommendation" .
+
+<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies" .
+
+<https://w3id.org/musow/vocab/religious-history> rdfs:label "religious history" .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository" .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research" .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers" .
+
+<https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm" .
+
+<https://w3id.org/musow/vocab/rng> rdfs:label "rng" .
+
+<https://w3id.org/musow/vocab/schema> rdfs:label "Schema" .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars" .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score" .
+
+<https://w3id.org/musow/vocab/score-audio-linkage> rdfs:label "score-audio linkage" .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces" .
+
+<https://w3id.org/musow/vocab/service> rdfs:label "Service" .
+
+<https://w3id.org/musow/vocab/set-list-identification> rdfs:label "set list identification" .
+
+<https://w3id.org/musow/vocab/sibelius> rdfs:label "sibelius" .
+
+<https://w3id.org/musow/vocab/singing-voice-separation> rdfs:label "singing voice separation" .
+
+<https://w3id.org/musow/vocab/skos> rdfs:label "skos" .
+
+<https://w3id.org/musow/vocab/social-history> rdfs:label "social history" .
+
+<https://w3id.org/musow/vocab/social-studies> rdfs:label "social studies" .
+
+<https://w3id.org/musow/vocab/software> rdfs:label "Software" .
+
+<https://w3id.org/musow/vocab/sparql-endpoint> rdfs:label "Has a SPARQL endpoint" .
+
+<https://w3id.org/musow/vocab/structural-segmentation> rdfs:label "structural segmentation" .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure" .
+
+<https://w3id.org/musow/vocab/svg> rdfs:label "svg" .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic" .
+
+<https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity" .
+
+<https://w3id.org/musow/vocab/tabs> rdfs:label "Tabs" .
+
+<https://w3id.org/musow/vocab/tei> rdfs:label "tei" .
+
+<https://w3id.org/musow/vocab/tei/xml> rdfs:label "tei/xml" .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal" .
+
+<https://w3id.org/musow/vocab/theology> rdfs:label "theology" .
+
+<https://w3id.org/musow/vocab/tiff> rdfs:label "tiff" .
+
+<https://w3id.org/musow/vocab/timbre> rdfs:label "Timbre" .
+
+<https://w3id.org/musow/vocab/txt> rdfs:label "txt" .
+
+<https://w3id.org/musow/vocab/video> rdfs:label "video" .
+
+<https://w3id.org/musow/vocab/wav> rdfs:label "wav" .
+
+<https://w3id.org/musow/vocab/xls> rdfs:label "xls" .
+
+<https://w3id.org/musow/vocab/xml> rdfs:label "xml" .
+
+<https://w3id.org/musow/vocab/xsl> rdfs:label "xsl" .
+
+<https://w3id.org/musow/vocab/xslx> rdfs:label "xslx" .
 

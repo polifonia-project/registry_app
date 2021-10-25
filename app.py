@@ -561,7 +561,7 @@ class Modify(object):
 		name: str
 			the record ID (a timestamp)
 		"""
-		
+
 		web.header("Content-Type","text/html; charset=utf-8")
 		web.header('Access-Control-Allow-Origin', '*')
 		web.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')

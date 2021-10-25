@@ -203,7 +203,6 @@ def getData(graph):
 					'''+patterns_string+'''}
 		}
 		'''
-
 	sparql = SPARQLWrapper(conf.myEndpoint)
 	sparql.setQuery(queryNGraph)
 	sparql.setReturnFormat(JSON)
@@ -225,12 +224,17 @@ def getData(graph):
 				if v['value'] not in data[k]: # unique values
 					data[k].append(v['value'])
 			elif v['type'] == 'uri': # uri values
-				uri = v['value'].rsplit('/', 1)[-1]
-				label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
+				if conf.base in v['value']:
+					uri = v['value'].rsplit('/', 1)[-1]
+					label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
+				else:
+					uri = v['value']
+					label = uri
+					#label = [value['value'] if key == k+'_label' else v['value'] for key,value in result.items()][0]
 
 				if compare_sublists([uri,label], data[k]) == False:
 					data[k].append([uri,label])
-	print("############ data",data)
+	#print("############ data",data)
 	return data
 
 
