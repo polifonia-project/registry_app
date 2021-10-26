@@ -1,30 +1,41 @@
-$def with (user, graphdata, graphID, title, stage, base,is_git_auth,project)
+$def with (user, graphdata, graphID, title, stage, base,properties,is_git_auth,project)
 
 $var user = user
 $var is_git_auth = is_git_auth
 $var project = project
 
-<section class="row articleBox">
+<section class="row articleBox" vocab="https://schema.org/" typeof="Thing">
 	<section class="col-md-7">
-			<h2 class="articleTitle">$title
+			<h2 class="articleTitle" property="name">$title
 			$if 'modified' in stage:
 				<span>draft</span>
 			</h2>
-
 			$for field,value in graphdata.items():
 				<section class="info-item">
 						$if isinstance(value[0],str):
-							<h3 class="articleSubtitle">$field </h3><span>$value[0]</span>
+							<h3 class="articleSubtitle">$field </h3>
+							<span property="$properties[field]">$value[0]</span>
 						$else:
 							<h3 class="articleSubtitle">$field </h3>
 							$for uri_value in value:
 								$if uri_value[0].startswith('Q'):
-									<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">$uri_value[1]</a>
+									<span property="$properties[field]">
+										<link property="sameAs" url="http://www.wikidata.org/entity/$uri_value[0]"/>
+										<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">
+											$uri_value[1]
+										</a>
+									</span>
 								$else:
 									$if 'http' in uri_value[0]:
-										<a target='_blank' href="$uri_value[0]">$uri_value[1]</a>.
+										<span property="$properties[field]">
+											<link property="url" url="$uri_value[0]"/>
+											<a target='_blank' href="$uri_value[0]">$uri_value[1]</a>.
+										</span>
 									$else:
-										<a target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
+										<span property="$properties[field]">
+											<link property="url" url="$base$uri_value[0]"/>
+											<a target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
+										</span>
 				</section>
 			<hr/>
 			<section class="info-item">

@@ -783,9 +783,9 @@ class View(object):
 
 		data_labels = { field['label']:v for k,v in data.items() \
 						for field in fields if k == field['id']}
-
+		properties = {field["label"]:field["property"] for field in fields}
 		return render.view(user=session['username'], graphdata=data_labels,
-						graphID=name, title=title, stage=stage, base=base,
+						graphID=name, title=title, stage=stage, base=base,properties=properties,
 						is_git_auth=is_git_auth,project=conf.myProject)
 
 	def POST(self,name):
