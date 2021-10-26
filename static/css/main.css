@@ -52,6 +52,8 @@ article {padding-bottom: 3em; padding-top: 0.5em; padding-left: 5em; padding-rig
 article:nth-child(even), .articleBox, #yasr {background-color: #F5F6FA;}
 article p { font-size: 1.5em; line-height: 1.7em; padding: 0.5em 2em;}
 .info-item {margin-top: 1em;}
+.top-border {border-top: solid 2px rgba(100,23,180,1); margin-right: 0.5em; padding-top: 1em;}
+.top-border h4 {margin-bottom: 1em;}
 /* messages */
 .messageError {padding: 18%;}
 #delConfirm {z-index: 100000;}
@@ -163,7 +165,7 @@ i.fa-info-circle:hover{ color: rgba(100,23,180,1);}
 /* about */
 .articleBox {padding-left: 2em; padding-right:2em;}
 .articleTitle {font-size: 5em; text-transform: none !important; text-align: left;}
-.articleSubtitle, .info-label {text-transform: uppercase; color: rgba(100,23,180,1); font-size: 1.1em !important; display: inline !important;}
+.articleSubtitle, .info-label {text-transform: uppercase; color: rgba(100,23,180,1); font-size: 1.1em !important; } /*display: inline !important;*/
 .columns {
   padding: 1em 0.2em;
   -webkit-column-count: 2; /* Chrome, Safari, Opera */

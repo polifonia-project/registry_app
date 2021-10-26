@@ -224,8 +224,12 @@ def getData(graph):
 				if v['value'] not in data[k]: # unique values
 					data[k].append(v['value'])
 			elif v['type'] == 'uri': # uri values
-				if conf.base in v['value'] or 'wikidata' in v['value']:
-					uri = v['value'].rsplit('/', 1)[-1]
+
+				if k+'_label' in result:
+					if conf.base in v['value'] or 'wikidata' in v['value']:
+						uri = v['value'].rsplit('/', 1)[-1]
+					else:
+						uri = v['value']
 					label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
 				else:
 					uri = v['value']
@@ -256,7 +260,7 @@ def describeTerm(name):
 		if results["boolean"] == True:
 			describe = """DESCRIBE ?o
 				WHERE { ?s ?p ?o .
-				filter( regex( str(?o), '"""+name+"""$' ) ) .
+				filter( regex( str(?o), '/"""+name+"""$' ) ) .
 				filter( regex( str(?o), '^"""+conf.base+"""' ) ) . }"""
 
 			return hello_blazegraph(describe)

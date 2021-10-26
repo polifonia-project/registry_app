@@ -108,7 +108,7 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
     $('section > select').addClass('custom-select');
 
     // add empty option to every select
-    
+
 
 
     // sort alphabetically in EXPLORE
@@ -361,7 +361,7 @@ function searchCatalogue(searchterm) {
     $.ajax({
           type: 'GET',
           url: myPublicEndpoint+'?query=' + encoded,
-          headers: { Accept: 'application/sparql-results+json'},
+          headers: { Accept: 'application/sparql-results+json; charset=utf-8'},
           success: function(returnedJson) {
             $("#searchresultmenu").empty();
             // autocomplete positioning
@@ -541,7 +541,7 @@ function checkPriorRecords(elem) {
     $.ajax({
   	    type: 'GET',
   	    url: myPublicEndpoint+'?query=' + encoded,
-  	    headers: { Accept: 'application/sparql-results+json'},
+  	    headers: { Accept: 'application/sparql-results+json; charset=utf-8'},
   	    success: function(returnedJson) {
   	    	$("#lookup").empty();
   			  if (!returnedJson.results.bindings.length) {
@@ -589,7 +589,7 @@ function searchResources(event) {
   $.ajax({
         type: 'GET',
         url: myPublicEndpoint+'?query=' + encoded,
-        headers: { Accept: 'application/sparql-results+json'},
+        headers: { Accept: 'application/sparql-results+json; charset=utf-8'},
         success: function(returnedJson) {
           if (!returnedJson.results.bindings.length) {
             $(".relatedResources").append("<div class='wditem noresults'>No more resources</div>");
@@ -599,7 +599,7 @@ function searchResources(event) {
               // exclude named graphs from results
               if ( myUrl.substring(myUrl.length-1) != "/") {
                 var resID = myUrl.substr(myUrl.lastIndexOf('/') + 1)
-                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + returnedJson.results.bindings[i].label.value + "</span></div>").hide();
+                var newItem = $("<div id='"+resID+"' class='wditem'><a class='blue orangeText' target='_blank' href='view-"+resID+"'><i class='fas fa-external-link-alt'></i></a> <span class='orangeText' data-id=" + returnedJson.results.bindings[i].o.value + "'>" + decodeURIComponent( escape(returnedJson.results.bindings[i].label.value)) + "</span></div>").hide();
                 $(".relatedResources").prepend(newItem);
                 newItem.show('slow');
                 };

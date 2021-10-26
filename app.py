@@ -821,7 +821,7 @@ class Term(object):
 					if (name in result["object"]["value"] and result["object"]["type"] == 'uri') ])
 
 		return render.term(user=session['username'], data=data, count=count,
-						is_git_auth=is_git_auth,project=conf.myProject)
+						is_git_auth=is_git_auth,project=conf.myProject,base=conf.base,name=name)
 
 	def POST(self,name):
 		""" controlled vocabulary term web page

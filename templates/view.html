@@ -5,44 +5,50 @@ $var is_git_auth = is_git_auth
 $var project = project
 
 <section class="row articleBox" vocab="https://schema.org/" typeof="Thing">
-	<section class="col-md-7">
-			<h2 class="articleTitle" property="name">$title
+	<section class="col-md-11 row">
+			<h2 class="articleTitle col-md-9" property="name">$title
 			$if 'modified' in stage:
 				<span>draft</span>
 			</h2>
 			$for field,value in graphdata.items():
-				<section class="info-item">
+				<section class="info-item col-md-3 top-border">
 						$if isinstance(value[0],str):
-							<h3 class="articleSubtitle">$field </h3>
-							<span property="$properties[field]">$value[0]</span>
+							<h4 class="articleSubtitle">$field </h4>
+							<p property="$properties[field]">$value[0]</p>
 						$else:
-							<h3 class="articleSubtitle">$field </h3>
-							$for uri_value in value:
-								$if uri_value[0].startswith('Q'):
-									<span property="$properties[field]">
-										<link property="sameAs" url="http://www.wikidata.org/entity/$uri_value[0]"/>
-										<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">
-											$uri_value[1]
-										</a>
-									</span>
-								$else:
-									$if 'http' in uri_value[0]:
-										<span property="$properties[field]">
-											<link property="url" url="$uri_value[0]"/>
-											<a target='_blank' href="$uri_value[0]">$uri_value[1]</a>.
-										</span>
+							$if len(value[0][1]) > 0:
+								<h4 class="articleSubtitle">$field </h4>
+								$for uri_value in value:
+									$if uri_value[0].startswith('Q'):
+										<!-- wikidata uri -->
+										<p property="$properties[field]">
+											<link property="sameAs" url="http://www.wikidata.org/entity/$uri_value[0]"/>
+											<a class="wikiEntity" target='_blank' href="http://www.wikidata.org/entity/$uri_value[0]">
+												$uri_value[1]
+											</a>
+										</p>
 									$else:
-										<span property="$properties[field]">
-											<link property="url" url="$base$uri_value[0]"/>
-											<a target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>.
-										</span>
+										$if 'http' in uri_value[0]:
+											<!-- external uri -->
+											$ here = uri_value[1] if len(uri_value[1]) <= 30 else "here"
+											<p property="$properties[field]">
+												<link property="url" url="$uri_value[0]"/>
+												<a target='_blank' href="$uri_value[0]">$here</a>
+											</p>
+										$else:
+											<!-- local resource -->
+											<p property="$properties[field]">
+												<link property="url" url="$base$uri_value[0]"/>
+												<a target='_blank' href="term-$uri_value[0]">$uri_value[1]</a>
+											</p>
 				</section>
-			<hr/>
-			<section class="info-item">
-				<h3 class="articleSubtitle">URI</h3>
-				<span class="small">$base$graphID</span>
-				<p></p>
-			</section>
+
+	</section>
+	<hr/>
+	<section class="info-item">
+		<h4 class="articleSubtitle">URI</h4>
+		<span class="small">$base$graphID</span>
+		<p></p>
 	</section>
 	<!-- <section class="col-md-5 sideBoxes">
 		<section class="biblio">

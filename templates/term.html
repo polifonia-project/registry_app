@@ -1,4 +1,4 @@
-$def with (user, data, count,is_git_auth,project)
+$def with (user, data, count,is_git_auth,project,base,name)
 
 $var user = user
 $var is_git_auth = is_git_auth
@@ -9,6 +9,10 @@ $var project = project
 		$if data:
 			$ uri = next((result["subject"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No URI")
 			<h2 class="articleTitle">$next((result["object"]["value"] for result in data["results"]["bindings"] if result["predicate"]["value"] == "http://www.w3.org/2000/01/rdf-schema#label"), "No label")</h2>
+			$if uri == base + name:
+				<section class="info-item">
+					<h3 class="articleSubtitle">View </h3><a href="view-$name">record</a>
+				</section>
 			<section class="info-item">
 				$ s = 's' if count > 1 else ''
 				<h3 class="articleSubtitle">Appears in $count resource$s</h3>
