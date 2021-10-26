@@ -552,7 +552,6 @@ class Modify(object):
 			session['logged_in'] = 'False'
 			raise web.seeother(prefixLocal+'/')
 
-	# TODO validate form!
 	def POST(self, name):
 		""" Modify an existing record
 

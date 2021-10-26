@@ -40,9 +40,10 @@ def getValuesFromFields(fieldPrefix, recordData, fields=None):
 			values = value.split(',', 1)
 			results.add(( values[0], urllib.parse.unquote(values[1]) )) # (id, label)
 		elif key == fieldPrefix: # uri from dropdown (single value from controlled vocabulary)
+
 			if fields:
 				field = next(field for field in fields if field["id"] == fieldPrefix)
-				label = field['values'][value] if 'values' in field else None
+				label = field['values'][value] if value and value != 'None' and 'values' in field else None
 				if label:
 					results.add(( value, label ))
 

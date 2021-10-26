@@ -224,7 +224,7 @@ def getData(graph):
 				if v['value'] not in data[k]: # unique values
 					data[k].append(v['value'])
 			elif v['type'] == 'uri': # uri values
-				if conf.base in v['value']:
+				if conf.base in v['value'] or 'wikidata' in v['value']:
 					uri = v['value'].rsplit('/', 1)[-1]
 					label = [value['value'] for key,value in result.items() if key == k+'_label'][0]
 				else:

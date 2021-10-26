@@ -54,18 +54,24 @@ $var project = project
 										$elif id in ids_dropdown:
 											<!-- dropdown -->
 											$:input.render()
-											<script type="text/javascript">
-												$$("#$id option[value$$=$graphdata[id][0][0]]").attr("selected","selected");
-											</script>
+											$if len(graphdata[id]) > 0:
+												<script type="text/javascript">
+													$$('#$id').prepend($$('<option value="None">Select from the list</option>'));
+													$$("#$id option[value$$=$graphdata[id][0][0]]").attr("selected","selected");
+												</script>
 										$else:
 											<!-- text box with URI,label -->
 											$:input.render()
 											$if len(graphdata[id]) > 0:
 												$for k_v in graphdata[id]:
 														<span class='tag $k_v[0]' data-input='$id' id='$k_v[0]'>$k_v[1]</span>
-														<input type='hidden' class='hiddenInput $k_v[0]' name='$id-$k_v[0]' value='$k_v[0],$k_v[1]'/>
+														<input type='hidden' class='hiddenInput $k_v[0]' name='$id-$k_v[0]' value='$k_v[0],${k_v[1]}'/>
 									$else:
 										$:input.render()
+										$if len(graphdata[id]) == 0:
+											<script type="text/javascript">
+												$$('#$id').prepend($$('<option selected=selected value="None">Select from the list</option>'));
+											</script>
 								</section>
 						</section>
 				</section>

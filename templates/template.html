@@ -31,7 +31,7 @@ $var project = project
 							<!-- LABEL -->
 							<section class="row">
 								<label class='col-md-3'>DISPLAY NAME</label>
-								<input type='text' id='label__$id' class='col-md-8' name='label__$id' value='$:field["label"]'/>
+								<input type='text' id='label__$id' class='col-md-8' name='label__$id' value='${field["label"]}'/>
 							</section>
 
 							<!-- PREPEND -->
@@ -43,7 +43,7 @@ $var project = project
 							<!-- PROPERTY -->
 							<section class="row">
 								<label class='col-md-3'>RDF PROPERTY</label>
-								<input type='text' id='property__$id' class='col-md-8' name='property__$id' value='$:field["property"]'/>
+								<input type='text' id='property__$id' class='col-md-8' name='property__$id' value='${field["property"]}'/>
 							</section>
 
 							<section id="addons__$id">
@@ -64,7 +64,7 @@ $var project = project
 									<!-- PLACEHOLDER -->
 									<section class="row">
 										<label class='col-md-3'>PLACEHOLDER <br><span class="comment">an example value to be shown to the user (optional)</span></label>
-										<input type='text' id='placeholder__$id' class='col-md-8 align-self-start' name='placeholder__$id' value='$:field["placeholder"]'/>
+										<input type='text' id='placeholder__$id' class='col-md-8 align-self-start' name='placeholder__$id' value="${field['placeholder']}"/>
 									</section>
 								$else:
 									<!-- VALUES -->

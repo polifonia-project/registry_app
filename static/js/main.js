@@ -107,6 +107,10 @@ const wd_img = ' <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/W
     // change select aspect everywhere
     $('section > select').addClass('custom-select');
 
+    // add empty option to every select
+    
+
+
     // sort alphabetically in EXPLORE
     $('.list').each(function () {
         var letter = $('a', this).text().toUpperCase().charAt(0);
@@ -298,7 +302,7 @@ function searchWD(searchterm) {
           					        	e.preventDefault();
           					        	var oldID = this.getAttribute('data-id').substr(this.getAttribute('data-id').lastIndexOf('/') + 1);
           					        	var oldLabel = $(this).text();
-          					        	$('#'+searchterm).after("<span class='tag "+oldID+"' data-input='"+searchterm+"' data-id='"+oldID+"'>"+oldLabel+"</span><input type='hidden' class='hiddenInput "+oldID+"' name='"+searchterm+"-"+oldID+"' value='"+oldID+","+encodeURIComponent(oldLabel)+"'/>");
+          					        	$('#'+searchterm).after("<span class='tag "+oldID+"' data-input='"+searchterm+"' data-id='"+oldID+"'>"+oldLabel+"</span><input type='hidden' class='hiddenInput "+oldID+"' name='"+searchterm+"-"+oldID+"' value=\" "+oldID+","+encodeURIComponent(oldLabel)+"\"/>");
           					        	$("#searchresult").hide();
           					        	$('#'+searchterm).val('');
           					        });
@@ -318,7 +322,7 @@ function searchWD(searchterm) {
   	      	$('a[data-id="'+ item.title+'"]').each( function() {
   		        $(this).bind('click', function(e) {
   		        	e.preventDefault();
-  		        	$('#'+searchterm).after("<span class='tag "+item.title+"' data-input='"+searchterm+"' data-id='"+item.title+"'>"+item.label+"</span><input type='hidden' class='hiddenInput "+item.title+"' name='"+searchterm+"-"+item.title+"' value='"+item.title+","+encodeURIComponent(item.label)+"'/>");
+  		        	$('#'+searchterm).after("<span class='tag "+item.title+"' data-input='"+searchterm+"' data-id='"+item.title+"'>"+item.label+"</span><input type='hidden' class='hiddenInput "+item.title+"' name='"+searchterm+"-"+item.title+"' value=\""+item.title+","+encodeURIComponent(item.label)+"\"/>");
   		        	$("#searchresult").hide();
   		        	$('#'+searchterm).val('');
   		        	//colorForm();
@@ -337,7 +341,7 @@ function searchWD(searchterm) {
 	    	var now = new Date().valueOf();
   			var newID = 'MD'+now;
   			if (!$('#'+searchterm).val() == '') {
-  				$('#'+searchterm).after("<span class='tag "+newID+"' data-input='"+searchterm+"' data-id='"+newID+"'>"+$('#'+searchterm).val()+"</span><input type='hidden' class='hiddenInput "+newID+"' name='"+searchterm+"-"+newID+"' value='"+newID+","+encodeURIComponent($('#'+searchterm).val())+"'/>");
+  				$('#'+searchterm).after("<span class='tag "+newID+"' data-input='"+searchterm+"' data-id='"+newID+"'>"+$('#'+searchterm).val()+"</span><input type='hidden' class='hiddenInput "+newID+"' name='"+searchterm+"-"+newID+"' value=\""+newID+","+encodeURIComponent($('#'+searchterm).val())+"\"/>");
   			};
   			$("#searchresult").hide();
   	    	$('#'+searchterm).val('');
