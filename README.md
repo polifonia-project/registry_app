@@ -2,6 +2,9 @@
 
 CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open Data native cataloguing system tailored to small-medium crowdsourcing projects.
 
+[![DOI](https://zenodo.org/badge/368253077.svg)](https://zenodo.org/badge/latestdoi/368253077)
+
+
 ## Table of Contents
 
  - [Introduction](#introduction)
