@@ -4,6 +4,7 @@ CLEF (*Crowdsourcing Linked Entities via web Form*) is a lightweight Linked Open
 
 [![DOI](https://zenodo.org/badge/368253077.svg)](https://zenodo.org/badge/latestdoi/368253077)
 
+**demo online** [musoW](https://w3id.org/musow/)
 
 ## Table of Contents
 
