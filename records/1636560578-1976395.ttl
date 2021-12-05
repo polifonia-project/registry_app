@@ -1,0 +1,114 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://rdfs.org/ns/void#> .
+@prefix ns4: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1636560578-1976395> a ns2:CreativeWork ;
+    rdfs:label "Muziekschatten" ;
+    ns3:sparqlEndpoint "http://data.muziekschatten.nl/sparql" ;
+    ns2:about <https://w3id.org/musow/vocab/artist>,
+        <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/customers>,
+        <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns2:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:description "Online Bladmuziekcollectie (Music Treasures: Online Sheet Music Collection): about >600.000 titels (70.000 digitized)" ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/csv>,
+        <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/json>,
+        <https://w3id.org/musow/vocab/json-ld>,
+        <https://w3id.org/musow/vocab/mets/xml>,
+        <https://w3id.org/musow/vocab/mods/xml>,
+        <https://w3id.org/musow/vocab/rdf>,
+        <https://w3id.org/musow/vocab/xls>,
+        <https://w3id.org/musow/vocab/xml> ;
+    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns2:mainEntity <https://w3id.org/musow/vocab/libretto>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns2:mainEntityOfPage "https://www.muziekschatten.nl/" ;
+    ns2:name "Muziekschatten" ;
+    ns2:specialty <https://w3id.org/musow/vocab/musicology>,
+        <https://w3id.org/musow/vocab/performance> .
+
+<https://w3id.org/musow/1636560578-1976395/> rdfs:label "Muziekschatten" ;
+    ns1:generatedAtTime "2021-12-05T17:09:48.753073"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns4:anonymous ;
+    ns1:wasInfluencedBy ns4:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Muziekschatten" ;
+    ns4:publicationStage "modified"^^xsd:string .
+
+ns4:anonymous rdfs:label "anonymous" .
+
+ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/csv> rdfs:label "csv"^^xsd:string .
+
+<https://w3id.org/musow/vocab/customers> rdfs:label "customers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/json> rdfs:label "json"^^xsd:string .
+
+<https://w3id.org/musow/vocab/json-ld> rdfs:label "json-ld"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/libretto> rdfs:label "Libretto"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mets/xml> rdfs:label "mets/xml"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mods/xml> rdfs:label "mods/xml"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rdf> rdfs:label "rdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/xls> rdfs:label "xls"^^xsd:string .
+
+<https://w3id.org/musow/vocab/xml> rdfs:label "xml"^^xsd:string .
+
