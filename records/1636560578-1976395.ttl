@@ -1,32 +1,32 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <http://rdfs.org/ns/void#> .
-@prefix ns4: <https://w3id.org/musow/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns4: <http://rdfs.org/ns/void#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1636560578-1976395> a ns2:CreativeWork ;
+<https://w3id.org/musow/1636560578-1976395> a ns1:CreativeWork ;
     rdfs:label "Muziekschatten" ;
-    ns3:sparqlEndpoint "http://data.muziekschatten.nl/sparql" ;
-    ns2:about <https://w3id.org/musow/vocab/artist>,
+    ns4:sparqlEndpoint "http://data.muziekschatten.nl/sparql" ;
+    ns1:about <https://w3id.org/musow/vocab/artist>,
         <https://w3id.org/musow/vocab/genre>,
         <https://w3id.org/musow/vocab/geographical> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/customers>,
         <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/performers>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:category <https://w3id.org/musow/vocab/media>,
+    ns1:category <https://w3id.org/musow/vocab/media>,
         <https://w3id.org/musow/vocab/metadata> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:description "Online Bladmuziekcollectie (Music Treasures: Online Sheet Music Collection): about >600.000 titels (70.000 digitized)" ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns2:encodingFormat <https://w3id.org/musow/vocab/csv>,
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Online Bladmuziekcollectie (Music Treasures: Online Sheet Music Collection): about >600.000 titles (70.000 digitized)" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/csv>,
         <https://w3id.org/musow/vocab/html>,
         <https://w3id.org/musow/vocab/json>,
         <https://w3id.org/musow/vocab/json-ld>,
@@ -35,24 +35,24 @@
         <https://w3id.org/musow/vocab/rdf>,
         <https://w3id.org/musow/vocab/xls>,
         <https://w3id.org/musow/vocab/xml> ;
-    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns2:mainEntity <https://w3id.org/musow/vocab/libretto>,
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/libretto>,
         <https://w3id.org/musow/vocab/score> ;
-    ns2:mainEntityOfPage "https://www.muziekschatten.nl/" ;
-    ns2:name "Muziekschatten" ;
-    ns2:specialty <https://w3id.org/musow/vocab/musicology>,
+    ns1:mainEntityOfPage "https://www.muziekschatten.nl/" ;
+    ns1:name "Muziekschatten" ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology>,
         <https://w3id.org/musow/vocab/performance> .
 
 <https://w3id.org/musow/1636560578-1976395/> rdfs:label "Muziekschatten" ;
-    ns1:generatedAtTime "2021-12-05T17:09:48.753073"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns4:anonymous ;
-    ns1:wasInfluencedBy ns4:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Muziekschatten" ;
-    ns4:publicationStage "modified"^^xsd:string .
+    ns2:generatedAtTime "2021-12-05T17:11:26.163831"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Muziekschatten" ;
+    ns3:publicationStage "published"^^xsd:string .
 
-ns4:anonymous rdfs:label "anonymous" .
+ns3:anonymous rdfs:label "anonymous" .
 
-ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
