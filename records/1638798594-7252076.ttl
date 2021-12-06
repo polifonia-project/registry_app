@@ -1,0 +1,61 @@
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638798594-7252076> a ns2:CreativeWork ;
+    rdfs:label "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns2:about <https://w3id.org/musow/vocab/artist> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/project> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns2:character <http://www.wikidata.org/entity/Q1779> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:description "The Louis Armstrong House Museum is dedicated to sustaining Louis Armstrong’s legacy through preservations of his home and grounds, collection of archival materials, and creating educational programs for the public.   The digital archive features photos, audio recordings, scrapbooks, awards, letters, and more provided by Louis Armstrong’s friends, family, and collaborators. The Louis Armstrong House is currently still in the process of digitizing their collections." ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns2:license <https://w3id.org/musow/vocab/copyright> ;
+    ns2:mainEntityOfPage "https://collections.louisarmstronghouse.org/" ;
+    ns2:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns2:specialty <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/popular-music> .
+
+<https://w3id.org/musow/1638798594-7252076/> rdfs:label "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns3:generatedAtTime "2021-12-06T14:53:40.798909"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns1:enricodaga-at-gmail-dot-com ;
+    ns2:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns1:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1779> rdfs:label "Louis Armstrong"^^xsd:string .
+
+ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music"^^xsd:string .
+
+<https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
