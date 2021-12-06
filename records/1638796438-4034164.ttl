@@ -1,0 +1,88 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638796438-4034164> a ns1:CreativeWork ;
+    rdfs:label "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical>,
+        <https://w3id.org/musow/vocab/temporal> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator ns3:MD1638796779442 ;
+    ns1:description "This oral history collection consists of transcripts, cassette tapes, project working files and background organizational records of the interviews conducted during the African American Jazz Preservation Society of Pittsburgh (AAJPSP) Oral History Project (1995-1999). The project documents individual African American Jazz Musicians in Pittsburgh as well as their efforts to organize. The content of the interviews span from 1904 to 1999." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:genre <http://www.wikidata.org/entity/Q8341> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://digital.library.pitt.edu/collection/african-american-jazz-preservation-society-pittsburgh-oral-history-project-records-recordings" ;
+    ns1:name "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q1342> ;
+    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies>,
+        <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/social-history>,
+        <https://w3id.org/musow/vocab/social-studies> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927> .
+
+<https://w3id.org/musow/1638796438-4034164/> rdfs:label "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
+    ns2:generatedAtTime "2021-12-06T14:28:43.265205"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
+    ns1:name "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1342> rdfs:label "Pittsburgh"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q6927> rdfs:label "20th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
+
+ns3:MD1638796779442 rdfs:label "African American Jazz Preservation Society of Pittsburgh (AAJPSP)"^^xsd:string .
+
+ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/social-studies> rdfs:label "social studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
