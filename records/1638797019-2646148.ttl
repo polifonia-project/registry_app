@@ -1,0 +1,47 @@
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638797019-2646148> a ns3:CreativeWork ;
+    rdfs:label "Tonality Ontology" ;
+    ns3:additionalType <https://w3id.org/musow/vocab/ontology> ;
+    ns3:audience <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns3:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns3:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns3:creator <http://www.wikidata.org/entity/Q195668> ;
+    ns3:description "Provides high-level and low-level descriptors for tonal content in RDF." ;
+    ns3:downloadUrl "http://purl.org/ontology/tonality/" ;
+    ns3:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns3:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns3:mainEntityOfPage "http://motools.sourceforge.net/doc/tonality.html" ;
+    ns3:name "Tonality Ontology" .
+
+<https://w3id.org/musow/1638797019-2646148/> rdfs:label "Tonality Ontology" ;
+    ns2:generatedAtTime "2021-12-06T14:37:10.792531"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns1:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it ;
+    ns3:name "Tonality Ontology" ;
+    ns1:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q195668> rdfs:label "Queen Mary University of London"^^xsd:string .
+
+ns1:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it rdfs:label "jacopo.deberardinis@studenti.unicam.it" .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/ontology> rdfs:label "Ontology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
