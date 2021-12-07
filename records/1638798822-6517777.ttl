@@ -1,35 +1,52 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638798822-6517777> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638798822-6517777> a ns1:CreativeWork ;
     rdfs:label "National Jazz Archive" ;
-    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:description "The National Jazz Archive is a comprehensive resource on the history of jazz in the UK, documenting the development of the genre as well as stories of art, fashion, cultural diversity and social progress. The archive includes interviews, photographs, books, periodicals, posters, and more. " ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:genre <http://www.wikidata.org/entity/Q8341> ;
-    ns2:license <https://w3id.org/musow/vocab/not-specified> ;
-    ns2:mainEntityOfPage "https://nationaljazzarchive.org.uk/" ;
-    ns2:name "National Jazz Archive" ;
-    ns2:spatialCoverage <http://www.wikidata.org/entity/Q145> .
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/performers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The National Jazz Archive is a comprehensive resource on the history of jazz in the UK, documenting the development of the genre as well as stories of art, fashion, cultural diversity and social progress. The archive includes interviews, photographs, books, periodicals, posters, and more. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q8341> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntityOfPage "https://nationaljazzarchive.org.uk/" ;
+    ns1:name "National Jazz Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q145> ;
+    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
+        <https://w3id.org/musow/vocab/history> .
 
 <https://w3id.org/musow/1638798822-6517777/> rdfs:label "National Jazz Archive" ;
-    ns1:generatedAtTime "2021-12-06T14:58:25.202154"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
-    ns2:name "National Jazz Archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:generatedAtTime "2021-12-07T17:25:33.889206"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:enricodaga-at-gmail-dot-com ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "National Jazz Archive" ;
+    ns2:publicationStage "modified"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q145> rdfs:label "United Kingdom"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
 
-ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+ns2:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
 
@@ -37,7 +54,16 @@ ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
 
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
 <https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
 
