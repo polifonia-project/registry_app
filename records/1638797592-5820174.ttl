@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -29,9 +29,6 @@
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "Creative Black Music at the Walker: Selections from the Archives is the fourth installment in the Walker Art Center’s Living Collections Catalogue that focuses on a select group of musicians in the 60s and 70s who have performed at the Walker multiple times. This collection features audio and video recordings, photos, correspondence, posters, and programs as well as commissioned essays to accompany each subject. Subjects include Amiri Baraka, Julius Eastman, Anthony Braxton, Betty Carter, Ornette Coleman, Julius Eastman, Wadada Leo Smith, Cecil Taylor, and Henry Threadgill." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/playable> ;
     ns1:genre <http://www.wikidata.org/entity/Q8011523>,
         <http://www.wikidata.org/entity/Q8341>,
         <http://www.wikidata.org/entity/Q9730> ;
@@ -41,19 +38,16 @@
     ns1:mainEntityOfPage "https://walkerart.org/collections/publications/jazz/creative-black-music-at-the-walker-selections-from-the-archives" ;
     ns1:name "Living Collections Catalogue - Creative Black Music at the Walker: Selections from the Archives" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q1851516> ;
-    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies>,
-        <https://w3id.org/musow/vocab/ethnography>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/popular-music>,
-        <https://w3id.org/musow/vocab/social-history> ;
+    ns1:specialty <https://w3id.org/musow/vocab/ethnography> ;
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q1286756>,
         <http://www.wikidata.org/entity/Q262207> .
 
 <https://w3id.org/musow/1638797592-5820174/> rdfs:label "Living Collections Catalogue - Creative Black Music at the Walker: Selections from the Archives" ;
-    ns3:generatedAtTime "2021-12-06T14:49:52.514646"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:enricodaga-at-gmail-dot-com ;
+    ns2:generatedAtTime "2021-12-07T17:42:54.000571"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Living Collections Catalogue - Creative Black Music at the Walker: Selections from the Archives" ;
-    ns2:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -87,15 +81,13 @@
 
 <http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
 
-ns2:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
-
-<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
 
 <https://w3id.org/musow/vocab/customers> rdfs:label "customers"^^xsd:string .
 
@@ -105,19 +97,11 @@ ns2:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
 
 <https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
-
-<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music"^^xsd:string .
 
 <https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
 
@@ -126,8 +110,6 @@ ns2:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
 
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
 
