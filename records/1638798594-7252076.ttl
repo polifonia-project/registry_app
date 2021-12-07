@@ -1,43 +1,56 @@
-@prefix ns1: <https://w3id.org/musow/> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638798594-7252076> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638798594-7252076> a ns1:CreativeWork ;
     rdfs:label "LOUIS ARMSTRONG HOUSE MUSEUM" ;
-    ns2:about <https://w3id.org/musow/vocab/artist> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/project> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns1:about <https://w3id.org/musow/vocab/artist> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/project> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:character <http://www.wikidata.org/entity/Q1779> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:description "The Louis Armstrong House Museum is dedicated to sustaining Louis Armstrong’s legacy through preservations of his home and grounds, collection of archival materials, and creating educational programs for the public.   The digital archive features photos, audio recordings, scrapbooks, awards, letters, and more provided by Louis Armstrong’s friends, family, and collaborators. The Louis Armstrong House is currently still in the process of digitizing their collections." ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:license <https://w3id.org/musow/vocab/copyright> ;
-    ns2:mainEntityOfPage "https://collections.louisarmstronghouse.org/" ;
-    ns2:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
-    ns2:specialty <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/popular-music> .
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:character <http://www.wikidata.org/entity/Q1779> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The Louis Armstrong House Museum is dedicated to sustaining Louis Armstrong’s legacy through preservations of his home and grounds, collection of archival materials, and creating educational programs for the public.   The digital archive features photos, audio recordings, scrapbooks, awards, letters, and more provided by Louis Armstrong’s friends, family, and collaborators. The Louis Armstrong House is currently still in the process of digitizing their collections." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/copyright> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntityOfPage "https://collections.louisarmstronghouse.org/" ;
+    ns1:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
+    ns1:workExample "https://collections.louisarmstronghouse.org/asset-detail/1198969" .
 
 <https://w3id.org/musow/1638798594-7252076/> rdfs:label "LOUIS ARMSTRONG HOUSE MUSEUM" ;
-    ns3:generatedAtTime "2021-12-06T14:53:40.798909"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns1:enricodaga-at-gmail-dot-com ;
-    ns2:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
-    ns1:publicationStage "not modified"^^xsd:string .
+    ns2:generatedAtTime "2021-12-07T17:39:03.453781"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "LOUIS ARMSTRONG HOUSE MUSEUM" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q1779> rdfs:label "Louis Armstrong"^^xsd:string .
 
-ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
 
@@ -47,9 +60,9 @@ ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music"^^xsd:string .
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
 
 <https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
 
@@ -58,4 +71,9 @@ ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
 
