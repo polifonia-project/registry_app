@@ -1,0 +1,92 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638797132-3821204> a ns1:CreativeWork ;
+    rdfs:label "Bononcini catalogue" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:character <http://www.wikidata.org/entity/Q957648> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q1031803>,
+        <http://www.wikidata.org/entity/Q1347047>,
+        <http://www.wikidata.org/entity/Q3788569>,
+        ns2:MD1638895774250 ;
+    ns1:description "Catalogue of complete works of Giovanni Bononcini, score downloads and other materials related to the composer" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q37853> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "http://www.bononcini.org/ " ;
+    ns1:name "Bononcini catalogue" ;
+    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/musicology>,
+        <https://w3id.org/musow/vocab/paleography>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:workExample "http://www.bononcini.org/index.php?option=com_elenco&task=scheda&tid=521&Itemid=22" .
+
+<https://w3id.org/musow/1638797132-3821204/> rdfs:label "Bononcini catalogue" ;
+    ns3:generatedAtTime "2021-12-07T17:50:03.915804"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:anonymous ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Bononcini catalogue" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1031803> rdfs:label "Tor Vergata University of Rome"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1347047> rdfs:label "Ministry of Cultural Heritage and Activities and Tourism"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q37853> rdfs:label "Baroque"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q3788569> rdfs:label "Istituto Italiano per la Storia della Musica"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q957648> rdfs:label "Giovanni Maria Bononcini"^^xsd:string .
+
+ns2:MD1638895774250 rdfs:label "Società italiana di musicologia"^^xsd:string .
+
+ns2:anonymous rdfs:label "anonymous" .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/paleography> rdfs:label "paleography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
