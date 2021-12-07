@@ -1,0 +1,102 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638796258-0588534> a ns1:CreativeWork ;
+    rdfs:label "Awesome MIDI sources" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/kb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q57553187> ;
+    ns1:description "A curated list of sites with MIDI files on the Web" ;
+    ns1:downloadUrl "https://raw.githubusercontent.com/albertmeronyo/awesome-midi-sources/master/README.md" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/midi> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/timbre> ;
+    ns1:license <https://w3id.org/musow/vocab/cc0> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://github.com/albertmeronyo/awesome-midi-sources" ;
+    ns1:name "Awesome MIDI sources" ;
+    ns1:specialty <https://w3id.org/musow/vocab/machine-learning>,
+        <https://w3id.org/musow/vocab/metadata-aggregation>,
+        <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/music-information-retrieval>,
+        <https://w3id.org/musow/vocab/omr> ;
+    ns1:workExample "http://archive.cs.uu.nl/pub/MIDI/" .
+
+<https://w3id.org/musow/1638796258-0588534/> rdfs:label "Awesome MIDI sources" ;
+    ns2:generatedAtTime "2021-12-07T17:23:36.876157"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Awesome MIDI sources" ;
+    ns3:publicationStage "modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q57553187> rdfs:label "Albert Meroño-Peñuela"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc0> rdfs:label "CC0"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/kb> rdfs:label "~Kb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-learning> rdfs:label "machine learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-information-retrieval> rdfs:label "music information retrieval"^^xsd:string .
+
+<https://w3id.org/musow/vocab/omr> rdfs:label "omr"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/timbre> rdfs:label "Timbre"^^xsd:string .
+
