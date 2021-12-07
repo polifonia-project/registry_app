@@ -1,37 +1,35 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638798713-4743624> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638798713-4743624> a ns1:CreativeWork ;
     rdfs:label "Deep Learning for Music (DL4M)" ;
-    ns2:additionalType <https://w3id.org/musow/vocab/repository> ;
-    ns2:audience <https://w3id.org/musow/vocab/developers>,
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/kb> ;
-    ns2:description "List of articles related to deep learning applied to music. A few including links to codebases on github. " ;
-    ns2:downloadUrl "https://github.com/ybayle/awesome-deep-learning-music/archive/refs/heads/master.zip" ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:encodingFormat <https://w3id.org/musow/vocab/csv> ;
-    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/interoperable> ;
-    ns2:license <https://w3id.org/musow/vocab/mit-license> ;
-    ns2:mainEntityOfPage "https://github.com/ybayle/awesome-deep-learning-music" ;
-    ns2:name "Deep Learning for Music (DL4M)" ;
-    ns2:spatialCoverage <http://www.wikidata.org/entity/Q13780930> ;
-    ns2:workExample "https://arxiv.org/pdf/1711.04845.pdf" .
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/kb> ;
+    ns1:description "List of articles related to deep learning applied to music. A few including links to codebases on github. " ;
+    ns1:downloadUrl "https://github.com/ybayle/awesome-deep-learning-music/archive/refs/heads/master.zip" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/csv> ;
+    ns1:license <https://w3id.org/musow/vocab/mit-license> ;
+    ns1:mainEntityOfPage "https://github.com/ybayle/awesome-deep-learning-music" ;
+    ns1:name "Deep Learning for Music (DL4M)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q13780930> ;
+    ns1:workExample "https://arxiv.org/pdf/1711.04845.pdf" .
 
 <https://w3id.org/musow/1638798713-4743624/> rdfs:label "Deep Learning for Music (DL4M)" ;
-    ns1:generatedAtTime "2021-12-07T17:17:13.496073"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:anonymous ;
-    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Deep Learning for Music (DL4M)" ;
-    ns3:publicationStage "modified"^^xsd:string .
+    ns2:generatedAtTime "2021-12-07T17:17:24.273945"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Deep Learning for Music (DL4M)" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q13780930> rdfs:label "worldwide"^^xsd:string .
 
@@ -39,13 +37,9 @@ ns3:anonymous rdfs:label "anonymous" .
 
 ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/csv> rdfs:label "csv"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
-
-<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
 
 <https://w3id.org/musow/vocab/kb> rdfs:label "~Kb"^^xsd:string .
 
