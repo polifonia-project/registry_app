@@ -1,0 +1,82 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638798243-808912> a ns1:CreativeWork ;
+    rdfs:label "Hop-Hop Radio Archive" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The Hip-Hop Radio Archive aims to digitize, preserve, share, and contextualize recordings of hip-hop radio from the 1980s and 1990s from commercial, college, community, and pirate stations of all sizes, telling the stories of the shows and the people that made them." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q1132127>,
+        <http://www.wikidata.org/entity/Q11401> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://hiphopradioarchive.org/" ;
+    ns1:name "Hop-Hop Radio Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q34644>,
+        <http://www.wikidata.org/entity/Q34653> ;
+    ns1:workExample "https://hiphopradioarchive.org/show/880" .
+
+<https://w3id.org/musow/1638798243-808912/> rdfs:label "Hop-Hop Radio Archive" ;
+    ns3:generatedAtTime "2021-12-07T17:32:57.241688"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:anonymous ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Hop-Hop Radio Archive" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1132127> rdfs:label "hip hop"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11401> rdfs:label "hip hop music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q34644> rdfs:label "1980s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q34653> rdfs:label "1990s"^^xsd:string .
+
+ns2:anonymous rdfs:label "anonymous" .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
