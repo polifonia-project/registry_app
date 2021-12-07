@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -11,37 +11,64 @@
     ns1:additionalType <https://w3id.org/musow/vocab/ontology> ;
     ns1:audience <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:category <https://w3id.org/musow/vocab/symbolic> ;
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:creator <http://www.wikidata.org/entity/Q195668> ;
     ns1:description "The Similarity Ontology provides concepts and properties for describing similarities between things in the RDF/OWL framework. By focusing on provenance and transparency the Similarity Ontology allows the description of multi-faceted similarities." ;
     ns1:downloadUrl "http://purl.org/ontology/similarity/" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/owl> ;
+    ns1:featureList <https://w3id.org/musow/vocab/interoperable> ;
+    ns1:keywords <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Track>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
     ns1:mainEntityOfPage "http://isophonics.org/content/similarity-ontology" ;
-    ns1:name "Similarity Ontology" .
+    ns1:name "Similarity Ontology" ;
+    ns1:specialty <https://w3id.org/musow/vocab/symbolic-melodic-similarity> .
 
 <https://w3id.org/musow/1638797833-2683523/> rdfs:label "Similarity Ontology" ;
-    ns2:generatedAtTime "2021-12-06T14:46:51.549032"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it ;
+    ns3:generatedAtTime "2021-12-07T17:46:25.978841"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Similarity Ontology" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Track> rdfs:label "Track"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q195668> rdfs:label "Queen Mary University of London"^^xsd:string .
 
-ns3:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it rdfs:label "jacopo.deberardinis@studenti.unicam.it" .
+ns2:jacopo-dot-deberardinis-at-studenti-dot-unicam-dot-it rdfs:label "jacopo.deberardinis@studenti.unicam.it" .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
-<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
 
 <https://w3id.org/musow/vocab/ontology> rdfs:label "Ontology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/owl> rdfs:label "owl"^^xsd:string .
 
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity"^^xsd:string .
 
