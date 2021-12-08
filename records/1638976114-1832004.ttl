@@ -1,44 +1,37 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638976114-1832004> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638976114-1832004> a ns1:CreativeWork ;
     rdfs:label "German Music Archive" ;
-    ns2:about <https://w3id.org/musow/vocab/geographical> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:category <https://w3id.org/musow/vocab/metadata> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:creator <http://www.wikidata.org/entity/Q27302> ;
-    ns2:description "The German Music Archive of the German National Library collects and archives music in order to preserve it for posterity and make it available to the public. The collection is based on the sheet music and sound recordings which all German music publishers and labels are obliged to deposit by law. Its holdings currently encompass more than two million works. These also include historic sound carriers such as shellac records, phonograph cylinders and piano rolls for self-playing reproducing pianos." ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns2:keywords <https://w3id.org/musow/vocab/metadata> ;
-    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns2:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Recording>,
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q27302> ;
+    ns1:description "The German Music Archive of the German National Library collects and archives music in order to preserve it for posterity and make it available to the public. The collection is based on the sheet music and sound recordings which all German music publishers and labels are obliged to deposit by law. Its holdings currently encompass more than two million works. These also include historic sound carriers such as shellac records, phonograph cylinders and piano rolls for self-playing reproducing pianos." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/score> ;
-    ns2:mainEntityOfPage "https://www.dnb.de/EN/Ueber-uns/DMA/dma_node.html" ;
-    ns2:name "German Music Archive" ;
-    ns2:spatialCoverage <http://www.wikidata.org/entity/Q183> ;
-    ns2:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/music-history> .
+    ns1:mainEntityOfPage "https://www.dnb.de/EN/Ueber-uns/DMA/dma_node.html" ;
+    ns1:name "German Music Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q183> .
 
 <https://w3id.org/musow/1638976114-1832004/> rdfs:label "German Music Archive" ;
-    ns1:generatedAtTime "2021-12-08T16:10:39.392071"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "German Music Archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns2:generatedAtTime "2021-12-08T16:27:29.436570"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "German Music Archive" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
@@ -46,13 +39,7 @@
 
 <http://www.wikidata.org/entity/Q27302> rdfs:label "German National Library"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -66,7 +53,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
@@ -74,8 +61,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
