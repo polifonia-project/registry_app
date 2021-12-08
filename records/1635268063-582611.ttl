@@ -1,0 +1,46 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1635268063-582611> a ns1:CreativeWork ;
+    rdfs:label "BBC Things" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns1:audience <https://w3id.org/musow/vocab/researchers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:creator <http://www.wikidata.org/entity/Q9531> ;
+    ns1:description "BBC Things provides a single reference for the growing collection of entities that matter to the BBC and our audiences." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/rdf> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:name "BBC Things" ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology> .
+
+<https://w3id.org/musow/1635268063-582611/> rdfs:label "BBC Things" ;
+    ns3:generatedAtTime "2021-12-08T15:52:20.563926"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "BBC Things" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9531> rdfs:label "BBC"^^xsd:string .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rdf> rdfs:label "rdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
