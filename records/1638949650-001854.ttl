@@ -1,81 +1,56 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638949650-001854> a ns1:CreativeWork ;
+<https://w3id.org/musow/1638949650-001854> a ns2:CreativeWork ;
     rdfs:label "Citations: The Renaissance Imitation Mass (CRIM)" ;
-    ns1:about <https://w3id.org/musow/vocab/temporal> ;
-    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
-    ns1:audience <https://w3id.org/musow/vocab/researchers>,
+    ns2:about <https://w3id.org/musow/vocab/temporal> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns2:audience <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:category <https://w3id.org/musow/vocab/metadata>,
+    ns2:category <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/symbolic> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/mb> ;
-    ns1:creator <http://www.wikidata.org/entity/Q2945233> ;
-    ns1:description "A corpus of Renaissance polyphony: the so-called “imitation” Mass, notable for the ways in which its composers derived new, large-scale works from pre-existing ones." ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns1:encodingFormat <https://w3id.org/musow/vocab/mei/xml>,
-        <https://w3id.org/musow/vocab/pdf> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/interoperable>,
-        <https://w3id.org/musow/vocab/machine-readable> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/structure> ;
-    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <https://w3id.org/musow/vocab/score> ;
-    ns1:mainEntityOfPage "https://ricercar.crim.cesr.univ-tours.fr/" ;
-    ns1:name "Citations: The Renaissance Imitation Mass (CRIM)" ;
-    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
-        <https://w3id.org/musow/vocab/music-annotation>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/music-philology>,
-        <https://w3id.org/musow/vocab/social-history> ;
-    ns1:temporalCoverage <http://www.wikidata.org/entity/Q4692> ;
-    ns1:workExample "https://ricercar.crim.cesr.univ-tours.fr/items/show/3437" .
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/mb> ;
+    ns2:creator <http://www.wikidata.org/entity/Q2945233> ;
+    ns2:description "A corpus of Renaissance polyphony: the so-called “imitation” Mass, notable for the ways in which its composers derived new, large-scale works from pre-existing ones." ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/mei/xml>,
+        <https://w3id.org/musow/vocab/pdf>,
+        <https://w3id.org/musow/vocab/xml> ;
+    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns2:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns2:mainEntityOfPage "https://ricercar.crim.cesr.univ-tours.fr/" ;
+    ns2:name "Citations: The Renaissance Imitation Mass (CRIM)" ;
+    ns2:temporalCoverage <http://www.wikidata.org/entity/Q4692> ;
+    ns2:workExample "https://ricercar.crim.cesr.univ-tours.fr/items/show/3437" .
 
 <https://w3id.org/musow/1638949650-001854/> rdfs:label "Citations: The Renaissance Imitation Mass (CRIM)" ;
-    ns2:generatedAtTime "2021-12-08T08:57:15.425577"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "Citations: The Renaissance Imitation Mass (CRIM)" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns3:generatedAtTime "2021-12-08T08:57:25.480043"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Citations: The Renaissance Imitation Mass (CRIM)" ;
+    ns1:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q2945233> rdfs:label "Centre d'études supérieures de la Renaissance"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q4692> rdfs:label "Renaissance"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
 
-<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
-
 <https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
-
-<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
 
 <https://w3id.org/musow/vocab/mb> rdfs:label "~Mb"^^xsd:string .
 
 <https://w3id.org/musow/vocab/mei/xml> rdfs:label "mei/xml"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
 
@@ -87,14 +62,11 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+<https://w3id.org/musow/vocab/xml> rdfs:label "xml"^^xsd:string .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
