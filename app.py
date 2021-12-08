@@ -708,6 +708,14 @@ class Review(object):
 								session['username'], session['bearer_token'], '(published)')
 					except Exception as e:
 						print(e)
+
+				# send a request to wayback machine
+				savetheweb = recordData['res_homepage'].strip() if "res_homepage" in recordData \
+					and recordData['res_homepage'] != '' else None
+				if savetheweb:
+					resp = requests.get("http://web.archive.org/save/"+requests.utils.quote(savetheweb),
+							headers={"Content-Type": "application/x-www-form-urlencoded"} )
+					print(resp["status"])
 				u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 				raise web.seeother(prefixLocal+'welcome-1')
 
