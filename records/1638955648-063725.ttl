@@ -19,56 +19,33 @@
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/html>,
         <https://w3id.org/musow/vocab/marcxml> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
-        <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalWork>,
         <http://purl.org/ontology/mo/Record>,
-        <https://w3id.org/musow/vocab/musical-resource>,
         <https://w3id.org/musow/vocab/publisher> ;
     ns1:mainEntityOfPage "https://www.oxfordmusiconline.com/grovemusic" ;
     ns1:name "Grove Music Online" ;
-    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/history-of-instruments>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/music-learning>,
-        <https://w3id.org/musow/vocab/music-philology>,
+    ns1:specialty <https://w3id.org/musow/vocab/history>,
         <https://w3id.org/musow/vocab/musicology>,
-        <https://w3id.org/musow/vocab/organology>,
-        <https://w3id.org/musow/vocab/social-history>,
-        <https://w3id.org/musow/vocab/social-studies> ;
+        <https://w3id.org/musow/vocab/organology> ;
     ns1:workExample "https://www.oxfordmusiconline.com/grovemusic/view/10.1093/gmo/9781561592630.001.0001/omo-9781561592630-e-0000000008?rskey=UNQCgj&result=1" .
 
 <https://w3id.org/musow/1638955648-063725/> rdfs:label "Grove Music Online" ;
-    ns2:generatedAtTime "2021-12-08T10:33:10.540681"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T10:33:20.833527"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Grove Music Online" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
 
 <http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q217595> rdfs:label "Oxford University Press"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
@@ -76,23 +53,13 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
 
-<https://w3id.org/musow/vocab/history-of-instruments> rdfs:label "history of instruments"^^xsd:string .
-
 <https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
-
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
 <https://w3id.org/musow/vocab/marcxml> rdfs:label "marcxml"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-learning> rdfs:label "music learning"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
 
@@ -104,12 +71,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-studies> rdfs:label "social studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
