@@ -1,0 +1,130 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638975705-6394398> a ns1:CreativeWork ;
+    rdfs:label "Detroit Sound Conservancy" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/project> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The Detroit Sound Conservancy is a nonprofit community-based music archive documenting Detroit’s collective history through preservation, education, performance, and placekeeping. Its arts and culture programming emerge from its commitment to careful archival practice and creative placekeeping. These programs include the Club Heaven Sound System, Detroit Sound Hall of Fame, and the Historic Blue Bird Inn Stage. The collection includes the Graystone International Jazz Museum and Hall of Fame as well as thousands of additional artifacts, recordings, manuscripts, and oral histories" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q11399>,
+        <http://www.wikidata.org/entity/Q11401>,
+        <http://www.wikidata.org/entity/Q131272>,
+        <http://www.wikidata.org/entity/Q1640319>,
+        <http://www.wikidata.org/entity/Q170611>,
+        <http://www.wikidata.org/entity/Q180268>,
+        <http://www.wikidata.org/entity/Q20502>,
+        <http://www.wikidata.org/entity/Q37073>,
+        <http://www.wikidata.org/entity/Q43343>,
+        <http://www.wikidata.org/entity/Q8341>,
+        <http://www.wikidata.org/entity/Q83440>,
+        <http://www.wikidata.org/entity/Q9759> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalManifestation>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/musical-resource>,
+        <https://w3id.org/musow/vocab/publisher> ;
+    ns1:mainEntityOfPage "http://detroitsound.org/" ;
+    ns1:name "Detroit Sound Conservancy" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q12439> ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:workExample "http://detroitsound.org/artifact/madelyn-washington/" .
+
+<https://w3id.org/musow/1638975705-6394398/> rdfs:label "Detroit Sound Conservancy" ;
+    ns3:generatedAtTime "2021-12-08T16:08:31.361700"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Detroit Sound Conservancy" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11399> rdfs:label "rock music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11401> rdfs:label "hip hop music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q12439> rdfs:label "Detroit"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q131272> rdfs:label "soul music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1640319> rdfs:label "experimental music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q170611> rdfs:label "techno"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q180268> rdfs:label "gospel music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q20502> rdfs:label "house music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q37073> rdfs:label "pop music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q43343> rdfs:label "folk music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q83440> rdfs:label "country music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9759> rdfs:label "blues"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
