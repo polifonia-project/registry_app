@@ -8,37 +8,39 @@
 
 <https://w3id.org/musow/1638949164-9532564> a ns1:CreativeWork ;
     rdfs:label "Gesualdo online" ;
-    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns1:category <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/symbolic> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/mb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q280413> ;
     ns1:description "The project provides the musical transcriptions realized starting from the first available and complete early edition of each of Gesualdo’s compositions." ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html5>,
+        <https://w3id.org/musow/vocab/mei/xml> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
     ns1:mainEntityOfPage "https://ricercar.gesualdo-online.cesr.univ-tours.fr/" ;
-    ns1:name "Gesualdo online" ;
-    ns1:workExample "https://ricercar.gesualdo-online.cesr.univ-tours.fr/items/show/6044" .
+    ns1:name "Gesualdo online" .
 
 <https://w3id.org/musow/1638949164-9532564/> rdfs:label "Gesualdo online" ;
-    ns2:generatedAtTime "2021-12-08T08:40:59.783140"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2021-12-08T08:45:58.269435"^^xsd:dateTime ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Gesualdo online" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q280413> rdfs:label "National Center for Scientific Research"^^xsd:string .
 
 ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
-<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
 
-<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+<https://w3id.org/musow/vocab/html5> rdfs:label "html5"^^xsd:string .
 
-<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
 
-<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+<https://w3id.org/musow/vocab/mb> rdfs:label "~Mb"^^xsd:string .
 
-<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+<https://w3id.org/musow/vocab/mei/xml> rdfs:label "mei/xml"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
-<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
