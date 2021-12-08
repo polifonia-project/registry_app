@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -18,13 +18,8 @@
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "An online portal for African and Caribbean Cultures related information, including an extensive discographic database on African and Caribbean music. Nearly 3000 artists and more than 8000 albums referenced, organized by musical styles, country, instruments, labels and years. " ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/not-specified> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
-        <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalWork>,
         <http://purl.org/ontology/mo/Performance>,
         <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/audio> ;
@@ -32,23 +27,18 @@
     ns1:name "AFROMIX" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q15>,
         <http://www.wikidata.org/entity/Q664609> ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/discography>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-style> ;
+    ns1:specialty <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/history> ;
     ns1:workExample "https://www.afromix.org/html/musique/artistes/a-nous-les-petits/index.en.html" .
 
 <https://w3id.org/musow/1638974544-1997092/> rdfs:label "AFROMIX" ;
-    ns2:generatedAtTime "2021-12-08T15:46:03.330743"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2021-12-08T15:53:34.154950"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "AFROMIX" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -58,15 +48,9 @@
 
 <http://www.wikidata.org/entity/Q664609> rdfs:label "Caribbean"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -82,7 +66,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-style> rdfs:label "music style"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
@@ -90,8 +74,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
