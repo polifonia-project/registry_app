@@ -1,59 +1,45 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638976409-095411> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638976409-095411> a ns3:CreativeWork ;
     rdfs:label "Global music archive" ;
-    ns2:about <https://w3id.org/musow/vocab/geographical> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns3:about <https://w3id.org/musow/vocab/geographical> ;
+    ns3:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns3:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:category <https://w3id.org/musow/vocab/metadata> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:description "The Global Music Archive is a multimedia archive and resource center for traditional and popular song, music, and dance of Africa and North and South America, with particular emphasis on the African Diaspora. It is a public facility that promotes education in African and American traditional and popular music through its own activities and its support for the activities of others. The Archive is housed within the Anne Potter Wilson Music Library in Vanderbilt University's Blair School of Music. It includes public rooms for the study of materials, and audio and video listening and viewing facilities.  The archive includes a collection of Ugandan popular music cassette tapes, documentaries, audio, bibliographies, and interviews. " ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns2:keywords <https://w3id.org/musow/vocab/metadata> ;
-    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns2:mainEntity <http://purl.org/ontology/mo/Recording>,
-        <https://w3id.org/musow/vocab/musical-resource> ;
-    ns2:mainEntityOfPage "https://www.globalmusicarchive.org/" ;
-    ns2:name "Global music archive" ;
-    ns2:spatialCoverage <http://www.wikidata.org/entity/Q15> ;
-    ns2:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/cultural-studies>,
-        <https://w3id.org/musow/vocab/music-history> ;
-    ns2:workExample "https://diglib.library.vanderbilt.edu/diglib-fulldisplay.pl?SID=20211208534176612&code=&code=ama&RC=1199&Row=1" .
+    ns3:category <https://w3id.org/musow/vocab/metadata> ;
+    ns3:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns3:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns3:description "The Global Music Archive is a multimedia archive and resource center for traditional and popular song, music, and dance of Africa and North and South America, with particular emphasis on the African Diaspora. It is a public facility that promotes education in African and American traditional and popular music through its own activities and its support for the activities of others. The Archive is housed within the Anne Potter Wilson Music Library in Vanderbilt University's Blair School of Music. It includes public rooms for the study of materials, and audio and video listening and viewing facilities.  The archive includes a collection of Ugandan popular music cassette tapes, documentaries, audio, bibliographies, and interviews. " ;
+    ns3:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns3:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns3:mainEntity <http://purl.org/ontology/mo/Recording> ;
+    ns3:mainEntityOfPage "https://www.globalmusicarchive.org/" ;
+    ns3:name "Global music archive" ;
+    ns3:spatialCoverage <http://www.wikidata.org/entity/Q15> ;
+    ns3:workExample "https://diglib.library.vanderbilt.edu/diglib-fulldisplay.pl?SID=20211208534176612&code=&code=ama&RC=1199&Row=1" .
 
 <https://w3id.org/musow/1638976409-095411/> rdfs:label "Global music archive" ;
-    ns1:generatedAtTime "2021-12-08T16:16:22.190544"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Global music archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns2:generatedAtTime "2021-12-08T16:27:13.827483"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:name "Global music archive" ;
+    ns1:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q15> rdfs:label "Africa"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
-
-<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
@@ -63,14 +49,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
