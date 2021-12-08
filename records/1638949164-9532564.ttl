@@ -1,0 +1,44 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638949164-9532564> a ns1:CreativeWork ;
+    rdfs:label "Gesualdo online" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The project provides the musical transcriptions realized starting from the first available and complete early edition of each of Gesualdo’s compositions." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntityOfPage "https://ricercar.gesualdo-online.cesr.univ-tours.fr/" ;
+    ns1:name "Gesualdo online" ;
+    ns1:workExample "https://ricercar.gesualdo-online.cesr.univ-tours.fr/items/show/6044" .
+
+<https://w3id.org/musow/1638949164-9532564/> rdfs:label "Gesualdo online" ;
+    ns2:generatedAtTime "2021-12-08T08:40:59.783140"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Gesualdo online" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
