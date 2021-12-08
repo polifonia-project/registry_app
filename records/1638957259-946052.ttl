@@ -20,50 +20,31 @@
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "Genius is the world’s biggest collaborative collection of song lyrics and musical knowledge" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/api>,
-        <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/playable>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:keywords <https://w3id.org/musow/vocab/lyrics>,
         <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalWork> ;
     ns1:mainEntityOfPage "https://genius.com/" ;
     ns1:name "Genius" ;
     ns1:serviceUrl "https://api.genius.com/" ;
-    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
-        <https://w3id.org/musow/vocab/discography>,
-        <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/music-listening> ;
+    ns1:specialty <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation> ;
     ns1:workExample "https://genius.com/artists/Abba" .
 
 <https://w3id.org/musow/1638957259-946052/> rdfs:label "Genius" ;
-    ns2:generatedAtTime "2021-12-08T11:29:25.915757"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T11:30:18.372938"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Genius" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+    ns3:publicationStage "published"^^xsd:string .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/api> rdfs:label "Offers a Web API"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
 <https://w3id.org/musow/vocab/customers> rdfs:label "customers"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
 
@@ -73,8 +54,6 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
@@ -83,15 +62,13 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening"^^xsd:string .
-
-<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
         "Metadata"^^xsd:string .
