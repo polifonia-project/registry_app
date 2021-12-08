@@ -20,25 +20,25 @@
     ns1:creator ns3:MD1638796779442 ;
     ns1:description "This oral history collection consists of transcripts, cassette tapes, project working files and background organizational records of the interviews conducted during the African American Jazz Preservation Society of Pittsburgh (AAJPSP) Oral History Project (1995-1999). The project documents individual African American Jazz Musicians in Pittsburgh as well as their efforts to organize. The content of the interviews span from 1904 to 1999." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/video> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q8341> ;
     ns1:license <https://w3id.org/musow/vocab/not-specified> ;
     ns1:mainEntity <https://w3id.org/musow/vocab/audio> ;
     ns1:mainEntityOfPage "https://digital.library.pitt.edu/collection/african-american-jazz-preservation-society-pittsburgh-oral-history-project-records-recordings" ;
     ns1:name "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q1342> ;
-    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies>,
-        <https://w3id.org/musow/vocab/ethnography>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/social-history>,
-        <https://w3id.org/musow/vocab/social-studies> ;
-    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927> .
+    ns1:specialty <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927> ;
+    ns1:workExample "https://digital.library.pitt.edu/islandora/object/pitt%3A31735065784799" .
 
 <https://w3id.org/musow/1638796438-4034164/> rdfs:label "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
-    ns2:generatedAtTime "2021-12-06T14:28:43.265205"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T08:29:53.282537"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "AFRICAN AMERICAN JAZZ PRESERVATION SOCIETY OF PITTSBURGH ORAL HISTORY PROJECT" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q1342> rdfs:label "Pittsburgh"^^xsd:string .
 
@@ -50,11 +50,13 @@ ns3:MD1638796779442 rdfs:label "African American Jazz Preservation Society of Pi
 
 ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
 
-<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography"^^xsd:string .
 
@@ -68,8 +70,6 @@ ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
 <https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
 <https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
@@ -80,9 +80,7 @@ ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-studies> rdfs:label "social studies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+<https://w3id.org/musow/vocab/video> rdfs:label "video"^^xsd:string .
 
