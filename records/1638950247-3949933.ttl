@@ -1,7 +1,7 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <http://rdfs.org/ns/void#> .
-@prefix ns4: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://rdfs.org/ns/void#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,7 +9,7 @@
 
 <https://w3id.org/musow/1638950247-3949933> a ns1:CreativeWork ;
     rdfs:label "Listening Experience Database" ;
-    ns3:sparqlEndpoint "http://data.open.ac.uk/sparql" ;
+    ns4:sparqlEndpoint "http://data.open.ac.uk/sparql" ;
     ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
     ns1:audience <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
@@ -25,46 +25,27 @@
         <https://w3id.org/musow/vocab/json-ld>,
         <https://w3id.org/musow/vocab/pdf>,
         <https://w3id.org/musow/vocab/rdf> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/data-dump>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/interoperable>,
-        <https://w3id.org/musow/vocab/search-interface>,
-        <https://w3id.org/musow/vocab/sparql-endpoint> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Performance>,
-        <https://w3id.org/musow/vocab/listening-experience> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance> ;
     ns1:mainEntityOfPage "https://led.kmi.open.ac.uk/" ;
     ns1:name "Listening Experience Database" ;
     ns1:specialty <https://w3id.org/musow/vocab/ethnography>,
         <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/literary-studies>,
-        <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/music-history>,
         <https://w3id.org/musow/vocab/musicology> ;
     ns1:workExample "https://led.kmi.open.ac.uk/entity/lexp/1628588049214" .
 
 <https://w3id.org/musow/1638950247-3949933/> rdfs:label "Listening Experience Database" ;
-    ns2:generatedAtTime "2021-12-08T09:03:54.136829"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns4:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2021-12-08T09:04:05.697342"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Listening Experience Database" ;
-    ns4:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q2413375> rdfs:label "The Open University"^^xsd:string .
 
-ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
 
@@ -76,23 +57,13 @@ ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
-
 <https://w3id.org/musow/vocab/jpg> rdfs:label "jpg"^^xsd:string .
 
 <https://w3id.org/musow/vocab/json-ld> rdfs:label "json-ld"^^xsd:string .
 
-<https://w3id.org/musow/vocab/listening-experience> rdfs:label "Listening experience"^^xsd:string .
-
-<https://w3id.org/musow/vocab/literary-studies> rdfs:label "literary studies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
 
@@ -106,10 +77,5 @@ ns4:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/sparql-endpoint> rdfs:label "Has a SPARQL endpoint"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
