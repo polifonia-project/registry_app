@@ -1,0 +1,88 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638961991-9581568> a ns1:CreativeWork ;
+    rdfs:label "Queer Music Heritage" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "For 15 years, Queer Music Heritage ran as a radio show and accompanying website by JD Doyle. After the end of the radio show in 2015, the website has lived on as a history of LGBT music. Main sections of the website, beyond the full archive of radio shows, concern gay musicals, drag artist directory and memorabilia, women’s music, camp songs, Stonewall songs, gay ephemera, and more. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q51415> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntityOfPage "http://www.queermusicheritage.com/" ;
+    ns1:name "Queer Music Heritage" ;
+    ns1:specialty <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/social-history> ;
+    ns1:workExample "http://www.queermusicheritage.com/feb2007.html" .
+
+<https://w3id.org/musow/1638961991-9581568/> rdfs:label "Queer Music Heritage" ;
+    ns3:generatedAtTime "2021-12-08T12:18:16.527331"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Queer Music Heritage" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q51415> rdfs:label "queer"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
