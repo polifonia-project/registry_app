@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,31 +8,67 @@
 
 <https://w3id.org/musow/1638953483-3177638> a ns1:CreativeWork ;
     rdfs:label "Stichting Omroep Muziek catalogue" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
     ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:description "The Stichting Omroep Muziek (SOM) includes the Netherlands Radio Choir (GOK) and the Netherlands Radio Philharmonic Orchestra (RFO) and is the production house for live music for the public broadcasting company" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:isBasedOn <https://w3id.org/musow/1636560578-1976395'> ;
-    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:name "Stichting Omroep Muziek catalogue" .
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntityOfPage "https://www.omroepmuziek.nl/en/over-de-som/" ;
+    ns1:name "Stichting Omroep Muziek catalogue" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q55> ;
+    ns1:specialty <https://w3id.org/musow/vocab/performance>,
+        <https://w3id.org/musow/vocab/popular-music> ;
+    ns1:workExample "https://www.omroepmuziek.nl/en/concerten/slobodeniouk-premieres-uit-zweden-en-denemarken/" .
 
 <https://w3id.org/musow/1638953483-3177638/> rdfs:label "Stichting Omroep Muziek catalogue" ;
-    ns3:generatedAtTime "2021-12-08T09:57:18.642457"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2021-12-08T10:00:54.731098"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Stichting Omroep Muziek catalogue" ;
-    ns2:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q55> rdfs:label "Netherlands"^^xsd:string .
 
 <https://w3id.org/musow/1636560578-1976395'> rdfs:label "Muziekschatten"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
-<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
 
-<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
 
-<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
 
