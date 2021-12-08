@@ -1,0 +1,97 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638974544-1997092> a ns1:CreativeWork ;
+    rdfs:label "AFROMIX" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "An online portal for African and Caribbean Cultures related information, including an extensive discographic database on African and Caribbean music. Nearly 3000 artists and more than 8000 albums referenced, organized by musical styles, country, instruments, labels and years. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
+        <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://www.afromix.org/html/musique/index.en.html" ;
+    ns1:name "AFROMIX" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q15>,
+        <http://www.wikidata.org/entity/Q664609> ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-style> ;
+    ns1:workExample "https://www.afromix.org/html/musique/artistes/a-nous-les-petits/index.en.html" .
+
+<https://w3id.org/musow/1638974544-1997092/> rdfs:label "AFROMIX" ;
+    ns2:generatedAtTime "2021-12-08T15:46:03.330743"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "AFROMIX" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q15> rdfs:label "Africa"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q664609> rdfs:label "Caribbean"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/discography> rdfs:label "discography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-style> rdfs:label "music style"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
