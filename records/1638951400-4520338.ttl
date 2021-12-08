@@ -1,0 +1,61 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638951400-4520338> a ns1:CreativeWork ;
+    rdfs:label "Measuring Polyphony" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns1:audience <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Measuring Polyphony presents digitisations of polyphonic compositions copied in XIII-XIV century manuscripts in in mensural notation, and linked directly, where possible, to high-resolution images of the original manuscript sources, and MIDI audio files. It leverages the potential of the rich digital image repositories of music manuscripts and the community-based standards for encoding music notation of MEI/XML." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:isBasedOn <http://www.wikidata.org/entity/Q22682088>,
+        <http://www.wikidata.org/entity/Q63974901> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntityOfPage "https://measuringpolyphony.org/" ;
+    ns1:name "Measuring Polyphony" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/music-philology> .
+
+<https://w3id.org/musow/1638951400-4520338/> rdfs:label "Measuring Polyphony" ;
+    ns2:generatedAtTime "2021-12-08T09:27:03.601905"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Measuring Polyphony" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q22682088> rdfs:label "International Image Interoperability Framework"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q63974901> rdfs:label "Verovio"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
