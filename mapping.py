@@ -38,7 +38,7 @@ def getValuesFromFields(fieldPrefix, recordData, fields=None):
 	for key, value in recordData.items():
 		if key.startswith(fieldPrefix+'-'): # multiple values from text box (wikidata)
 			values = value.split(',', 1)
-			results.add(( values[0], urllib.parse.unquote(values[1]) )) # (id, label)
+			results.add(( values[0].strip(), urllib.parse.unquote(values[1]) )) # (id, label)
 		elif key == fieldPrefix: # uri from dropdown (single value from controlled vocabulary)
 
 			if fields:
