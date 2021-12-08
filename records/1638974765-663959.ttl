@@ -13,40 +13,28 @@
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/performers>,
-        <https://w3id.org/musow/vocab/record-companies>,
         <https://w3id.org/musow/vocab/scholars> ;
     ns1:category <https://w3id.org/musow/vocab/metadata> ;
     ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "“The noisy library of New Zealand music,” Audio Culture is a repository of interviews, images, audio, and video about New Zealand artists cutting across scenes and genres. The site can be navigated freely or via people, scenes, and labels categories. " ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Record>,
+    ns1:mainEntity <http://purl.org/ontology/mo/Record>,
         <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://www.audioculture.co.nz/ " ;
     ns1:name "Audio Culture" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q664> ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/performance>,
-        <https://w3id.org/musow/vocab/social-studies> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/performance> ;
     ns1:workExample "https://www.audioculture.co.nz/articles/stranded-in-paradise-auckland-1980" .
 
 <https://w3id.org/musow/1638974765-663959/> rdfs:label "Audio Culture" ;
-    ns2:generatedAtTime "2021-12-08T15:48:53.565769"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T15:53:25.545374"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Audio Culture" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
 
@@ -54,13 +42,7 @@
 
 <http://www.wikidata.org/entity/Q664> rdfs:label "New Zealand"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -78,20 +60,13 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-studies> rdfs:label "social studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
