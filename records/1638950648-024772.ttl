@@ -1,0 +1,157 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638950648-024772> a ns1:CreativeWork ;
+    rdfs:label "Josquin project" ;
+    ns1:about <https://w3id.org/musow/vocab/artist>,
+        <https://w3id.org/musow/vocab/temporal> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns1:audience <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:character <http://www.wikidata.org/entity/Q143100> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q41506> ;
+    ns1:description "The project aims to confront roughly 340 works attributed to Josquin des Prez. Works have been digitized to enable comparative analysis. The website hosts an ever-growing collection of complete scores of polyphonic music from Renaissance. Scores can be searched by melodic and/or rhythmic pattern. It also provides analytical tools that can be used to gain insight into individual works, the style of a given composer, or the musical lingua franca." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/humdrum>,
+        <https://w3id.org/musow/vocab/json>,
+        <https://w3id.org/musow/vocab/mei/xml>,
+        <https://w3id.org/musow/vocab/midi>,
+        <https://w3id.org/musow/vocab/mp3>,
+        <https://w3id.org/musow/vocab/musicxml>,
+        <https://w3id.org/musow/vocab/notearray> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable>,
+        <https://w3id.org/musow/vocab/playable>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:isBasedOn <http://www.wikidata.org/entity/Q63974901> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/rhythm>,
+        <https://w3id.org/musow/vocab/structure> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://josquin.stanford.edu/" ;
+    ns1:name "Josquin project" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/music-listening>,
+        <https://w3id.org/musow/vocab/music-philology> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q4692> ;
+    ns1:workExample "https://josquin.stanford.edu/work/?id=Jos9907" .
+
+<https://w3id.org/musow/1638950648-024772/> rdfs:label "Josquin project" ;
+    ns3:generatedAtTime "2021-12-08T09:14:59.333726"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Josquin project" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q143100> rdfs:label "Josquin des Prez"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q41506> rdfs:label "Stanford University"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q4692> rdfs:label "Renaissance"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q63974901> rdfs:label "Verovio"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/humdrum> rdfs:label "humdrum"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
+<https://w3id.org/musow/vocab/json> rdfs:label "json"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mei/xml> rdfs:label "mei/xml"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mp3> rdfs:label "mp3"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml"^^xsd:string .
+
+<https://w3id.org/musow/vocab/notearray> rdfs:label "notearray"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
