@@ -1,0 +1,126 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638952534-525157> a ns1:CreativeWork ;
+    rdfs:label "Irish Traditional Music Archive (Port collections)" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns1:audience <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q3154465> ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/machine-readable>,
+        <https://w3id.org/musow/vocab/playable>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q7482056> ;
+    ns1:isBasedOn <http://www.wikidata.org/entity/Q287067> ;
+    ns1:keywords <https://w3id.org/musow/vocab/contour-shape>,
+        <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/rhythm>,
+        <https://w3id.org/musow/vocab/structure>,
+        <https://w3id.org/musow/vocab/timbre> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "http://port.itma.ie/welcome" ;
+    ns1:name "Irish Traditional Music Archive (Port collections)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q27> ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/music-philology>,
+        <https://w3id.org/musow/vocab/music-style> ;
+    ns1:workExample "http://port.itma.ie/score/ITMA_4216" .
+
+<https://w3id.org/musow/1638952534-525157/> rdfs:label "Irish Traditional Music Archive (Port collections)" ;
+    ns3:generatedAtTime "2021-12-08T09:41:14.004324"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Irish Traditional Music Archive (Port collections)" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q27> rdfs:label "Ireland"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q287067> rdfs:label "ABC notation"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q3154465> rdfs:label "Irish Traditional Music Archive"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7482056> rdfs:label "Irish folk music"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/contour-shape> rdfs:label "Contour/Shape"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-style> rdfs:label "music style"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/timbre> rdfs:label "Timbre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
