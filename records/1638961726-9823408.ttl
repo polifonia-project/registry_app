@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -20,29 +20,22 @@
     ns1:creator <http://www.wikidata.org/entity/Q913861> ;
     ns1:description "The John Coltrane Memorial Black Music Archive is a collection of nearly 50,000 recordings housed at San Diego State University. The archive encompasses nearly every important jazz musician from the 1920s onward. Alongside John Coltrane’s complete catalog, this archive also includes an extensive Blue Note collection, a comprehensive collection of Jamaican music, and countless other rare and out-of-print releases. " ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q572717>,
         <http://www.wikidata.org/entity/Q8341> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/Performance>,
-        <http://purl.org/ontology/mo/Recording>,
-        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://library.sdsu.edu/scua/new-notable/john-coltrane-memorial-black-music-archive-sdsu" ;
     ns1:name "John Coltrane Memorial Black Music Archive" ;
-    ns1:specialty <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/performance> ;
+    ns1:specialty <https://w3id.org/musow/vocab/performance> ;
     ns1:workExample "https://csu-sdsu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991023667129302917&context=L&vid=01CALS_SDL:01CALS_SDL&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,coltrane&mode=advanced&offset=0" .
 
 <https://w3id.org/musow/1638961726-9823408/> rdfs:label "John Coltrane Memorial Black Music Archive" ;
-    ns3:generatedAtTime "2021-12-08T12:13:09.899152"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2021-12-08T15:54:02.841480"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "John Coltrane Memorial Black Music Archive" ;
-    ns2:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -54,11 +47,7 @@
 
 <http://www.wikidata.org/entity/Q913861> rdfs:label "San Diego State University"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -74,9 +63,7 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
 
@@ -84,8 +71,5 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
