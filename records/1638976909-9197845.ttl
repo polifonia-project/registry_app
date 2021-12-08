@@ -1,0 +1,79 @@
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638976909-9197845> a ns2:CreativeWork ;
+    rdfs:label "National Institute of Musicology Carlos Vega" ;
+    ns2:about <https://w3id.org/musow/vocab/geographical> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns2:category <https://w3id.org/musow/vocab/metadata> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:creator ns1:MD1638976990861 ;
+    ns2:description "The National Institute of Musicology Carlos Vega, located in Buenos Aires, promotes the study of the various musical expressions, past and present, created and practiced in Argentina and other Latin American countries. It features a library, archives, instruments museum and music library. " ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns2:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/Instrument>,
+        <http://purl.org/ontology/mo/MusicalWork> ;
+    ns2:mainEntityOfPage "https://inmcv.cultura.gob.ar/" ;
+    ns2:name "National Institute of Musicology Carlos Vega" ;
+    ns2:spatialCoverage <http://www.wikidata.org/entity/Q12585>,
+        <http://www.wikidata.org/entity/Q414> ;
+    ns2:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/comparative-studies>,
+        <https://w3id.org/musow/vocab/music-history> ;
+    ns2:workExample "https://inmcv.cultura.gob.ar/media/uploads/site-32/destacados/Compositoras%20Argentinas/celia_torra_rapsodia_entrerriana.pdf" .
+
+<https://w3id.org/musow/1638976909-9197845/> rdfs:label "National Institute of Musicology Carlos Vega" ;
+    ns3:generatedAtTime "2021-12-08T16:26:43.348855"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "National Institute of Musicology Carlos Vega" ;
+    ns1:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q12585> rdfs:label "Latin America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q414> rdfs:label "Argentina"^^xsd:string .
+
+ns1:MD1638976990861 rdfs:label "National Institute of Musicology Carlos Vega"^^xsd:string .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/comparative-studies> rdfs:label "comparative studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
