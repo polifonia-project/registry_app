@@ -19,29 +19,23 @@
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "A free and open archive comprising historical recordings and oral history interviews. Many of the oral histories were gathered at an event for radio anoraks and (former) pirates organised on October 20th 2018 at the Ballsbridge Hotel in Dublin.  " ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Performance>,
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
         <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://pirate.ie/" ;
     ns1:name "Irish pirate radio archive" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q1761>,
         ns3:MD1638981101256 ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/discography>,
-        <https://w3id.org/musow/vocab/music-history>,
+    ns1:specialty <https://w3id.org/musow/vocab/discography>,
         <https://w3id.org/musow/vocab/performance> ;
     ns1:workExample "https://pirate.ie/archive/dr-don-hosts-a-phone-in-on-ard/" .
 
 <https://w3id.org/musow/1638980945-7790356/> rdfs:label "Irish pirate radio archive" ;
-    ns2:generatedAtTime "2021-12-08T17:32:04.444914"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T17:32:12.845037"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Irish pirate radio archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -51,13 +45,7 @@
 
 ns3:MD1638981101256 rdfs:label "Ireland"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -77,12 +65,11 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
