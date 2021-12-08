@@ -1,0 +1,73 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638962299-301302> a ns1:CreativeWork ;
+    rdfs:label "African Music Archive" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Established in 1991 the African Music Archive contains a unique collection of modern African music on records of various formats (shellac and vinyl records, audio and video cassettes, CDs and DVDs). The archive currently holds around 15,000 sound recordings, some of which date back to the 1940s. The archive hosts music from almost all African countries and in particular Ethiopia, Ghana, Cameroon, Congo, Kenya, Nigeria and Tanzania are well represented. In addition, the collection contains more or less representative holdings from almost all countries of Africa, which is still being built up through regular acquisitions. Several thousand newspaper clippings are kept in the clipping collection, which is sorted by country, musical style and musician. The articles, reports, interviews, record reviews, etc. offer a large pool of background material that can be consulted on site. Beyond its academic work, the AMA sees itself as an institution that wants to make information on African music accessible to a broader public." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://www.blogs.uni-mainz.de/fb07-ifeas-ama-eng/" ;
+    ns1:name "African Music Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q15> ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/cultural-studies>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history> ;
+    ns1:workExample "https://opac.ub.uni-mainz.de/DB=1/SET=4/TTL=1/SHW?FRST=3" .
+
+<https://w3id.org/musow/1638962299-301302/> rdfs:label "African Music Archive" ;
+    ns2:generatedAtTime "2021-12-08T15:42:21.840711"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "African Music Archive" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q15> rdfs:label "Africa"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
