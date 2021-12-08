@@ -17,8 +17,6 @@
     ns1:description "The RIPM Archive consists of original volumes, reprints, microforms, and photocopies of music periodicals, collected initially for indexing. Also contained in the Archive are periodicals scanned by RIPM from the collections of Partner or Participating Libraries." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/html> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/not-specified> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Record>,
         <https://w3id.org/musow/vocab/publisher> ;
@@ -27,16 +25,13 @@
     ns1:workExample "https://www.ripm.org/index.php?page=JournalInfo&ABB=KBR" .
 
 <https://w3id.org/musow/1638956003-2813141/> rdfs:label "RIPM The Online Archive of Music Periodicals" ;
-    ns2:generatedAtTime "2021-12-08T10:54:06.510939"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T10:54:17.580397"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "RIPM The Online Archive of Music Periodicals" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -45,6 +40,8 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
 
 <https://w3id.org/musow/vocab/mb> rdfs:label "~Mb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
@@ -56,6 +53,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
