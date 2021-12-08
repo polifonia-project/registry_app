@@ -21,16 +21,10 @@
     ns1:creator <http://www.wikidata.org/entity/Q7552055> ;
     ns1:description "A series of indexes derived from a data base of musical information compiled from primary sources covering the 250 years of the initial exploration and settlement of the United States. It consists of over 75,000 entries that are sorted by text (titles, first lines, recitatives, chorus and burden), by music incipits (represented in scale degrees, stressed notes and interval sequences), with additional indexes of names and theater works. Now in electronic format, the data can be fully searched, not only for initial strings, but also for internal words and melody sections." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q2707298> ;
-    ns1:keywords <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/structure> ;
+    ns1:keywords <https://w3id.org/musow/vocab/melody> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <https://w3id.org/musow/vocab/musical-resource>,
-        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://www.cdss.org/elibrary/Easmes/Index.htm" ;
     ns1:name "Early American Secular Music and Its European Sources, 1589–1839" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q142>,
@@ -39,10 +33,7 @@
         <http://www.wikidata.org/entity/Q30>,
         <http://www.wikidata.org/entity/Q55>,
         <http://www.wikidata.org/entity/Q96> ;
-    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/music-publishing-history> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q6955>,
         <http://www.wikidata.org/entity/Q7015>,
         <http://www.wikidata.org/entity/Q7016>,
@@ -50,12 +41,11 @@
     ns1:workExample "https://www.cdss.org/elibrary/Easmes/Biblio/B045425.htm" .
 
 <https://w3id.org/musow/1638960085-8914223/> rdfs:label "Early American Secular Music and Its European Sources, 1589–1839" ;
-    ns2:generatedAtTime "2021-12-08T11:48:28.217105"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T11:48:47.795303"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Early American Secular Music and Its European Sources, 1589–1839" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q142> rdfs:label "France"^^xsd:string .
 
@@ -81,15 +71,9 @@
 
 <http://www.wikidata.org/entity/Q96> rdfs:label "Mexico"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
-
-<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
@@ -103,11 +87,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-publishing-history> rdfs:label "music publishing history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
@@ -117,14 +97,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
