@@ -1,47 +1,39 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638974935-6715455> a ns1:CreativeWork ;
+<https://w3id.org/musow/1638974935-6715455> a ns2:CreativeWork ;
     rdfs:label "BBC Archive collections" ;
-    ns1:about <https://w3id.org/musow/vocab/geographical> ;
-    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns2:about <https://w3id.org/musow/vocab/geographical> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
-        <https://w3id.org/musow/vocab/performers>,
-        <https://w3id.org/musow/vocab/record-companies> ;
-    ns1:category <https://w3id.org/musow/vocab/metadata> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns1:creator <http://www.wikidata.org/entity/Q9531> ;
-    ns1:description "The BBC Archive Centre in Perivale, West London, houses most of the BBC Archive collections across 8 vaults and 60 miles of shelving containing 15 million assets. Other stores are held across London, in Caversham near Reading and at other sites around the UK. Around 200 staff work in BBC Archives; their aim is to manage the diverse range of collections and support research, reuse and access to BBC material by BBC staff and others who need it. " ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
-    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Performance>,
+        <https://w3id.org/musow/vocab/performers> ;
+    ns2:category <https://w3id.org/musow/vocab/metadata> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:creator <http://www.wikidata.org/entity/Q9531> ;
+    ns2:description "The BBC Archive Centre in Perivale, West London, houses most of the BBC Archive collections across 8 vaults and 60 miles of shelving containing 15 million assets. Other stores are held across London, in Caversham near Reading and at other sites around the UK. Around 200 staff work in BBC Archives; their aim is to manage the diverse range of collections and support research, reuse and access to BBC material by BBC staff and others who need it. " ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/Performance>,
         <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/audio> ;
-    ns1:mainEntityOfPage "https://www.bbc.co.uk/archive/collections" ;
-    ns1:name "BBC Archive collections" ;
-    ns1:spatialCoverage <http://www.wikidata.org/entity/Q145> ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/music-history> ;
-    ns1:workExample "https://www.bbc.co.uk/archive/delia-derbyshire-and-the-bbc-radiophonic-workshop/zvk9scw" .
+    ns2:mainEntityOfPage "https://www.bbc.co.uk/archive/collections" ;
+    ns2:name "BBC Archive collections" ;
+    ns2:spatialCoverage <http://www.wikidata.org/entity/Q145> ;
+    ns2:workExample "https://www.bbc.co.uk/archive/delia-derbyshire-and-the-bbc-radiophonic-workshop/zvk9scw" .
 
 <https://w3id.org/musow/1638974935-6715455/> rdfs:label "BBC Archive collections" ;
-    ns3:generatedAtTime "2021-12-08T15:51:54.272446"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "BBC Archive collections" ;
-    ns2:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+    ns1:generatedAtTime "2021-12-08T15:53:16.777835"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "BBC Archive collections" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -51,15 +43,9 @@
 
 <http://www.wikidata.org/entity/Q9531> rdfs:label "BBC"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -75,14 +61,9 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
