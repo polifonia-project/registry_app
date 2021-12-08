@@ -17,56 +17,34 @@
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "Songfacts is a searchable database of song information where you can find out the stories behind the songs, get the lyrics, and watch the videos." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/api>,
-        <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Performance>,
-        <http://purl.org/ontology/mo/Recording>,
-        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://www.songfacts.com/" ;
     ns1:name "SongFacts" ;
     ns1:serviceUrl "https://www.songfacts.com/blog/pages/songfacts-api" ;
-    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
-        <https://w3id.org/musow/vocab/discography>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-annotation>,
-        <https://w3id.org/musow/vocab/music-history> ;
+    ns1:specialty <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/history> ;
     ns1:workExample "https://www.songfacts.com/facts/richard-a-whiting/mary-pickford-the-darling-of-them-all" .
 
 <https://w3id.org/musow/1638959420-625252/> rdfs:label "SongFacts" ;
-    ns2:generatedAtTime "2021-12-08T11:35:25.038544"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T11:35:32.453288"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "SongFacts" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/api> rdfs:label "Offers a Web API"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
 <https://w3id.org/musow/vocab/customers> rdfs:label "customers"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/discography> rdfs:label "discography"^^xsd:string .
 
@@ -76,20 +54,11 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
