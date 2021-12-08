@@ -1,0 +1,91 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638961726-9823408> a ns1:CreativeWork ;
+    rdfs:label "John Coltrane Memorial Black Music Archive" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q913861> ;
+    ns1:description "The John Coltrane Memorial Black Music Archive is a collection of nearly 50,000 recordings housed at San Diego State University. The archive encompasses nearly every important jazz musician from the 1920s onward. Alongside John Coltrane’s complete catalog, this archive also includes an extensive Blue Note collection, a comprehensive collection of Jamaican music, and countless other rare and out-of-print releases. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q572717>,
+        <http://www.wikidata.org/entity/Q8341> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntityOfPage "https://library.sdsu.edu/scua/new-notable/john-coltrane-memorial-black-music-archive-sdsu" ;
+    ns1:name "John Coltrane Memorial Black Music Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:workExample "https://csu-sdsu.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991023667129302917&context=L&vid=01CALS_SDL:01CALS_SDL&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,coltrane&mode=advanced&offset=0" .
+
+<https://w3id.org/musow/1638961726-9823408/> rdfs:label "John Coltrane Memorial Black Music Archive" ;
+    ns3:generatedAtTime "2021-12-08T12:13:09.899152"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "John Coltrane Memorial Black Music Archive" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q572717> rdfs:label "music of Jamaica"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q913861> rdfs:label "San Diego State University"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
