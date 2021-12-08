@@ -1,0 +1,130 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1638960085-8914223> a ns1:CreativeWork ;
+    rdfs:label "Early American Secular Music and Its European Sources, 1589–1839" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical>,
+        <https://w3id.org/musow/vocab/temporal> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q7552055> ;
+    ns1:description "A series of indexes derived from a data base of musical information compiled from primary sources covering the 250 years of the initial exploration and settlement of the United States. It consists of over 75,000 entries that are sorted by text (titles, first lines, recitatives, chorus and burden), by music incipits (represented in scale degrees, stressed notes and interval sequences), with additional indexes of names and theater works. Now in electronic format, the data can be fully searched, not only for initial strings, but also for internal words and melody sections." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q2707298> ;
+    ns1:keywords <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/structure> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <https://w3id.org/musow/vocab/musical-resource>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://www.cdss.org/elibrary/Easmes/Index.htm" ;
+    ns1:name "Early American Secular Music and Its European Sources, 1589–1839" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q142>,
+        <http://www.wikidata.org/entity/Q145>,
+        <http://www.wikidata.org/entity/Q16>,
+        <http://www.wikidata.org/entity/Q30>,
+        <http://www.wikidata.org/entity/Q55>,
+        <http://www.wikidata.org/entity/Q96> ;
+    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/music-publishing-history> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6955>,
+        <http://www.wikidata.org/entity/Q7015>,
+        <http://www.wikidata.org/entity/Q7016>,
+        <http://www.wikidata.org/entity/Q7017> ;
+    ns1:workExample "https://www.cdss.org/elibrary/Easmes/Biblio/B045425.htm" .
+
+<https://w3id.org/musow/1638960085-8914223/> rdfs:label "Early American Secular Music and Its European Sources, 1589–1839" ;
+    ns2:generatedAtTime "2021-12-08T11:48:28.217105"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Early American Secular Music and Its European Sources, 1589–1839" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q142> rdfs:label "France"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q145> rdfs:label "United Kingdom"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q16> rdfs:label "Canada"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q2707298> rdfs:label "secular music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q55> rdfs:label "Netherlands"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q6955> rdfs:label "19th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7015> rdfs:label "18th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7016> rdfs:label "17th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7017> rdfs:label "16th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7552055> rdfs:label "Society for American Music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q96> rdfs:label "Mexico"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-publishing-history> rdfs:label "music publishing history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
