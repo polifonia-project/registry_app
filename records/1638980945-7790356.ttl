@@ -31,7 +31,7 @@
     ns1:workExample "https://pirate.ie/archive/dr-don-hosts-a-phone-in-on-ard/" .
 
 <https://w3id.org/musow/1638980945-7790356/> rdfs:label "Irish pirate radio archive" ;
-    ns2:generatedAtTime "2021-12-08T17:32:12.845037"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T17:34:48.961416"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Irish pirate radio archive" ;
