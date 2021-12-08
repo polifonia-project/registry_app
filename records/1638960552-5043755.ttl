@@ -18,23 +18,19 @@
     ns1:creator <http://www.wikidata.org/entity/Q49088> ;
     ns1:description "A portal for browsing all available oral histories held at Columbia University, across all subjects. Music oral histories include a selection of interviews with Chicago jazz musicians and Austrian immigrants to the United States." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q8341>,
         <http://www.wikidata.org/entity/Q9730> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <https://w3id.org/musow/vocab/musical-resource> ;
     ns1:mainEntityOfPage "https://library.columbia.edu/collections/oral-history-portal.html " ;
     ns1:name "Oral history archives at Columbia University" ;
-    ns1:specialty <https://w3id.org/musow/vocab/music-history> ;
     ns1:workExample "https://dlc.library.columbia.edu/catalog/cul:f1vhhmgsn4" .
 
 <https://w3id.org/musow/1638960552-5043755/> rdfs:label "Oral history archives at Columbia University" ;
-    ns2:generatedAtTime "2021-12-08T12:02:38.076023"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T15:54:27.880065"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Oral history archives at Columbia University" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q49088> rdfs:label "Columbia University"^^xsd:string .
 
@@ -42,11 +38,7 @@
 
 <http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -60,14 +52,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
