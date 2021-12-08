@@ -1,50 +1,63 @@
-@prefix ns1: <https://w3id.org/musow/> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1638797326-4737487> a ns2:CreativeWork ;
+<https://w3id.org/musow/1638797326-4737487> a ns1:CreativeWork ;
     rdfs:label "BRUBECK ORAL HISTORY PROJECT" ;
-    ns2:about <https://w3id.org/musow/vocab/artist>,
+    ns1:about <https://w3id.org/musow/vocab/artist>,
         <https://w3id.org/musow/vocab/genre> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/project> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns1:additionalType <https://w3id.org/musow/vocab/project> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:category <https://w3id.org/musow/vocab/media> ;
-    ns2:character <http://www.wikidata.org/entity/Q108597> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns2:description "Dave and Iola Brubeck were interviewed for this oral history project on January 30 and 31, 2007. During the interviews, the Brubecks discussed a broad range of topics from throughout their lives. Some of the stories cover well-known episodes in their career, others are related here for the first time." ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:genre <http://www.wikidata.org/entity/Q8341> ;
-    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns2:mainEntity <http://purl.org/ontology/mo/Recording> ;
-    ns2:mainEntityOfPage " https://scholarlycommons.pacific.edu/bohp/" ;
-    ns2:name "BRUBECK ORAL HISTORY PROJECT" ;
-    ns2:specialty <https://w3id.org/musow/vocab/ethnography>,
-        <https://w3id.org/musow/vocab/music-history> .
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:character <http://www.wikidata.org/entity/Q108597> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q630226> ;
+    ns1:description "Dave and Iola Brubeck were interviewed for this oral history project on January 30 and 31, 2007. During the interviews, the Brubecks discussed a broad range of topics from throughout their lives. Some of the stories cover well-known episodes in their career, others are related here for the first time." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/video> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q8341> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/listening-experience> ;
+    ns1:mainEntityOfPage " https://scholarlycommons.pacific.edu/bohp/" ;
+    ns1:name "BRUBECK ORAL HISTORY PROJECT" ;
+    ns1:specialty <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history> ;
+    ns1:workExample "https://scholarlycommons.pacific.edu/bohp/12/" .
 
 <https://w3id.org/musow/1638797326-4737487/> rdfs:label "BRUBECK ORAL HISTORY PROJECT" ;
-    ns3:generatedAtTime "2021-12-06T14:33:10.311205"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns1:enricodaga-at-gmail-dot-com ;
-    ns2:name "BRUBECK ORAL HISTORY PROJECT" ;
-    ns1:publicationStage "not modified"^^xsd:string .
+    ns2:generatedAtTime "2021-12-08T08:28:15.657719"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:enricodaga-at-gmail-dot-com ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "BRUBECK ORAL HISTORY PROJECT" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q108597> rdfs:label "Dave Brubeck"^^xsd:string .
 
+<http://www.wikidata.org/entity/Q630226> rdfs:label "University of the Pacific"^^xsd:string .
+
 <http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
 
-ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+ns3:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
@@ -56,9 +69,13 @@ ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 
 <https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
 
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listening-experience> rdfs:label "Listening experience"^^xsd:string .
+
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
 
@@ -67,4 +84,6 @@ ns1:enricodaga-at-gmail-dot-com rdfs:label "enricodaga@gmail.com" .
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/video> rdfs:label "video"^^xsd:string .
 
