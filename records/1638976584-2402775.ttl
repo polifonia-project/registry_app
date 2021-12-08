@@ -19,29 +19,24 @@
     ns1:creator <http://www.wikidata.org/entity/Q1193547> ;
     ns1:description "The Hogan Archive of New Orleans Music and New Orleans Jazz supports the research and study of New Orleans music and culture of the late 19th and 20th centuries forward. Holdings include archival collections, sound recordings, sheet music, photographs, oral histories, and printed materials. The musical cultures of New Orleans represented include, but are not limited to, jazz, ragtime, rhythm and blues, blues, gospel, Creole songs, and other forms of Black American popular music. All materials highlight the culture and communities of the New Orleans region from a music-based perspective, but also comprise multidisciplinary subjects such as American history, ethnic studies, gender studies, architecture, sociology, race and representation, anthropology, cultural studies, marketing, media, and much more.   Some of the Hogan Archive’s named collections include the Paul Barbarin Collection, Don Marquis Collection, Allison Miner Collection, and Robert Palmer Collection, among several others." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q8341> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Record>,
-        <https://w3id.org/musow/vocab/musical-resource>,
         <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://library.tulane.edu/locations/tusc/hogan-archive-new-orleans-music-new-orleans-jazz" ;
     ns1:name "Hogan Archive of New Orleans Music and New Orleans Jazz" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q34404> ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/social-history> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927>,
         <http://www.wikidata.org/entity/Q6955> ;
     ns1:workExample "https://archives.tulane.edu/repositories/3/resources/895" .
 
 <https://w3id.org/musow/1638976584-2402775/> rdfs:label "Hogan Archive of New Orleans Music and New Orleans Jazz" ;
-    ns2:generatedAtTime "2021-12-08T16:21:47.639711"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-08T16:27:06.380894"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Hogan Archive of New Orleans Music and New Orleans Jazz" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
 
@@ -55,13 +50,7 @@
 
 <http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -79,17 +68,11 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
-
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/social-history> rdfs:label "social history"^^xsd:string .
-
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
