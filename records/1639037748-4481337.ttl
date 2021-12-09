@@ -1,0 +1,107 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639037748-4481337> a ns1:CreativeWork ;
+    rdfs:label "Archives of African music and culture (AAMC)" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q6608367> ;
+    ns1:description "Established in 1991, the Archives of African American Music and Culture (AAAMC) is a repository of materials covering a range of African American musical idioms and cultural expressions from the post-World War II era. The collections highlight popular, religious, and classical music, with genres ranging from blues and gospel to R&B and contemporary hip hop. The AAAMC also houses extensive materials related to the documentation of Black radio." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/pdf> ;
+    ns1:genre <http://www.wikidata.org/entity/Q1065742>,
+        <http://www.wikidata.org/entity/Q11401>,
+        <http://www.wikidata.org/entity/Q373342>,
+        <http://www.wikidata.org/entity/Q388207>,
+        <http://www.wikidata.org/entity/Q45981>,
+        <http://www.wikidata.org/entity/Q57470546>,
+        <http://www.wikidata.org/entity/Q9730> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance> ;
+    ns1:mainEntityOfPage "https://aaamc.indiana.edu/" ;
+    ns1:name "Archives of African music and culture (AAMC)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q30> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:workExample "https://aaamc.indiana.edu/Collections/Bala-Baptiste" .
+
+<https://w3id.org/musow/1639037748-4481337/> rdfs:label "Archives of African music and culture (AAMC)" ;
+    ns2:generatedAtTime "2021-12-09T09:22:43.844280"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Archives of African music and culture (AAMC)" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1065742> rdfs:label "religious music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11401> rdfs:label "hip hop music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q373342> rdfs:label "popular music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q388207> rdfs:label "African-American music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q45981> rdfs:label "rhythm and blues"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q57470546> rdfs:label "Black music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q6608367> rdfs:label "Indiana University"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
