@@ -1,0 +1,74 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639035496-2814538> a ns1:CreativeWork ;
+    rdfs:label "Music at MIT Oral History Project" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q49108> ;
+    ns1:description "The Music at MIT Oral History Project, began in 1999, documents the vibrant history and culture of music at MIT through in-depth recorded audio and video interviews with MIT music faculty, staff, and former students who have substantially contributed to the musical life of the Institute. This collection of interviews encompasses the formal academic music program, ensembles of the MIT Music Section, student-run performing groups, and the history of the Lewis Music Library. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by-nc> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://libraries.mit.edu/music-oral-history/" ;
+    ns1:name "Music at MIT Oral History Project" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q49108> ;
+    ns1:workExample "https://libraries.mit.edu/music-oral-history/interviews/dante-anzolini-32805/" .
+
+<https://w3id.org/musow/1639035496-2814538/> rdfs:label "Music at MIT Oral History Project" ;
+    ns2:generatedAtTime "2021-12-09T09:27:36.371106"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Music at MIT Oral History Project" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by-nc> rdfs:label "CC-BY-NC"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q49108> rdfs:label "Massachusetts Institute of Technology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
