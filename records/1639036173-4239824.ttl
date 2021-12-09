@@ -1,0 +1,77 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639036173-4239824> a ns1:CreativeWork ;
+    rdfs:label "Radio Télévision Guinée (RTG)" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The Radio Télévision Guinée (RTG) sound archive in Conakry, Guinea, was archived and digitized between 2008 and 2013 by Radio Africa’s Graeme Counsel. The physical archive consisted of thousands of audio reels on 1/4\" magnetic tape, u-Matic videos and 24mm film which have been catalogued and are available online via the British Library’s Sound And Moving Image Catalogue. The physical collection is also available at the Bibliothèque National de Guinée in Conakry.  9,410 songs were archived, spanning the years from 1960 to 2000, with the bulk recorded between 1967 to 1984 at the height of Guinea's Cultural Revolution. The archive is essentially divided into two sections: The Syliphone vinyl discography (songs commencing with the catalogue entry \"Syliphone1\", e.g. Syliphone1-003-01) and music recorded on 1/4\" magnetic tapes which were, in the main, potential Syliphone releases. These songs commence with the catalogue entry Syliphone2, Syliphone3 and Syliphone4 (e.g. Syliphone3-143-02)." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html5> ;
+    ns1:genre <http://www.wikidata.org/entity/Q3328774> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Record>,
+        <http://purl.org/ontology/mo/Recording> ;
+    ns1:mainEntityOfPage "https://www.radioafrica.com.au/RTG_catalogue.html" ;
+    ns1:name "Radio Télévision Guinée (RTG)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q1006> ;
+    ns1:specialty <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/history> ;
+    ns1:workExample "https://www.radioafrica.com.au/Discographies/Guinean.html" .
+
+<https://w3id.org/musow/1639036173-4239824/> rdfs:label "Radio Télévision Guinée (RTG)" ;
+    ns2:generatedAtTime "2021-12-09T09:25:03.935354"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Radio Télévision Guinée (RTG)" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1006> rdfs:label "Guinea"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q3328774> rdfs:label "symphonic music"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/discography> rdfs:label "discography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html5> rdfs:label "html5"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
