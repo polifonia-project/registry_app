@@ -1,0 +1,70 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1635268063-591937> a ns1:CreativeWork ;
+    rdfs:label "Opera in Italy, Austria, and Germany (1770-1830)" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/researchers> ;
+    ns1:category <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:description "This site contains an array of resources for the study of operas (most unavailable in modern editions) that were contemporaneous with the life of Beethoven (1770–1827), who was notoriously frustrated in his attempts to succeed in the world of opera. Its holdings include 483 manuscripts, reproductions of printed libretti for every work listed, and an extensive metadata apparatus for basic information on composers, performances, and sources. Its reach is broader than the title suggests, for works performed in France, Austria, and elsewhere beyond Italy and Germany are found. In cases in which an included opera has an anterior antecedent, metadata is also given for the pre-existing opera, even when it predates the new work by as much as a century. This enables a reader to trace some of the long tendrils of gestation that might otherwise be found only in a critical edition. The manuscript sources used in Opera come from libraries in Berlin, Dresden, Munich, Vienna, and Weimar. Wolf-Dieter (romance languages) and Wolfram Steinbeck (musicology) are the project leaders." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/jpg> ;
+    ns1:genre <http://www.wikidata.org/entity/Q1344> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns1:name "Opera in Italy, Austria, and Germany (1770-1830)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q183>,
+        <http://www.wikidata.org/entity/Q38>,
+        <http://www.wikidata.org/entity/Q40> ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology> .
+
+<https://w3id.org/musow/1635268063-591937/> rdfs:label "Opera in Italy, Austria, and Germany (1770-1830)" ;
+    ns2:generatedAtTime "2021-12-09T09:42:22.040155"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Opera in Italy, Austria, and Germany (1770-1830)" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1344> rdfs:label "opera"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q183> rdfs:label "Germany"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q38> rdfs:label "Italy"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q40> rdfs:label "Austria"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/jpg> rdfs:label "jpg"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
