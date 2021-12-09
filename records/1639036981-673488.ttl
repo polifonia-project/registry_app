@@ -1,0 +1,69 @@
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639036981-673488> a ns2:CreativeWork ;
+    rdfs:label "The List archive" ;
+    ns2:about <https://w3id.org/musow/vocab/geographical> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns2:category <https://w3id.org/musow/vocab/metadata> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:description "The List is a Scottish arts and entertainment magazine founded in 1985. The magazine encompasses a broad scope of arts and culture coverage outside of music including special issues dedicated to Scottish festivals, Edinburgh Festival, and the Eating & Drinking Guide. The online archive has full issues of every issue of the magazine dating back to the first issue in 1985." ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns2:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns2:mainEntity <https://w3id.org/musow/vocab/publisher> ;
+    ns2:mainEntityOfPage "https://archive.list.co.uk/" ;
+    ns2:name "The List archive" ;
+    ns2:serviceUrl "https://api.list.co.uk/" ;
+    ns2:spatialCoverage <http://www.wikidata.org/entity/Q145> ;
+    ns2:specialty <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns2:workExample "https://archive.list.co.uk/the-list/2020-02-01/1/" .
+
+<https://w3id.org/musow/1639036981-673488/> rdfs:label "The List archive" ;
+    ns3:generatedAtTime "2021-12-09T09:23:57.101100"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns1:anonymous ;
+    ns3:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "The List archive" ;
+    ns1:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q145> rdfs:label "United Kingdom"^^xsd:string .
+
+ns1:anonymous rdfs:label "anonymous" .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
