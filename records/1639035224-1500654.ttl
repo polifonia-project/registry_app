@@ -1,0 +1,92 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639035224-1500654> a ns1:CreativeWork ;
+    rdfs:label "Manchester Digital Music Archive" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:character <http://www.wikidata.org/entity/Q172763> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Manchester Digital Music Archive is an online community archive established in 2003 to celebrate Greater Manchester music and its social history.   Its crowd-sourced archive and website is a place for people all over the world to share Manchester music ephemera and memories, be they fans, musicians or involved with the music industry itself. The project believes that through crowd-sourcing artefacts they can democratise heritage and provide a platform for multiple versions of history to be shared. There is no hierarchy of 'merit' within the archive. The general public decides what is important and what is 'heritage'." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/jpg>,
+        <https://w3id.org/musow/vocab/pdf> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
+        <http://purl.org/ontology/mo/Performance>,
+        <https://w3id.org/musow/vocab/publisher> ;
+    ns1:mainEntityOfPage "https://www.mdmarchive.co.uk/" ;
+    ns1:name "Manchester Digital Music Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q18125> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
+    ns1:workExample "https://www.mdmarchive.co.uk/tag/570/Joy_Division" .
+
+<https://w3id.org/musow/1639035224-1500654/> rdfs:label "Manchester Digital Music Archive" ;
+    ns2:generatedAtTime "2021-12-09T09:28:03.319367"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Manchester Digital Music Archive" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q172763> rdfs:label "Joy Division"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q18125> rdfs:label "Manchester"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/jpg> rdfs:label "jpg"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
