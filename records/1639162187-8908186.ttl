@@ -1,0 +1,105 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639162187-8908186> a ns1:CreativeWork ;
+    rdfs:label "Southern Punk Archive" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q1138384> ;
+    ns1:description "The Southern Punk Archive is an archival initiative looking to document stories and ephemera from punk in the American South. The goal of the archive is to make note of the regional identity, traditions, and historical significance of the American South on punk and hardcore." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/video> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q10922>,
+        <http://www.wikidata.org/entity/Q25554481> ;
+    ns1:isBasedOn <http://www.wikidata.org/entity/Q156376>,
+        <http://www.wikidata.org/entity/Q545966> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "http://www.southernpunkarchive.com" ;
+    ns1:name "Southern Punk Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q18> ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-history> ;
+    ns1:workExample "https://vimeo.com/showcase/8429137" .
+
+<https://w3id.org/musow/1639162187-8908186/> rdfs:label "Southern Punk Archive" ;
+    ns2:generatedAtTime "2021-12-10T19:53:42.396928"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Southern Punk Archive" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q10922> rdfs:label "hardcore punk"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1138384> rdfs:label "University of Mississippi"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q156376> rdfs:label "Vimeo"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q18> rdfs:label "South America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q25554481> rdfs:label "punk music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q545966> rdfs:label "Bandcamp"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/video> rdfs:label "video"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
