@@ -1,0 +1,91 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639161539-7816718> a ns1:CreativeWork ;
+    rdfs:label "DC Punk Archive" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "A part of the DigDC archives at the DC Public Library, The DC Punk Archive encompasses a Punk Zine Library as well as a collection of fliers, posters, and programs. The zine library is a collection of digitized zines available to the general public based around the DC punk music scene. The collection predominantly features zines made in the 1980s but encompasses works from 1970 to present day. The collection of posters and fliers features a record of live music in DC as well as mission statements, record inserts, and other ephemera ranging from the 1970s to present day." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q25554481> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns1:mainEntityOfPage "https://digdc.dclibrary.org/islandora/search/?type=edismax&cp=dcplislandora%3A236691" ;
+    ns1:name "DC Punk Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/music-history> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q35014> ;
+    ns1:workExample "https://digdc.dclibrary.org/islandora/object/dcplislandora%3A37478?solr_nav%5Bid%5D=641371d37e18565fb177&solr_nav%5Bpage%5D=0&solr_nav%5Boffset%5D=7#page/1/mode/1up" .
+
+<https://w3id.org/musow/1639161539-7816718/> rdfs:label "DC Punk Archive" ;
+    ns3:generatedAtTime "2021-12-10T19:42:54.744085"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "DC Punk Archive" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q25554481> rdfs:label "punk music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q35014> rdfs:label "1970s"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
