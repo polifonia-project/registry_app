@@ -19,27 +19,21 @@
     ns1:description "The Great American Songbook Archives & Library exists to preserve the physical artifacts of the Songbook so that current and future generations can experience them. It is the only facility dedicated to preserving the Great American Songbook.   The Great American Songbook Foundation Library and Archives was created in 2008 with the receipt of the Gus Kahn and Donald Kahn Collections. Since that date, it has expanded to include the collections of Hy Zaret, Meredith Willson, Ray Charles (the arranger) and numerous others. Library collections include LPs donated by Will Friedwald and Didier Deutsch, as well as books, CDs, DVDs and more. The library and archives works to serve the teaching and research needs of its user communities by collecting as comprehensively as possible those materials that have enduring value to documenting the history of American popular music." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/html> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/open-access> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Performance>,
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
         <http://purl.org/ontology/mo/Record>,
         <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://thesongbook.org/archives-library/inside-the-archives/" ;
     ns1:name "Great American Songbook Archives & Library" ;
     ns1:spatialCoverage <http://www.wikidata.org/entity/Q30> ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/music-history> ;
     ns1:workExample "https://songbook.accesstomemory.org/phil-harris-alice-faye-arrangements" .
 
 <https://w3id.org/musow/1639160794-6585488/> rdfs:label "Great American Songbook Archives & Library" ;
-    ns2:generatedAtTime "2021-12-10T19:30:43.016830"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-10T20:10:06.506367"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Great American Songbook Archives & Library" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -47,13 +41,7 @@
 
 <http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -69,7 +57,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
@@ -77,6 +65,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
