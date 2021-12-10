@@ -1,57 +1,47 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1639160406-255715> a ns1:CreativeWork ;
+<https://w3id.org/musow/1639160406-255715> a ns2:CreativeWork ;
     rdfs:label "EMI Music Canada archive" ;
-    ns1:about <https://w3id.org/musow/vocab/geographical> ;
-    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
-    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns2:about <https://w3id.org/musow/vocab/geographical> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:category <https://w3id.org/musow/vocab/media>,
+    ns2:category <https://w3id.org/musow/vocab/media>,
         <https://w3id.org/musow/vocab/metadata> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
-    ns1:creator <http://www.wikidata.org/entity/Q1067471>,
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:creator <http://www.wikidata.org/entity/Q1067471>,
         <http://www.wikidata.org/entity/Q55965015> ;
-    ns1:description "On March 31, 2016, the University of Calgary announced that Universal Music Canada has donated the archive of EMI Music Canada to the university’s Libraries and Cultural Resources. This gift gives students, researchers and music fans around the world access to documentation of more than half a century of contemporary music spanning a range of genres. " ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+    ns2:description "On March 31, 2016, the University of Calgary announced that Universal Music Canada has donated the archive of EMI Music Canada to the university’s Libraries and Cultural Resources. This gift gives students, researchers and music fans around the world access to documentation of more than half a century of contemporary music spanning a range of genres. " ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/html5>,
         <https://w3id.org/musow/vocab/jpg>,
         <https://w3id.org/musow/vocab/pdf> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/search-interface> ;
-    ns1:genre <http://www.wikidata.org/entity/Q373342> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
-    ns1:license <https://w3id.org/musow/vocab/open-access> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Record>,
+    ns2:genre <http://www.wikidata.org/entity/Q373342> ;
+    ns2:license <https://w3id.org/musow/vocab/open-access> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/Record>,
         <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/publisher> ;
-    ns1:mainEntityOfPage "http://contentdm.ucalgary.ca/digital/collection/emi" ;
-    ns1:name "EMI Music Canada archive" ;
-    ns1:spatialCoverage <http://www.wikidata.org/entity/Q16> ;
-    ns1:specialty <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/music-publishing-history> ;
-    ns1:workExample "http://contentdm.ucalgary.ca/digital/collection/emi/id/245/rec/1" .
+    ns2:mainEntityOfPage "http://contentdm.ucalgary.ca/digital/collection/emi" ;
+    ns2:name "EMI Music Canada archive" ;
+    ns2:spatialCoverage <http://www.wikidata.org/entity/Q16> ;
+    ns2:specialty <https://w3id.org/musow/vocab/history> ;
+    ns2:workExample "http://contentdm.ucalgary.ca/digital/collection/emi/id/245/rec/1" .
 
 <https://w3id.org/musow/1639160406-255715/> rdfs:label "EMI Music Canada archive" ;
-    ns2:generatedAtTime "2021-12-10T19:26:32.344767"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "EMI Music Canada archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns1:generatedAtTime "2021-12-10T20:09:44.182092"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "EMI Music Canada archive" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
 
@@ -65,13 +55,9 @@
 
 <http://www.wikidata.org/entity/Q55965015> rdfs:label "EMI"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
 
@@ -83,8 +69,6 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/html5> rdfs:label "html5"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/jpg> rdfs:label "jpg"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
@@ -95,7 +79,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-publishing-history> rdfs:label "music publishing history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
@@ -105,8 +89,5 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
