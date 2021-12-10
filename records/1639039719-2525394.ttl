@@ -1,0 +1,83 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639039719-2525394> a ns3:CreativeWork ;
+    rdfs:label "Black Music History Library" ;
+    ns3:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns3:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns3:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns3:category <https://w3id.org/musow/vocab/metadata> ;
+    ns3:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns3:contentSize <https://w3id.org/musow/vocab/kb> ;
+    ns3:creator ns2:MD1639160263406 ;
+    ns3:description "The Black Music History Library is a collection of books, articles, documentaries, series, podcasts and more. The collection spans a wide range of genres starting in the 1800s through present day focusing on an expanded view of Black music. The stated mission of The Black Music History library is to “address any instances in which Black participation led to the creation or innovation of music across the diaspora” to reframe Black music as fundamental to the development of American, Latinx, and popular music as we know them today." ;
+    ns3:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns3:encodingFormat <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/pdf> ;
+    ns3:genre <http://www.wikidata.org/entity/Q57470546> ;
+    ns3:license <https://w3id.org/musow/vocab/copyright> ;
+    ns3:mainEntity <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/publisher> ;
+    ns3:mainEntityOfPage "https://blackmusiclibrary.com/" ;
+    ns3:name "Black Music History Library" ;
+    ns3:spatialCoverage <http://www.wikidata.org/entity/Q30> ;
+    ns3:specialty <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history> ;
+    ns3:workExample "https://blackmusiclibrary.com/Classical" .
+
+<https://w3id.org/musow/1639039719-2525394/> rdfs:label "Black Music History Library" ;
+    ns1:generatedAtTime "2021-12-10T20:09:18.447313"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns2:anonymous ;
+    ns1:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:name "Black Music History Library" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q57470546> rdfs:label "Black music"^^xsd:string .
+
+ns2:MD1639160263406 rdfs:label "Critical Minded"^^xsd:string .
+
+ns2:anonymous rdfs:label "anonymous" .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/kb> rdfs:label "~Kb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
