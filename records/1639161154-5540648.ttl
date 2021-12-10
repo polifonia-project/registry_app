@@ -1,0 +1,82 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639161154-5540648> a ns1:CreativeWork ;
+    rdfs:label "Womxn Who Rock" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Womxn Who Rock brings together scholars, musicians, media-makers, performers, artists, and activists to explore the role of women and popular music in the creation of cultural scenes and social justice movements in the Americas and beyond. This multifaceted endeavor reshapes conventional understandings of music and cultural production by initiating collective methods of research, teaching, and community and scholarly collaboration.   The project encompasses several interwoven components: an annual participant-driven, community engagement conference and film festival; project-based coursework at the graduate and undergraduate levels; and an oral history archive that ties the various components together." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q25095122> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording> ;
+    ns1:mainEntityOfPage "https://content.lib.washington.edu/wwrweb/" ;
+    ns1:name "Womxn Who Rock" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q30> ;
+    ns1:specialty <https://w3id.org/musow/vocab/cultural-studies> ;
+    ns1:workExample "https://digitalcollections.lib.washington.edu/digital/collection/wwr/id/418/rec/1" .
+
+<https://w3id.org/musow/1639161154-5540648/> rdfs:label "Womxn Who Rock" ;
+    ns2:generatedAtTime "2021-12-10T19:38:57.475086"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Womxn Who Rock" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q25095122> rdfs:label "women in music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
