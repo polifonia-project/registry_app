@@ -24,23 +24,13 @@
     ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/html5>,
         <https://w3id.org/musow/vocab/video> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/search-interface> ;
     ns1:genre <http://www.wikidata.org/entity/Q8011523> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/not-specified> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
-        <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Recording>,
-        <https://w3id.org/musow/vocab/musical-resource> ;
+        <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://arcmusic.org/" ;
     ns1:name "ARChive of Contemporary Music (ARC)" ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/data-aggregation>,
-        <https://w3id.org/musow/vocab/history>,
-        <https://w3id.org/musow/vocab/history-of-instruments>,
-        <https://w3id.org/musow/vocab/music-history>,
+    ns1:specialty <https://w3id.org/musow/vocab/history>,
         <https://w3id.org/musow/vocab/performance> ;
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q19022>,
         <http://www.wikidata.org/entity/Q34644>,
@@ -52,14 +42,13 @@
     ns1:workExample "https://arcmusic.org/catalogs/genres/" .
 
 <https://w3id.org/musow/1639162424-7193198/> rdfs:label "ARChive of Contemporary Music (ARC)" ;
-    ns2:generatedAtTime "2021-12-10T20:02:28.416781"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-10T20:13:59.370150"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "ARChive of Contemporary Music (ARC)" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
@@ -81,19 +70,11 @@
 
 <http://www.wikidata.org/entity/Q8011523> rdfs:label "contemporary music"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
-
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
 
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
@@ -103,11 +84,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
 
-<https://w3id.org/musow/vocab/history-of-instruments> rdfs:label "history of instruments"^^xsd:string .
-
 <https://w3id.org/musow/vocab/html5> rdfs:label "html5"^^xsd:string .
-
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
@@ -115,9 +92,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
 
@@ -125,12 +100,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
 
 <https://w3id.org/musow/vocab/video> rdfs:label "video"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
