@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,41 +9,27 @@
 <https://w3id.org/musow/1639298571-9893827> a ns1:CreativeWork ;
     rdfs:label "Jaxsta" ;
     ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
-    ns1:audience <https://w3id.org/musow/vocab/performers>,
-        <https://w3id.org/musow/vocab/record-companies> ;
+    ns1:audience <https://w3id.org/musow/vocab/performers> ;
     ns1:category <https://w3id.org/musow/vocab/metadata> ;
     ns1:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
     ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
     ns1:description "Online database of official music credits" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:featureList <https://w3id.org/musow/vocab/api>,
-        <https://w3id.org/musow/vocab/browse-interface> ;
-    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/Performance> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Performance> ;
     ns1:mainEntityOfPage "https://jaxsta.com/" ;
     ns1:name "Jaxsta" ;
     ns1:serviceUrl "https://jaxsta.com/info/api" ;
-    ns1:specialty <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/music-publishing-history> ;
     ns1:workExample "https://jaxsta.com/profile/875a484a-c053-49a3-a59b-a9baf5a85b52/catalogue?view=tile" .
 
 <https://w3id.org/musow/1639298571-9893827/> rdfs:label "Jaxsta" ;
-    ns2:generatedAtTime "2021-12-12T09:47:41.088546"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2021-12-12T09:52:51.384572"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Jaxsta" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/api> rdfs:label "Offers a Web API"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
@@ -55,14 +41,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-publishing-history> rdfs:label "music publishing history"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
