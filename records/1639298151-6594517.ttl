@@ -1,0 +1,85 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639298151-6594517> a ns2:CreativeWork ;
+    rdfs:label "ALL MUSIC" ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners> ;
+    ns2:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/gt-1m> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns2:description "AllMusic is a resource for finding out more about the albums, bands, musicians and (20 million) songs. AllMusic includes:  In-Depth Information about your favorite albums, musicians and songs; Reviews of upcoming and classic albums including new releases; Ratings and picks of the recommended albums and songs within an artist's discography or tracks on an album; Staff picks of the albums our editors are into right now; Sound samples and streaming links to listen to the music; Personalized recommendations of albums that match your tastes" ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html> ;
+    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns2:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns2:license <https://w3id.org/musow/vocab/copyright> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalManifestation>,
+        <http://purl.org/ontology/mo/Performance>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/musical-resource> ;
+    ns2:mainEntityOfPage "https://www.allmusic.com/" ;
+    ns2:name "ALL MUSIC" ;
+    ns2:specialty <https://w3id.org/musow/vocab/discography>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns2:workExample "https://www.allmusic.com/artist/kraftwerk-mn0000104714" .
+
+<https://w3id.org/musow/1639298151-6594517/> rdfs:label "ALL MUSIC" ;
+    ns1:generatedAtTime "2021-12-12T09:42:49.147833"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "ALL MUSIC" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/discography> rdfs:label "discography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gt-1m> rdfs:label ">1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
