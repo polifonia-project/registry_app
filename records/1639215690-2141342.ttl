@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -18,47 +18,27 @@
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/midi>,
         <https://w3id.org/musow/vocab/musicxml> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/interoperable>,
-        <https://w3id.org/musow/vocab/machine-readable> ;
     ns1:keywords <https://w3id.org/musow/vocab/harmony>,
         <https://w3id.org/musow/vocab/lyrics>,
         <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/rhythm>,
-        <https://w3id.org/musow/vocab/structure> ;
+        <https://w3id.org/musow/vocab/rhythm> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Recording> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://www.ismir.net/resources/datasets/" ;
     ns1:name "ISMIR datasets" ;
-    ns1:specialty <https://w3id.org/musow/vocab/machine-learning>,
-        <https://w3id.org/musow/vocab/measure-annotation>,
-        <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/midi-collection>,
-        <https://w3id.org/musow/vocab/music-analysis>,
-        <https://w3id.org/musow/vocab/music-annotation>,
-        <https://w3id.org/musow/vocab/music-information-retrieval>,
-        <https://w3id.org/musow/vocab/recommendation>,
-        <https://w3id.org/musow/vocab/structural-segmentation>,
-        <https://w3id.org/musow/vocab/symbolic-melodic-similarity> ;
+    ns1:specialty <https://w3id.org/musow/vocab/recommendation> ;
     ns1:workExample "http://www.hexawe.net/mess/200.Drum.Machines/" .
 
 <https://w3id.org/musow/1639215690-2141342/> rdfs:label "ISMIR datasets" ;
-    ns3:generatedAtTime "2021-12-12T09:35:46.392736"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2021-12-12T09:54:28.835381"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "ISMIR datasets" ;
-    ns2:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q105694422> rdfs:label "International Society for Music Information Retrieval Conference"^^xsd:string .
-
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
 
@@ -68,33 +48,13 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
 
-<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
-
 <https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
 
 <https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
 
-<https://w3id.org/musow/vocab/machine-learning> rdfs:label "machine learning"^^xsd:string .
-
-<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
-
-<https://w3id.org/musow/vocab/measure-annotation> rdfs:label "measure annotation"^^xsd:string .
-
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
-
 <https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
-
-<https://w3id.org/musow/vocab/midi-collection> rdfs:label "midi collection"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-information-retrieval> rdfs:label "music information retrieval"^^xsd:string .
 
 <https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml"^^xsd:string .
 
@@ -106,11 +66,7 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structural-segmentation> rdfs:label "structural segmentation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
-<https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity"^^xsd:string .
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
