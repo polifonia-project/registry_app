@@ -1,0 +1,106 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639299888-6683187> a ns1:CreativeWork ;
+    rdfs:label "Freesound" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/performers> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "Freesound is a collaborative repository of CC licensed audio samples, and non-profit organisation, with more than 500,000 sounds and effects" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:featureList <https://w3id.org/musow/vocab/api>,
+        <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable>,
+        <https://w3id.org/musow/vocab/playable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q596446> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/AnalogSignal>,
+        <http://purl.org/ontology/mo/Recording>,
+        <http://purl.org/ontology/mo/Signal>,
+        <http://purl.org/ontology/mo/Track>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://freesound.org/" ;
+    ns1:name "Freesound" ;
+    ns1:serviceUrl "http://freesound.org/apiv2/apply" ;
+    ns1:specialty <https://w3id.org/musow/vocab/audio-annotation>,
+        <https://w3id.org/musow/vocab/audio-effects-annotation>,
+        <https://w3id.org/musow/vocab/audio-tag-classification>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:workExample "https://freesound.org/s/382446/" .
+
+<https://w3id.org/musow/1639299888-6683187/> rdfs:label "Freesound" ;
+    ns2:generatedAtTime "2021-12-13T09:16:16.158374"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Freesound" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/AnalogSignal> rdfs:label "Analog Signal"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://purl.org/ontology/mo/Signal> rdfs:label "Signal"^^xsd:string .
+
+<http://purl.org/ontology/mo/Track> rdfs:label "Track"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q596446> rdfs:label "sampling"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/api> rdfs:label "Offers a Web API"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio-annotation> rdfs:label "audio annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio-effects-annotation> rdfs:label "audio effects annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio-tag-classification> rdfs:label "audio tag classification"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by> rdfs:label "CC-BY"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
