@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -24,64 +24,37 @@
     ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/html>,
         <https://w3id.org/musow/vocab/pdf> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/machine-readable>,
-        <https://w3id.org/musow/vocab/playable> ;
     ns1:keywords <https://w3id.org/musow/vocab/lyrics>,
-        <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/structure> ;
+        <https://w3id.org/musow/vocab/melody> ;
     ns1:license <https://w3id.org/musow/vocab/open-access> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Recording>,
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://www.beethoven.de/en/archive/list" ;
     ns1:name "Beethoven-Haus Bonn Digital Archives" ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
-        <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/music-learning>,
-        <https://w3id.org/musow/vocab/music-philology>,
-        <https://w3id.org/musow/vocab/musicology> ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology> ;
     ns1:workExample "https://www.beethoven.de/en/media/view/5006959820406784/Ludwig+van+Beethoven%2C+Sinfonie+Nr.+1+%28C-Dur%29+op.+21%2C+Partitur%2C+Simrock%2C+1953?fromArchive=6192829114089472&fromWork=6058229033336832" .
 
 <https://w3id.org/musow/1639391295-253099/> rdfs:label "Beethoven-Haus Bonn Digital Archives" ;
-    ns2:generatedAtTime "2021-12-13T11:32:50.581619"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2021-12-13T11:38:33.983082"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Beethoven-Haus Bonn Digital Archives" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q255> rdfs:label "Ludwig van Beethoven"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
-<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
 
 <https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
 
 <https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
-
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
@@ -91,19 +64,11 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
 
-<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
-
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-learning> rdfs:label "music learning"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-philology> rdfs:label "music philology"^^xsd:string .
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
 
@@ -111,19 +76,14 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
 
-<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
-
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
         "audio"^^xsd:string .
-
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
 
