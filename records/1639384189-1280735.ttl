@@ -1,0 +1,79 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639384189-1280735> a ns1:CreativeWork ;
+    rdfs:label "Werner Icking Music Archive" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:description "The Werner Icking Music Archive (often abbreviated WIMA) is a web archive of liberally licensed sheet music of public domain music. The scores are electronically typeset by volunteers and distributed in PDF, often accompanied by their typesetting files. WIMA continues the defunct GMD Music Archive and is named after its founder, the late Werner Icking. After a merge completed in 2012, the archive forms part of the International Music Score Library Project (IMSLP)." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/data-dump> ;
+    ns1:isBasedOn <http://www.wikidata.org/entity/Q653117> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/structure> ;
+    ns1:license <https://w3id.org/musow/vocab/not-specified> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "http://icking-music-archive.org/index.php" ;
+    ns1:name "Werner Icking Music Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/score-audio-linkage> ;
+    ns1:workExample "http://imslp.org/wiki/Category:Guerrero,_Francisco" .
+
+<https://w3id.org/musow/1639384189-1280735/> rdfs:label "Werner Icking Music Archive" ;
+    ns3:generatedAtTime "2021-12-13T09:33:45.213054"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Werner Icking Music Archive" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q653117> rdfs:label "MusiXTeX"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/not-specified> rdfs:label "Not specified"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score-audio-linkage> rdfs:label "score-audio linkage"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
