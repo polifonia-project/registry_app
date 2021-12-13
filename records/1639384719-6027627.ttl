@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -19,54 +19,29 @@
     ns1:description "ACRCloud (Formerly Syntec TV) is an automatic content recognition platform based on acoustic fingerprinting technology. Its creator intended to help media, broadcasters and app developers to identify, monitor and monetize content on the second screen." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption> ;
     ns1:keywords <https://w3id.org/musow/vocab/harmony>,
         <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/rhythm>,
-        <https://w3id.org/musow/vocab/structure> ;
+        <https://w3id.org/musow/vocab/rhythm> ;
     ns1:license <https://w3id.org/musow/vocab/copyright> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/AnalogSignal>,
-        <http://purl.org/ontology/mo/MusicalManifestation>,
-        <http://purl.org/ontology/mo/Signal>,
+    ns1:mainEntity <http://purl.org/ontology/mo/Signal>,
         <http://purl.org/ontology/mo/Track> ;
     ns1:mainEntityOfPage "https://www.acrcloud.com/it/" ;
-    ns1:name "ACRCloud" ;
-    ns1:specialty <https://w3id.org/musow/vocab/audio-annotation>,
-        <https://w3id.org/musow/vocab/audio-melody-extraction>,
-        <https://w3id.org/musow/vocab/audio-music-similarity-and-retrieval>,
-        <https://w3id.org/musow/vocab/metadata-aggregation>,
-        <https://w3id.org/musow/vocab/music-analysis>,
-        <https://w3id.org/musow/vocab/music-annotation>,
-        <https://w3id.org/musow/vocab/music-information-retrieval> .
+    ns1:name "ACRCloud" .
 
 <https://w3id.org/musow/1639384719-6027627/> rdfs:label "ACRCloud" ;
-    ns3:generatedAtTime "2021-12-13T09:42:03.622298"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2021-12-13T09:52:51.774994"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "ACRCloud" ;
-    ns2:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/AnalogSignal> rdfs:label "Analog Signal"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Signal> rdfs:label "Signal"^^xsd:string .
 
 <http://purl.org/ontology/mo/Track> rdfs:label "Track"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
-
-<https://w3id.org/musow/vocab/audio-annotation> rdfs:label "audio annotation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/audio-melody-extraction> rdfs:label "audio melody extraction"^^xsd:string .
-
-<https://w3id.org/musow/vocab/audio-music-similarity-and-retrieval> rdfs:label "audio music similarity and retrieval"^^xsd:string .
-
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
 <https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
 
@@ -80,27 +55,17 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
 
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata-aggregation> rdfs:label "metadata aggregation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-information-retrieval> rdfs:label "music information retrieval"^^xsd:string .
-
 <https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
 
 <https://w3id.org/musow/vocab/software> rdfs:label "Software"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
