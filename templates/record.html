@@ -58,6 +58,27 @@ $if alert == False:
 		<section class="col-md-3" id="lookup">
 		</section>
 	</section>
+	<script type="text/javascript">
+		// alert when mouse leave page to save
+    function addEvent(obj, evt, fn) {
+        if (obj.addEventListener) {
+            obj.addEventListener(evt, fn, false);
+        }
+        else if (obj.attachEvent) {
+            obj.attachEvent("on" + evt, fn);
+        }
+    };
+
+    addEvent(document, "mouseout", function(e) {
+        e = e ? e : window.event;
+        var from = e.relatedTarget || e.toElement;
+        if (!from || from.nodeName == "HTML") {
+            // stop your drag event here
+            // for now we can just use an alert
+            alert("Please, remember to save before leaving the page");
+        }
+    });
+	</script>
 $else:
 	<header class="row needDoc">
 		<h3>You already proposed $limit new resources today! Please come back tomorrow</h3>

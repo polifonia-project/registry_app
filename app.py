@@ -715,7 +715,7 @@ class Review(object):
 				if savetheweb:
 					resp = requests.get("http://web.archive.org/save/"+requests.utils.quote(savetheweb),
 							headers={"Content-Type": "application/x-www-form-urlencoded"} )
-					print(resp["status"])
+					
 				u.log_output('PUBLISHED RECORD', session['logged_in'], session['username'], name )
 				raise web.seeother(prefixLocal+'welcome-1')
 
