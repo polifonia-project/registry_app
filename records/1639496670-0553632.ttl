@@ -1,0 +1,74 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639496670-0553632> a ns2:CreativeWork ;
+    rdfs:label "Jean-Baptiste Lully Collection" ;
+    ns2:about <https://w3id.org/musow/vocab/artist> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/scholars> ;
+    ns2:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns2:character <http://www.wikidata.org/entity/Q1192> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:creator <http://www.wikidata.org/entity/Q860527> ;
+    ns2:description "The University of North Texas Music Library's Jean-Baptiste Lully Collection includes almost thirty rare seventeenth- and eighteenth-century scores of operas, ballets, and compilations by the seventeenth-century French composer Jean-Baptiste Lully and his sons.	" ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/pdf> ;
+    ns2:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns2:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns2:mainEntityOfPage "https://digital.library.unt.edu/explore/collections/JBLC/" ;
+    ns2:name "Jean-Baptiste Lully Collection" ;
+    ns2:specialty <https://w3id.org/musow/vocab/musicology> ;
+    ns2:temporalCoverage <http://www.wikidata.org/entity/Q7016> ;
+    ns2:workExample "https://digital.library.unt.edu/ark:/67531/metadc50/" .
+
+<https://w3id.org/musow/1639496670-0553632/> rdfs:label "Jean-Baptiste Lully Collection" ;
+    ns1:generatedAtTime "2021-12-14T17:54:01.233550"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:anonymous ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Jean-Baptiste Lully Collection" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1192> rdfs:label "Jean-Baptiste Lully"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7016> rdfs:label "17th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q860527> rdfs:label "University of North Texas"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
