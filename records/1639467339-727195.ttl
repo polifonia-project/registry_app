@@ -1,0 +1,94 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639467339-727195> a ns1:CreativeWork ;
+    rdfs:label "CHASE Collection of Historical Annotated String Editions" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q503424> ;
+    ns1:description "This AHRC-funded research project is based at the University of LEeds and Cardiff University. This digital resource is still under construction, but currently holds c.2000 separate music files viewable on-site or as downloads. Most of this music consists of chamber music and concertos for string instruments, edited and annotated by such players as Ferdinand David, Friedrich Grützmacher, Joseph Joachim, etc." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <https://w3id.org/musow/vocab/libretto>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://mhm.hud.ac.uk/chase/" ;
+    ns1:name "CHASE Collection of Historical Annotated String Editions" ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/performance> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6955> ;
+    ns1:workExample "https://mhm.hud.ac.uk/chase/view/edition/1398" .
+
+<https://w3id.org/musow/1639467339-727195/> rdfs:label "CHASE Collection of Historical Annotated String Editions" ;
+    ns3:generatedAtTime "2021-12-14T08:41:43.921694"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "CHASE Collection of Historical Annotated String Editions" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q503424> rdfs:label "University of Leeds"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q6955> rdfs:label "19th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
+
+<https://w3id.org/musow/vocab/libretto> rdfs:label "Libretto"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performance> rdfs:label "performance"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
