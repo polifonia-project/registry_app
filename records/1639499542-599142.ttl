@@ -1,0 +1,95 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639499542-599142> a ns1:CreativeWork ;
+    rdfs:label "Kern Scores" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:character <http://www.wikidata.org/entity/Q1339>,
+        <http://www.wikidata.org/entity/Q164475> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <https://w3id.org/musow/1635268063-579336'> ;
+    ns1:description "Beethoven piano sonatas edited by Paul Dukas. Édition classique a Durand & fils, No. 9327. 1915.  Mozart piano sonatas from the Alte Mozart-Ausgabe: Wolfgang Amadeus Mozarts Werke. Kritisch durchgesehene Gesammtausgabe (volume 20 [1878]). Breitkopf & Härtel, Leipzig; 1877–1883. Selected Haydn keyboard sonatas (partial OMR) 34 harpsichord/pianoforte sonatas from the first four volumes published by Universal Edition (1901). D. Scarlatti keyboard sonatas (partial OMR) Edited by Alessandro Longo (Ricordi, 1906–1913)." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/kern>,
+        <https://w3id.org/musow/vocab/midi> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:keywords <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/rhythm> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "http://kern.ccarh.org/" ;
+    ns1:name "Kern Scores" ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology>,
+        <https://w3id.org/musow/vocab/omr> ;
+    ns1:workExample "https://kern.humdrum.org/cgi-bin/ksdata?location=musedata/corelli/op1&file=op01n01a.krn&format=info" .
+
+<https://w3id.org/musow/1639499542-599142/> rdfs:label "Kern Scores" ;
+    ns2:generatedAtTime "2021-12-14T17:53:45.740202"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Kern Scores" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1339> rdfs:label "Johann Sebastian Bach"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q164475> rdfs:label "Arcangelo Corelli"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
+
+<https://w3id.org/musow/1635268063-579336'> rdfs:label "Center for Computer Assisted Research in the Humanities (CCARH)"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/kern> rdfs:label "kern"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/omr> rdfs:label "omr"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
