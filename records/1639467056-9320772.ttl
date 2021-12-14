@@ -1,0 +1,115 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639467056-9320772> a ns1:CreativeWork ;
+    rdfs:label "Charles H. Templeton Sheet Music Collection" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q1939211> ;
+    ns1:description "Over 20,000 pieces of sheet music, images of music players, and an inventory of recordings from the Museum." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html>,
+        <https://w3id.org/musow/vocab/jpg>,
+        <https://w3id.org/musow/vocab/pdf> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q245418>,
+        <http://www.wikidata.org/entity/Q373342>,
+        <http://www.wikidata.org/entity/Q9759> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://www.library.msstate.edu/digitalcollections/charles-h-templeton" ;
+    ns1:name "Charles H. Templeton Sheet Music Collection" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q30> ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/history-of-instruments>,
+        <https://w3id.org/musow/vocab/history-of-theatre>,
+        <https://w3id.org/musow/vocab/music-history> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q35724>,
+        <http://www.wikidata.org/entity/Q36297> ;
+    ns1:workExample "https://scholarsjunction.msstate.edu/cht-instrument/96/" .
+
+<https://w3id.org/musow/1639467056-9320772/> rdfs:label "Charles H. Templeton Sheet Music Collection" ;
+    ns2:generatedAtTime "2021-12-14T08:35:35.864581"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Charles H. Templeton Sheet Music Collection" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1939211> rdfs:label "Mississippi State University"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q245418> rdfs:label "foxtrot"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q30> rdfs:label "United States of America"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q35724> rdfs:label "1960s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q36297> rdfs:label "1950s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q373342> rdfs:label "popular music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9759> rdfs:label "blues"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history-of-instruments> rdfs:label "history of instruments"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history-of-theatre> rdfs:label "history of theatre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/jpg> rdfs:label "jpg"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
