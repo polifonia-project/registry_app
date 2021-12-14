@@ -1,0 +1,80 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1639495573-5585299> a ns1:CreativeWork ;
+    rdfs:label "Düben Collection Database Catalogue" ;
+    ns1:about <https://w3id.org/musow/vocab/temporal> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q185246> ;
+    ns1:description "The Düben Collection Database Catalogue is a digitised catalogue presenting meta-data and scanned facsimile of the manuscripts in the Düben collection, a large and important collection of musical manuscripts and prints from the 17th and early 18th centuries. The Catalogue is managed from the Department of Musicology at Uppsala University." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/html> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Instrument>,
+        <http://purl.org/ontology/mo/Performance>,
+        <https://w3id.org/musow/vocab/libretto>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://www2.musik.uu.se/duben/Duben.php" ;
+    ns1:name "Düben Collection Database Catalogue" ;
+    ns1:specialty <https://w3id.org/musow/vocab/musicology> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q7015>,
+        <http://www.wikidata.org/entity/Q7016> ;
+    ns1:workExample "https://www2.musik.uu.se/duben/presentationWork.php?Select_Dnr=119&Select_Wnr=84" .
+
+<https://w3id.org/musow/1639495573-5585299/> rdfs:label "Düben Collection Database Catalogue" ;
+    ns2:generatedAtTime "2021-12-14T17:56:26.823539"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Düben Collection Database Catalogue" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Instrument> rdfs:label "Instrument"^^xsd:string .
+
+<http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q185246> rdfs:label "Uppsala University"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7015> rdfs:label "18th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7016> rdfs:label "17th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "classical music"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/libretto> rdfs:label "Libretto"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
