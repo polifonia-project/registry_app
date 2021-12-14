@@ -32,7 +32,7 @@
     ns1:workExample "https://www2.musik.uu.se/duben/presentationWork.php?Select_Dnr=119&Select_Wnr=84" .
 
 <https://w3id.org/musow/1639495573-5585299/> rdfs:label "Düben Collection Database Catalogue" ;
-    ns2:generatedAtTime "2021-12-14T17:56:26.823539"^^xsd:dateTime ;
+    ns2:generatedAtTime "2021-12-14T17:56:57.978463"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:anonymous ;
     ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Düben Collection Database Catalogue" ;
