@@ -22,6 +22,8 @@
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/jpg> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/human-consumption> ;
     ns1:isBasedOn <http://www.wikidata.org/entity/Q689141> ;
     ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
     ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
@@ -41,11 +43,11 @@
     ns1:workExample "https://www.68to05.com/years/1968" .
 
 <https://w3id.org/musow/1641117135-924746/> rdfs:label "SixtyEight2OhFive" ;
-    ns2:generatedAtTime "2022-01-02T11:05:47.430211"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-01-02T11:08:57.709102"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "SixtyEight2OhFive" ;
-    ns3:publicationStage "published"^^xsd:string .
+    ns3:publicationStage "modified"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -67,7 +69,11 @@
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
 <https://w3id.org/musow/vocab/discography> rdfs:label "discography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/image> rdfs:label "Image"^^xsd:string .
 
