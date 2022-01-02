@@ -1,0 +1,95 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1641116189-3026085> a ns1:CreativeWork ;
+    rdfs:label "Boston Public Library Vynil collection" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/gb> ;
+    ns1:creator <http://www.wikidata.org/entity/Q894583> ;
+    ns1:description "The Boston Public Library (BPL) sound collection includes hundreds of thousands of audio recordings in a variety of historical formats, including wax cylinders, 78 rpms, and LPs. The recordings span many genres, including classical, pop, rock, jazz, and opera – from 78s produced in the early 1900s to LPs from the 1980s. These recordings have never been circulated and were in storage for several decades, uncataloged and inaccessible to the public. By collaborating with the Internet Archive, Boston Public Libraries audio collection can be heard by new audiences of scholars, researchers and music lovers worldwide." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/interoperable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q11399>,
+        <http://www.wikidata.org/entity/Q1344>,
+        <http://www.wikidata.org/entity/Q37073>,
+        <http://www.wikidata.org/entity/Q8341> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
+        <http://purl.org/ontology/mo/Track> ;
+    ns1:mainEntityOfPage "https://archive.org/details/vinyl_bostonpubliclibrary?tab=about" ;
+    ns1:name "Boston Public Library Vynil collection" ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/music-history>,
+        <https://w3id.org/musow/vocab/music-listening>,
+        <https://w3id.org/musow/vocab/popular-music> ;
+    ns1:workExample "https://archive.org/details/lp_a-charlie-brown-christmas_charles-m-schulz" .
+
+<https://w3id.org/musow/1641116189-3026085/> rdfs:label "Boston Public Library Vynil collection" ;
+    ns3:generatedAtTime "2022-01-02T10:47:34.121911"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Boston Public Library Vynil collection" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://purl.org/ontology/mo/Track> rdfs:label "Track"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11399> rdfs:label "rock music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1344> rdfs:label "opera"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q37073> rdfs:label "pop music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q8341> rdfs:label "jazz"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q894583> rdfs:label "Boston Public Library"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
+
+<https://w3id.org/musow/vocab/gb> rdfs:label "~Gb"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/popular-music> rdfs:label "popular music"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
