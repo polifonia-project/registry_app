@@ -1,53 +1,53 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1641117135-924746> a ns1:CreativeWork ;
+<https://w3id.org/musow/1641117135-924746> a ns2:CreativeWork ;
     rdfs:label "SixtyEight2OhFive" ;
-    ns1:about <https://w3id.org/musow/vocab/temporal> ;
-    ns1:additionalType <https://w3id.org/musow/vocab/project> ;
-    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns2:about <https://w3id.org/musow/vocab/temporal> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/project> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:category <https://w3id.org/musow/vocab/media>,
+    ns2:category <https://w3id.org/musow/vocab/media>,
         <https://w3id.org/musow/vocab/metadata> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns1:creator <http://www.wikidata.org/entity/Q25936064> ;
-    ns1:description "SixtyEight2OhFive is a playlist archive and essay series helmed by poet and author, Hanif Abdurraqib. The playlist project started as an exploration in defining the “family tree” of the music that has informed Abdurraqib’s musical influences spanning the years 1968 to 2005. SixtyEight2OhFive has an accompanying essay series where a wide range of writers and musicians discuss an album from the range of years that changed their lives. Each year’s page in the playlist archive provides a Spotify playlist, Abdurraqib’s favorite albums, a gallery of magazine covers, and videos of notable live performances" ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+    ns2:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:creator <http://www.wikidata.org/entity/Q25936064> ;
+    ns2:description "SixtyEight2OhFive is a playlist archive and essay series helmed by poet and author, Hanif Abdurraqib. The playlist project started as an exploration in defining the “family tree” of the music that has informed Abdurraqib’s musical influences spanning the years 1968 to 2005. SixtyEight2OhFive has an accompanying essay series where a wide range of writers and musicians discuss an album from the range of years that changed their lives. Each year’s page in the playlist archive provides a Spotify playlist, Abdurraqib’s favorite albums, a gallery of magazine covers, and videos of notable live performances" ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/jpg> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
         <https://w3id.org/musow/vocab/human-consumption> ;
-    ns1:isBasedOn <http://www.wikidata.org/entity/Q689141> ;
-    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/Performance>,
+    ns2:isBasedOn <http://www.wikidata.org/entity/Q689141> ;
+    ns2:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/Performance>,
         <http://purl.org/ontology/mo/Recording>,
         <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/image>,
         <https://w3id.org/musow/vocab/photograph>,
         <https://w3id.org/musow/vocab/video> ;
-    ns1:mainEntityOfPage "https://www.68to05.com/" ;
-    ns1:name "SixtyEight2OhFive" ;
-    ns1:specialty <https://w3id.org/musow/vocab/discography> ;
-    ns1:temporalCoverage <http://www.wikidata.org/entity/Q34644>,
+    ns2:mainEntityOfPage "https://www.68to05.com/" ;
+    ns2:name "SixtyEight2OhFive" ;
+    ns2:specialty <https://w3id.org/musow/vocab/discography> ;
+    ns2:temporalCoverage <http://www.wikidata.org/entity/Q34644>,
         <http://www.wikidata.org/entity/Q34653>,
         <http://www.wikidata.org/entity/Q35014>,
         <http://www.wikidata.org/entity/Q35024>,
         <http://www.wikidata.org/entity/Q35724> ;
-    ns1:workExample "https://www.68to05.com/years/1968" .
+    ns2:workExample "https://www.68to05.com/years/1968" .
 
 <https://w3id.org/musow/1641117135-924746/> rdfs:label "SixtyEight2OhFive" ;
-    ns2:generatedAtTime "2022-01-02T11:08:57.709102"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "SixtyEight2OhFive" ;
-    ns3:publicationStage "modified"^^xsd:string .
+    ns1:generatedAtTime "2022-01-02T11:09:40.803246"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "SixtyEight2OhFive" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
