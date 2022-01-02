@@ -24,8 +24,7 @@
     ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
         <https://w3id.org/musow/vocab/human-consumption> ;
     ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
-        <http://purl.org/ontology/mo/Recording> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording> ;
     ns1:mainEntityOfPage "https://music.si.edu/" ;
     ns1:name "Smithsonian music" ;
     ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
@@ -33,18 +32,15 @@
     ns1:workExample "https://folkways.si.edu/a-quarter-century-of-smithsonian-folkways/music/playlist/smithsonian" .
 
 <https://w3id.org/musow/1641118226-9568648/> rdfs:label "Smithsonian music" ;
-    ns2:generatedAtTime "2022-01-02T11:25:24.304767"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-01-02T11:26:08.485422"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Smithsonian music" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q131626> rdfs:label "Smithsonian Institution"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
@@ -73,6 +69,8 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
