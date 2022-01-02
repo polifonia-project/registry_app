@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -11,56 +11,34 @@
     ns1:additionalType <https://w3id.org/musow/vocab/project> ;
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
-        <https://w3id.org/musow/vocab/record-companies>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
     ns1:category <https://w3id.org/musow/vocab/metadata> ;
     ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
     ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns1:creator ns3:MD1641117044893 ;
+    ns1:creator ns2:MD1641117044893 ;
     ns1:description "An interactive resource that tries to recover, make visible and give value to the figure of women composers. Created and maintained by musicologist and music teacher Sakira Ventura, the interactive website illustrates the global distribution of female composers worldwide, from the 9th century AD to the present, and lets users search for composers in various ways." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/html> ;
-    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
-        <https://w3id.org/musow/vocab/human-consumption>,
-        <https://w3id.org/musow/vocab/interoperable> ;
     ns1:genre <http://www.wikidata.org/entity/Q107576663> ;
     ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist> ;
     ns1:mainEntityOfPage "https://svmusicology.com/mapa/?lang=en" ;
-    ns1:name "Map of women composers" ;
-    ns1:specialty <https://w3id.org/musow/vocab/data-aggregation>,
-        <https://w3id.org/musow/vocab/data-visualization>,
-        <https://w3id.org/musow/vocab/music-history>,
-        <https://w3id.org/musow/vocab/music-listening> .
+    ns1:name "Map of women composers" .
 
 <https://w3id.org/musow/1641116860-6101842/> rdfs:label "Map of women composers" ;
-    ns2:generatedAtTime "2022-01-02T10:52:12.892396"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2022-01-02T11:03:02.877613"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Map of women composers" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q107576663> rdfs:label "woman musician"^^xsd:string .
 
-ns3:MD1641117044893 rdfs:label "Sakira Ventura"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+ns2:MD1641117044893 rdfs:label "Sakira Ventura"^^xsd:string .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
-<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
-
-<https://w3id.org/musow/vocab/data-visualization> rdfs:label "data visualization"^^xsd:string .
-
 <https://w3id.org/musow/vocab/html> rdfs:label "html"^^xsd:string .
-
-<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
-
-<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
@@ -70,13 +48,7 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
-<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
-
-<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening"^^xsd:string .
-
 <https://w3id.org/musow/vocab/project> rdfs:label "Project"^^xsd:string .
-
-<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
 
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
@@ -85,4 +57,6 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
