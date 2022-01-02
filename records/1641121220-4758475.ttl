@@ -1,0 +1,66 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1641121220-4758475> a ns1:CreativeWork ;
+    rdfs:label "World Radio History Archive" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "Alongside their many archives of music magazines from the US and UK, World Radio History is a collection of publication archives related to broadcasting and the business and technical sides of radio. Their collection of American magazines skews toward early and long running music industry focused magazines, like Billboard, Music Reporter (fka Country Music Reporter), and Record World. Notably, World Radio History also has large archives of UK music magazines New Musical Express and Melody Maker." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface> ;
+    ns1:genre <http://www.wikidata.org/entity/Q1824338> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalManifestation>,
+        <https://w3id.org/musow/vocab/publisher> ;
+    ns1:mainEntityOfPage "https://worldradiohistory.com/index.htm" ;
+    ns1:name "World Radio History Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies> ;
+    ns1:workExample "https://worldradiohistory.com/CANADA/Archive-Broadcaster-Canada/40s/45/BCC-1945-01-06.pdf" .
+
+<https://w3id.org/musow/1641121220-4758475/> rdfs:label "World Radio History Archive" ;
+    ns2:generatedAtTime "2022-01-02T12:09:51.005208"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "World Radio History Archive" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalManifestation> rdfs:label "Musical Manifestation"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1824338> rdfs:label "music magazine"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
