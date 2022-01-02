@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -12,7 +12,6 @@
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/performers>,
-        <https://w3id.org/musow/vocab/record-companies>,
         <https://w3id.org/musow/vocab/scholars> ;
     ns1:category <https://w3id.org/musow/vocab/media>,
         <https://w3id.org/musow/vocab/metadata> ;
@@ -21,6 +20,7 @@
     ns1:creator <http://www.wikidata.org/entity/Q183412> ;
     ns1:description "The EMI Group of companies gifted much of their assets which originated before 1947 to the Trust. The purpose of the Trust is “the advancement of education and research and, in particular, to foster and promote the study and appreciation of the art techniques and development of sound recording and the history of the sound recording industry”. The collections start with the early recorded music industry and the role that EMI (originally The Gramophone Company) played in the emerging industry’s development and globalisation, from 1897 through to 1946" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
     ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
         <https://w3id.org/musow/vocab/human-consumption> ;
     ns1:isBasedOn <http://www.wikidata.org/entity/Q103204> ;
@@ -35,10 +35,11 @@
     ns1:workExample "https://www.flickr.com/photos/emiarchivetrust/sets/" .
 
 <https://w3id.org/musow/1641119521-912459/> rdfs:label "EMI Archive Trust" ;
-    ns3:generatedAtTime "2022-01-02T11:56:32.837897"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2022-01-02T11:57:06.296371"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "EMI Archive Trust" ;
-    ns2:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -48,13 +49,9 @@
 
 <http://www.wikidata.org/entity/Q183412> rdfs:label "EMI"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
-
-<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
 
 <https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
 
@@ -76,9 +73,12 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/privative> rdfs:label "Privative"^^xsd:string .
 
-<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
-
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
