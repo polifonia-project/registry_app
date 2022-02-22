@@ -18,6 +18,7 @@
     ns1:description "The data for this work consists of 41 musical excerpts of common practice period music. All excerpts are for a keyboard instrument and are in a major key." ;
     ns1:downloadUrl "https://www.cs.rhodes.edu/~kirlinp/dissdata.zip" ;
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/musicxml> ;
     ns1:featureList <https://w3id.org/musow/vocab/data-dump>,
         <https://w3id.org/musow/vocab/interoperable> ;
     ns1:genre <http://www.wikidata.org/entity/Q9730> ;
@@ -31,7 +32,7 @@
     ns1:specialty <https://w3id.org/musow/vocab/music-analysis> .
 
 <https://w3id.org/musow/1645537199-4875615/> rdfs:label "Machine-readable Schenkerian analyses" ;
-    ns2:generatedAtTime "2022-02-22T14:45:54.354627"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-02-22T14:59:00.782561"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Machine-readable Schenkerian analyses" ;
@@ -58,6 +59,8 @@
 <https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
 
 <https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml"^^xsd:string .
 
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
