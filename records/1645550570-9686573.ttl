@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <https://w3id.org/musow/> .
-@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -24,28 +24,34 @@
     ns1:encodingFormat <https://w3id.org/musow/vocab/csv>,
         <https://w3id.org/musow/vocab/python>,
         <https://w3id.org/musow/vocab/txt> ;
+    ns1:featureList <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable> ;
     ns1:genre <http://www.wikidata.org/entity/Q9730> ;
-    ns1:keywords <https://w3id.org/musow/vocab/melody>,
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody>,
         <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/structure> ;
     ns1:license <https://w3id.org/musow/vocab/open-access> ;
     ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://github.com/MarkGotham/When-in-Rome" ;
-    ns1:name "When in Rome" .
+    ns1:name "When in Rome" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis> .
 
 <https://w3id.org/musow/1645550570-9686573/> rdfs:label "When in Rome" ;
-    ns3:generatedAtTime "2022-02-22T18:29:43.079421"^^xsd:dateTime ;
-    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:generatedAtTime "2022-02-22T18:30:19.306775"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "When in Rome" ;
-    ns2:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q9730> rdfs:label "western classical music"^^xsd:string .
 
 <https://w3id.org/musow/MD1645534351397'> rdfs:label "Mark Gotham"^^xsd:string .
 
-ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/csv> rdfs:label "csv"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
 
 <https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
 
@@ -53,9 +59,17 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
 
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
 <https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
 
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
 
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
@@ -76,6 +90,8 @@ ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <https://w3id.org/musow/vocab/txt> rdfs:label "txt"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
         "Metadata"^^xsd:string .
