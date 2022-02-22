@@ -21,24 +21,22 @@
     ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
     ns1:encodingFormat <https://w3id.org/musow/vocab/musescore> ;
     ns1:featureList <https://w3id.org/musow/vocab/data-dump> ;
-    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
-        <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/structure> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony> ;
     ns1:license <https://w3id.org/musow/vocab/cc-by> ;
     ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://github.com/DCMLab/ABC" ;
     ns1:name "ABC - The Annotated Beethoven Corpus" ;
-    ns1:specialty <https://w3id.org/musow/vocab/music-analysis> .
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/symbolic-melodic-similarity> .
 
 <https://w3id.org/musow/1645534417-0452876/> rdfs:label "ABC - The Annotated Beethoven Corpus" ;
-    ns2:generatedAtTime "2022-02-22T13:57:10.687814"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-02-22T14:01:17.764577"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "ABC - The Annotated Beethoven Corpus" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q255> rdfs:label "Ludwig van Beethoven"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
 
@@ -56,6 +54,8 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
 
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
 <https://w3id.org/musow/vocab/musescore> rdfs:label "musescore"^^xsd:string .
 
 <https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
@@ -64,10 +64,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+<https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
