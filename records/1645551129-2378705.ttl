@@ -1,49 +1,64 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1645551129-2378705> a ns2:CreativeWork ;
+<https://w3id.org/musow/1645551129-2378705> a ns1:CreativeWork ;
     rdfs:label "Algomus datasets" ;
-    ns2:about <https://w3id.org/musow/vocab/genre> ;
-    ns2:additionalType <https://w3id.org/musow/vocab/repository> ;
-    ns2:audience <https://w3id.org/musow/vocab/developers>,
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns2:category <https://w3id.org/musow/vocab/metadata>,
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/symbolic> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns2:creator ns3:MD1645551560999 ;
-    ns2:description "The Algomus datasets include 24 Bach fugues, 12 Shostakovich’s fugues, 11 movements in string quartets, 32 Mozart string quartets sonatas and movements, 2248 tracks annotated with guitar positions and more." ;
-    ns2:downloadUrl "http://algomus.fr/data/" ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:encodingFormat <https://w3id.org/musow/vocab/json> ;
-    ns2:genre <http://www.wikidata.org/entity/Q9730> ;
-    ns2:keywords <https://w3id.org/musow/vocab/harmony>,
-        <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/metadata>,
-        <https://w3id.org/musow/vocab/structure> ;
-    ns2:license <https://w3id.org/musow/vocab/open-access> ;
-    ns2:mainEntity <https://w3id.org/musow/vocab/score>,
+    ns1:character <http://www.wikidata.org/entity/Q1339>,
+        <http://www.wikidata.org/entity/Q254>,
+        <http://www.wikidata.org/entity/Q80135> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator ns2:MD1645551560999 ;
+    ns1:description "The Algomus datasets include 24 Bach fugues, 12 Shostakovich’s fugues, 11 movements in string quartets, 32 Mozart string quartets sonatas and movements, 2248 tracks annotated with guitar positions and more." ;
+    ns1:downloadUrl "http://algomus.fr/data/" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/json> ;
+    ns1:featureList <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score>,
         <https://w3id.org/musow/vocab/tabs> ;
-    ns2:mainEntityOfPage "http://algomus.fr/data/" ;
-    ns2:name "Algomus datasets" .
+    ns1:mainEntityOfPage "http://algomus.fr/data/" ;
+    ns1:name "Algomus datasets" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation>,
+        <https://w3id.org/musow/vocab/musicology>,
+        <https://w3id.org/musow/vocab/symbolic-melodic-similarity> .
 
 <https://w3id.org/musow/1645551129-2378705/> rdfs:label "Algomus datasets" ;
-    ns1:generatedAtTime "2022-02-22T18:40:50.213938"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Algomus datasets" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:generatedAtTime "2022-02-22T18:41:57.819363"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Algomus datasets" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1339> rdfs:label "Johann Sebastian Bach"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q254> rdfs:label "Wolfgang Amadeus Mozart"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q80135> rdfs:label "Dmitri Shostakovich"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q9730> rdfs:label "western classical music"^^xsd:string .
 
-ns3:MD1645551560999 rdfs:label "Algorithmic Musicology"^^xsd:string .
+ns2:MD1645551560999 rdfs:label "Algorithmic Musicology"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
 
@@ -51,11 +66,23 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
 
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
 <https://w3id.org/musow/vocab/json> rdfs:label "json"^^xsd:string .
 
 <https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
 
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
 <https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
 
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
@@ -69,14 +96,13 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity"^^xsd:string .
 
 <https://w3id.org/musow/vocab/tabs> rdfs:label "Tabs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
-<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
-        "Metadata"^^xsd:string .
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
