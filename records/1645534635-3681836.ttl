@@ -1,46 +1,44 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns1: <https://w3id.org/musow/> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1645534635-3681836> a ns1:CreativeWork ;
+<https://w3id.org/musow/1645534635-3681836> a ns2:CreativeWork ;
     rdfs:label "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
-    ns1:about <https://w3id.org/musow/vocab/artist> ;
-    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
-    ns1:audience <https://w3id.org/musow/vocab/developers>,
+    ns2:about <https://w3id.org/musow/vocab/artist> ;
+    ns2:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns2:audience <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:category <https://w3id.org/musow/vocab/symbolic> ;
-    ns1:character <http://www.wikidata.org/entity/Q255> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns1:description "The BPS-FH dataset consists of the symbolic musical data and functional harmony annotations of the 1st movements from Beethoven's 32 piano sonatas. The dataset can be used for functional harmony recognition, and also for symbolic chord estimation." ;
-    ns1:downloadUrl "https://github.com/Tsung-Ping/functional-harmony/tree/master/BPS_FH_Dataset" ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns1:encodingFormat <https://w3id.org/musow/vocab/csv>,
+    ns2:category <https://w3id.org/musow/vocab/symbolic> ;
+    ns2:character <http://www.wikidata.org/entity/Q255> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:description "The BPS-FH dataset consists of the symbolic musical data and functional harmony annotations of the 1st movements from Beethoven's 32 piano sonatas. The dataset can be used for functional harmony recognition, and also for symbolic chord estimation." ;
+    ns2:downloadUrl "https://github.com/Tsung-Ping/functional-harmony/tree/master/BPS_FH_Dataset" ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/csv>,
         <https://w3id.org/musow/vocab/xslx> ;
-    ns1:featureList <https://w3id.org/musow/vocab/data-dump> ;
-    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
-        <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/structure> ;
-    ns1:license <https://w3id.org/musow/vocab/cc-by> ;
-    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
-    ns1:mainEntityOfPage "https://github.com/Tsung-Ping/functional-harmony" ;
-    ns1:name "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
-    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+    ns2:featureList <https://w3id.org/musow/vocab/interoperable> ;
+    ns2:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody> ;
+    ns2:license <https://w3id.org/musow/vocab/cc-by> ;
+    ns2:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns2:mainEntityOfPage "https://github.com/Tsung-Ping/functional-harmony" ;
+    ns2:name "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
+    ns2:specialty <https://w3id.org/musow/vocab/music-analysis>,
         <https://w3id.org/musow/vocab/symbolic-melodic-similarity> .
 
 <https://w3id.org/musow/1645534635-3681836/> rdfs:label "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
-    ns2:generatedAtTime "2022-02-22T14:00:02.488319"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:generatedAtTime "2022-02-22T14:00:44.394723"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns1:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Beethoven Piano Sonata with Function Harmony (BPS-FH) dataset" ;
+    ns1:publicationStage "published"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q255> rdfs:label "Ludwig van Beethoven"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/artist> rdfs:label "Artist"^^xsd:string .
 
@@ -48,13 +46,13 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/csv> rdfs:label "csv"^^xsd:string .
 
-<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
-
 <https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
 
 <https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
 
@@ -68,8 +66,6 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
 <https://w3id.org/musow/vocab/symbolic-melodic-similarity> rdfs:label "symbolic melodic similarity"^^xsd:string .
@@ -77,4 +73,6 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
 <https://w3id.org/musow/vocab/xslx> rdfs:label "xslx"^^xsd:string .
+
+ns1:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
