@@ -1,40 +1,42 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1645595889-5140848> a ns2:CreativeWork ;
+<https://w3id.org/musow/1645595889-5140848> a ns1:CreativeWork ;
     rdfs:label "Parser of Jazz chords" ;
-    ns2:additionalType <https://w3id.org/musow/vocab/software> ;
-    ns2:audience <https://w3id.org/musow/vocab/developers> ;
-    ns2:category <https://w3id.org/musow/vocab/metadata>,
+    ns1:additionalType <https://w3id.org/musow/vocab/software> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/symbolic> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns2:description "a parser specially for chord sequences using a combinatory categorial grammar (CCG) to analyse the structure underlying the harmony. Despite its name, it's not restricted to parsing jazz, though the models already trained are optimized for jazz standards" ;
-    ns2:downloadUrl "http://jazzparser.granroth-wilding.co.uk/code/latest" ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns2:featureList <https://w3id.org/musow/vocab/data-dump>,
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "a parser specially for chord sequences using a combinatory categorial grammar (CCG) to analyse the structure underlying the harmony. Despite its name, it's not restricted to parsing jazz, though the models already trained are optimized for jazz standards" ;
+    ns1:downloadUrl "http://jazzparser.granroth-wilding.co.uk/code/latest" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/py>,
+        <https://w3id.org/musow/vocab/python> ;
+    ns1:featureList <https://w3id.org/musow/vocab/data-dump>,
         <https://w3id.org/musow/vocab/machine-readable> ;
-    ns2:keywords <https://w3id.org/musow/vocab/harmony>,
-        <https://w3id.org/musow/vocab/melody>,
-        <https://w3id.org/musow/vocab/structure> ;
-    ns2:license <https://w3id.org/musow/vocab/open-access> ;
-    ns2:mainEntity <https://w3id.org/musow/vocab/audio>,
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/score> ;
-    ns2:mainEntityOfPage "http://jazzparser.granroth-wilding.co.uk/Parser.html" ;
-    ns2:name "Parser of Jazz chords" .
+    ns1:mainEntityOfPage "http://jazzparser.granroth-wilding.co.uk/Parser.html" ;
+    ns1:name "Parser of Jazz chords" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/music-annotation> .
 
 <https://w3id.org/musow/1645595889-5140848/> rdfs:label "Parser of Jazz chords" ;
-    ns1:generatedAtTime "2022-02-23T07:00:04.924868"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Parser of Jazz chords" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+    ns2:generatedAtTime "2022-02-23T07:05:59.331871"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Parser of Jazz chords" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
 
@@ -50,7 +52,15 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
 
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-annotation> rdfs:label "music annotation"^^xsd:string .
+
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/py> rdfs:label "py"^^xsd:string .
+
+<https://w3id.org/musow/vocab/python> rdfs:label "python"^^xsd:string .
 
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
@@ -58,9 +68,9 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/software> rdfs:label "Software"^^xsd:string .
 
-<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
-
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
