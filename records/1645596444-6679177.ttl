@@ -1,0 +1,69 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645596444-6679177> a ns1:CreativeWork ;
+    rdfs:label "Enhanced Wikifonia Leadsheet Dataset (EWLD)" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/researchers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q55437117> ;
+    ns1:description "EWLD (Enhanced Wikifonia Leadsheet Dataset) is a music leadsheet dataset that comes with a lot of metadata about composers, works, lyrics and features. It is designed for musicological and research purposes." ;
+    ns1:downloadUrl "https://framagit.org/sapo/OpenEWLD" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/musicxml> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/melody> ;
+    ns1:license <https://w3id.org/musow/vocab/copyright> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalWork> ;
+    ns1:mainEntityOfPage "https://framagit.org/sapo/OpenEWLD" ;
+    ns1:name "Enhanced Wikifonia Leadsheet Dataset (EWLD)" .
+
+<https://w3id.org/musow/1645596444-6679177/> rdfs:label "Enhanced Wikifonia Leadsheet Dataset (EWLD)" ;
+    ns3:generatedAtTime "2022-02-23T07:11:17.422764"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Enhanced Wikifonia Leadsheet Dataset (EWLD)" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q55437117> rdfs:label "Federico Simonetta"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
