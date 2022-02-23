@@ -1,0 +1,84 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645598903-145555> a ns1:CreativeWork ;
+    rdfs:label "A Corpus Study of Rock Music" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1000> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "The corpus is based on Rolling Stone magazine's list of the \"500 Greatest Songs of All Time.\" This list, which we refer to as the \"RS 500,\" was original published in an article of the same name, which appeared in the December 9th issue (no. 963) from 2004, pages 65 - 165. The corpus includes the following annotations: Harmonic analyses for the songs in our corpus and an explanation of our harmonic notational system; Melodic transcriptions of the same songs and an explanation of our melodic notational system; Timing data for these songs, as referenced to the original audio files; Lyrics and syllabic stress information aligned with the melodies for a subset of the corpus." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:genre <http://www.wikidata.org/entity/Q11399> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/rhythm> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/musical-resource>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "http://rockcorpus.midside.com/" ;
+    ns1:name "A Corpus Study of Rock Music" .
+
+<https://w3id.org/musow/1645598903-145555/> rdfs:label "A Corpus Study of Rock Music" ;
+    ns2:generatedAtTime "2022-02-23T07:51:55.511170"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "A Corpus Study of Rock Music" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11399> rdfs:label "rock music"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1000> rdfs:label "<1000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musical-resource> rdfs:label "Musical resource"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/rhythm> rdfs:label "Rhythm"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
