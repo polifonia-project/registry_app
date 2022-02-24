@@ -1,0 +1,74 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645710713-4868646> a ns1:CreativeWork ;
+    rdfs:label "Scores of Scores" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns1:audience <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/researchers> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <https://w3id.org/musow/MD1645534351397'> ;
+    ns1:description "The Scores of Scores lieder corpus encoding project is a major contribution to the OpenScore encoding effort: creating and releasing publicly a large repository of high-quality musical scores which any internet user will be able to download and use as they please. This is a corpus of French and German songs from the 19th century. The dataset inherited a corpus of vocal lines from Leigh Van Handel" ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:isBasedOn <https://w3id.org/musow/1645709610-040475'>,
+        <https://w3id.org/musow/1645709857-5004418'> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/structure> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://github.com/MarkGotham/ScoresOfScores" ;
+    ns1:name "Scores of Scores" ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q6955> .
+
+<https://w3id.org/musow/1645710713-4868646/> rdfs:label "Scores of Scores" ;
+    ns3:generatedAtTime "2022-02-24T14:56:02.011507"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Scores of Scores" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q6955> rdfs:label "19th century"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "western classical music"^^xsd:string .
+
+<https://w3id.org/musow/1645709610-040475'> rdfs:label "LvH - French"^^xsd:string .
+
+<https://w3id.org/musow/1645709857-5004418'> rdfs:label "LvH - German"^^xsd:string .
+
+<https://w3id.org/musow/MD1645534351397'> rdfs:label "Mark Gotham"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
