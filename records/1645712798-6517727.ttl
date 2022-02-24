@@ -8,37 +8,87 @@
 
 <https://w3id.org/musow/1645712798-6517727> a ns1:CreativeWork ;
     rdfs:label "Louisville Underground Music Archive (LUMA)" ;
+    ns1:about <https://w3id.org/musow/vocab/genre>,
+        <https://w3id.org/musow/vocab/geographical> ;
     ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:category <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
     ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
     ns1:description "The Louisville Underground Music Archive (LUMA) Project began as a concerted effort in early 2013 to address the gap in the historical record related to independent/underground rock music culture in Louisville. The LUMA Project collects oral histories, show recordings, set lists, photographs, zines, posters, flyers, t-shirts, ephemera, correspondence, business records, and early web history related to the local rock/punk/indie/hardcore music scene. The LUMA digital collection consists of selected items from the LUMA Project. Starting with a full run (31 issues) of The Official Burt the Cat Fanclub Newsletter, items with clear copyright may be digitized and added to the LUMA digital collection as resources allow." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/data-dump> ;
+    ns1:genre <http://www.wikidata.org/entity/Q11399>,
+        <http://www.wikidata.org/entity/Q1373485> ;
+    ns1:keywords <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/photograph> ;
     ns1:mainEntityOfPage "https://digital.library.louisville.edu/cdm/landingpage/collection/luma/ " ;
     ns1:name "Louisville Underground Music Archive (LUMA)" ;
-    ns1:specialty <https://w3id.org/musow/vocab/archival-studies> .
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q43668> ;
+    ns1:specialty <https://w3id.org/musow/vocab/archival-studies>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/music-history> .
 
 <https://w3id.org/musow/1645712798-6517727/> rdfs:label "Louisville Underground Music Archive (LUMA)" ;
-    ns2:generatedAtTime "2022-02-24T15:31:42.228538"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-02-24T15:33:01.304468"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "Louisville Underground Music Archive (LUMA)" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q11399> rdfs:label "rock music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1373485> rdfs:label "underground music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q43668> rdfs:label "Louisville"^^xsd:string .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
 <https://w3id.org/musow/vocab/archival-studies> rdfs:label "archival studies"^^xsd:string .
 
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
 <https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
+<https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/photograph> rdfs:label "Photograph"^^xsd:string .
+
 <https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
 
-<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
-
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
 
