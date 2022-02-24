@@ -1,65 +1,85 @@
-@prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1645707817-4686248> a ns1:CreativeWork ;
+<https://w3id.org/musow/1645707817-4686248> a ns2:CreativeWork ;
     rdfs:label "Elvis database" ;
-    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
-    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/performers>,
         <https://w3id.org/musow/vocab/researchers>,
         <https://w3id.org/musow/vocab/scholars> ;
-    ns1:category <https://w3id.org/musow/vocab/media>,
+    ns2:category <https://w3id.org/musow/vocab/media>,
         <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/symbolic> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
-    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns1:creator <https://w3id.org/musow/6b6f0f012cc638cd7a6c26f5fef91d21'> ;
-    ns1:description "The Elvis Database (Electronic Locator of Vertical Interval Successions) includes 2853 Pieces and 3358 Movements by 404 Composers. It is possible to search for music in different file formats, including MEI, MusicXML, MIDI, and others, and to download pieces to analyze with software such as music21. It is also possible contribute to the database by uploading files, via registration. Detailed metadata accompanies files on the database, including fields such as date and place of composition, musical genre, and instrumentation." ;
-    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
-    ns1:encodingFormat <https://w3id.org/musow/vocab/mei/xml>,
+    ns2:collectionSize <https://w3id.org/musow/vocab/lt-10000> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:creator <https://w3id.org/musow/6b6f0f012cc638cd7a6c26f5fef91d21'> ;
+    ns2:description "The Elvis Database (Electronic Locator of Vertical Interval Successions) includes 2853 Pieces and 3358 Movements by 404 Composers. It is possible to search for music in different file formats, including MEI, MusicXML, MIDI, and others, and to download pieces to analyze with software such as music21. It is also possible contribute to the database by uploading files, via registration. Detailed metadata accompanies files on the database, including fields such as date and place of composition, musical genre, and instrumentation." ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns2:encodingFormat <https://w3id.org/musow/vocab/mei/xml>,
         <https://w3id.org/musow/vocab/midi>,
-        <https://w3id.org/musow/vocab/musicxml> ;
-    ns1:keywords <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/musicxml>,
+        <https://w3id.org/musow/vocab/xml> ;
+    ns2:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable>,
+        <https://w3id.org/musow/vocab/playable>,
+        <https://w3id.org/musow/vocab/search-interface> ;
+    ns2:keywords <https://w3id.org/musow/vocab/melody>,
         <https://w3id.org/musow/vocab/metadata>,
         <https://w3id.org/musow/vocab/structure> ;
-    ns1:license <https://w3id.org/musow/vocab/open-access> ;
-    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
-        <http://purl.org/ontology/mo/MusicalWork>,
+    ns2:license <https://w3id.org/musow/vocab/open-access> ;
+    ns2:mainEntity <http://purl.org/ontology/mo/MusicalWork>,
+        <https://w3id.org/musow/vocab/audio>,
         <https://w3id.org/musow/vocab/score> ;
-    ns1:mainEntityOfPage "https://database.elvisproject.ca/" ;
-    ns1:name "Elvis database" ;
-    ns1:workExample "http://database.elvisproject.ca/composer/101/" .
+    ns2:mainEntityOfPage "https://database.elvisproject.ca/" ;
+    ns2:name "Elvis database" ;
+    ns2:specialty <https://w3id.org/musow/vocab/midi-collection>,
+        <https://w3id.org/musow/vocab/music-analysis>,
+        <https://w3id.org/musow/vocab/musicology> ;
+    ns2:workExample "http://database.elvisproject.ca/composer/101/" .
 
 <https://w3id.org/musow/1645707817-4686248/> rdfs:label "Elvis database" ;
-    ns2:generatedAtTime "2022-02-24T14:31:11.949194"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns1:name "Elvis database" ;
-    ns3:publicationStage "not modified"^^xsd:string .
-
-<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+    ns1:generatedAtTime "2022-02-24T14:32:10.977585"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Elvis database" ;
+    ns3:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
 
 <https://w3id.org/musow/6b6f0f012cc638cd7a6c26f5fef91d21'> rdfs:label "Single Interface for Music Score Searching and Analysis project"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
 
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
 
 <https://w3id.org/musow/vocab/lt-10000> rdfs:label "<10000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
 
 <https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
 
@@ -69,11 +89,19 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
 
+<https://w3id.org/musow/vocab/midi-collection> rdfs:label "midi collection"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-analysis> rdfs:label "music analysis"^^xsd:string .
+
+<https://w3id.org/musow/vocab/musicology> rdfs:label "musicology"^^xsd:string .
+
 <https://w3id.org/musow/vocab/musicxml> rdfs:label "musicxml"^^xsd:string .
 
 <https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
 
 <https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
 
@@ -83,11 +111,17 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
 
+<https://w3id.org/musow/vocab/search-interface> rdfs:label "Provides user-friendly search interfaces"^^xsd:string .
+
 <https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
 
 <https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/xml> rdfs:label "xml"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
         "Metadata"^^xsd:string .
