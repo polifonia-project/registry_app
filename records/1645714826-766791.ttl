@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645714826-766791> a ns2:CreativeWork ;
+    rdfs:label "Sound archives of the CNRS - Musée de l'Homme" ;
+    ns2:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/researchers> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:creator <http://www.wikidata.org/entity/Q280413> ;
+    ns2:description "These sound archives gather commercial and field recordings of music and oral traditions from around the world, from 1900 to the present, in diverse types of media (wax cylinders, 78 rpm, vinyl records, magnetic tapes, audio CDs, born digital records, vidéo). The Center for Research in Ethnomusicology (CREM) manages and disseminates this constantly growing scientific heritage.    The number of recordings available online on the platform is constantly increasing. The archives include over 60,000 field recordings and published materials, covering 199 countries and 1,300 social and ethnic groups. About 29,000 recordings are available for free, while the rest require a request for access. The platform’s users fill descriptive forms collaboratively and gradually : researchers, students, archivists working together. The CREM welcomes all collaborations aiming to enrich and enhance this valued musical patrimony. " ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns2:mainEntityOfPage "https://archives.crem-cnrs.fr/ " ;
+    ns2:name "Sound archives of the CNRS - Musée de l'Homme" .
+
+<https://w3id.org/musow/1645714826-766791/> rdfs:label "Sound archives of the CNRS - Musée de l'Homme" ;
+    ns1:generatedAtTime "2022-02-24T16:02:16.561537"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:name "Sound archives of the CNRS - Musée de l'Homme" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q280413> rdfs:label "National Center for Scientific Research"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
