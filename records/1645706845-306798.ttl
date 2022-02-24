@@ -1,0 +1,108 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645706845-306798> a ns1:CreativeWork ;
+    rdfs:label "Classical Archives" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/customers>,
+        <https://w3id.org/musow/vocab/developers>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/record-companies>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "The World's Largest Collection of classical music including: 808,332 Files to stream or download;  45,897 Albums; 16,683 Composers; 66,117 Performers; 514 Record Labels; 20,801 Largest collection of classical MIDI files." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/html5>,
+        <https://w3id.org/musow/vocab/mp3> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:keywords <https://w3id.org/musow/vocab/lyrics>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:license <https://w3id.org/musow/vocab/privative> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/photograph>,
+        <https://w3id.org/musow/vocab/score> ;
+    ns1:mainEntityOfPage "https://www.classicalarchives.com" ;
+    ns1:name "Classical Archives" ;
+    ns1:workExample "https://www.classicalarchives.com/newca/#!/Composer/2173" .
+
+<https://w3id.org/musow/1645706845-306798/> rdfs:label "Classical Archives" ;
+    ns3:generatedAtTime "2022-02-24T13:52:46.065914"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Classical Archives" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9730> rdfs:label "western classical music"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/customers> rdfs:label "customers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/html5> rdfs:label "html5"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lyrics> rdfs:label "Lyrics"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mp3> rdfs:label "mp3"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/photograph> rdfs:label "Photograph"^^xsd:string .
+
+<https://w3id.org/musow/vocab/privative> rdfs:label "Privative"^^xsd:string .
+
+<https://w3id.org/musow/vocab/record-companies> rdfs:label "record companies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
+
