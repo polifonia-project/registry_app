@@ -1,0 +1,41 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1645713436-3183298> a ns1:CreativeWork ;
+    rdfs:label "American religious sounds project" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/catalogue> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "What does religion in the United States sound like? This question animates the American Religious Sounds Project (ARSP), a collaborative research initiative co-directed by Amy DeRogatis (Michigan State University) and Isaac Weiner (Ohio State University), which aims to offer new resources for documenting and interpreting the diversity of American religious life by attending to its varied sonic cultures. To date, the Project has centered on: (1) the construction of a unique sonic archive, documenting the diversity of everyday religious life through newly produced field recordings, interviews, oral histories, and related materials; and (2) the development of a digital platform and website, which draws on materials in our archive to engage users in telling new stories about religious diversity in the U.S." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntityOfPage "https://religioussounds.osu.edu/" ;
+    ns1:name "American religious sounds project" .
+
+<https://w3id.org/musow/1645713436-3183298/> rdfs:label "American religious sounds project" ;
+    ns3:generatedAtTime "2022-02-24T15:47:59.594019"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "American religious sounds project" ;
+    ns2:publicationStage "not modified"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/catalogue> rdfs:label "Catalogue"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
