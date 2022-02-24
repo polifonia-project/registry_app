@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -8,34 +8,71 @@
 
 <https://w3id.org/musow/1645715063-0885732> a ns1:CreativeWork ;
     rdfs:label "UBU Web: Sound Art" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
     ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners> ;
-    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100000> ;
     ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
     ns1:description "Originally focusing on Sound Poetry proper, UbuWeb's Sound section has grown to encompass all types of sound art, historical and contemporary. Beginning with pioneers such as Guillaume Apollinaire reading his \"Calligrammes\" in 1913, and proceeding to current practitioners such as Vito Acconci or Kristin Oppenheim, UbuWeb Sound surveys the entire 20th century and beyond.   Categories include Dadaism, Futurism, early 20th century literary experiments, musique concrete, electronic music, Fluxus, Beat sound works, minimalist and process works, performance art, plunderphonics and sampling, and digital glitch works, to name just a few. " ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/mp3> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/playable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q1744327> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <https://w3id.org/musow/vocab/audio> ;
     ns1:mainEntityOfPage "https://www.ubu.com/sound/index.html" ;
-    ns1:name "UBU Web: Sound Art" .
+    ns1:name "UBU Web: Sound Art" ;
+    ns1:specialty <https://w3id.org/musow/vocab/music-history> ;
+    ns1:workExample "https://www.ubu.com/sound/barras_demierre.html" .
 
 <https://w3id.org/musow/1645715063-0885732/> rdfs:label "UBU Web: Sound Art" ;
-    ns2:generatedAtTime "2022-02-24T16:05:17.697616"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2022-02-24T16:06:55.451252"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "UBU Web: Sound Art" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1744327> rdfs:label "sound art"^^xsd:string .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
 
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
 
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
 
+<https://w3id.org/musow/vocab/lt-100000> rdfs:label "<100000"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/mp3> rdfs:label "mp3"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-history> rdfs:label "music history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+
 <https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
 
-<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
-
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
