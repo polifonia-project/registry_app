@@ -8,40 +8,102 @@
 
 <https://w3id.org/musow/1645712131-57912> a ns1:CreativeWork ;
     rdfs:label "MAESTRO dataset" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
     ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
     ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/developers>,
         <https://w3id.org/musow/vocab/performers>,
         <https://w3id.org/musow/vocab/researchers> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/symbolic> ;
     ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
     ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
     ns1:description "MAESTRO (MIDI and Audio Edited for Synchronous TRacks and Organization) is a dataset composed of about 200 hours of virtuosic piano performances captured with fine alignment (~3 ms) between note labels and audio waveforms. Repertoire is mostly classical, including composers from the 17th to early 20th century." ;
     ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/csv>,
+        <https://w3id.org/musow/vocab/json>,
+        <https://w3id.org/musow/vocab/midi>,
+        <https://w3id.org/musow/vocab/wav> ;
+    ns1:featureList <https://w3id.org/musow/vocab/data-dump>,
+        <https://w3id.org/musow/vocab/human-consumption>,
+        <https://w3id.org/musow/vocab/interoperable>,
+        <https://w3id.org/musow/vocab/machine-readable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9730> ;
+    ns1:keywords <https://w3id.org/musow/vocab/harmony>,
+        <https://w3id.org/musow/vocab/melody>,
+        <https://w3id.org/musow/vocab/metadata>,
+        <https://w3id.org/musow/vocab/structure> ;
+    ns1:license <https://w3id.org/musow/vocab/open-access> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/audio>,
+        <https://w3id.org/musow/vocab/score> ;
     ns1:mainEntityOfPage "https://magenta.tensorflow.org/datasets/maestro" ;
-    ns1:name "MAESTRO dataset" .
+    ns1:name "MAESTRO dataset" ;
+    ns1:specialty <https://w3id.org/musow/vocab/midi-collection> .
 
 <https://w3id.org/musow/1645712131-57912/> rdfs:label "MAESTRO dataset" ;
-    ns2:generatedAtTime "2022-02-24T15:16:51.689721"^^xsd:dateTime ;
+    ns2:generatedAtTime "2022-02-24T15:18:33.912395"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "MAESTRO dataset" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns3:publicationStage "published"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+<http://www.wikidata.org/entity/Q9730> rdfs:label "western classical music"^^xsd:string .
 
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/csv> rdfs:label "csv"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-dump> rdfs:label "Offers data export or dump"^^xsd:string .
 
 <https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
 
 <https://w3id.org/musow/vocab/developers> rdfs:label "developers"^^xsd:string .
 
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/harmony> rdfs:label "Harmony"^^xsd:string .
+
+<https://w3id.org/musow/vocab/human-consumption> rdfs:label "Provides user-friendly interfaces"^^xsd:string .
+
+<https://w3id.org/musow/vocab/interoperable> rdfs:label "Shares data in open data formats"^^xsd:string .
+
+<https://w3id.org/musow/vocab/json> rdfs:label "json"^^xsd:string .
+
 <https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/machine-readable> rdfs:label "Serves machine-readable music data"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/melody> rdfs:label "Melody"^^xsd:string .
+
+<https://w3id.org/musow/vocab/midi> rdfs:label "midi"^^xsd:string .
+
+<https://w3id.org/musow/vocab/midi-collection> rdfs:label "midi collection"^^xsd:string .
+
+<https://w3id.org/musow/vocab/open-access> rdfs:label "Open Access"^^xsd:string .
 
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
 
 <https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
 
-<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+<https://w3id.org/musow/vocab/score> rdfs:label "Score"^^xsd:string .
+
+<https://w3id.org/musow/vocab/structure> rdfs:label "Music structure"^^xsd:string .
+
+<https://w3id.org/musow/vocab/symbolic> rdfs:label "Symbolic"^^xsd:string .
+
+<https://w3id.org/musow/vocab/wav> rdfs:label "wav"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Descriptive Metadata"^^xsd:string,
+        "Metadata"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
