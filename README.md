@@ -15,7 +15,11 @@ release link: https://github.com/polifonia-project/registry_app/releases/latest
 demo: https://projects.dharc.unibo.it/musow/
 running-instance: https://projects.dharc.unibo.it/musow/
 credits: Marilena Daquino (UNIBO), Martin Hlosta (FFHS, external collaborator), Mari Wigham (NISV), Enrico Daga (OU)
-
+related-components:
+  - dataset 
+    - musoW
+  - user interface 
+    - musoW_website
 ---
 
 # CLEF. Crowdsourcing Linked Entities via web Form
