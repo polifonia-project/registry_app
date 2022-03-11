@@ -1,5 +1,5 @@
 ---
-id: musoW_website
+component-id: musoW_website
 name: musoW website
 description: The web interface to explore and contribute to the dataset musoW, music data on the web
 type: user interface

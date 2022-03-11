@@ -1,5 +1,5 @@
 ---
-id: musoW
+component-id: musoW
 name: musoW, music data on the web
 description: musoW is a Linked Open Data registry of music resources available on the web.
 type: Dataset
