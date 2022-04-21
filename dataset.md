@@ -18,7 +18,7 @@ running-instance: https://projects.dharc.unibo.it/musow/
 credits: Marilena Daquino (UNIBO), Enrico Daga (OU), Albert Merono Penuela (KCL), Paul Mulholland (OU), Simon Holland (OU), Mathieu d'Aquin (NUIG)
 ---
 
-# musoW, 
+# musoW 
 
 musoW, music data on the web is a Linked Open Data registry of music resources available on the web. It includes extensive descriptions of more that 500 music collections, datasets, digital libraries and software solutions relevant to music.
 
