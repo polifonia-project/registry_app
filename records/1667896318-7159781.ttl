@@ -1,0 +1,33 @@
+@prefix ns1: <http://www.w3.org/ns/prov#> .
+@prefix ns2: <https://schema.org/> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1667896318-7159781> a ns2:CreativeWork ;
+    rdfs:label "test" ;
+    ns2:additionalType <https://w3id.org/musow/vocab/unknown-type> ;
+    ns2:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns2:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns2:name "test" .
+
+<https://w3id.org/musow/1667896318-7159781/> rdfs:label "test" ;
+    ns1:generatedAtTime "2022-11-08T09:32:39.757981"^^xsd:dateTime ;
+    ns1:wasAttributedTo ns3:mwigham-at-polifonia-dot-eu ;
+    ns2:name "test" ;
+    ns3:publicationStage "not modified"^^xsd:string .
+
+ns3:mwigham-at-polifonia-dot-eu rdfs:label "mwigham@polifonia.eu" .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-type> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
