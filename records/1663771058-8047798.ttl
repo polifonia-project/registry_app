@@ -1,0 +1,84 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://rdfs.org/ns/void#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1663771058-8047798> a ns1:CreativeWork ;
+    rdfs:label "MuziekWeb" ;
+    ns2:sparqlEndpoint "https://data.muziekweb.nl/" ;
+    ns1:about <https://w3id.org/musow/vocab/geographical> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/dataset> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/performers>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-1m> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q1131877>,
+        <http://www.wikidata.org/entity/Q18088607> ;
+    ns1:description "Muziekweb is the music library of the Netherlands. Muziekweb aims to offer music and the information about music accessible to everyone. Muziekweb has since 1961 built a collection of 600,000 CDs, 300,000 LPs and 30,000 music DVDs. The site is a source of information about music that has been released in the Netherlands during the past fifty years, and an ideal place to get to know more music." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:license <https://w3id.org/musow/vocab/copyright> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Recording>,
+        <http://purl.org/ontology/mo/Track>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://www.muziekweb.nl/" ;
+    ns1:name "MuziekWeb" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q55> .
+
+<https://w3id.org/musow/1663771058-8047798/> rdfs:label "MuziekWeb" ;
+    ns4:generatedAtTime "2022-11-10T13:54:14.519753"^^xsd:dateTime ;
+    ns4:wasAttributedTo ns3:anonymous ;
+    ns4:wasInfluencedBy ns3:mwigham-at-polifonia-dot-eu ;
+    ns1:name "MuziekWeb" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://purl.org/ontology/mo/Track> rdfs:label "Track"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1131877> rdfs:label "Netherlands Institute for Sound and Vision"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q18088607> rdfs:label "Muziekweb"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q55> rdfs:label "Netherlands"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:mwigham-at-polifonia-dot-eu rdfs:label "mwigham@polifonia.eu" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/dataset> rdfs:label "Dataset"^^xsd:string .
+
+<https://w3id.org/musow/vocab/geographical> rdfs:label "Geographical"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-1m> rdfs:label "<1M"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
