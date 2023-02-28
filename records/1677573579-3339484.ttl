@@ -1,39 +1,82 @@
-@prefix ns1: <http://www.w3.org/ns/prov#> .
-@prefix ns2: <https://schema.org/> .
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
 @prefix ns3: <https://w3id.org/musow/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/musow/1677573579-3339484> a ns2:CreativeWork ;
+<https://w3id.org/musow/1677573579-3339484> a ns1:CreativeWork ;
     rdfs:label "Dance Music Archive" ;
-    ns2:additionalType <https://w3id.org/musow/vocab/digital-library> ;
-    ns2:audience <https://w3id.org/musow/vocab/amateurs>,
+    ns1:about <https://w3id.org/musow/vocab/temporal> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-library> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
         <https://w3id.org/musow/vocab/listeners>,
         <https://w3id.org/musow/vocab/performers> ;
-    ns2:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns2:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
-    ns2:creator <http://www.wikidata.org/entity/Q4754416> ;
-    ns2:description "The Dance Music Archive is a multi-platform home to hear, record, read and celebrate the rich history of dance and electronic music. It's a website, a weekly radio programme, and online community, which brings together 30 years of electronic music history through DJ mixes, radio shows, live sets, festival broadcasts, lost tapes, blogs, artwork, magazines and forgotten recordings. " ;
-    ns2:educationalUse <https://w3id.org/musow/vocab/learning> ;
-    ns2:license <https://w3id.org/musow/vocab/copyright> ;
-    ns2:mainEntityOfPage "https://www.dancemusicarchive.com/" ;
-    ns2:name "Dance Music Archive" .
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:creator <http://www.wikidata.org/entity/Q4754416> ;
+    ns1:description "The Dance Music Archive is a multi-platform home to hear, record, read and celebrate the rich history of dance and electronic music. It's a website, a weekly radio programme, and online community, which brings together 30 years of electronic music history through DJ mixes, radio shows, live sets, festival broadcasts, lost tapes, blogs, artwork, magazines and forgotten recordings. " ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:featureList <https://w3id.org/musow/vocab/browse-interface>,
+        <https://w3id.org/musow/vocab/playable> ;
+    ns1:genre <http://www.wikidata.org/entity/Q316930> ;
+    ns1:license <https://w3id.org/musow/vocab/copyright> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/MusicArtist>,
+        <http://purl.org/ontology/mo/MusicalWork>,
+        <http://purl.org/ontology/mo/Recording>,
+        <https://w3id.org/musow/vocab/audio> ;
+    ns1:mainEntityOfPage "https://www.dancemusicarchive.com/" ;
+    ns1:name "Dance Music Archive" ;
+    ns1:specialty <https://w3id.org/musow/vocab/comparative-studies>,
+        <https://w3id.org/musow/vocab/cultural-studies>,
+        <https://w3id.org/musow/vocab/data-aggregation>,
+        <https://w3id.org/musow/vocab/music-listening> ;
+    ns1:temporalCoverage <http://www.wikidata.org/entity/Q19022>,
+        <http://www.wikidata.org/entity/Q34644>,
+        <http://www.wikidata.org/entity/Q34653>,
+        <http://www.wikidata.org/entity/Q35024> ;
+    ns1:workExample "https://www.dancemusicarchive.com/1990" .
 
 <https://w3id.org/musow/1677573579-3339484/> rdfs:label "Dance Music Archive" ;
-    ns1:generatedAtTime "2023-02-28T09:41:56.393345"^^xsd:dateTime ;
-    ns1:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:name "Dance Music Archive" ;
-    ns3:publicationStage "not modified"^^xsd:string .
+    ns2:generatedAtTime "2023-02-28T09:45:17.555111"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns1:name "Dance Music Archive" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
+
+<http://purl.org/ontology/mo/MusicalWork> rdfs:label "Musical Work"^^xsd:string .
+
+<http://purl.org/ontology/mo/Recording> rdfs:label "Recording"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q19022> rdfs:label "2010s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q316930> rdfs:label "dance music"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q34644> rdfs:label "1980s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q34653> rdfs:label "1990s"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q35024> rdfs:label "2000s"^^xsd:string .
 
 <http://www.wikidata.org/entity/Q4754416> rdfs:label "Andi Durrant"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
-
 <https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
 
+<https://w3id.org/musow/vocab/browse-interface> rdfs:label "Provides interfaces for browsing contents"^^xsd:string .
+
+<https://w3id.org/musow/vocab/comparative-studies> rdfs:label "comparative studies"^^xsd:string .
+
 <https://w3id.org/musow/vocab/copyright> rdfs:label "Copyright"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cultural-studies> rdfs:label "cultural studies"^^xsd:string .
+
+<https://w3id.org/musow/vocab/data-aggregation> rdfs:label "data aggregation"^^xsd:string .
 
 <https://w3id.org/musow/vocab/digital-library> rdfs:label "Digital Library"^^xsd:string .
 
@@ -41,7 +84,22 @@ ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it
 
 <https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
 
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/music-listening> rdfs:label "music listening"^^xsd:string .
+
 <https://w3id.org/musow/vocab/performers> rdfs:label "performers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/playable> rdfs:label "Offers playable music records"^^xsd:string .
+
+<https://w3id.org/musow/vocab/temporal> rdfs:label "Temporal"^^xsd:string .
+
+ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
+        "audio"^^xsd:string .
 
 <https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
 
