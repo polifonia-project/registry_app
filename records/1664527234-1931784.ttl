@@ -36,7 +36,7 @@
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927> .
 
 <https://w3id.org/musow/1664527234-1931784/> rdfs:label "What Flag is This - Що то за Прапор" ;
-    ns2:generatedAtTime "2023-02-28T09:22:20.089151"^^xsd:dateTime ;
+    ns2:generatedAtTime "2023-02-28T09:25:11.611638"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:anonymous ;
     ns2:wasInfluencedBy ns3:marilenadaquino-at-polifonia-dot-eu ;
     ns1:name "What Flag is This - Що то за Прапор" ;
