@@ -31,7 +31,7 @@
         <https://w3id.org/musow/vocab/theology> .
 
 <https://w3id.org/musow/1664525122-8075762/> rdfs:label "Easter Matin (Ukrainian)" ;
-    ns3:generatedAtTime "2023-02-28T09:25:50.014478"^^xsd:dateTime ;
+    ns3:generatedAtTime "2023-02-28T09:26:04.643111"^^xsd:dateTime ;
     ns3:wasAttributedTo ns2:anonymous ;
     ns3:wasInfluencedBy ns2:marilenadaquino-at-polifonia-dot-eu ;
     ns1:name "Easter Matin (Ukrainian)" ;
