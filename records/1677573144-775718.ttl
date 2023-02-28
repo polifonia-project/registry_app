@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -46,11 +46,11 @@
     ns1:workExample "https://tiaki.natlib.govt.nz/#details=ecatalogue.1044365" .
 
 <https://w3id.org/musow/1677573144-775718/> rdfs:label "John Cousins Collection" ;
-    ns2:generatedAtTime "2023-02-28T09:37:57.202479"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:marilena-dot-daquino2-at-unibo-dot-it ;
-    ns2:wasInfluencedBy ns3:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:generatedAtTime "2023-02-28T09:39:29.596576"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:marilena-dot-daquino2-at-unibo-dot-it ;
+    ns3:wasInfluencedBy ns2:marilena-dot-daquino2-at-unibo-dot-it ;
     ns1:name "John Cousins Collection" ;
-    ns3:publicationStage "published"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/MusicArtist> rdfs:label "Music Artist"^^xsd:string .
 
@@ -110,7 +110,7 @@
 
 <http://www.wikidata.org/entity/Q108053344> rdfs:label "John Cousins"^^xsd:string .
 
-ns3:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
+ns2:marilena-dot-daquino2-at-unibo-dot-it rdfs:label "marilena.daquino2@unibo.it" .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string,
         "audio"^^xsd:string .
