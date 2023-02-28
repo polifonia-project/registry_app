@@ -40,7 +40,7 @@
     ns1:workExample "https://eastbaypunkda.com/s/east-bay-punk-digital-archive/item/6112" .
 
 <https://w3id.org/musow/1666725248-9482715/> rdfs:label "East Bay Punk Digital Archive" ;
-    ns2:generatedAtTime "2023-02-28T09:17:06.617305"^^xsd:dateTime ;
+    ns2:generatedAtTime "2023-02-28T09:19:16.052680"^^xsd:dateTime ;
     ns2:wasAttributedTo ns3:anonymous ;
     ns2:wasInfluencedBy ns3:marilenadaquino-at-polifonia-dot-eu ;
     ns1:name "East Bay Punk Digital Archive" ;
