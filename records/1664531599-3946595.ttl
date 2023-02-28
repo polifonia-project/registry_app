@@ -1,6 +1,6 @@
 @prefix ns1: <https://schema.org/> .
-@prefix ns2: <http://www.w3.org/ns/prov#> .
-@prefix ns3: <https://w3id.org/musow/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -38,11 +38,11 @@
     ns1:temporalCoverage <http://www.wikidata.org/entity/Q6927> .
 
 <https://w3id.org/musow/1664531599-3946595/> rdfs:label "On Wings of Native Songs (Ukrainian)" ;
-    ns2:generatedAtTime "2023-02-28T09:21:11.740436"^^xsd:dateTime ;
-    ns2:wasAttributedTo ns3:anonymous ;
-    ns2:wasInfluencedBy ns3:marilenadaquino-at-polifonia-dot-eu ;
+    ns3:generatedAtTime "2023-02-28T09:21:42.776795"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:anonymous ;
+    ns3:wasInfluencedBy ns2:marilenadaquino-at-polifonia-dot-eu ;
     ns1:name "On Wings of Native Songs (Ukrainian)" ;
-    ns3:publicationStage "published"^^xsd:string .
+    ns2:publicationStage "published"^^xsd:string .
 
 <http://purl.org/ontology/mo/Performance> rdfs:label "Performance"^^xsd:string .
 
@@ -56,9 +56,9 @@
 
 <http://www.wikidata.org/entity/Q6927> rdfs:label "20th century"^^xsd:string .
 
-ns3:anonymous rdfs:label "anonymous" .
+ns2:anonymous rdfs:label "anonymous" .
 
-ns3:marilenadaquino-at-polifonia-dot-eu rdfs:label "marilenadaquino@polifonia.eu" .
+ns2:marilenadaquino-at-polifonia-dot-eu rdfs:label "marilenadaquino@polifonia.eu" .
 
 <https://w3id.org/musow/vocab/audio> rdfs:label "Audio"^^xsd:string .
 
