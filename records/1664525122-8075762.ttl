@@ -1,0 +1,77 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <https://w3id.org/musow/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1664525122-8075762> a ns1:CreativeWork ;
+    rdfs:label "Easter Matin (Ukrainian)" ;
+    ns1:about <https://w3id.org/musow/vocab/genre> ;
+    ns1:additionalType <https://w3id.org/musow/vocab/digital-edition> ;
+    ns1:audience <https://w3id.org/musow/vocab/listeners>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "Oksana Tarnawska organised the Ukrainian Cathedral Youth Choir in 1959 which she conducted for 50 years. In 1971 the choir recorded the Easter Matins." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/learning> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/audio> ;
+    ns1:genre <http://www.wikidata.org/entity/Q9174> ;
+    ns1:license <https://w3id.org/musow/vocab/unknown-licence> ;
+    ns1:mainEntity <http://purl.org/ontology/mo/Record>,
+        <https://w3id.org/musow/vocab/video> ;
+    ns1:mainEntityOfPage "https://www.youtube.com/watch?v=_uExjRP3h3A" ;
+    ns1:name "Easter Matin (Ukrainian)" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q3141>,
+        <http://www.wikidata.org/entity/Q408> ;
+    ns1:specialty <https://w3id.org/musow/vocab/ethnography>,
+        <https://w3id.org/musow/vocab/history>,
+        <https://w3id.org/musow/vocab/theology> .
+
+<https://w3id.org/musow/1664525122-8075762/> rdfs:label "Easter Matin (Ukrainian)" ;
+    ns3:generatedAtTime "2023-02-28T09:25:50.014478"^^xsd:dateTime ;
+    ns3:wasAttributedTo ns2:anonymous ;
+    ns3:wasInfluencedBy ns2:marilenadaquino-at-polifonia-dot-eu ;
+    ns1:name "Easter Matin (Ukrainian)" ;
+    ns2:publicationStage "published"^^xsd:string .
+
+<http://purl.org/ontology/mo/Record> rdfs:label "Record"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q3141> rdfs:label "Melbourne"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q408> rdfs:label "Australia"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q9174> rdfs:label "religion"^^xsd:string .
+
+ns2:anonymous rdfs:label "anonymous" .
+
+ns2:marilenadaquino-at-polifonia-dot-eu rdfs:label "marilenadaquino@polifonia.eu" .
+
+<https://w3id.org/musow/vocab/audio> rdfs:label "audio"^^xsd:string .
+
+<https://w3id.org/musow/vocab/digital-edition> rdfs:label "Digital edition"^^xsd:string .
+
+<https://w3id.org/musow/vocab/ethnography> rdfs:label "ethnography"^^xsd:string .
+
+<https://w3id.org/musow/vocab/genre> rdfs:label "Genre"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/learning> rdfs:label "Learning"^^xsd:string .
+
+<https://w3id.org/musow/vocab/listeners> rdfs:label "listeners"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/theology> rdfs:label "theology"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-licence> rdfs:label "Unknown"^^xsd:string .
+
+<https://w3id.org/musow/vocab/video> rdfs:label "Video"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
