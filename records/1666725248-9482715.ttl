@@ -1,0 +1,104 @@
+@prefix ns1: <https://schema.org/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <https://w3id.org/musow/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/musow/1666725248-9482715> a ns1:CreativeWork ;
+    rdfs:label "East Bay Punk Digital Archive" ;
+    ns1:additionalType <https://w3id.org/musow/vocab/repository> ;
+    ns1:audience <https://w3id.org/musow/vocab/amateurs>,
+        <https://w3id.org/musow/vocab/researchers>,
+        <https://w3id.org/musow/vocab/scholars> ;
+    ns1:category <https://w3id.org/musow/vocab/media>,
+        <https://w3id.org/musow/vocab/metadata> ;
+    ns1:character <http://www.wikidata.org/entity/Q1226536>,
+        <http://www.wikidata.org/entity/Q165846>,
+        <http://www.wikidata.org/entity/Q390590>,
+        <http://www.wikidata.org/entity/Q4672957>,
+        <http://www.wikidata.org/entity/Q47871>,
+        <http://www.wikidata.org/entity/Q4925532>,
+        <http://www.wikidata.org/entity/Q5105745>,
+        <http://www.wikidata.org/entity/Q7344002>,
+        <http://www.wikidata.org/entity/Q89426032> ;
+    ns1:collectionSize <https://w3id.org/musow/vocab/lt-100> ;
+    ns1:contentSize <https://w3id.org/musow/vocab/unknown-size> ;
+    ns1:description "An open access digital archive of zines and other ephemera covering the punk scene that emerged in and around the San Francisco Bay Area between 1982 and 1995." ;
+    ns1:educationalUse <https://w3id.org/musow/vocab/research> ;
+    ns1:encodingFormat <https://w3id.org/musow/vocab/pdf> ;
+    ns1:genre <http://www.wikidata.org/entity/Q3071> ;
+    ns1:license <https://w3id.org/musow/vocab/cc-by-nc> ;
+    ns1:mainEntity <https://w3id.org/musow/vocab/image>,
+        <https://w3id.org/musow/vocab/photograph>,
+        <https://w3id.org/musow/vocab/publisher> ;
+    ns1:mainEntityOfPage "https://eastbaypunkda.com" ;
+    ns1:name "East Bay Punk Digital Archive" ;
+    ns1:spatialCoverage <http://www.wikidata.org/entity/Q2617944> ;
+    ns1:specialty <https://w3id.org/musow/vocab/history> ;
+    ns1:workExample "https://eastbaypunkda.com/s/east-bay-punk-digital-archive/item/6112" .
+
+<https://w3id.org/musow/1666725248-9482715/> rdfs:label "East Bay Punk Digital Archive" ;
+    ns2:generatedAtTime "2023-02-28T09:17:06.617305"^^xsd:dateTime ;
+    ns2:wasAttributedTo ns3:anonymous ;
+    ns2:wasInfluencedBy ns3:marilenadaquino-at-polifonia-dot-eu ;
+    ns1:name "East Bay Punk Digital Archive" ;
+    ns3:publicationStage "published"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q1226536> rdfs:label "Larry Livermore"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q165846> rdfs:label "Operation Ivy"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q2617944> rdfs:label "East Bay"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q3071> rdfs:label "punk rock"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q390590> rdfs:label "Rancid"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q4672957> rdfs:label "Ace Backwords"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q47871> rdfs:label "Green Day"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q4925532> rdfs:label "Blatz"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q5105745> rdfs:label "Chris Appelgren"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q7344002> rdfs:label "Robert Eggplant"^^xsd:string .
+
+<http://www.wikidata.org/entity/Q89426032> rdfs:label "Cometbus"^^xsd:string .
+
+ns3:anonymous rdfs:label "anonymous" .
+
+ns3:marilenadaquino-at-polifonia-dot-eu rdfs:label "marilenadaquino@polifonia.eu" .
+
+<https://w3id.org/musow/vocab/amateurs> rdfs:label "amateurs"^^xsd:string .
+
+<https://w3id.org/musow/vocab/cc-by-nc> rdfs:label "CC-BY-NC"^^xsd:string .
+
+<https://w3id.org/musow/vocab/history> rdfs:label "history"^^xsd:string .
+
+<https://w3id.org/musow/vocab/image> rdfs:label "Image"^^xsd:string .
+
+<https://w3id.org/musow/vocab/lt-100> rdfs:label "<100"^^xsd:string .
+
+<https://w3id.org/musow/vocab/media> rdfs:label "Media"^^xsd:string .
+
+<https://w3id.org/musow/vocab/metadata> rdfs:label "Metadata"^^xsd:string .
+
+<https://w3id.org/musow/vocab/pdf> rdfs:label "pdf"^^xsd:string .
+
+<https://w3id.org/musow/vocab/photograph> rdfs:label "Photograph"^^xsd:string .
+
+<https://w3id.org/musow/vocab/publisher> rdfs:label "Publisher"^^xsd:string .
+
+<https://w3id.org/musow/vocab/repository> rdfs:label "Repository"^^xsd:string .
+
+<https://w3id.org/musow/vocab/research> rdfs:label "Research"^^xsd:string .
+
+<https://w3id.org/musow/vocab/researchers> rdfs:label "researchers"^^xsd:string .
+
+<https://w3id.org/musow/vocab/scholars> rdfs:label "scholars"^^xsd:string .
+
+<https://w3id.org/musow/vocab/unknown-size> rdfs:label "Unknown"^^xsd:string .
+
