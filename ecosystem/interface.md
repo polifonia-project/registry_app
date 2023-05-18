@@ -26,8 +26,8 @@ related-components:
 - serves:
   - musow-dataset
 bibliography:
-- main-publication: Daquino, M., Wigham, M., Daga, E., Giagnolini, L., & Tomasi, F. (2023). Clef. a linked open data native system for crowdsourcing. JOCCH. DOI: https://dl.acm.org/doi/10.1145/3594721
-- publication: "Daquino Marilena et al. 2017. Characterizing the Landscape of Musical Data on the Web: state of the art and challenges. In Second Workshop on Humanities in the Semantic Web - WHiSe II, 21-25 Oct 2017, Vienna, Austria.
+- main-publication: "Daquino, M., Wigham, M., Daga, E., Giagnolini, L., & Tomasi, F. (2023). Clef. a linked open data native system for crowdsourcing. JOCCH. DOI: https://dl.acm.org/doi/10.1145/3594721"
+- publication: "Daquino Marilena et al. 2017. Characterizing the Landscape of Musical Data on the Web: state of the art and challenges. In Second Workshop on Humanities in the Semantic Web - WHiSe II, 21-25 Oct 2017, Vienna, Austria."
 ---
 
 # musoW
