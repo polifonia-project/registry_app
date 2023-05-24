@@ -2,8 +2,7 @@
 component-id: musoW_website
 name: musoW website
 description: The web interface to explore and contribute to the dataset musoW, music data on the web
-type: 
-  - User Interface
+type: UserInterface
 release-date: 2021-10-27
 release-number: latest
 work-package: WP1
