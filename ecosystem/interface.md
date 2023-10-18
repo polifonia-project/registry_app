@@ -10,11 +10,11 @@ resource: https://github.com/polifonia-project/registry_app/releases
 demo: https://projects.dharc.unibo.it/musow/
 release-date: 2023/05/16
 release-number: v1.0
-release-link: https://github.com/polifonia-project/registry_app/releases/latest
+release-link: https://github.com/polifonia-project/registry_app/releases/tag/v1.0
 doi: 10.5281/zenodo.5603223
 changelog: https://github.com/polifonia-project/registry_app/releases/latest
 licence:
-- CC0
+- Cc010Universal
 contributors:
 - Marilena Daquino <https://github.com/marilenadaquino>
 related-components:
